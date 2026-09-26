@@ -183,19 +183,28 @@
     .book-list li { padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); font-weight: 700; }
     .offer-grid-single { grid-template-columns: minmax(0, 1fr); }
     .session-note { margin: 18px 0 0; padding: 14px 16px; border-left: 3px solid var(--clay); background: #fbf6f1; color: #5c625f !important; font-size: .88rem; }
-    .book-packages { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 20px; align-items: stretch; }
-    .book-package { display: flex; min-height: 250px; flex-direction: column; padding: 20px; border: 1px solid #d9d4cc; border-radius: 18px; background: #fbfaf8; box-shadow: 0 8px 20px rgba(45,63,51,.055); }
-    .book-package-featured { grid-column: auto; border: 2px solid var(--clay); background: #fffaf6; }
-    .book-package-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
-    .book-package-number { color: var(--clay); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 2.15rem; font-weight: 700; line-height: 1; }
-    .book-package-badge { display: inline-flex; padding: 6px 10px; border-radius: 999px; background: var(--clay); color: white; font-size: .64rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; white-space: nowrap; }
-    .book-package h3 { margin-bottom: 8px; font-size: 1.18rem; line-height: 1.2; }
-    .book-package p { margin-bottom: 0; color: var(--muted); font-size: .86rem; line-height: 1.48; }
-    .book-package-format { margin-bottom: 10px !important; color: var(--clay) !important; font-size: .74rem !important; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
-    .book-package-price { margin-top: auto !important; padding-top: 14px; color: var(--forest-deep) !important; font-size: 1.1rem !important; font-weight: 850; }
+    .carla-catalog { display: grid; gap: 26px; margin-top: 22px; }
+    .catalog-group { padding: 22px; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,253,248,.72); }
+    .catalog-group-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .catalog-group-head h3 { margin: 4px 0 0; font-size: 1.3rem; }
+    .catalog-kicker { color: var(--clay); font-size: .68rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .catalog-count { flex: 0 0 auto; padding: 6px 10px; border-radius: 999px; background: var(--forest-soft); color: var(--forest-deep); font-size: .72rem; font-weight: 800; }
+    .book-packages { display: grid; gap: 12px; align-items: stretch; }
+    .book-packages-main { grid-template-columns: repeat(5, minmax(0,1fr)); }
+    .book-packages-special { grid-template-columns: repeat(4, minmax(0,1fr)); }
+    .book-package { display: flex; min-height: 232px; flex-direction: column; padding: 16px; border: 1px solid #ddd8d0; border-radius: 16px; background: #fff; box-shadow: 0 6px 18px rgba(45,63,51,.045); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+    .book-package:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(45,63,51,.08); border-color: rgba(154,103,85,.38); }
+    .book-package-featured { grid-column: auto; border: 1.5px solid var(--clay); background: #fffaf6; }
+    .book-package-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 11px; }
+    .book-package-number { color: var(--clay); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 1.75rem; font-weight: 700; line-height: 1; }
+    .book-package-badge { display: inline-flex; padding: 5px 8px; border-radius: 999px; background: var(--clay); color: white; font-size: .58rem; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+    .book-package h3 { min-height: 2.45em; margin-bottom: 6px; font-size: 1.03rem; line-height: 1.22; }
+    .book-package p { margin-bottom: 0; color: var(--muted); font-size: .78rem; line-height: 1.42; }
+    .book-package-format { margin-bottom: 7px !important; color: var(--clay) !important; font-size: .63rem !important; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
+    .book-package-price { margin-top: auto !important; padding-top: 10px; color: var(--forest-deep) !important; font-size: 1rem !important; font-weight: 850; }
     .book-buy { margin-top: 0; align-self: stretch; }
-    .book-package-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
-    .book-package-actions .button { width: 100%; min-height: 42px; padding: 9px 10px; font-size: .8rem; }
+    .book-package-actions { display: grid; grid-template-columns: 1fr; gap: 6px; margin-top: 9px; }
+    .book-package-actions .button { width: 100%; min-height: 36px; padding: 7px 8px; font-size: .72rem; }
     .book-cart-add { cursor: pointer; }
     .cart-fab {
       position: fixed; z-index: 905; right: 22px; bottom: 84px; display: inline-flex; align-items: center; gap: 8px;
@@ -250,8 +259,14 @@
 
     :focus-visible { outline: 3px solid #d8ab64; outline-offset: 4px; }
 
-        @media (max-width: 980px) {
-      .book-packages { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        @media (max-width: 1080px) {
+      .book-packages-main { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .book-packages-special { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 820px) {
+      .catalog-group { padding: 18px; }
+      .book-packages-main, .book-packages-special { grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
 
 @media (max-width: 900px) {
@@ -284,7 +299,15 @@
       .hero-actions { flex-direction: column; }
       .hero-actions .button { width: 100%; }
       .hero-panel { padding: 26px; border-radius: 24px; }
-      .service-grid, .consult-grid, .modalities, .offer-grid, .book-list, .book-packages { grid-template-columns: 1fr; }
+      .service-grid, .consult-grid, .modalities, .offer-grid, .book-list { grid-template-columns: 1fr; }
+      .catalog-group { padding: 16px; border-radius: 20px; }
+      .catalog-group-head { align-items: flex-start; margin-bottom: 12px; }
+      .catalog-count { display: none; }
+      .book-packages-main, .book-packages-special {
+        display: grid; grid-auto-flow: column; grid-auto-columns: minmax(238px, 78vw); grid-template-columns: none;
+        overflow-x: auto; gap: 12px; padding: 2px 2px 10px; scroll-snap-type: x proximity; scrollbar-width: thin;
+      }
+      .book-package { scroll-snap-align: start; min-height: 230px; }
       .modality { min-height: auto; padding: 34px 28px; }
       .steps { grid-template-columns: 1fr; }
       .profile-body, .profile-aside { padding: 30px 24px; }
@@ -293,7 +316,6 @@
       .floating-whatsapp { right: 14px; bottom: 14px; padding: 12px 14px; }
       .cart-fab { right: 14px; bottom: 72px; }
       .cart-panel { right: 14px; bottom: 126px; }
-      .book-package-actions { grid-template-columns: 1fr; }
       .floating-whatsapp span { display: none; }
     }
 
@@ -545,8 +567,17 @@
               <p>Su interés por la cocina la llevó a formarse profesionalmente en gastronomía y alta cocina. Para Carla, cocinar también es una manera de crear, compartir y transformar ingredientes cotidianos en propuestas variadas y disfrutables.</p>
               <p>Dentro de NUTRIELITE desarrollará una colección de libros digitales con preparaciones pensadas para distintos momentos del día, acercando ideas prácticas y creativas para incorporar a la cocina cotidiana.</p>
               <span class="coming">Próximamente</span>
-              <div class="book-packages" aria-label="Paquetes de libros digitales">
-                <article class="book-package">
+              <div class="carla-catalog" aria-label="Libros y recetarios digitales">
+                <div class="catalog-group">
+                  <div class="catalog-group-head">
+                    <div>
+                      <span class="catalog-kicker">Colección principal</span>
+                      <h3>Libros por momento del día</h3>
+                    </div>
+                    <span class="catalog-count">5 digitales</span>
+                  </div>
+                  <div class="book-packages book-packages-main">
+<article class="book-package">
                   <div class="book-package-top"><span class="book-package-number">01</span><span class="book-package-badge">Libro digital</span></div>
                   <h3>Desayunos</h3>
                   <p class="book-package-format">Digital</p>
@@ -557,7 +588,7 @@
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Desayunos%20de%20NUTRIELITE%20por%20%248.500." target="_blank" rel="noopener">Comprar</a>
                   </div>
                 </article>
-                <article class="book-package">
+<article class="book-package">
                   <div class="book-package-top"><span class="book-package-number">02</span><span class="book-package-badge">Libro digital</span></div>
                   <h3>Almuerzos</h3>
                   <p class="book-package-format">Digital</p>
@@ -568,7 +599,7 @@
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Almuerzos%20de%20NUTRIELITE%20por%20%248.500." target="_blank" rel="noopener">Comprar</a>
                   </div>
                 </article>
-                <article class="book-package">
+<article class="book-package">
                   <div class="book-package-top"><span class="book-package-number">03</span><span class="book-package-badge">Libro digital</span></div>
                   <h3>Meriendas</h3>
                   <p class="book-package-format">Digital</p>
@@ -579,7 +610,7 @@
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Meriendas%20de%20NUTRIELITE%20por%20%248.500." target="_blank" rel="noopener">Comprar</a>
                   </div>
                 </article>
-                <article class="book-package">
+<article class="book-package">
                   <div class="book-package-top"><span class="book-package-number">04</span><span class="book-package-badge">Libro digital</span></div>
                   <h3>Cenas</h3>
                   <p class="book-package-format">Digital</p>
@@ -590,7 +621,7 @@
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Cenas%20de%20NUTRIELITE%20por%20%248.500." target="_blank" rel="noopener">Comprar</a>
                   </div>
                 </article>
-                <article class="book-package book-package-featured">
+<article class="book-package book-package-featured">
                   <div class="book-package-top"><span class="book-package-number">05</span><span class="book-package-badge">Colección</span></div>
                   <h3>Colección completa</h3>
                   <p class="book-package-format">Digital</p>
@@ -601,7 +632,19 @@
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Colecci%C3%B3n%20completa%20de%20NUTRIELITE%20por%20%2425.000." target="_blank" rel="noopener">Comprar</a>
                   </div>
                 </article>
-                <article class="book-package">
+                  </div>
+                </div>
+
+                <div class="catalog-group">
+                  <div class="catalog-group-head">
+                    <div>
+                      <span class="catalog-kicker">Recetarios especiales</span>
+                      <h3>Ideas prácticas para preparar en casa</h3>
+                    </div>
+                    <span class="catalog-count">4 digitales</span>
+                  </div>
+                  <div class="book-packages book-packages-special">
+<article class="book-package">
                   <div class="book-package-top"><span class="book-package-number">06</span><span class="book-package-badge">Libro digital</span></div>
                   <h3>Recetas de paletas saludables</h3>
                   <p class="book-package-format">Digital</p>
@@ -612,7 +655,7 @@
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Recetas%20de%20paletas%20saludables%20de%20NUTRIELITE%20por%20%2418.000." target="_blank" rel="noopener">Comprar</a>
                   </div>
                 </article>
-                <article class="book-package">
+<article class="book-package">
                   <div class="book-package-top"><span class="book-package-number">07</span><span class="book-package-badge">Libro digital</span></div>
                   <h3>Recetas de barritas saludables</h3>
                   <p class="book-package-format">Digital</p>
@@ -623,7 +666,7 @@
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Recetas%20de%20barritas%20saludables%20de%20NUTRIELITE%20por%20%2420.000." target="_blank" rel="noopener">Comprar</a>
                   </div>
                 </article>
-                <article class="book-package">
+<article class="book-package">
                   <div class="book-package-top"><span class="book-package-number">08</span><span class="book-package-badge">Libro digital</span></div>
                   <h3>Recetas de bolitas energéticas</h3>
                   <p class="book-package-format">Digital</p>
@@ -634,7 +677,7 @@
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Recetas%20de%20bolitas%20energ%C3%A9ticas%20de%20NUTRIELITE%20por%20%2425.000." target="_blank" rel="noopener">Comprar</a>
                   </div>
                 </article>
-                <article class="book-package">
+<article class="book-package">
                   <div class="book-package-top"><span class="book-package-number">09</span><span class="book-package-badge">Libro digital</span></div>
                   <h3>Recetas de tartaletas saludables</h3>
                   <p class="book-package-format">Digital</p>
@@ -645,6 +688,8 @@
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Recetas%20de%20tartaletas%20saludables%20de%20NUTRIELITE%20por%20%2410.000." target="_blank" rel="noopener">Comprar</a>
                   </div>
                 </article>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
