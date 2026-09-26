@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NUTRIELITE. Consultas de nutrición materno-infantojuvenil y nutrición renal con la Lic. Melisa Florencia Sarracino.">
+  <meta name="theme-color" content="#24483e">
+  <title>NUTRIELITE | Melisa Florencia Sarracino</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2324483e'/%3E%3Cpath d='M17 45V19h6l18 18V19h6v26h-6L23 27v18z' fill='%23f7f3ea'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --forest: #24483e;
+      --forest-deep: #17342d;
+      --forest-soft: #dce8e2;
+      --cream: #f7f3ea;
+      --paper: #fffdf8;
+      --clay: #9a6755;
+      --rose: #ead8d6;
+      --gold: #c59a57;
+      --ink: #25302c;
+      --muted: #66716c;
+      --line: rgba(36, 72, 62, .16);
+      --shadow: 0 24px 70px rgba(35, 54, 48, .11);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    section { scroll-margin-top: 88px; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 16px;
+      color: var(--clay);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { color: var(--forest-deep); font-family: Georgia, "Times New Roman", serif; line-height: 1.08; }
+    h1 { margin-bottom: 22px; font-size: clamp(3rem, 8vw, 6.7rem); font-weight: 500; letter-spacing: -.055em; }
+    h2 { margin-bottom: 20px; font-size: clamp(2.15rem, 4.5vw, 4.1rem); font-weight: 500; letter-spacing: -.04em; }
+    h3 { margin-bottom: 10px; font-size: 1.42rem; font-weight: 600; letter-spacing: -.02em; }
+    .lede { max-width: 700px; color: #43504b; font-size: clamp(1.08rem, 2vw, 1.3rem); line-height: 1.65; }
+    .muted { color: var(--muted); }
+    .section { padding: 104px 0; }
+    .section-soft { background: var(--cream); }
+
+    .skip-link {
+      position: fixed; z-index: 2000; top: 10px; left: 10px; padding: 10px 14px;
+      transform: translateY(-150%); border-radius: 10px; background: white; color: var(--forest-deep);
+    }
+    .skip-link:focus { transform: none; }
+
+    header {
+      position: sticky; z-index: 1000; top: 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(23, 52, 45, .94);
+      color: white;
+      backdrop-filter: blur(14px);
+    }
+    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { text-decoration: none; font-family: Georgia, serif; font-size: 1.15rem; letter-spacing: .16em; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: rgba(255,255,255,.82); font-size: .9rem; font-weight: 650; text-decoration: none; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: white; }
+    .nav-cta { padding: 10px 17px; border: 1px solid rgba(255,255,255,.4); border-radius: 999px; }
+    .menu-toggle { display: none; border: 0; background: transparent; color: white; font: inherit; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 740px;
+      padding: 112px 0 92px;
+      background:
+        radial-gradient(circle at 82% 16%, rgba(197,154,87,.22), transparent 25%),
+        linear-gradient(135deg, #f7f3ea 0%, #fffdf8 62%, #eef3ef 100%);
+    }
+    .hero::after {
+      content: ""; position: absolute; right: -160px; bottom: -210px; width: 520px; height: 520px;
+      border: 1px solid rgba(36,72,62,.13); border-radius: 50%; box-shadow: 0 0 0 46px rgba(36,72,62,.035), 0 0 0 96px rgba(36,72,62,.025);
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.35fr .65fr; gap: 70px; align-items: center; }
+    .hero-kicker { margin-bottom: 15px; color: var(--forest); font-weight: 750; }
+    .hero-copy { max-width: 700px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 34px 0 36px; }
+    .button {
+      display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 9px;
+      padding: 13px 22px; border: 1px solid transparent; border-radius: 999px;
+      font-weight: 800; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--forest); color: white; box-shadow: 0 12px 30px rgba(36,72,62,.2); }
+    .button-primary:hover { background: var(--forest-deep); }
+    .button-secondary { border-color: var(--line); background: rgba(255,255,255,.55); color: var(--forest-deep); }
+    .arrow { font-size: 1.1em; }
+    .hero-notes { display: flex; flex-wrap: wrap; gap: 11px 24px; color: var(--muted); font-size: .92rem; }
+    .hero-notes span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-notes span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+    .hero-panel {
+      position: relative; padding: 34px; border: 1px solid rgba(36,72,62,.14); border-radius: 34px;
+      background: rgba(255,253,248,.78); box-shadow: var(--shadow); backdrop-filter: blur(8px);
+    }
+    .panel-label { margin-bottom: 22px; color: var(--clay); font-size: .75rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .panel-item { padding: 18px 0; border-top: 1px solid var(--line); }
+    .panel-item strong { display: block; margin-bottom: 2px; color: var(--forest-deep); font-family: Georgia, serif; font-size: 1.16rem; }
+    .panel-item span { color: var(--muted); font-size: .92rem; }
+    .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 9px 12px; border-radius: 999px; background: var(--forest-soft); color: var(--forest-deep); font-size: .82rem; font-weight: 750; }
+    .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #3f876d; box-shadow: 0 0 0 4px rgba(63,135,109,.13); }
+
+    .founder-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 72px; align-items: start; }
+    .credential-card { position: sticky; top: 105px; padding: 34px; border-radius: var(--radius); background: var(--forest); color: white; box-shadow: var(--shadow); }
+    .credential-card h3 { color: white; font-size: 2rem; }
+    .credential-card p { color: rgba(255,255,255,.76); }
+    .credential-list { display: grid; gap: 12px; margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); }
+    .credential-list span { font-size: .92rem; font-weight: 700; }
+    .founder-copy p { color: #46524d; font-size: 1.05rem; }
+    .founder-copy .intro { color: var(--forest-deep); font-family: Georgia, serif; font-size: clamp(1.35rem, 2.6vw, 1.85rem); line-height: 1.45; }
+
+    .section-head { display: grid; grid-template-columns: 1fr .75fr; gap: 50px; align-items: end; margin-bottom: 46px; }
+    .section-head p { margin-bottom: 4px; color: var(--muted); }
+    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .service-card { padding: 34px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+    .service-number { display: block; margin-bottom: 42px; color: var(--clay); font-size: .78rem; font-weight: 850; letter-spacing: .12em; }
+    .service-card ul { margin: 20px 0 0; padding: 0; list-style: none; color: var(--muted); }
+    .service-card li { position: relative; padding: 7px 0 7px 18px; }
+    .service-card li::before { content: ""; position: absolute; top: 17px; left: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+    .modalities { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 30px; box-shadow: var(--shadow); }
+    .modality { min-height: 280px; padding: 44px; }
+    .modality-online { background: var(--forest); color: white; }
+    .modality-online h3 { color: white; }
+    .modality-online p { color: rgba(255,255,255,.76); }
+    .modality-soon { background: var(--rose); }
+    .pill { display: inline-block; margin-bottom: 28px; padding: 8px 11px; border-radius: 999px; background: rgba(255,255,255,.16); font-size: .76rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .modality-soon .pill { background: rgba(255,255,255,.56); color: var(--clay); }
+
+    .consult-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .consult-card { display: flex; flex-direction: column; padding: 36px; border: 1px solid var(--line); border-radius: var(--radius); background: white; box-shadow: 0 15px 45px rgba(35,54,48,.06); }
+    .consult-card p { color: var(--muted); }
+    .check-list { margin: 16px 0 28px; padding: 0; list-style: none; }
+    .check-list li { padding: 8px 0; border-bottom: 1px solid rgba(36,72,62,.09); }
+    .consult-card .button { margin-top: auto; align-self: flex-start; }
+
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; }
+    .step { counter-increment: step; padding: 28px 24px; border-top: 2px solid var(--gold); background: rgba(255,255,255,.55); }
+    .step::before { content: "0" counter(step); display: block; margin-bottom: 28px; color: var(--clay); font-size: .8rem; font-weight: 850; letter-spacing: .1em; }
+    .step p { margin-bottom: 0; color: var(--muted); font-size: .93rem; }
+
+    .team-intro { max-width: 720px; margin-bottom: 48px; }
+    .team-stack { display: grid; gap: 28px; }
+    .profile { display: grid; grid-template-columns: .65fr 1.35fr; overflow: hidden; border: 1px solid var(--line); border-radius: 30px; background: white; box-shadow: 0 20px 60px rgba(35,54,48,.07); }
+    .profile-aside { padding: 42px 36px; background: var(--forest-soft); }
+    .profile-aside.coach { background: var(--rose); }
+    .profile-aside.kitchen { background: #eee1cf; }
+    .profile-initials { display: grid; width: 82px; height: 82px; margin-bottom: 28px; place-items: center; border: 1px solid rgba(36,72,62,.24); border-radius: 50%; color: var(--forest-deep); font-family: Georgia, serif; font-size: 1.65rem; }
+    .profile-role { color: var(--clay); font-size: .78rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .profile-body { padding: 42px; }
+    .profile-body p { color: #4b5752; }
+    .offer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 26px 0; }
+    .offer { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+    .offer h3 { font-size: 1.12rem; }
+    .offer p { margin-bottom: 0; font-size: .9rem; }
+    .disclaimer { margin: 24px 0; padding: 16px 18px; border-left: 3px solid var(--clay); background: #fbf6f1; color: #5c625f; font-size: .88rem; }
+    .coming { display: inline-flex; margin: 10px 0 20px; padding: 8px 12px; border-radius: 999px; background: var(--forest); color: white; font-size: .76rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .book-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0 0; padding: 0; list-style: none; }
+    .book-list li { padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); font-weight: 700; }
+
+    .faq { max-width: 860px; margin-inline: auto; }
+    details { border-bottom: 1px solid var(--line); }
+    summary { position: relative; padding: 24px 42px 24px 0; cursor: pointer; color: var(--forest-deep); font-family: Georgia, serif; font-size: 1.2rem; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; top: 21px; right: 5px; font-family: system-ui; font-weight: 300; }
+    details[open] summary::after { content: "−"; }
+    details p { padding: 0 30px 22px 0; color: var(--muted); }
+
+    .contact-card { display: grid; grid-template-columns: 1.15fr .85fr; overflow: hidden; border-radius: 34px; background: var(--forest-deep); color: white; box-shadow: var(--shadow); }
+    .contact-main { padding: 55px; }
+    .contact-main h2 { color: white; }
+    .contact-main p { color: rgba(255,255,255,.72); }
+    .contact-side { padding: 55px 40px; background: rgba(255,255,255,.06); }
+    .contact-line { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+    .contact-line small { display: block; margin-bottom: 3px; color: rgba(255,255,255,.55); font-size: .75rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+    .contact-line a, .contact-line span { color: white; text-decoration: none; overflow-wrap: anywhere; }
+
+    footer { padding: 30px 0; background: #102b25; color: rgba(255,255,255,.63); }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: .83rem; }
+    .footer-row a { color: rgba(255,255,255,.78); }
+
+    .floating-whatsapp {
+      position: fixed; z-index: 900; right: 22px; bottom: 22px; display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 17px; border-radius: 999px; background: #227a58; color: white; box-shadow: 0 14px 34px rgba(20,74,54,.28);
+      font-size: .9rem; font-weight: 800; text-decoration: none;
+    }
+
+    :focus-visible { outline: 3px solid #d8ab64; outline-offset: 4px; }
+
+    @media (max-width: 900px) {
+      .section { padding: 82px 0; }
+      .hero { min-height: auto; padding-top: 84px; }
+      .hero-grid, .founder-grid, .section-head, .profile, .contact-card { grid-template-columns: 1fr; }
+      .hero-panel { max-width: 620px; }
+      .founder-grid { gap: 34px; }
+      .credential-card { position: static; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .profile-aside { padding-bottom: 30px; }
+      .contact-side { padding-top: 10px; }
+    }
+
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: inline-flex; padding: 9px; cursor: pointer; }
+      .nav-links {
+        position: absolute; top: 68px; right: 0; left: 0; display: none; padding: 18px 20px 24px;
+        flex-direction: column; align-items: stretch; gap: 7px; background: var(--forest-deep); border-top: 1px solid rgba(255,255,255,.1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 4px; }
+      .nav-cta { text-align: center; }
+      h1 { font-size: clamp(2.8rem, 16vw, 4.4rem); }
+      h2 { font-size: clamp(2rem, 10vw, 3rem); }
+      .hero { padding: 68px 0 72px; }
+      .hero-grid { gap: 42px; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .button { width: 100%; }
+      .hero-panel { padding: 26px; border-radius: 24px; }
+      .service-grid, .consult-grid, .modalities, .offer-grid, .book-list { grid-template-columns: 1fr; }
+      .modality { min-height: auto; padding: 34px 28px; }
+      .steps { grid-template-columns: 1fr; }
+      .profile-body, .profile-aside { padding: 30px 24px; }
+      .contact-main, .contact-side { padding: 38px 26px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .floating-whatsapp { right: 14px; bottom: 14px; padding: 12px 14px; }
+      .floating-whatsapp span { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido principal</a>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="NUTRIELITE, inicio">NUTRIELITE</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menú</button>
+      <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#nutricion">Nutrición</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#preguntas">Preguntas</a>
+        <a class="nav-cta" href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Atención nutricional personalizada</p>
+          <h1>NUTRIELITE</h1>
+          <p class="hero-kicker">Lic. Melisa Florencia Sarracino</p>
+          <p class="lede">Acompañamiento profesional en nutrición materno-infantojuvenil y nutrición renal para niños, adolescentes y adultos.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://wa.me/541133068766?text=Hola%2C%20Melisa.%20Quisiera%20solicitar%20informaci%C3%B3n%20para%20reservar%20una%20consulta%20nutricional%20online." target="_blank" rel="noopener">Solicitar una consulta <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="#nutricion">Conocer la atención</a>
+          </div>
+          <div class="hero-notes" aria-label="Información principal">
+            <span>Atención online disponible</span>
+            <span>Presencial próximamente</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Áreas profesionales">
+          <p class="panel-label">Áreas de atención</p>
+          <div class="panel-item">
+            <strong>Nutrición materno-infantojuvenil</strong>
+            <span>Acompañamiento adaptado a cada etapa.</span>
+          </div>
+          <div class="panel-item">
+            <strong>Nutrición renal</strong>
+            <span>Atención para niños, adolescentes y adultos.</span>
+          </div>
+          <div class="panel-item">
+            <strong>Seguimiento personalizado</strong>
+            <span>Objetivos y recomendaciones según cada situación.</span>
+          </div>
+          <span class="status">Consultas online disponibles</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="sobre-mi">
+      <div class="wrap founder-grid">
+        <aside class="credential-card">
+          <p class="eyebrow" style="color:#dfc18e">Fundadora de NUTRIELITE</p>
+          <h3>Melisa Florencia Sarracino</h3>
+          <p>Licenciada en Nutrición</p>
+          <div class="credential-list">
+            <span>M.P. 8068</span>
+            <span>M.N. 13620</span>
+            <span>San Nicolás de los Arroyos</span>
+          </div>
+        </aside>
+
+        <div class="founder-copy">
+          <p class="eyebrow">Sobre mí</p>
+          <h2>Una atención que parte de cada persona.</h2>
+          <p class="intro">Soy Melisa Florencia Sarracino, Licenciada en Nutrición y fundadora de NUTRIELITE.</p>
+          <p>Me especializo en nutrición materno-infantojuvenil y nutrición renal en niños, adolescentes y adultos.</p>
+          <p>Fundé NUTRIELITE con el propósito de crear un espacio profesional propio desde el cual brindar una atención nutricional personalizada, basada en las necesidades, el contexto y la realidad de cada paciente.</p>
+          <p>Mi objetivo es acompañar a cada persona de una manera cercana y profesional, ofreciendo herramientas que pueda comprender, aplicar y sostener en su vida cotidiana.</p>
+          <p>Con el crecimiento de NUTRIELITE también se incorporan propuestas desarrolladas por mis hermanas, cada una desde su formación y experiencia particular.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="nutricion">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Áreas de atención</p>
+            <h2>Nutrición en distintas etapas y situaciones.</h2>
+          </div>
+          <p>Las recomendaciones se definen a partir de una evaluación individual y se adaptan a las necesidades de cada paciente y su familia.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-number">01 / Materno-infantojuvenil</span>
+            <h3>Nutrición materno-infantojuvenil</h3>
+            <p class="muted">Acompañamiento nutricional durante etapas que requieren una mirada cuidadosa, práctica y adaptada.</p>
+            <ul>
+              <li>Embarazo y lactancia.</li>
+              <li>Alimentación infantil.</li>
+              <li>Niñez y adolescencia.</li>
+              <li>Organización de hábitos familiares.</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">02 / Renal</span>
+            <h3>Nutrición renal</h3>
+            <p class="muted">Tratamiento nutricional individualizado según diagnóstico, etapa, estudios y pautas del equipo de salud.</p>
+            <ul>
+              <li>Enfermedad renal crónica.</li>
+              <li>Litiasis renal.</li>
+              <li>Alteraciones de la función renal.</li>
+              <li>Niños, adolescentes y adultos.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Modalidad</p>
+            <h2>Elegí cómo realizar tu consulta.</h2>
+          </div>
+          <p>La atención presencial se habilitará cuando se encuentre confirmado el espacio de consulta.</p>
+        </div>
+        <div class="modalities">
+          <article class="modality modality-online">
+            <span class="pill">Disponible</span>
+            <h3>Atención online</h3>
+            <p>Consultas a distancia con coordinación previa por WhatsApp. Al reservar recibirás las indicaciones necesarias para el encuentro.</p>
+          </article>
+          <article class="modality modality-soon">
+            <span class="pill">Próximamente</span>
+            <h3>Atención presencial</h3>
+            <p>Próximamente en San Nicolás de los Arroyos. La dirección se informará cuando se habilite esta modalidad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="consultas">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Consultas</p>
+            <h2>Un proceso claro desde el primer encuentro.</h2>
+          </div>
+          <p>La duración, el valor y las indicaciones específicas se informan al solicitar el turno.</p>
+        </div>
+
+        <div class="consult-grid">
+          <article class="consult-card">
+            <h3>Primera consulta nutricional</h3>
+            <p>Una evaluación completa para conocer tu situación, antecedentes, rutina, alimentación y objetivos.</p>
+            <ul class="check-list">
+              <li>Entrevista y evaluación inicial.</li>
+              <li>Revisión de antecedentes y estudios disponibles.</li>
+              <li>Definición de objetivos.</li>
+              <li>Orientación nutricional personalizada.</li>
+            </ul>
+            <a class="button button-primary" href="https://wa.me/541133068766?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20primera%20consulta%20nutricional%20online." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+          </article>
+
+          <article class="consult-card">
+            <h3>Consulta de seguimiento</h3>
+            <p>Un espacio para revisar la evolución, conversar sobre dificultades y realizar los ajustes necesarios.</p>
+            <ul class="check-list">
+              <li>Revisión de avances y dificultades.</li>
+              <li>Resolución de dudas.</li>
+              <li>Ajustes de las indicaciones.</li>
+              <li>Definición de nuevos objetivos.</li>
+            </ul>
+            <a class="button button-secondary" href="https://wa.me/541133068766?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20consulta%20de%20seguimiento." target="_blank" rel="noopener">Solicitar seguimiento</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Cómo trabajo</p>
+            <h2>Acompañamiento paso a paso.</h2>
+          </div>
+          <p>Cada proceso se construye de manera individual, evitando recomendaciones generales que no contemplen tu situación.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><h3>Conocer</h3><p>Conversamos sobre tus necesidades, antecedentes, alimentación, rutina y objetivos.</p></article>
+          <article class="step"><h3>Evaluar</h3><p>Analizo la información relevante y, cuando corresponde, tus estudios e indicaciones médicas.</p></article>
+          <article class="step"><h3>Organizar</h3><p>Definimos recomendaciones posibles, adaptadas a tu situación y vida cotidiana.</p></article>
+          <article class="step"><h3>Acompañar</h3><p>En los seguimientos revisamos avances, dificultades y cambios necesarios.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="equipo">
+      <div class="wrap">
+        <div class="team-intro">
+          <p class="eyebrow">También forman parte</p>
+          <h2>Propuestas dentro de NUTRIELITE.</h2>
+          <p class="lede">Cada profesional participa desde su propia formación, con servicios claramente diferenciados.</p>
+        </div>
+
+        <div class="team-stack">
+          <article class="profile">
+            <div class="profile-aside coach">
+              <div class="profile-initials" aria-hidden="true">MA</div>
+              <p class="profile-role">Coaching ontológico</p>
+              <h3>Mónica Andrea Sarracino</h3>
+              <p>Coach Ontológica Profesional</p>
+            </div>
+            <div class="profile-body">
+              <p>Su interés por el desarrollo personal y los procesos de cambio la llevó a formarse como Coach Ontológica Profesional. Dentro de NUTRIELITE ofrece un espacio de acompañamiento para quienes desean revisar hábitos, creencias y obstáculos personales, y transformar sus objetivos en acciones posibles.</p>
+              <p>¿Sabés qué cambios querés realizar, pero te cuesta sostenerlos en el tiempo? El coaching propone un espacio de conversación y reflexión para reconocer qué puede estar interfiriendo con tus objetivos y comenzar a construir nuevas posibilidades.</p>
+
+              <div class="offer-grid">
+                <div class="offer">
+                  <h3>Sesión inicial de diagnóstico de objetivos</h3>
+                  <p>Un primer encuentro para conocer tu situación actual, conversar sobre tu objetivo e identificar aspectos que podrían trabajarse mediante coaching.</p>
+                </div>
+                <div class="offer">
+                  <h3>Proceso individual de coaching</h3>
+                  <p>Encuentros orientados a revisar creencias, hábitos, decisiones y acciones vinculadas con el objetivo definido.</p>
+                </div>
+              </div>
+
+              <p class="disclaimer">La sesión inicial no constituye un diagnóstico médico, psicológico ni nutricional. El coaching ontológico no reemplaza la atención de profesionales de la salud.</p>
+              <a class="button button-primary" href="https://wa.me/541133068766?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20la%20sesi%C3%B3n%20inicial%20de%20coaching%20con%20M%C3%B3nica%20Andrea%20Sarracino." target="_blank" rel="noopener">Solicitar sesión inicial</a>
+            </div>
+          </article>
+
+          <article class="profile">
+            <div class="profile-aside kitchen">
+              <div class="profile-initials" aria-hidden="true">CN</div>
+              <p class="profile-role">Gastronomía</p>
+              <h3>Carla Noemí Sarracino</h3>
+              <p>Cocina profesional y alta cocina</p>
+            </div>
+            <div class="profile-body">
+              <p>Su interés por la cocina la llevó a formarse profesionalmente en gastronomía y alta cocina. Para Carla, cocinar también es una manera de crear, compartir y transformar ingredientes cotidianos en propuestas variadas y disfrutables.</p>
+              <p>Dentro de NUTRIELITE desarrollará una colección de libros digitales con preparaciones pensadas para distintos momentos del día, acercando ideas prácticas y creativas para incorporar a la cocina cotidiana.</p>
+              <span class="coming">Próximamente</span>
+              <ul class="book-list">
+                <li>Libro digital de desayunos.</li>
+                <li>Libro digital de almuerzos.</li>
+                <li>Libro digital de meriendas.</li>
+                <li>Libro digital de cenas.</li>
+                <li>Colección completa.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="preguntas">
+      <div class="wrap faq">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Información antes de comenzar.</h2>
+
+        <details>
+          <summary>¿La consulta nutricional es online o presencial?</summary>
+          <p>Actualmente la atención nutricional se encuentra disponible de manera online. La modalidad presencial estará disponible próximamente en San Nicolás de los Arroyos.</p>
+        </details>
+        <details>
+          <summary>¿Cómo solicito un turno?</summary>
+          <p>Podés comunicarte mediante los botones de WhatsApp de esta página. Allí recibirás información sobre disponibilidad, duración, valor y forma de pago.</p>
+        </details>
+        <details>
+          <summary>¿Qué debo preparar para la primera consulta?</summary>
+          <p>Al confirmar el turno se te informará qué datos o estudios resultan necesarios según el motivo de consulta.</p>
+        </details>
+        <details>
+          <summary>¿Se atienden niños y adolescentes?</summary>
+          <p>Sí. En el caso de menores de edad, la consulta deberá coordinarse con su madre, padre o persona adulta responsable.</p>
+        </details>
+        <details>
+          <summary>¿El coaching reemplaza una consulta psicológica?</summary>
+          <p>No. El coaching ontológico no realiza tratamiento psicológico ni reemplaza la atención médica, psicológica o nutricional.</p>
+        </details>
+        <details>
+          <summary>¿Cuándo estarán disponibles los libros digitales?</summary>
+          <p>Los libros de Carla Noemí Sarracino se encuentran en preparación. Cuando estén disponibles se incorporarán sus descripciones, precios y enlaces de pago.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="contacto">
+      <div class="wrap contact-card">
+        <div class="contact-main">
+          <p class="eyebrow" style="color:#dfc18e">Contacto</p>
+          <h2>Solicitá información para comenzar.</h2>
+          <p>Escribinos por WhatsApp e indicá si tu consulta es por nutrición o por coaching para recibir la información correspondiente.</p>
+          <a class="button" style="background:white;color:var(--forest-deep);margin-top:12px" href="https://wa.me/541133068766?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+        <div class="contact-side">
+          <div class="contact-line">
+            <small>WhatsApp</small>
+            <a href="tel:+541133068766">+54 11 3306 8766</a>
+          </div>
+          <div class="contact-line">
+            <small>Nutrición</small>
+            <a href="mailto:nutri.sarracinomelisa@gmail.com">nutri.sarracinomelisa@gmail.com</a>
+          </div>
+          <div class="contact-line">
+            <small>NUTRIELITE</small>
+            <a href="mailto:nutrieliteoficial@gmail.com">nutrieliteoficial@gmail.com</a>
+          </div>
+          <div class="contact-line">
+            <small>Ubicación</small>
+            <span>San Nicolás de los Arroyos, Argentina</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© <span id="year">2026</span> NUTRIELITE · Melisa Florencia Sarracino.</span>
+      <span>La información del sitio no reemplaza una evaluación profesional individual.</span>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/541133068766?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener" aria-label="Contactar a NUTRIELITE por WhatsApp">WA <span>WhatsApp</span></a>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
