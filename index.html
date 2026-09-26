@@ -53,10 +53,10 @@
     }
     .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
     h1, h2, h3, p { margin-top: 0; }
-    h1, h2, h3 { color: var(--forest-deep); font-family: Georgia, "Times New Roman", serif; line-height: 1.08; }
-    h1 { margin-bottom: 22px; font-size: clamp(3rem, 8vw, 6.7rem); font-weight: 500; letter-spacing: -.055em; }
-    h2 { margin-bottom: 20px; font-size: clamp(2.15rem, 4.5vw, 4.1rem); font-weight: 500; letter-spacing: -.04em; }
-    h3 { margin-bottom: 10px; font-size: 1.42rem; font-weight: 600; letter-spacing: -.02em; }
+    h1, h2, h3 { color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; line-height: 1.16; text-wrap: balance; }
+    h1 { margin-bottom: 22px; font-size: clamp(3rem, 8vw, 6.25rem); font-weight: 600; letter-spacing: -.025em; }
+    h2 { margin-bottom: 20px; font-size: clamp(2.05rem, 4.2vw, 3.7rem); font-weight: 600; letter-spacing: -.018em; }
+    h3 { margin-bottom: 10px; font-size: 1.42rem; font-weight: 650; letter-spacing: -.008em; }
     .lede { max-width: 700px; color: #43504b; font-size: clamp(1.08rem, 2vw, 1.3rem); line-height: 1.65; }
     .muted { color: var(--muted); }
     .section { padding: 104px 0; }
@@ -76,7 +76,7 @@
       backdrop-filter: blur(14px);
     }
     .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { text-decoration: none; font-family: Georgia, serif; font-size: 1.15rem; letter-spacing: .16em; }
+    .brand { text-decoration: none; font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 1.15rem; letter-spacing: .16em; }
     .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a { color: rgba(255,255,255,.82); font-size: .9rem; font-weight: 650; text-decoration: none; }
     .nav-links a:hover, .nav-links a:focus-visible { color: white; }
@@ -119,7 +119,7 @@
     }
     .panel-label { margin-bottom: 22px; color: var(--clay); font-size: .75rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
     .panel-item { padding: 18px 0; border-top: 1px solid var(--line); }
-    .panel-item strong { display: block; margin-bottom: 2px; color: var(--forest-deep); font-family: Georgia, serif; font-size: 1.16rem; }
+    .panel-item strong { display: block; margin-bottom: 2px; color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 1.16rem; }
     .panel-item span { color: var(--muted); font-size: .92rem; }
     .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 9px 12px; border-radius: 999px; background: var(--forest-soft); color: var(--forest-deep); font-size: .82rem; font-weight: 750; }
     .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #3f876d; box-shadow: 0 0 0 4px rgba(63,135,109,.13); }
@@ -131,7 +131,7 @@
     .credential-list { display: grid; gap: 12px; margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); }
     .credential-list span { font-size: .92rem; font-weight: 700; }
     .founder-copy p { color: #46524d; font-size: 1.05rem; }
-    .founder-copy .intro { color: var(--forest-deep); font-family: Georgia, serif; font-size: clamp(1.35rem, 2.6vw, 1.85rem); line-height: 1.45; }
+    .founder-copy .intro { color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: clamp(1.35rem, 2.6vw, 1.85rem); line-height: 1.45; }
 
     .section-head { display: grid; grid-template-columns: 1fr .75fr; gap: 50px; align-items: end; margin-bottom: 46px; }
     .section-head p { margin-bottom: 4px; color: var(--muted); }
@@ -169,7 +169,7 @@
     .profile-aside { padding: 42px 36px; background: var(--forest-soft); }
     .profile-aside.coach { background: var(--rose); }
     .profile-aside.kitchen { background: #eee1cf; }
-    .profile-initials { display: grid; width: 82px; height: 82px; margin-bottom: 28px; place-items: center; border: 1px solid rgba(36,72,62,.24); border-radius: 50%; color: var(--forest-deep); font-family: Georgia, serif; font-size: 1.65rem; }
+    .profile-initials { display: grid; width: 82px; height: 82px; margin-bottom: 28px; place-items: center; border: 1px solid rgba(36,72,62,.24); border-radius: 50%; color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 1.65rem; }
     .profile-role { color: var(--clay); font-size: .78rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
     .profile-body { padding: 42px; }
     .profile-body p { color: #4b5752; }
@@ -181,10 +181,20 @@
     .coming { display: inline-flex; margin: 10px 0 20px; padding: 8px 12px; border-radius: 999px; background: var(--forest); color: white; font-size: .76rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
     .book-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0 0; padding: 0; list-style: none; }
     .book-list li { padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); font-weight: 700; }
+    .offer-grid-single { grid-template-columns: minmax(0, 1fr); }
+    .session-note { margin: 18px 0 0; padding: 14px 16px; border-left: 3px solid var(--clay); background: #fbf6f1; color: #5c625f !important; font-size: .88rem; }
+    .book-packages { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin-top: 22px; }
+    .book-package { display: flex; min-height: 220px; flex-direction: column; padding: 22px; border: 1px solid #d9d4cc; border-radius: 22px; background: #fbfaf8; box-shadow: 0 8px 22px rgba(45,63,51,.06); }
+    .book-package-featured { grid-column: 1 / -1; border: 2px solid var(--clay); }
+    .book-package-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+    .book-package-number { color: var(--clay); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 2.6rem; font-weight: 700; line-height: 1; }
+    .book-package-badge { display: inline-flex; padding: 7px 11px; border-radius: 999px; background: var(--clay); color: white; font-size: .68rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .book-package h3 { margin-bottom: 10px; font-size: 1.34rem; }
+    .book-package p { margin-bottom: 0; color: var(--muted); font-size: .92rem; }
 
     .faq { max-width: 860px; margin-inline: auto; }
     details { border-bottom: 1px solid var(--line); }
-    summary { position: relative; padding: 24px 42px 24px 0; cursor: pointer; color: var(--forest-deep); font-family: Georgia, serif; font-size: 1.2rem; list-style: none; }
+    summary { position: relative; padding: 24px 42px 24px 0; cursor: pointer; color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 1.2rem; list-style: none; }
     summary::-webkit-details-marker { display: none; }
     summary::after { content: "+"; position: absolute; top: 21px; right: 5px; font-family: system-ui; font-weight: 300; }
     details[open] summary::after { content: "−"; }
@@ -241,7 +251,8 @@
       .hero-actions { flex-direction: column; }
       .hero-actions .button { width: 100%; }
       .hero-panel { padding: 26px; border-radius: 24px; }
-      .service-grid, .consult-grid, .modalities, .offer-grid, .book-list { grid-template-columns: 1fr; }
+      .service-grid, .consult-grid, .modalities, .offer-grid, .book-list, .book-packages { grid-template-columns: 1fr; }
+      .book-package-featured { grid-column: auto; }
       .modality { min-height: auto; padding: 34px 28px; }
       .steps { grid-template-columns: 1fr; }
       .profile-body, .profile-aside { padding: 30px 24px; }
@@ -283,7 +294,7 @@
           <p class="hero-kicker">Lic. Melisa Florencia Sarracino</p>
           <p class="lede">Acompañamiento profesional en nutrición materno-infantojuvenil y nutrición renal para niños, adolescentes y adultos.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://wa.me/541133068766?text=Hola%2C%20Melisa.%20Quisiera%20solicitar%20informaci%C3%B3n%20para%20reservar%20una%20consulta%20nutricional%20online." target="_blank" rel="noopener">Solicitar una consulta <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20solicitar%20informaci%C3%B3n%20para%20reservar%20una%20consulta%20nutricional%20online." target="_blank" rel="noopener">Solicitar una consulta <span class="arrow" aria-hidden="true">→</span></a>
             <a class="button button-secondary" href="#nutricion">Conocer la atención</a>
           </div>
           <div class="hero-notes" aria-label="Información principal">
@@ -326,12 +337,15 @@
 
         <div class="founder-copy">
           <p class="eyebrow">Sobre mí</p>
-          <h2>Una atención que parte de cada persona.</h2>
-          <p class="intro">Soy Melisa Florencia Sarracino, Licenciada en Nutrición y fundadora de NUTRIELITE.</p>
-          <p>Me especializo en nutrición materno-infantojuvenil y nutrición renal en niños, adolescentes y adultos.</p>
-          <p>Fundé NUTRIELITE con el propósito de crear un espacio profesional propio desde el cual brindar una atención nutricional personalizada, basada en las necesidades, el contexto y la realidad de cada paciente.</p>
-          <p>Mi objetivo es acompañar a cada persona de una manera cercana y profesional, ofreciendo herramientas que pueda comprender, aplicar y sostener en su vida cotidiana.</p>
-          <p>Con el crecimiento de NUTRIELITE también se incorporan propuestas desarrolladas por mis hermanas, cada una desde su formación y experiencia particular.</p>
+          <h2>NUTRIELITE nace de una manera de entender la nutrición</h2>
+          <p class="intro">Soy <strong>Melisa Florencia Sarracino, Licenciada en Nutrición y fundadora de NUTRIELITE</strong>.</p>
+          <p>NUTRIELITE nace como el desarrollo de una idea profesional propia: crear un espacio que refleje mi manera de trabajar, de acompañar y de entender la nutrición.</p>
+          <p>Me especializo en <strong>nutrición materno-infantojuvenil</strong> y en <strong>nutrición renal en niños, adolescentes y adultos</strong>.</p>
+          <p>A lo largo de mi formación fui comprendiendo que detrás de cada consulta hay mucho más que una alimentación que modificar. Hay una persona, una historia, una etapa de vida, hábitos, preocupaciones, posibilidades y necesidades particulares.</p>
+          <p>Por eso, mi forma de trabajar parte de conocer a quien tengo enfrente antes de pensar cualquier estrategia nutricional.</p>
+          <p>Busco ofrecer una atención cercana, responsable y personalizada, en la que cada recomendación pueda ser comprendida, llevada a la práctica y sostenida dentro de la realidad cotidiana de cada paciente.</p>
+          <p>Para mí, acompañar nutricionalmente no significa solamente indicar qué comer. Significa escuchar, explicar, adaptar, orientar y construir herramientas que tengan sentido para esa persona.</p>
+          <p><strong>NUTRIELITE representa ese modo de ejercer mi profesión.</strong><br>Un proyecto que reúne mi formación, mi experiencia y la manera en la que elijo acompañar cada proceso nutricional.</p>
         </div>
       </div>
     </section>
@@ -418,7 +432,7 @@
               <li>Definición de objetivos.</li>
               <li>Orientación nutricional personalizada.</li>
             </ul>
-            <a class="button button-primary" href="https://wa.me/541133068766?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20primera%20consulta%20nutricional%20online." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20primera%20consulta%20nutricional%20online." target="_blank" rel="noopener">Consultar por WhatsApp</a>
           </article>
 
           <article class="consult-card">
@@ -430,7 +444,7 @@
               <li>Ajustes de las indicaciones.</li>
               <li>Definición de nuevos objetivos.</li>
             </ul>
-            <a class="button button-secondary" href="https://wa.me/541133068766?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20consulta%20de%20seguimiento." target="_blank" rel="noopener">Solicitar seguimiento</a>
+            <a class="button button-secondary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20consulta%20de%20seguimiento." target="_blank" rel="noopener">Solicitar seguimiento</a>
           </article>
         </div>
       </div>
@@ -474,19 +488,14 @@
               <p>Su interés por el desarrollo personal y los procesos de cambio la llevó a formarse como Coach Ontológica Profesional. Dentro de NUTRIELITE ofrece un espacio de acompañamiento para quienes desean revisar hábitos, creencias y obstáculos personales, y transformar sus objetivos en acciones posibles.</p>
               <p>¿Sabés qué cambios querés realizar, pero te cuesta sostenerlos en el tiempo? El coaching propone un espacio de conversación y reflexión para reconocer qué puede estar interfiriendo con tus objetivos y comenzar a construir nuevas posibilidades.</p>
 
-              <div class="offer-grid">
+              <div class="offer-grid offer-grid-single">
                 <div class="offer">
                   <h3>Sesión inicial de diagnóstico de objetivos</h3>
                   <p>Un primer encuentro para conocer tu situación actual, conversar sobre tu objetivo e identificar aspectos que podrían trabajarse mediante coaching.</p>
-                </div>
-                <div class="offer">
-                  <h3>Proceso individual de coaching</h3>
-                  <p>Encuentros orientados a revisar creencias, hábitos, decisiones y acciones vinculadas con el objetivo definido.</p>
+                  <p class="session-note">Esta sesión no constituye un diagnóstico médico, psicológico ni nutricional. El coaching ontológico no reemplaza la atención de profesionales de la salud.</p>
                 </div>
               </div>
-
-              <p class="disclaimer">La sesión inicial no constituye un diagnóstico médico, psicológico ni nutricional. El coaching ontológico no reemplaza la atención de profesionales de la salud.</p>
-              <a class="button button-primary" href="https://wa.me/541133068766?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20la%20sesi%C3%B3n%20inicial%20de%20coaching%20con%20M%C3%B3nica%20Andrea%20Sarracino." target="_blank" rel="noopener">Solicitar sesión inicial</a>
+              <a class="button button-primary" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20la%20sesi%C3%B3n%20inicial%20de%20coaching%20con%20M%C3%B3nica%20Andrea%20Sarracino." target="_blank" rel="noopener">Solicitar sesión inicial</a>
             </div>
           </article>
 
@@ -501,13 +510,33 @@
               <p>Su interés por la cocina la llevó a formarse profesionalmente en gastronomía y alta cocina. Para Carla, cocinar también es una manera de crear, compartir y transformar ingredientes cotidianos en propuestas variadas y disfrutables.</p>
               <p>Dentro de NUTRIELITE desarrollará una colección de libros digitales con preparaciones pensadas para distintos momentos del día, acercando ideas prácticas y creativas para incorporar a la cocina cotidiana.</p>
               <span class="coming">Próximamente</span>
-              <ul class="book-list">
-                <li>Libro digital de desayunos.</li>
-                <li>Libro digital de almuerzos.</li>
-                <li>Libro digital de meriendas.</li>
-                <li>Libro digital de cenas.</li>
-                <li>Colección completa.</li>
-              </ul>
+              <div class="book-packages" aria-label="Paquetes de libros digitales">
+                <article class="book-package">
+                  <div class="book-package-top"><span class="book-package-number">01</span><span class="book-package-badge">Libro digital</span></div>
+                  <h3>Desayunos</h3>
+                  <p>Paquete digital con propuestas para sumar variedad e ideas prácticas a los desayunos cotidianos.</p>
+                </article>
+                <article class="book-package">
+                  <div class="book-package-top"><span class="book-package-number">02</span><span class="book-package-badge">Libro digital</span></div>
+                  <h3>Almuerzos</h3>
+                  <p>Paquete digital con preparaciones e ideas pensadas para organizar almuerzos variados.</p>
+                </article>
+                <article class="book-package">
+                  <div class="book-package-top"><span class="book-package-number">03</span><span class="book-package-badge">Libro digital</span></div>
+                  <h3>Meriendas</h3>
+                  <p>Paquete digital con opciones para resolver meriendas de forma práctica y creativa.</p>
+                </article>
+                <article class="book-package">
+                  <div class="book-package-top"><span class="book-package-number">04</span><span class="book-package-badge">Libro digital</span></div>
+                  <h3>Cenas</h3>
+                  <p>Paquete digital con propuestas para incorporar nuevas ideas a las cenas de todos los días.</p>
+                </article>
+                <article class="book-package book-package-featured">
+                  <div class="book-package-top"><span class="book-package-number">05</span><span class="book-package-badge">Colección</span></div>
+                  <h3>Colección completa</h3>
+                  <p>El conjunto de los libros digitales de desayunos, almuerzos, meriendas y cenas.</p>
+                </article>
+              </div>
             </div>
           </article>
         </div>
@@ -552,12 +581,12 @@
           <p class="eyebrow" style="color:#dfc18e">Contacto</p>
           <h2>Solicitá información para comenzar.</h2>
           <p>Escribinos por WhatsApp e indicá si tu consulta es por nutrición o por coaching para recibir la información correspondiente.</p>
-          <a class="button" style="background:white;color:var(--forest-deep);margin-top:12px" href="https://wa.me/541133068766?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <a class="button" style="background:white;color:var(--forest-deep);margin-top:12px" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener">Escribir por WhatsApp</a>
         </div>
         <div class="contact-side">
           <div class="contact-line">
             <small>WhatsApp</small>
-            <a href="tel:+541133068766">+54 11 3306 8766</a>
+            <a href="tel:+541133069146">+54 11 3306 9146</a>
           </div>
           <div class="contact-line">
             <small>Nutrición</small>
@@ -583,7 +612,7 @@
     </div>
   </footer>
 
-  <a class="floating-whatsapp" href="https://wa.me/541133068766?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener" aria-label="Contactar a NUTRIELITE por WhatsApp">WA <span>WhatsApp</span></a>
+  <a class="floating-whatsapp" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener" aria-label="Contactar a NUTRIELITE por WhatsApp">WA <span>WhatsApp</span></a>
 
   <script>
     const toggle = document.querySelector('.menu-toggle');
