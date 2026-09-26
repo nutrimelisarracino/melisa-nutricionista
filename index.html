@@ -161,11 +161,15 @@
     .modality-soon .pill { background: rgba(255,255,255,.56); color: var(--clay); }
 
     .consult-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .consult-card { display: flex; flex-direction: column; padding: 36px; border: 1px solid var(--line); border-radius: var(--radius); background: white; box-shadow: 0 15px 45px rgba(35,54,48,.06); }
+    .consult-card { display: flex; flex-direction: column; padding: 32px; border: 1px solid var(--line); border-radius: var(--radius); background: white; box-shadow: 0 15px 45px rgba(35,54,48,.06); }
     .consult-card p { color: var(--muted); }
+    .consult-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 14px; }
+    .consult-meta span { display: inline-flex; align-items: center; min-height: 30px; padding: 5px 10px; border-radius: 999px; background: var(--forest-soft); color: var(--forest-deep); font-size: .78rem; font-weight: 800; }
+    .consult-price { color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 1.65rem; font-weight: 700; line-height: 1; }
     .check-list { margin: 16px 0 28px; padding: 0; list-style: none; }
     .check-list li { padding: 8px 0; border-bottom: 1px solid rgba(36,72,62,.09); }
     .consult-card .button { margin-top: auto; align-self: flex-start; }
+    .consult-note { grid-column: 1 / -1; margin: 2px 0 0; padding: 14px 16px; border-radius: 14px; background: #fbefed; color: #73544c; font-size: .85rem; }
 
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; }
     .step { counter-increment: step; padding: 28px 24px; border-top: 2px solid var(--gold); background: rgba(255,255,255,.55); }
@@ -321,6 +325,9 @@
       .panel-item { padding: 14px 0; }
       .service-grid, .consult-grid, .modalities, .offer-grid, .book-list { grid-template-columns: 1fr; }
       .service-card, .consult-card { padding: 24px 20px; }
+      .consult-meta { gap: 6px; }
+      .consult-price { font-size: 1.45rem; }
+      .consult-note { grid-column: auto; }
       .modalities { border-radius: 22px; }
       .modality { min-height: auto; padding: 28px 22px; }
       .steps { grid-template-columns: 1fr; }
@@ -398,11 +405,11 @@
           <p class="hero-kicker">Lic. Melisa Florencia Sarracino</p>
           <p class="lede">Acompañamiento profesional en nutrición materno-infantojuvenil y nutrición renal para niños, adolescentes y adultos.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20solicitar%20informaci%C3%B3n%20para%20reservar%20una%20consulta%20nutricional%20online." target="_blank" rel="noopener">Solicitar una consulta <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20solicitar%20informaci%C3%B3n%20para%20reservar%20una%20consulta%20nutricional%20en%20l%C3%ADnea." target="_blank" rel="noopener">Solicitar una consulta <span class="arrow" aria-hidden="true">→</span></a>
             <a class="button button-secondary" href="#nutricion">Conocer la atención</a>
           </div>
           <div class="hero-notes" aria-label="Información principal">
-            <span>Atención online disponible</span>
+            <span>Atención en línea disponible</span>
             <span>Presencial próximamente</span>
           </div>
         </div>
@@ -425,7 +432,7 @@
             <strong>Seguimiento personalizado</strong>
             <span>Objetivos y recomendaciones según cada situación.</span>
           </div>
-          <span class="status">Consultas online disponibles</span>
+          <span class="status">Consultas en línea disponibles</span>
           </aside>
         </div>
       </div>
@@ -440,7 +447,6 @@
           <div class="credential-list">
             <span>M.P. 8068</span>
             <span>M.N. 13620</span>
-            <span>San Nicolás de los Arroyos</span>
           </div>
         </aside>
 
@@ -509,7 +515,7 @@
         <div class="modalities">
           <article class="modality modality-online">
             <span class="pill">Disponible</span>
-            <h3>Atención online</h3>
+            <h3>Atención en línea</h3>
             <p>Consultas a distancia con coordinación previa por WhatsApp. Al reservar recibirás las indicaciones necesarias para el encuentro.</p>
           </article>
           <article class="modality modality-soon">
@@ -526,14 +532,16 @@
         <div class="section-head">
           <div>
             <p class="eyebrow">Consultas</p>
-            <h2>Un proceso claro desde el primer encuentro.</h2>
+            <h2>Opciones de atención nutricional.</h2>
           </div>
-          <p>La duración, el valor y las indicaciones específicas se informan al solicitar el turno.</p>
+          <p>Elegí la modalidad que mejor se adapte a tu necesidad. Los turnos se coordinan previamente por WhatsApp.</p>
         </div>
 
         <div class="consult-grid">
           <article class="consult-card">
             <h3>Primera consulta nutricional</h3>
+            <div class="consult-meta"><span>Presencial / en línea</span><span>45 min</span></div>
+            <p class="consult-price">$35.000</p>
             <p>Una evaluación completa para conocer tu situación, antecedentes, rutina, alimentación y objetivos.</p>
             <ul class="check-list">
               <li>Entrevista y evaluación inicial.</li>
@@ -541,11 +549,13 @@
               <li>Definición de objetivos.</li>
               <li>Orientación nutricional personalizada.</li>
             </ul>
-            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20primera%20consulta%20nutricional%20online." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20primera%20consulta%20nutricional." target="_blank" rel="noopener">Consultar por WhatsApp</a>
           </article>
 
           <article class="consult-card">
             <h3>Consulta de seguimiento</h3>
+            <div class="consult-meta"><span>Presencial / en línea</span><span>30 min</span></div>
+            <p class="consult-price">$25.000</p>
             <p>Un espacio para revisar la evolución, conversar sobre dificultades y realizar los ajustes necesarios.</p>
             <ul class="check-list">
               <li>Revisión de avances y dificultades.</li>
@@ -553,8 +563,33 @@
               <li>Ajustes de las indicaciones.</li>
               <li>Definición de nuevos objetivos.</li>
             </ul>
-            <a class="button button-secondary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20consulta%20de%20seguimiento." target="_blank" rel="noopener">Solicitar seguimiento</a>
+            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20consulta%20de%20seguimiento." target="_blank" rel="noopener">Solicitar seguimiento</a>
           </article>
+
+          <article class="consult-card">
+            <h3>Educación alimentaria sin plan alimentario</h3>
+            <div class="consult-meta"><span>Orientación nutricional</span></div>
+            <p>Encuentro destinado a trabajar educación alimentaria, organización de hábitos y herramientas prácticas, sin elaboración de un plan alimentario personalizado.</p>
+            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20educaci%C3%B3n%20alimentaria%20sin%20plan%20alimentario." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+          </article>
+
+          <article class="consult-card">
+            <h3>Consulta a domicilio</h3>
+            <div class="consult-meta"><span>Presencial</span><span>45 min</span></div>
+            <p class="consult-price">$50.000</p>
+            <p>Atención nutricional coordinada previamente para realizar la consulta en el domicilio.</p>
+            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20una%20consulta%20nutricional%20a%20domicilio." target="_blank" rel="noopener">Consultar disponibilidad</a>
+          </article>
+
+          <article class="consult-card">
+            <h3>Consulta a grupo familiar</h3>
+            <div class="consult-meta"><span>Orientación / consejería alimentaria familiar</span><span>50 min</span></div>
+            <p class="consult-price">$50.000</p>
+            <p>Encuentro orientado a educación alimentaria para el grupo familiar y organización de hábitos cotidianos.</p>
+            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20una%20consulta%20de%20orientaci%C3%B3n%20alimentaria%20para%20grupo%20familiar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+          </article>
+
+          <p class="consult-note">* Consejería de educación alimentaria de grupo familiar; no incluye plan alimentario personalizado ni situaciones patológicas.</p>
         </div>
       </div>
     </section>
