@@ -178,30 +178,30 @@
 
     .team-intro { max-width: 720px; margin-bottom: 48px; }
     .compact-team-intro { margin-bottom: 30px; }
-    .proposal-accordion { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; align-items: start; }
+    .proposal-accordion { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 26px; align-items: start; }
     .proposal-card {
-      overflow: hidden; border: 1px solid rgba(36,72,62,.12); border-radius: 28px; background: rgba(255,255,255,.9);
-      box-shadow: 0 18px 50px rgba(35,54,48,.07); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      overflow: hidden; border: 1px solid rgba(36,72,62,.14); border-radius: 30px; background: rgba(255,255,255,.94);
+      box-shadow: 0 22px 58px rgba(35,54,48,.09); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .proposal-card:hover { transform: translateY(-2px); box-shadow: 0 22px 58px rgba(35,54,48,.1); border-color: rgba(154,103,85,.25); }
+    .proposal-card:hover { transform: translateY(-3px); box-shadow: 0 26px 64px rgba(35,54,48,.12); border-color: rgba(154,103,85,.3); }
     .proposal-card[open] { grid-column: 1 / -1; }
     .proposal-summary {
-      display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 18px; min-height: 170px;
-      padding: 26px 28px; cursor: pointer; list-style: none; position: relative;
+      display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 22px; min-height: 215px;
+      padding: 34px 34px; cursor: pointer; list-style: none; position: relative;
     }
     .proposal-summary::-webkit-details-marker { display: none; }
     .proposal-card-coach .proposal-summary { background: linear-gradient(135deg, #fbf0ee 0%, #fffaf7 100%); }
     .proposal-card-kitchen .proposal-summary { background: linear-gradient(135deg, #eee1cf 0%, #fbf5eb 100%); }
     .proposal-icon {
-      display: grid; width: 64px; height: 64px; place-items: center; border: 1px solid rgba(36,72,62,.18); border-radius: 50%;
+      display: grid; width: 76px; height: 76px; place-items: center; border: 1px solid rgba(36,72,62,.2); border-radius: 50%;
       background: rgba(255,255,255,.72); color: var(--forest-deep); font-family: "Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
       font-size: 1.05rem; font-weight: 700; letter-spacing: .04em;
     }
     .proposal-kicker { display: block; margin-bottom: 6px; color: var(--clay); font-size: .72rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
-    .proposal-summary h3 { margin: 0 0 6px; font-size: 1.4rem; }
-    .proposal-summary p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.5; }
+    .proposal-summary h3 { margin: 0 0 8px; font-size: 1.58rem; }
+    .proposal-summary p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.55; }
     .proposal-toggle {
-      display: grid; width: 42px; height: 42px; place-items: center; border-radius: 50%; background: var(--forest); color: #fff;
+      display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: var(--forest); color: #fff;
       font-size: 1.45rem; font-weight: 500; transition: transform .2s ease, background .2s ease;
     }
     .proposal-card[open] .proposal-toggle { transform: rotate(45deg); background: var(--clay); }
@@ -356,11 +356,11 @@
       .service-grid, .consult-grid, .modalities, .offer-grid, .book-list { grid-template-columns: 1fr; }
       .proposal-accordion { grid-template-columns: 1fr; }
       .proposal-card[open] { grid-column: auto; }
-      .proposal-summary { min-height: 0; padding: 20px 18px; gap: 14px; }
-      .proposal-icon { width: 54px; height: 54px; font-size: .95rem; }
-      .proposal-summary h3 { font-size: 1.16rem; }
-      .proposal-summary p { font-size: .86rem; }
-      .proposal-toggle { width: 36px; height: 36px; font-size: 1.25rem; }
+      .proposal-summary { min-height: 0; padding: 24px 20px; gap: 14px; }
+      .proposal-icon { width: 58px; height: 58px; font-size: .98rem; }
+      .proposal-summary h3 { font-size: 1.22rem; }
+      .proposal-summary p { font-size: .9rem; }
+      .proposal-toggle { width: 38px; height: 38px; font-size: 1.28rem; }
       .proposal-content { padding: 10px; }
       .service-card, .consult-card { padding: 24px 20px; }
       .consult-meta { gap: 6px; }
