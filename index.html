@@ -190,15 +190,38 @@
       padding: 34px 34px; cursor: pointer; list-style: none; position: relative;
     }
     .proposal-summary::-webkit-details-marker { display: none; }
-    .proposal-card-coach .proposal-summary { background: linear-gradient(135deg, #fbf0ee 0%, #fffaf7 100%); }
-    .proposal-card-kitchen .proposal-summary { background: linear-gradient(135deg, #eee1cf 0%, #fbf5eb 100%); }
-    .proposal-icon {
-      display: grid; width: 76px; height: 76px; place-items: center; border: 1px solid rgba(36,72,62,.2); border-radius: 50%;
-      background: rgba(255,255,255,.72); color: var(--forest-deep); font-family: "Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
-      font-size: 1.05rem; font-weight: 700; letter-spacing: .04em;
+    .proposal-summary::after {
+      content: ""; position: absolute; right: 78px; bottom: -34px; width: 132px; height: 132px;
+      border: 1px solid rgba(36,72,62,.07); border-radius: 50%; pointer-events: none;
     }
-    .proposal-kicker { display: block; margin-bottom: 6px; color: var(--clay); font-size: .72rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .proposal-summary::before {
+      content: ""; position: absolute; right: 38px; bottom: -8px; width: 76px; height: 76px;
+      border: 1px solid rgba(36,72,62,.055); border-radius: 50%; pointer-events: none;
+    }
+    .proposal-card-coach .proposal-summary {
+      background:
+        linear-gradient(90deg, rgba(181,132,125,.14) 0 4px, transparent 4px),
+        linear-gradient(135deg, #fbf1ef 0%, #fffaf8 72%);
+    }
+    .proposal-card-kitchen .proposal-summary {
+      background:
+        linear-gradient(90deg, rgba(151,121,78,.16) 0 4px, transparent 4px),
+        linear-gradient(135deg, #f0e4d3 0%, #fbf6ee 72%);
+    }
+    .proposal-icon {
+      position: relative; z-index: 1; display: grid; width: 76px; height: 76px; place-items: center;
+      border: 1px solid rgba(36,72,62,.18); border-radius: 50%; background: rgba(255,255,255,.68);
+      color: var(--forest-deep); box-shadow: inset 0 0 0 6px rgba(255,255,255,.28);
+    }
+    .proposal-icon svg { width: 42px; height: 42px; fill: none; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+    .proposal-icon-coach { color: #8e625d; }
+    .proposal-icon-kitchen { color: #80643f; }
+    .proposal-card-coach .proposal-kicker { color: #946a64; }
+    .proposal-card-kitchen .proposal-kicker { color: #866740; }
+    .proposal-kicker { display: block; margin-bottom: 6px; font-size: .72rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
     .proposal-summary h3 { margin: 0 0 8px; font-size: 1.58rem; }
+    .proposal-summary-copy { position: relative; z-index: 1; }
+    .proposal-summary-copy::after { content: ""; display: block; width: 44px; height: 1px; margin-top: 15px; background: rgba(36,72,62,.18); }
     .proposal-summary p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.55; }
     .proposal-toggle {
       display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: var(--forest); color: #fff;
@@ -362,6 +385,9 @@
       .proposal-summary p { font-size: .9rem; }
       .proposal-toggle { width: 38px; height: 38px; font-size: 1.28rem; }
       .proposal-content { padding: 10px; }
+      .proposal-summary::after { right: 52px; bottom: -46px; width: 105px; height: 105px; }
+      .proposal-summary::before { display: none; }
+      .proposal-icon svg { width: 34px; height: 34px; }
       .service-card, .consult-card { padding: 24px 20px; }
       .consult-meta { gap: 6px; }
       .consult-price { font-size: 1.45rem; }
@@ -648,7 +674,13 @@
         <div class="proposal-accordion">
           <details class="proposal-card proposal-card-coach">
             <summary class="proposal-summary">
-              <div class="proposal-icon" aria-hidden="true">MA</div>
+              <div class="proposal-icon proposal-icon-coach" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M10 14.5c0-4.1 3.6-7.5 8-7.5h11c4.4 0 8 3.4 8 7.5v6c0 4.1-3.6 7.5-8 7.5H22l-6.5 5v-5H18c-4.4 0-8-3.4-8-7.5z"/>
+                  <path d="M28.5 31.5h2.8c3.7 0 6.7-2.7 6.7-6v-.8"/>
+                  <path d="M18 16.5h11M18 21.5h7"/>
+                </svg>
+              </div>
               <div class="proposal-summary-copy">
                 <span class="proposal-kicker">Coaching ontológico</span>
                 <h3>Mónica Andrea Sarracino</h3>
@@ -683,7 +715,15 @@
 
           <details class="proposal-card proposal-card-kitchen">
             <summary class="proposal-summary">
-              <div class="proposal-icon" aria-hidden="true">CN</div>
+              <div class="proposal-icon proposal-icon-kitchen" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <path d="M10 25h28c-.6 8.2-6.4 13-14 13s-13.4-4.8-14-13z"/>
+                  <path d="M8 25h32"/>
+                  <path d="M18 20c-2.2-2.3-.5-4.1 1-5.7 1.5-1.7 2-3.3.4-5.3"/>
+                  <path d="M25 20c-2.2-2.3-.5-4.1 1-5.7 1.5-1.7 2-3.3.4-5.3"/>
+                  <path d="M32 20c-2.2-2.3-.5-4.1 1-5.7"/>
+                </svg>
+              </div>
               <div class="proposal-summary-copy">
                 <span class="proposal-kicker">Gastronomía y libros digitales</span>
                 <h3>Carla Noemí Sarracino</h3>
