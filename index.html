@@ -646,26 +646,60 @@
     .status { display: none !important; }
 
     #contacto .contact-card {
-      background: #a34f6b !important;
-      color: #fff !important;
-      box-shadow: 0 24px 70px rgba(163,79,107,.14) !important;
+      position:relative;
+      background:linear-gradient(135deg,#f5e2dc 0%,#efd9df 48%,#f7ece6 100%) !important;
+      color:#5d5652 !important;
+      box-shadow:0 24px 60px rgba(145,102,108,.10) !important;
+      border:1px solid rgba(154,91,99,.08);
     }
+    #contacto .contact-card::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(255,255,255,.55), transparent 28%),
+        radial-gradient(circle at 86% 88%, rgba(214,169,157,.20), transparent 30%);
+      pointer-events:none;
+      z-index:0;
+    }
+    #contacto .contact-main,
+    #contacto .contact-side { position:relative; z-index:1; }
     #contacto .contact-main {
       background:
-        radial-gradient(circle at 88% 15%, rgba(215,121,88,.14), transparent 28%),
-        linear-gradient(145deg, #a34f6b 0%, #b35e76 100%) !important;
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,.34), transparent 28%),
+        linear-gradient(145deg,#f3ddd7 0%,#edd4da 52%,#f7e9e3 100%) !important;
+    }
+    #contacto .contact-main::before {
+      content:"";
+      position:absolute;
+      left:-36px;
+      top:42px;
+      width:150px;
+      height:150px;
+      border:1px solid rgba(154,91,99,.10);
+      border-radius:50%;
+      pointer-events:none;
     }
     #contacto .contact-side {
-      background: linear-gradient(180deg, #d18468 0%, #c36f58 100%) !important;
+      background:
+        radial-gradient(circle at 88% 14%, rgba(255,255,255,.42), transparent 26%),
+        linear-gradient(160deg,#f2ddd5 0%,#efd6cf 48%,#f7e8e1 100%) !important;
     }
+    #contacto .contact-main h2 { color:#7f4b59 !important; }
+    #contacto .contact-main p { color:#655d59 !important; }
     #contacto .contact-main .button {
-      background: #d77958 !important;
-      color: #fff !important;
+      background:linear-gradient(135deg,#c9826f 0%,#b96d72 100%) !important;
+      color:#fff !important;
+      box-shadow:0 12px 26px rgba(143,75,98,.12) !important;
     }
-    #contacto .contact-main .button:hover { background: #c7654a !important; }
-    #contacto .contact-main .eyebrow { color: #f1d7aa !important; }
-    #contacto .contact-line { border-bottom-color: rgba(255,255,255,.22) !important; }
-    #contacto .contact-line small { color: rgba(255,250,245,.78) !important; }
+    #contacto .contact-main .button:hover {
+      background:linear-gradient(135deg,#bd7868 0%,#ad6269 100%) !important;
+    }
+    #contacto .contact-main .eyebrow { color:#9a6467 !important; }
+    #contacto .contact-line { border-bottom-color:rgba(143,75,98,.12) !important; }
+    #contacto .contact-line small { color:#9b7470 !important; }
+    #contacto .contact-line a,
+    #contacto .contact-line span { color:#5e5652 !important; }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
