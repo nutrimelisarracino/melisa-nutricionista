@@ -168,16 +168,54 @@
     .pill { display: inline-block; margin-bottom: 28px; padding: 8px 11px; border-radius: 999px; background: rgba(255,255,255,.16); font-size: .76rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
     .modality-soon .pill { background: rgba(255,255,255,.56); color: var(--clay); }
 
-    .consult-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .consult-card { display: flex; flex-direction: column; padding: 32px; border: 1px solid var(--line); border-radius: var(--radius); background: white; box-shadow: 0 15px 45px rgba(35,54,48,.06); }
-    .consult-card p { color: var(--muted); }
-    .consult-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 14px; }
-    .consult-meta span { display: inline-flex; align-items: center; min-height: 30px; padding: 5px 10px; border-radius: 999px; background: var(--forest-soft); color: var(--forest-deep); font-size: .78rem; font-weight: 800; }
+    .consult-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
+    .consult-card {
+      position: relative; display: flex; flex-direction: column; min-height: 100%; padding: 38px;
+      overflow: hidden; border: 1px solid rgba(36,72,62,.08); border-radius: 30px;
+      box-shadow: 0 18px 46px rgba(35,54,48,.07);
+    }
+    .consult-card::after {
+      content:""; position:absolute; right:-42px; bottom:-42px; width:132px; height:132px;
+      border-radius: 38px 0 0 0; background: rgba(255,255,255,.24); transform: rotate(2deg);
+      pointer-events:none;
+    }
+    .consult-card-sage { background: #dfe7b2; }
+    .consult-card-blush { background: #f1d2dc; }
+    .consult-card-sand { background: #ecdcbf; }
+    .consult-card-peach { background: #efcbb8; }
+    .consult-kicker {
+      display: block; margin-bottom: 10px; color: var(--berry);
+      font-family: "Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size: 1.02rem; font-style: italic; letter-spacing: .01em;
+    }
+    .consult-card h3 { margin-bottom: 14px; color: var(--berry-deep); font-size: clamp(1.65rem,2.7vw,2.2rem); line-height: 1.12; }
+    .consult-lead { margin-bottom: 18px; color: #5d343d !important; font-size: 1rem; line-height: 1.62; }
+    .consult-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+    .consult-meta span {
+      display: inline-flex; align-items: center; min-height: 30px; padding: 5px 10px;
+      border-radius: 999px; background: rgba(255,255,255,.48); color: var(--forest-deep);
+      font-size: .77rem; font-weight: 800;
+    }
     .consult-price { color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 1.65rem; font-weight: 700; line-height: 1; }
-    .check-list { margin: 16px 0 28px; padding: 0; list-style: none; }
-    .check-list li { padding: 8px 0; border-bottom: 1px solid rgba(36,72,62,.09); }
-    .consult-card .button { margin-top: auto; align-self: flex-start; }
-    .consult-note { margin: 14px 0 18px; padding: 14px 16px; border-radius: 14px; background: #fbefed; color: #73544c; font-size: .85rem; }
+    .check-list { margin: 6px 0 28px; padding: 0; list-style: none; }
+    .check-list li {
+      position: relative; padding: 9px 0 9px 28px; border: 0; color: #5b313b;
+      line-height: 1.5;
+    }
+    .check-list li::before {
+      content:"✓"; position:absolute; left:0; top:8px; color: var(--berry);
+      font-size: 1.15rem; font-weight: 900;
+    }
+    .consult-button {
+      position: relative; z-index: 1; margin-top: auto; align-self: flex-start;
+      background: var(--berry); color: white; box-shadow: 0 12px 28px rgba(143,32,69,.18);
+    }
+    .consult-button:hover { background: var(--berry-deep); }
+    .consult-note {
+      position: relative; z-index: 1; margin: 0 0 20px; padding: 14px 16px;
+      border-radius: 14px; background: rgba(255,255,255,.42); color: #6b3f45 !important;
+      font-size: .84rem; line-height: 1.5;
+    }
 
     .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; }
     .step { counter-increment: step; padding: 28px 24px; border-top: 2px solid var(--gold); background: rgba(255,255,255,.55); }
@@ -437,7 +475,12 @@
       .proposal-summary::after { right: 52px; bottom: -46px; width: 105px; height: 105px; }
       .proposal-summary::before { display: none; }
       .proposal-icon svg { width: 34px; height: 34px; }
-      .service-card, .consult-card { padding: 24px 20px; }
+      .service-card { padding: 24px 20px; }
+      .consult-card { padding: 28px 22px; border-radius: 24px; }
+      .consult-card h3 { font-size: 1.75rem; }
+      .consult-kicker { font-size: .96rem; }
+      .consult-lead { font-size: .95rem; }
+      .consult-button { width: 100%; align-self: stretch; }
       .consult-meta { gap: 6px; }
       .consult-price { font-size: 1.45rem; }
       .modalities { border-radius: 22px; }
@@ -645,45 +688,61 @@
         </div>
 
         <div class="consult-grid">
-          <article class="consult-card">
+          <article class="consult-card consult-card-sage">
+            <span class="consult-kicker">para comenzar tu proceso</span>
             <h3>Primera consulta nutricional</h3>
             <div class="consult-meta"><span>Presencial / en línea</span><span>45 min</span></div>
-            <p>Una evaluación completa para conocer tu situación, antecedentes, rutina, alimentación y objetivos.</p>
+            <p class="consult-lead">Una consulta inicial para conocer tu situación, antecedentes, hábitos y necesidades, y así definir el abordaje más adecuado para ti.</p>
             <ul class="check-list">
               <li>Entrevista y evaluación inicial.</li>
-              <li>Revisión de antecedentes y estudios disponibles.</li>
-              <li>Definición de objetivos.</li>
+              <li>Revisión de antecedentes, estudios e indicaciones médicas.</li>
+              <li>Definición del abordaje nutricional.</li>
               <li>Orientación nutricional personalizada.</li>
             </ul>
-            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20primera%20consulta%20nutricional." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            <a class="button consult-button" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20primera%20consulta%20nutricional." target="_blank" rel="noopener">Consultar por WhatsApp</a>
           </article>
 
-          <article class="consult-card">
+          <article class="consult-card consult-card-blush">
+            <span class="consult-kicker">para acompañar tu evolución</span>
             <h3>Consulta de seguimiento</h3>
             <div class="consult-meta"><span>Presencial / en línea</span><span>30 min</span></div>
-            <p>Un espacio para revisar la evolución, conversar sobre dificultades y realizar los ajustes necesarios.</p>
+            <p class="consult-lead">Un espacio pensado para revisar avances, dificultades y ajustes necesarios dentro de tu proceso.</p>
             <ul class="check-list">
-              <li>Revisión de avances y dificultades.</li>
+              <li>Revisión de evolución y cambios.</li>
               <li>Resolución de dudas.</li>
               <li>Ajustes de las indicaciones.</li>
               <li>Definición de nuevos objetivos.</li>
             </ul>
-            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20consulta%20de%20seguimiento." target="_blank" rel="noopener">Solicitar seguimiento</a>
+            <a class="button consult-button" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20consulta%20de%20seguimiento." target="_blank" rel="noopener">Solicitar seguimiento</a>
           </article>
 
-          <article class="consult-card">
+          <article class="consult-card consult-card-sand">
+            <span class="consult-kicker">para aprender y organizarte mejor</span>
             <h3>Educación alimentaria sin plan alimentario</h3>
             <div class="consult-meta"><span>Presencial / en línea</span></div>
-            <p>Encuentro destinado a trabajar educación alimentaria, organización de hábitos y herramientas prácticas, sin elaboración de un plan alimentario personalizado.</p>
-            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20educaci%C3%B3n%20alimentaria%20sin%20plan%20alimentario." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            <p class="consult-lead">Una instancia de orientación nutricional para resolver dudas, ordenar hábitos y mejorar decisiones alimentarias sin indicar un plan alimentario personalizado.</p>
+            <ul class="check-list">
+              <li>Educación alimentaria práctica.</li>
+              <li>Organización de comidas y hábitos.</li>
+              <li>Resolución de dudas frecuentes.</li>
+              <li>Recomendaciones generales adaptadas a tu situación.</li>
+            </ul>
+            <a class="button consult-button" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20educaci%C3%B3n%20alimentaria%20sin%20plan%20alimentario." target="_blank" rel="noopener">Consultar por WhatsApp</a>
           </article>
 
-          <article class="consult-card">
-            <h3>Consulta a grupo familiar</h3>
+          <article class="consult-card consult-card-peach">
+            <span class="consult-kicker">para acompañar a tu grupo familiar</span>
+            <h3>Orientación alimentaria familiar</h3>
             <div class="consult-meta"><span>Presencial / en línea</span><span>50 min</span></div>
-            <p>Encuentro orientado a educación alimentaria para el grupo familiar y organización de hábitos cotidianos.</p>
-            <p class="consult-note">* Consejería de educación alimentaria de grupo familiar; no incluye plan alimentario personalizado ni situaciones patológicas.</p>
-            <a class="button button-primary" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20una%20consulta%20de%20orientaci%C3%B3n%20alimentaria%20para%20grupo%20familiar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            <p class="consult-lead">Un espacio de consejería para abordar hábitos, organización y educación alimentaria dentro del entorno familiar.</p>
+            <ul class="check-list">
+              <li>Orientación alimentaria para el grupo familiar.</li>
+              <li>Sugerencias prácticas para la organización cotidiana.</li>
+              <li>Educación alimentaria general.</li>
+              <li>Acompañamiento en hábitos del hogar.</li>
+            </ul>
+            <p class="consult-note">No incluye plan alimentario personalizado ni abordaje de situaciones patológicas.</p>
+            <a class="button consult-button" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20una%20consulta%20de%20orientaci%C3%B3n%20alimentaria%20para%20grupo%20familiar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
           </article>
         </div>
       </div>
