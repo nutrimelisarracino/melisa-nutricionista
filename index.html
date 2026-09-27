@@ -706,6 +706,29 @@
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   
+/* Contacto en un solo bloque */
+#contacto .contact-card-single {
+  display:block !important;
+  max-width:900px;
+}
+#contacto .contact-main-single {
+  padding:55px !important;
+}
+#contacto .contact-main-single h2 {
+  margin-bottom:28px;
+}
+#contacto .contact-main-single .contact-line {
+  padding:16px 0;
+}
+#contacto .contact-main-single .button {
+  margin-top:24px;
+}
+@media (max-width: 900px) {
+  #contacto .contact-main-single {
+    padding:32px 24px !important;
+  }
+}
+
 /* Contacto: misma paleta suave de las tarjetas de consultas */
 #contacto .contact-card {
   position: relative;
@@ -1291,30 +1314,31 @@
     </section>
 
     <section class="section section-soft" id="contacto">
-      <div class="wrap contact-card">
-        <div class="contact-main">
-          <p class="eyebrow" style="color:#dfc18e">Contacto</p>
+      <div class="wrap contact-card contact-card-single">
+        <div class="contact-main contact-main-single">
           <h2>Solicita información para comenzar.</h2>
-          <p>Escríbenos por WhatsApp e indica si tu consulta es por nutrición o por coaching para recibir la información correspondiente.</p>
-          <a class="button" style="background:white;color:var(--forest-deep);margin-top:12px" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener">Escribir por WhatsApp</a>
-        </div>
-        <div class="contact-side">
+
           <div class="contact-line">
             <small>WhatsApp</small>
             <a href="tel:+541133069146">+54 11 3306 9146</a>
           </div>
+
           <div class="contact-line">
             <small>Nutrición</small>
             <a href="mailto:nutri.sarracinomelisa@gmail.com">nutri.sarracinomelisa@gmail.com</a>
           </div>
+
           <div class="contact-line">
             <small>NUTRIELITE</small>
             <a href="mailto:nutrieliteoficial@gmail.com">nutrieliteoficial@gmail.com</a>
           </div>
+
           <div class="contact-line">
             <small>Ubicación</small>
             <span>San Nicolás de los Arroyos, Argentina</span>
           </div>
+
+          <a class="button" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener">Escribir por WhatsApp</a>
         </div>
       </div>
     </section>
