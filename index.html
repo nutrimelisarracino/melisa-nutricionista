@@ -14,9 +14,13 @@
       --forest-soft: #dce8e2;
       --cream: #f7f3ea;
       --paper: #fffdf8;
-      --clay: #9a6755;
-      --rose: #ead8d6;
-      --gold: #c59a57;
+      --clay: #a65f4d;
+      --rose: #f2d7d5;
+      --gold: #d6a24f;
+      --orange: #df5c2f;
+      --orange-deep: #c94d26;
+      --berry: #8f2045;
+      --berry-deep: #741936;
       --ink: #25302c;
       --muted: #66716c;
       --line: rgba(36, 72, 62, .16);
@@ -47,7 +51,7 @@
       align-items: center;
       gap: 9px;
       margin: 0 0 16px;
-      color: var(--clay);
+      color: var(--berry);
       font-size: .78rem;
       font-weight: 800;
       letter-spacing: .14em;
@@ -70,20 +74,27 @@
     }
     .skip-link:focus { transform: none; }
 
-    header {
+    .site-header {
       position: sticky; z-index: 1000; top: 0;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-      background: rgba(23, 52, 45, .94);
-      color: white;
-      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(23,52,45,.10);
+      background: #fff;
+      color: var(--forest-deep);
+      box-shadow: 0 8px 24px rgba(35,54,48,.05);
     }
-    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { text-decoration: none; font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 1.15rem; letter-spacing: .16em; }
-    .nav-links { display: flex; align-items: center; gap: 24px; }
-    .nav-links a { color: rgba(255,255,255,.82); font-size: .9rem; font-weight: 650; text-decoration: none; }
-    .nav-links a:hover, .nav-links a:focus-visible { color: white; }
-    .nav-cta { padding: 10px 17px; border: 1px solid rgba(255,255,255,.4); border-radius: 999px; }
-    .menu-toggle { display: none; border: 0; background: transparent; color: white; font: inherit; }
+    .brand-strip {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 108px; padding: 14px 20px 12px; background: #fff;
+    }
+    .top-logo-link { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+    .top-logo { display: block; width: 92px; height: auto; object-fit: contain; }
+    .nav-shell { border-top: 1px solid rgba(36,72,62,.08); background: rgba(255,253,248,.96); }
+    .nav { min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .nav-spacer { width: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; margin-left: auto; }
+    .nav-links a { color: var(--forest-deep); font-size: .88rem; font-weight: 700; text-decoration: none; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--clay); }
+    .nav-cta { padding: 8px 15px; border: 1px solid rgba(36,72,62,.18); border-radius: 999px; background: white; }
+    .menu-toggle { display: none; border: 0; background: transparent; color: var(--forest-deep); font: inherit; }
 
     .hero {
       position: relative;
@@ -91,8 +102,9 @@
       min-height: auto;
       padding: 44px 0 68px;
       background:
-        radial-gradient(circle at 82% 16%, rgba(197,154,87,.22), transparent 25%),
-        linear-gradient(135deg, #f7f3ea 0%, #fffdf8 62%, #eef3ef 100%);
+        radial-gradient(circle at 84% 13%, rgba(223,92,47,.12), transparent 27%),
+        radial-gradient(circle at 73% 78%, rgba(143,32,69,.07), transparent 28%),
+        linear-gradient(135deg, #faf3e8 0%, #fffdf8 58%, #f8eee9 100%);
     }
     .hero::after {
       content: ""; position: absolute; right: -160px; bottom: -210px; width: 520px; height: 520px;
@@ -104,18 +116,19 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 34px 0 36px; }
     .button {
       display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 9px;
-      padding: 13px 22px; border: 1px solid transparent; border-radius: 999px;
+      padding: 14px 24px; border: 1px solid transparent; border-radius: 16px;
       font-weight: 800; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
     .button:hover { transform: translateY(-2px); }
-    .button-primary { background: var(--forest); color: white; box-shadow: 0 12px 30px rgba(36,72,62,.2); }
-    .button-primary:hover { background: var(--forest-deep); }
-    .button-secondary { border-color: var(--line); background: rgba(255,255,255,.55); color: var(--forest-deep); }
+    .button-primary { background: var(--orange); color: white; box-shadow: 0 12px 30px rgba(223,92,47,.20); }
+    .button-primary:hover { background: var(--orange-deep); }
+    .button-secondary { border-color: transparent; background: var(--berry); color: white; box-shadow: 0 12px 30px rgba(143,32,69,.16); }
+    .button-secondary:hover { background: var(--berry-deep); }
     .arrow { font-size: 1.1em; }
     .hero-visual { display: grid; gap: 18px; align-items: start; }
     .hero-panel {
       position: relative; padding: 30px 34px; border: 1px solid rgba(36,72,62,.14); border-radius: 30px;
-      background: rgba(255,253,248,.78); box-shadow: var(--shadow); backdrop-filter: blur(8px);
+      background: rgba(255,253,248,.88); box-shadow: var(--shadow); backdrop-filter: blur(8px); border-left: 4px solid rgba(223,92,47,.55);
     }
     .panel-label { margin-bottom: 22px; color: var(--clay); font-size: .75rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
     .panel-item { padding: 18px 0; border-top: 1px solid var(--line); }
@@ -356,16 +369,19 @@
     @media (max-width: 720px) {
       .wrap { width: calc(100% - 30px); max-width: 100%; }
       .section { padding: 58px 0; }
-      .nav { min-height: 64px; gap: 12px; }
-      .brand { font-size: .98rem; letter-spacing: .12em; }
-      .menu-toggle { display: inline-flex; padding: 9px; cursor: pointer; flex: 0 0 auto; }
+      .brand-strip { min-height: 88px; padding: 12px 16px 10px; }
+      .top-logo { width: 78px; }
+      .nav { min-height: 50px; gap: 12px; }
+      .nav-spacer { display: none; }
+      .menu-toggle { display: inline-flex; margin-left: auto; padding: 9px 2px; cursor: pointer; flex: 0 0 auto; font-weight: 700; }
       .nav-links {
-        position: absolute; top: 64px; right: 0; left: 0; display: none; padding: 16px 18px 22px;
-        flex-direction: column; align-items: stretch; gap: 5px; background: var(--forest-deep); border-top: 1px solid rgba(255,255,255,.1);
+        position: absolute; top: 138px; right: 0; left: 0; display: none; padding: 14px 18px 20px;
+        flex-direction: column; align-items: stretch; gap: 5px; background: #fffdf8; border-top: 1px solid rgba(36,72,62,.10);
+        box-shadow: 0 14px 26px rgba(35,54,48,.08);
       }
       .nav-links.open { display: flex; }
-      .nav-links a { padding: 10px 4px; }
-      .nav-cta { text-align: center; }
+      .nav-links a { padding: 10px 4px; color: var(--forest-deep); }
+      .nav-cta { text-align: center; background: var(--orange); color: white !important; border: 0; }
       h1 { font-size: clamp(2.35rem, 13vw, 3.65rem); letter-spacing: -.02em; overflow-wrap: anywhere; }
       h2 { font-size: clamp(1.8rem, 8.5vw, 2.55rem); line-height: 1.15; }
       h3 { overflow-wrap: anywhere; }
@@ -373,7 +389,7 @@
       .hero { padding: 28px 0 48px; }
       .hero-grid { gap: 28px; }
       .hero-actions { flex-direction: column; gap: 10px; margin: 26px 0 28px; }
-      .hero-actions .button { width: 100%; min-width: 0; white-space: normal; text-align: center; }
+      .hero-actions .button { width: 100%; min-width: 0; min-height: 56px; white-space: normal; text-align: center; border-radius: 18px; }
       .hero-notes { display: grid; gap: 8px; }
       .hero-logo-card { min-height: 145px; padding: 12px; border-radius: 20px; }
       .hero-logo { width: min(100%, 165px); }
@@ -448,17 +464,24 @@
 <body>
   <a class="skip-link" href="#contenido">Ir al contenido principal</a>
 
-  <header>
-    <div class="wrap nav">
-      <a class="brand brand-mark" href="#inicio" aria-label="Ir al inicio"></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menú</button>
-      <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#nutricion">Nutrición</a>
-        <a href="#equipo">Equipo</a>
-        <a href="#preguntas">Preguntas</a>
-        <a class="nav-cta" href="#contacto">Contacto</a>
-      </nav>
+  <header class="site-header">
+    <div class="brand-strip">
+      <a href="#inicio" class="top-logo-link" aria-label="NUTRIELITE, inicio">
+        <img src="data:image/webp;base64,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" alt="NUTRIELITE" class="top-logo">
+      </a>
+    </div>
+    <div class="nav-shell">
+      <div class="wrap nav">
+        <span class="nav-spacer" aria-hidden="true"></span>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menú</button>
+        <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#nutricion">Nutrición</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#preguntas">Preguntas</a>
+          <a class="nav-cta" href="#contacto">Contacto</a>
+        </nav>
+      </div>
     </div>
   </header>
 
