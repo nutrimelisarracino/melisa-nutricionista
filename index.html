@@ -220,14 +220,59 @@
     .service-card-materno li::before { background:#c98470; box-shadow:0 0 0 5px rgba(201,132,112,.12); }
     .service-card-renal li::before { background:#4f8a76; box-shadow:0 0 0 5px rgba(79,138,118,.12); }
 
-    .modalities { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 30px; box-shadow: var(--shadow); }
-    .modality { min-height: 280px; padding: 44px; }
-    .modality-online { background: var(--forest); color: white; }
-    .modality-online h3 { color: white; }
-    .modality-online p { color: rgba(255,255,255,.76); }
-    .modality-soon { background: var(--rose); }
-    .pill { display: inline-block; margin-bottom: 28px; padding: 8px 11px; border-radius: 999px; background: rgba(255,255,255,.16); font-size: .76rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
-    .modality-soon .pill { background: rgba(255,255,255,.56); color: var(--clay); }
+    .modalities {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      overflow:hidden;
+      border-radius:30px;
+      box-shadow:0 18px 46px rgba(143,75,98,.08);
+      border:1px solid rgba(143,75,98,.08);
+    }
+    .modality {
+      min-height:280px;
+      padding:44px;
+      position:relative;
+      overflow:hidden;
+    }
+    .modality::after {
+      content:"";
+      position:absolute;
+      right:-48px;
+      bottom:-56px;
+      width:170px;
+      height:170px;
+      border-radius:50%;
+      background:rgba(255,255,255,.16);
+      pointer-events:none;
+    }
+    .modality-online {
+      background:linear-gradient(145deg,#f1d2c7 0%,#ead0d5 55%,#f7e9e3 100%);
+      color:#4f4a47;
+    }
+    .modality-online h3,
+    .modality-soon h3 { color:#8f4b62; }
+    .modality-online p,
+    .modality-soon p { color:#5b5652; }
+    .modality-soon {
+      background:linear-gradient(145deg,#ecd4dc 0%,#f2ddd8 55%,#f8ece6 100%);
+    }
+    .pill {
+      display:inline-block;
+      margin-bottom:28px;
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(255,255,255,.46);
+      color:#9a5b63;
+      font-size:.76rem;
+      font-weight:850;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      border:1px solid rgba(143,75,98,.08);
+    }
+    .modality-soon .pill {
+      background:rgba(255,255,255,.52);
+      color:#9a5b63;
+    }
 
     .consult-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
     .consult-card {
