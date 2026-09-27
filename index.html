@@ -111,8 +111,13 @@
       border: 1px solid rgba(36,72,62,.13); border-radius: 50%; box-shadow: 0 0 0 46px rgba(36,72,62,.035), 0 0 0 96px rgba(36,72,62,.025);
     }
     .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,.65fr); gap: 70px; align-items: start; }
+    .hero-professional { margin: 0 0 18px; }
+    .hero-founder {
+      margin: 0 0 5px; color: var(--clay); font-size: .75rem; font-weight: 850;
+      letter-spacing: .10em; text-transform: uppercase;
+    }
     .hero-kicker { margin-bottom: 10px; color: var(--forest); font-weight: 750; }
-    .hero-credentials { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 18px; }
+    .hero-credentials { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
     .hero-credentials span {
       display: inline-flex; align-items: center; min-height: 30px; padding: 5px 10px;
       border-radius: 999px; background: rgba(143,32,69,.08); color: var(--berry-deep);
@@ -385,7 +390,6 @@
       .hero-grid, .founder-grid, .section-head, .profile, .contact-card { grid-template-columns: 1fr; }
       .hero-panel { max-width: 620px; }
       .founder-grid { gap: 34px; }
-      .credential-card { position: static; }
       .steps { grid-template-columns: repeat(2, 1fr); }
       .profile-aside { padding-bottom: 30px; }
       .contact-side { padding-top: 10px; }
@@ -518,10 +522,13 @@
         <div class="hero-copy">
           <p class="eyebrow">Atención nutricional personalizada</p>
           <h1>NUTRIELITE</h1>
-          <p class="hero-kicker">Lic. Melisa Florencia Sarracino</p>
-          <div class="hero-credentials" aria-label="Matrículas profesionales">
-            <span>M.P. 8068</span>
-            <span>M.N. 13620</span>
+          <div class="hero-professional">
+            <p class="hero-founder">Fundadora de NUTRIELITE</p>
+            <p class="hero-kicker">Lic. Melisa Florencia Sarracino</p>
+            <div class="hero-credentials" aria-label="Matrículas profesionales">
+              <span>M.P. 8068</span>
+              <span>M.N. 13620</span>
+            </div>
           </div>
           <p class="lede">Acompañamiento profesional en nutrición materno-infantojuvenil y nutrición renal para niños, adolescentes y adultos.</p>
           <div class="hero-actions">
