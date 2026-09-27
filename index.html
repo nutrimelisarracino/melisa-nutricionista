@@ -706,24 +706,24 @@
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   
-/* Suavizado definitivo del bloque de contacto */
+/* Contacto: misma paleta suave de las tarjetas de consultas */
 #contacto .contact-card {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #f7e8e4 0%, #f3dfe4 48%, #f6ebe4 100%) !important;
-  color: #5b5350 !important;
-  border: 1px solid rgba(143,75,98,.08) !important;
-  box-shadow: 0 24px 70px rgba(143,75,98,.09) !important;
+  background: #f5eee5 !important;
+  color: #5b313b !important;
+  border: 1px solid rgba(135,59,85,.08) !important;
+  box-shadow: 0 18px 46px rgba(35,54,48,.07) !important;
 }
 #contacto .contact-card::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 12% 18%, rgba(255,255,255,.55), transparent 25%),
-    radial-gradient(circle at 86% 12%, rgba(226,183,170,.22), transparent 26%),
-    radial-gradient(circle at 75% 82%, rgba(205,150,160,.16), transparent 30%);
+    radial-gradient(circle at 10% 14%, rgba(255,255,255,.48), transparent 27%),
+    radial-gradient(circle at 88% 84%, rgba(255,255,255,.30), transparent 30%);
   pointer-events: none;
+  z-index: 0;
 }
 #contacto .contact-main,
 #contacto .contact-side {
@@ -732,49 +732,64 @@
 }
 #contacto .contact-main {
   background:
-    linear-gradient(145deg, rgba(246,221,224,.92) 0%, rgba(241,211,219,.92) 52%, rgba(248,234,229,.95) 100%) !important;
+    radial-gradient(circle at 88% 14%, rgba(255,255,255,.36), transparent 25%),
+    linear-gradient(145deg, #ecdcbf 0%, #f0dfc8 48%, #f6e8d5 100%) !important;
 }
 #contacto .contact-side {
   background:
-    linear-gradient(160deg, rgba(246,229,220,.96) 0%, rgba(239,215,207,.95) 48%, rgba(246,236,229,.98) 100%) !important;
-  border-left: 1px solid rgba(143,75,98,.08);
+    radial-gradient(circle at 12% 88%, rgba(255,255,255,.30), transparent 27%),
+    linear-gradient(145deg, #efcbb8 0%, #f1d1c1 50%, #f6ddd2 100%) !important;
+  border-left: 1px solid rgba(135,59,85,.08);
 }
-#contacto .contact-main::after,
+#contacto .contact-main::after {
+  content: "";
+  position: absolute;
+  right: -58px;
+  bottom: -62px;
+  width: 170px;
+  height: 170px;
+  border-radius: 42px 0 0 0;
+  background: rgba(255,255,255,.20);
+  transform: rotate(4deg);
+  pointer-events: none;
+}
 #contacto .contact-side::after {
   content: "";
   position: absolute;
+  right: -54px;
+  top: -56px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  border: 1px solid rgba(163,79,107,.12);
   pointer-events: none;
 }
-#contacto .contact-main::after {
-  width: 220px;
-  height: 220px;
-  right: -80px;
-  bottom: -90px;
-  background: radial-gradient(circle, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 72%);
+#contacto .contact-main .eyebrow {
+  color: #a34f6b !important;
 }
-#contacto .contact-side::after {
-  width: 180px;
-  height: 180px;
-  right: -70px;
-  top: -65px;
-  background: radial-gradient(circle, rgba(213,166,151,.16) 0%, rgba(213,166,151,0) 72%);
+#contacto .contact-main h2 {
+  color: #873b55 !important;
 }
-#contacto .contact-main h2,
-#contacto .contact-main p,
-#contacto .contact-side,
-#contacto .contact-side p,
-#contacto .contact-side strong {
-  color: #5b5350 !important;
+#contacto .contact-main p {
+  color: #5d343d !important;
 }
 #contacto .contact-main .button {
-  background: linear-gradient(135deg, #c98779 0%, #b96f79 100%) !important;
+  background: #a34f6b !important;
   color: #fff !important;
-  box-shadow: 0 12px 28px rgba(185,111,121,.18) !important;
+  box-shadow: 0 12px 28px rgba(163,79,107,.14) !important;
 }
 #contacto .contact-main .button:hover {
-  filter: brightness(.98);
-  transform: translateY(-1px);
+  background: #873b55 !important;
+}
+#contacto .contact-line {
+  border-bottom-color: rgba(135,59,85,.14) !important;
+}
+#contacto .contact-line small {
+  color: #9a5b63 !important;
+}
+#contacto .contact-line a,
+#contacto .contact-line span {
+  color: #5b313b !important;
 }
 </style>
 </head>
