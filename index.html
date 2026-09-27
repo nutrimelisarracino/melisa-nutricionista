@@ -152,12 +152,54 @@
 
     .section-head { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.75fr); gap: 50px; align-items: end; margin-bottom: 46px; }
     .section-head p { margin-bottom: 4px; color: var(--muted); }
-    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .service-card { padding: 34px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
-    .service-number { display: block; margin-bottom: 42px; color: var(--clay); font-size: .78rem; font-weight: 850; letter-spacing: .12em; }
-    .service-card ul { margin: 20px 0 0; padding: 0; list-style: none; color: var(--muted); }
-    .service-card li { position: relative; padding: 7px 0 7px 18px; }
-    .service-card li::before { content: ""; position: absolute; top: 17px; left: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .service-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
+    .service-card {
+      position: relative; overflow: hidden; padding: 38px; border: 1px solid rgba(36,72,62,.10);
+      border-radius: 30px; box-shadow: 0 18px 46px rgba(35,54,48,.07);
+    }
+    .service-card::after {
+      content:""; position:absolute; right:-44px; bottom:-46px; width:150px; height:150px;
+      border-radius:50%; border:1px solid rgba(255,255,255,.38); pointer-events:none;
+    }
+    .service-card-materno {
+      background:
+        radial-gradient(circle at 92% 12%, rgba(215,121,88,.12), transparent 24%),
+        linear-gradient(145deg, #f7e2dc 0%, #f9eee7 58%, #fffaf5 100%);
+    }
+    .service-card-renal {
+      background:
+        radial-gradient(circle at 92% 12%, rgba(81,126,111,.13), transparent 25%),
+        linear-gradient(145deg, #dfe9e2 0%, #edf3ee 58%, #fbfdfb 100%);
+    }
+    .service-card-top { display:flex; align-items:center; gap:14px; margin-bottom:26px; }
+    .service-icon {
+      display:grid; width:66px; height:66px; place-items:center; flex:0 0 auto;
+      border-radius:20px; background:rgba(255,255,255,.58); border:1px solid rgba(36,72,62,.10);
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,.22);
+    }
+    .service-icon svg {
+      width:42px; height:42px; fill:none; stroke:currentColor; stroke-width:1.7;
+      stroke-linecap:round; stroke-linejoin:round;
+    }
+    .service-icon-materno { color:#a85f68; }
+    .service-icon-renal { color:#2e6757; }
+    .service-number {
+      display:block; margin:0; color:var(--clay); font-size:.76rem; font-weight:850;
+      letter-spacing:.11em; text-transform:uppercase;
+    }
+    .service-card-materno .service-number { color:#9c5a62; }
+    .service-card-renal .service-number { color:#397060; }
+    .service-card h3 { margin-bottom:14px; font-size:clamp(1.7rem,2.7vw,2.25rem); }
+    .service-card-materno h3 { color:#7f3e51; }
+    .service-card-renal h3 { color:#234f43; }
+    .service-lead { margin-bottom:18px; color:#59605c; line-height:1.62; }
+    .service-card ul { margin:18px 0 0; padding:0; list-style:none; color:#59615d; }
+    .service-card li { position:relative; padding:9px 0 9px 28px; line-height:1.5; }
+    .service-card li::before {
+      content:""; position:absolute; top:17px; left:2px; width:8px; height:8px; border-radius:50%;
+    }
+    .service-card-materno li::before { background:#c98470; box-shadow:0 0 0 5px rgba(201,132,112,.12); }
+    .service-card-renal li::before { background:#4f8a76; box-shadow:0 0 0 5px rgba(79,138,118,.12); }
 
     .modalities { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 30px; box-shadow: var(--shadow); }
     .modality { min-height: 280px; padding: 44px; }
@@ -475,7 +517,11 @@
       .proposal-summary::after { right: 52px; bottom: -46px; width: 105px; height: 105px; }
       .proposal-summary::before { display: none; }
       .proposal-icon svg { width: 34px; height: 34px; }
-      .service-card { padding: 24px 20px; }
+      .service-card { padding: 28px 22px; border-radius: 24px; }
+      .service-card-top { gap: 12px; margin-bottom: 22px; }
+      .service-icon { width: 58px; height: 58px; border-radius: 17px; }
+      .service-icon svg { width: 36px; height: 36px; }
+      .service-card h3 { font-size: 1.8rem; }
       .consult-card { padding: 28px 22px; border-radius: 24px; }
       .consult-card h3 { font-size: 1.75rem; }
       .consult-kicker { font-size: .96rem; }
@@ -626,10 +672,21 @@
         </div>
 
         <div class="service-grid">
-          <article class="service-card">
-            <span class="service-number">01 / Materno-infantojuvenil</span>
+          <article class="service-card service-card-materno">
+            <div class="service-card-top">
+              <div class="service-icon service-icon-materno" aria-hidden="true">
+                <svg viewBox="0 0 64 64" focusable="false">
+                  <circle cx="25" cy="18" r="6"></circle>
+                  <circle cx="40" cy="27" r="4.5"></circle>
+                  <path d="M14 47c1-12 5-19 11-19s10 7 11 19"></path>
+                  <path d="M30 47c1-8 4-13 10-13 5 0 8 4 10 13"></path>
+                  <path d="M22 35c4 3 7 5 12 5"></path>
+                </svg>
+              </div>
+              <span class="service-number">01 / Materno-infantojuvenil</span>
+            </div>
             <h3>Nutrición materno-infantojuvenil</h3>
-            <p class="muted">Acompañamiento nutricional durante etapas que requieren una mirada cuidadosa, práctica y adaptada.</p>
+            <p class="service-lead">Acompañamiento nutricional durante etapas que requieren una mirada cuidadosa, práctica y adaptada.</p>
             <ul>
               <li>Embarazo y lactancia.</li>
               <li>Alimentación infantil.</li>
@@ -638,10 +695,19 @@
             </ul>
           </article>
 
-          <article class="service-card">
-            <span class="service-number">02 / Renal</span>
+          <article class="service-card service-card-renal">
+            <div class="service-card-top">
+              <div class="service-icon service-icon-renal" aria-hidden="true">
+                <svg viewBox="0 0 64 64" focusable="false">
+                  <path d="M25 13c-8 0-13 7-13 16 0 10 5 17 13 17 5 0 8-3 8-8V23c0-6-3-10-8-10z"></path>
+                  <path d="M39 13c8 0 13 7 13 16 0 10-5 17-13 17-5 0-8-3-8-8V23c0-6 3-10 8-10z"></path>
+                  <path d="M32 35v16"></path>
+                </svg>
+              </div>
+              <span class="service-number">02 / Renal</span>
+            </div>
             <h3>Nutrición renal</h3>
-            <p class="muted">Tratamiento nutricional individualizado según diagnóstico, etapa, estudios y pautas del equipo de salud.</p>
+            <p class="service-lead">Tratamiento nutricional individualizado según diagnóstico, etapa, estudios y pautas del equipo de salud.</p>
             <ul>
               <li>Enfermedad renal crónica.</li>
               <li>Litiasis renal.</li>
