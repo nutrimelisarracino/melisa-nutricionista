@@ -320,18 +320,42 @@
     details[open] summary::after { content: "−"; }
     details p { padding: 0 30px 22px 0; color: var(--muted); }
 
-    .contact-card { display: grid; grid-template-columns: 1.15fr .85fr; overflow: hidden; border-radius: 34px; background: var(--forest-deep); color: white; box-shadow: var(--shadow); }
-    .contact-main { padding: 55px; }
+    .contact-card {
+      display: grid; grid-template-columns: 1.15fr .85fr; overflow: hidden; border-radius: 34px;
+      background: var(--berry-deep); color: white;
+      box-shadow: 0 24px 70px rgba(116,25,54,.18);
+    }
+    .contact-main {
+      position: relative; padding: 55px;
+      background:
+        radial-gradient(circle at 88% 15%, rgba(223,92,47,.18), transparent 26%),
+        linear-gradient(145deg, var(--berry-deep) 0%, #8f2045 100%);
+    }
+    .contact-main::after {
+      content:""; position:absolute; right:-54px; bottom:-70px; width:190px; height:190px;
+      border:1px solid rgba(255,255,255,.10); border-radius:50%; pointer-events:none;
+    }
+    .contact-main .eyebrow { color: #f1c27d; }
     .contact-main h2 { color: white; }
-    .contact-main p { color: rgba(255,255,255,.72); }
-    .contact-side { padding: 55px 40px; background: rgba(255,255,255,.06); }
-    .contact-line { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.14); }
-    .contact-line small { display: block; margin-bottom: 3px; color: rgba(255,255,255,.55); font-size: .75rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+    .contact-main p { color: rgba(255,255,255,.80); }
+    .contact-main .button {
+      background: var(--orange); color: white; box-shadow: 0 12px 28px rgba(82,20,25,.22);
+    }
+    .contact-main .button:hover { background: var(--orange-deep); }
+    .contact-side {
+      padding: 55px 40px;
+      background: linear-gradient(180deg, #b45f49 0%, #9f503f 100%);
+    }
+    .contact-line { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.20); }
+    .contact-line small {
+      display: block; margin-bottom: 3px; color: rgba(255,248,241,.72);
+      font-size: .75rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
+    }
     .contact-line a, .contact-line span { color: white; text-decoration: none; overflow-wrap: anywhere; }
 
-    footer { padding: 30px 0; background: #102b25; color: rgba(255,255,255,.63); }
+    footer { padding: 30px 0; background: #5f1730; color: rgba(255,255,255,.70); }
     .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: .83rem; }
-    .footer-row a { color: rgba(255,255,255,.78); }
+    .footer-row a { color: rgba(255,255,255,.86); }
 
     .floating-whatsapp {
       position: fixed; z-index: 900; right: 22px; bottom: 22px; display: inline-flex; align-items: center; gap: 8px;
