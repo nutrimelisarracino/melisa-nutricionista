@@ -573,6 +573,32 @@
       .contact-main, .contact-side { padding: 26px 18px; }
     }
 
+    /* Correcciones definitivas de identidad visual */
+    .credential-card,
+    .status { display: none !important; }
+
+    #contacto .contact-card {
+      background: #a34f6b !important;
+      color: #fff !important;
+      box-shadow: 0 24px 70px rgba(163,79,107,.14) !important;
+    }
+    #contacto .contact-main {
+      background:
+        radial-gradient(circle at 88% 15%, rgba(215,121,88,.14), transparent 28%),
+        linear-gradient(145deg, #a34f6b 0%, #b35e76 100%) !important;
+    }
+    #contacto .contact-side {
+      background: linear-gradient(180deg, #d18468 0%, #c36f58 100%) !important;
+    }
+    #contacto .contact-main .button {
+      background: #d77958 !important;
+      color: #fff !important;
+    }
+    #contacto .contact-main .button:hover { background: #c7654a !important; }
+    #contacto .contact-main .eyebrow { color: #f1d7aa !important; }
+    #contacto .contact-line { border-bottom-color: rgba(255,255,255,.22) !important; }
+    #contacto .contact-line small { color: rgba(255,250,245,.78) !important; }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
@@ -1212,5 +1238,6 @@
     }
 
   </script>
+  <!-- visual-fix-2026-09-26-2159 -->
 </body>
 </html>
