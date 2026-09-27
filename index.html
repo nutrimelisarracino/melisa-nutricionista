@@ -181,6 +181,9 @@
       width:48px; height:48px; fill:none; stroke:currentColor; stroke-width:1.65;
       stroke-linecap:round; stroke-linejoin:round;
     }
+    .service-icon-image {
+      display:block; width:52px; height:52px; object-fit:contain;
+    }
     .service-icon-materno { color:#a96a72; }
     .service-icon-renal { color:#356d5d; }
     .service-number {
@@ -522,6 +525,7 @@
       .service-card-top { gap: 12px; margin-bottom: 22px; }
       .service-icon { width: 64px; height: 64px; border-radius: 19px; }
       .service-icon svg { width: 42px; height: 42px; }
+      .service-icon-image { width: 46px; height: 46px; }
       .service-card h3 { font-size: 1.8rem; }
       .consult-card { padding: 28px 22px; border-radius: 24px; }
       .consult-card h3 { font-size: 1.75rem; }
@@ -702,14 +706,7 @@
           <article class="service-card service-card-materno">
             <div class="service-card-top">
               <div class="service-icon service-icon-materno" aria-hidden="true">
-                <svg viewBox="0 0 64 64" focusable="false">
-                  <circle cx="30" cy="12" r="5.5"></circle>
-                  <path d="M27 18c-4 5-6 11-6 18v15"></path>
-                  <path d="M32 19c5 4 7 8 7 13"></path>
-                  <path d="M39 31c8 1 12 7 12 13 0 6-4 10-10 10-6 0-10-4-10-9 0-5 3-9 8-11"></path>
-                  <path d="M25 31c3 4 7 6 13 6"></path>
-                  <path d="M21 51c5 1 10 1 15 0"></path>
-                </svg>
+                <img src="materno-icon.png" alt="" class="service-icon-image">
               </div>
               <span class="service-number">01 / Materno-infantojuvenil</span>
             </div>
