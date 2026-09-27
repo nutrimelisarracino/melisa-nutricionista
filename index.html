@@ -111,7 +111,13 @@
       border: 1px solid rgba(36,72,62,.13); border-radius: 50%; box-shadow: 0 0 0 46px rgba(36,72,62,.035), 0 0 0 96px rgba(36,72,62,.025);
     }
     .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,.65fr); gap: 70px; align-items: start; }
-    .hero-kicker { margin-bottom: 15px; color: var(--forest); font-weight: 750; }
+    .hero-kicker { margin-bottom: 10px; color: var(--forest); font-weight: 750; }
+    .hero-credentials { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 18px; }
+    .hero-credentials span {
+      display: inline-flex; align-items: center; min-height: 30px; padding: 5px 10px;
+      border-radius: 999px; background: rgba(143,32,69,.08); color: var(--berry-deep);
+      font-size: .78rem; font-weight: 800; letter-spacing: .03em;
+    }
     .hero-copy { max-width: 700px; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 34px 0 36px; }
     .button {
@@ -137,12 +143,7 @@
     .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 9px 12px; border-radius: 999px; background: var(--forest-soft); color: var(--forest-deep); font-size: .82rem; font-weight: 750; }
     .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #3f876d; box-shadow: 0 0 0 4px rgba(63,135,109,.13); }
 
-    .founder-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 72px; align-items: start; }
-    .credential-card { position: sticky; top: 105px; padding: 34px; border-radius: var(--radius); background: var(--forest); color: white; box-shadow: var(--shadow); }
-    .credential-card h3 { color: white; font-size: 2rem; }
-    .credential-card p { color: rgba(255,255,255,.76); }
-    .credential-list { display: grid; gap: 12px; margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); }
-    .credential-list span { font-size: .92rem; font-weight: 700; }
+    .founder-grid { display: grid; grid-template-columns: 1fr; gap: 34px; align-items: start; }
     .founder-copy p { color: #46524d; font-size: 1.05rem; }
     .founder-copy .intro { color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: clamp(1.35rem, 2.6vw, 1.85rem); line-height: 1.45; }
 
@@ -413,6 +414,8 @@
       .hero { padding: 28px 0 48px; }
       .hero-grid { gap: 28px; }
       .hero-actions { flex-direction: column; gap: 10px; margin: 26px 0 28px; }
+      .hero-credentials { gap: 8px; margin-bottom: 16px; }
+      .hero-credentials span { font-size: .74rem; }
       .hero-actions .button { width: 100%; min-width: 0; min-height: 56px; white-space: normal; text-align: center; border-radius: 18px; }
       .hero-notes { display: grid; gap: 8px; }
       .hero-logo-card { min-height: 145px; padding: 12px; border-radius: 20px; }
@@ -516,6 +519,10 @@
           <p class="eyebrow">Atención nutricional personalizada</p>
           <h1>NUTRIELITE</h1>
           <p class="hero-kicker">Lic. Melisa Florencia Sarracino</p>
+          <div class="hero-credentials" aria-label="Matrículas profesionales">
+            <span>M.P. 8068</span>
+            <span>M.N. 13620</span>
+          </div>
           <p class="lede">Acompañamiento profesional en nutrición materno-infantojuvenil y nutrición renal para niños, adolescentes y adultos.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20solicitar%20informaci%C3%B3n%20para%20reservar%20una%20consulta%20nutricional%20en%20l%C3%ADnea." target="_blank" rel="noopener">Solicitar una consulta <span class="arrow" aria-hidden="true">→</span></a>
@@ -546,15 +553,6 @@
 
     <section class="section" id="sobre-mi">
       <div class="wrap founder-grid">
-        <aside class="credential-card">
-          <p class="eyebrow" style="color:#dfc18e">Fundadora de NUTRIELITE</p>
-          <h3>Melisa Florencia Sarracino</h3>
-          <div class="credential-list">
-            <span>M.P. 8068</span>
-            <span>M.N. 13620</span>
-          </div>
-        </aside>
-
         <div class="founder-copy">
           <p class="eyebrow">Sobre mí</p>
           <h2>NUTRIELITE nace de una manera de entender la nutrición</h2>
