@@ -111,12 +111,25 @@
       border: 1px solid rgba(36,72,62,.13); border-radius: 50%; box-shadow: 0 0 0 46px rgba(36,72,62,.035), 0 0 0 96px rgba(36,72,62,.025);
     }
     .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,.65fr); gap: 70px; align-items: start; }
-    .hero-professional { margin: 0 0 18px; }
+    .hero-professional { margin: 0 0 20px; }
     .hero-founder {
-      margin: 0 0 5px; color: var(--clay); font-size: .75rem; font-weight: 850;
-      letter-spacing: .10em; text-transform: uppercase;
+      margin: 0 0 6px;
+      color: #8f4b62;
+      font-family: "Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size: clamp(1.35rem, 2.2vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      line-height: 1.2;
     }
-    .hero-kicker { margin-bottom: 10px; color: var(--forest); font-weight: 750; }
+    .hero-kicker {
+      margin-bottom: 12px;
+      color: #9a4e67;
+      font-family: "Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size: clamp(2rem, 3.3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.12;
+    }
     .hero-credentials { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
     .hero-credentials span {
       display: inline-flex; align-items: center; min-height: 30px; padding: 5px 10px;
@@ -503,6 +516,8 @@
       .hero { padding: 28px 0 48px; }
       .hero-grid { gap: 28px; }
       .hero-actions { flex-direction: column; gap: 10px; margin: 26px 0 28px; }
+      .hero-founder { font-size: 1.2rem; }
+      .hero-kicker { font-size: 2rem; }
       .hero-credentials { gap: 8px; margin-bottom: 16px; }
       .hero-credentials span { font-size: .74rem; }
       .hero-actions .button { width: 100%; min-width: 0; min-height: 56px; white-space: normal; text-align: center; border-radius: 18px; }
