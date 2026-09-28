@@ -151,8 +151,26 @@
     .arrow { font-size: 1.1em; }
     .hero-visual { display: grid; gap: 18px; align-items: start; }
     .hero-panel {
-      position: relative; padding: 30px 34px; border: 1px solid rgba(36,72,62,.14); border-radius: 30px;
-      background: rgba(255,253,248,.88); box-shadow: var(--shadow); backdrop-filter: blur(8px); border-left: 4px solid rgba(215,121,88,.48);
+      position: relative;
+      padding: 32px 36px;
+      border: 2px solid rgba(163,79,107,.18);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 88% 14%, rgba(239,203,184,.22), transparent 28%),
+        linear-gradient(145deg, rgba(255,252,247,.97) 0%, rgba(250,241,235,.97) 100%);
+      box-shadow:
+        0 22px 54px rgba(135,59,85,.10),
+        inset 0 0 0 1px rgba(255,255,255,.65);
+      backdrop-filter: blur(8px);
+      border-left: 6px solid rgba(215,121,88,.56);
+    }
+    .hero-panel::before {
+      content:"";
+      position:absolute;
+      inset:10px;
+      border:1px solid rgba(163,79,107,.06);
+      border-radius:24px;
+      pointer-events:none;
     }
     .panel-label { margin-bottom: 22px; color: var(--clay); font-size: .75rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
     .panel-item { padding: 18px 0; border-top: 1px solid var(--line); }
