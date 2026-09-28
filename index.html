@@ -393,7 +393,11 @@
     }
     .proposal-card[open] .proposal-toggle { transform: rotate(45deg); background: var(--clay); }
     .proposal-content { padding: 18px; border-top: 1px solid var(--line); background: #fffdf9; }
-    .proposal-content .profile { box-shadow: none; margin: 0; }
+    .proposal-content .profile {
+      display: block;
+      box-shadow: none;
+      margin: 0;
+    }
     .team-stack { display: grid; gap: 28px; }
     .profile { display: grid; grid-template-columns: minmax(0,.65fr) minmax(0,1.35fr); overflow: hidden; border: 1px solid var(--line); border-radius: 30px; background: white; box-shadow: 0 20px 60px rgba(35,54,48,.07); }
     .profile-aside { padding: 42px 36px; background: var(--forest-soft); }
@@ -401,7 +405,7 @@
     .profile-aside.kitchen { background: #eee1cf; }
     .profile-initials { display: grid; width: 82px; height: 82px; margin-bottom: 28px; place-items: center; border: 1px solid rgba(36,72,62,.24); border-radius: 50%; color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: 1.65rem; }
     .profile-role { color: var(--clay); font-size: .78rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
-    .profile-body { padding: 38px; }
+    .profile-body { padding: 42px 38px; }
     .profile-body p { color: #4b5752; }
     .offer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 26px 0; }
     .offer { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
@@ -1094,16 +1098,6 @@
             </summary>
             <div class="proposal-content">
           <article class="profile">
-            <div class="profile-aside coach">
-              <div class="profile-initials profile-symbol profile-symbol-coach"><svg viewBox="0 0 48 48" focusable="false" aria-hidden="true">
-                  <path d="M10 14.5c0-4.1 3.6-7.5 8-7.5h11c4.4 0 8 3.4 8 7.5v6c0 4.1-3.6 7.5-8 7.5H22l-6.5 5v-5H18c-4.4 0-8-3.4-8-7.5z"/>
-                  <path d="M28.5 31.5h2.8c3.7 0 6.7-2.7 6.7-6v-.8"/>
-                  <path d="M18 16.5h11M18 21.5h7"/>
-                </svg></div>
-              <p class="profile-role">Coaching ontológico</p>
-              <h3>Mónica Andrea Sarracino</h3>
-              <p>Coach Ontológica Profesional</p>
-            </div>
             <div class="profile-body">
               <p>Su interés por el desarrollo personal y los procesos de cambio la llevó a formarse como Coach Ontológica Profesional. Dentro de NUTRIELITE ofrece un espacio de acompañamiento para quienes desean revisar hábitos, creencias y obstáculos personales, y transformar sus objetivos en acciones posibles.</p>
               <p>¿Sabes qué cambios quieres realizar, pero te cuesta sostenerlos en el tiempo? El coaching propone un espacio de conversación y reflexión para reconocer qué puede estar interfiriendo con tus objetivos y comenzar a construir nuevas posibilidades.</p>
@@ -1133,18 +1127,6 @@
             </summary>
             <div class="proposal-content">
           <article class="profile">
-            <div class="profile-aside kitchen">
-              <div class="profile-initials profile-symbol profile-symbol-kitchen"><svg viewBox="0 0 48 48" focusable="false" aria-hidden="true">
-                  <path d="M10 25h28c-.6 8.2-6.4 13-14 13s-13.4-4.8-14-13z"/>
-                  <path d="M8 25h32"/>
-                  <path d="M18 20c-2.2-2.3-.5-4.1 1-5.7 1.5-1.7 2-3.3.4-5.3"/>
-                  <path d="M25 20c-2.2-2.3-.5-4.1 1-5.7 1.5-1.7 2-3.3.4-5.3"/>
-                  <path d="M32 20c-2.2-2.3-.5-4.1 1-5.7"/>
-                </svg></div>
-              <p class="profile-role">Gastronomía</p>
-              <h3>Carla Noemí Sarracino</h3>
-              <p>Cocina profesional y alta cocina</p>
-            </div>
             <div class="profile-body">
               <p>Su interés por la cocina la llevó a formarse profesionalmente en gastronomía y alta cocina. Para Carla, cocinar también es una manera de crear, compartir y transformar ingredientes cotidianos en propuestas variadas y disfrutables.</p>
               <p>Dentro de NUTRIELITE desarrollará una colección de libros digitales con preparaciones pensadas para distintos momentos del día, acercando ideas prácticas y creativas para incorporar a la cocina cotidiana.</p>
