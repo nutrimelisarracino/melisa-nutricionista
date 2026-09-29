@@ -1436,6 +1436,11 @@
     #inicio.nav-hero-hidden {
       display:none !important;
     }
+
+    /* Navegación progresiva: mostrar desde la sección elegida hacia abajo */
+    .nav-section-hidden {
+      display:none !important;
+    }
 </style>
 </head>
 <body>
@@ -3059,29 +3064,25 @@
       const targetView=['home','about','nutrition','team','faq','contact'].includes(view) ? view : 'home';
       restoreOriginalOrder();
 
+      // Índice desde el que debe comenzar a mostrarse la página.
+      const startIndexByView = {
+        home: 0,
+        about: originalSections.findIndex(section => section.dataset && section.dataset.view === 'about'),
+        nutrition: originalSections.findIndex(section => section.dataset && section.dataset.view === 'nutrition'),
+        team: originalSections.findIndex(section => section.dataset && section.dataset.view === 'team'),
+        faq: originalSections.findIndex(section => section.dataset && section.dataset.view === 'faq'),
+        contact: originalSections.findIndex(section => section.dataset && section.dataset.view === 'contact')
+      };
+
+      const startIndex = Math.max(0, startIndexByView[targetView]);
+
+      originalSections.forEach((section, index) => {
+        section.classList.toggle('nav-section-hidden', index < startIndex);
+      });
+
+      // Ya no necesitamos el comportamiento anterior de ocultar solo la portada.
       const heroSection=document.getElementById('inicio');
-      if(heroSection) {
-        heroSection.classList.toggle('nav-hero-hidden', targetView !== 'home');
-      }
-
-      // Mantener todo el contenido visible, pero continuar desde la sección elegida
-      // para evitar que, debajo de Equipo o Preguntas, parezca que la página vuelve a empezar.
-      if(targetView !== 'home' && targetView !== 'contact' && mainContent) {
-        const visibleSections=originalSections.filter(section => section.id !== 'inicio');
-        const firstIndex=visibleSections.findIndex(section => section.dataset && section.dataset.view === targetView);
-
-        if(firstIndex >= 0) {
-          const before=visibleSections.slice(0,firstIndex);
-          const fromSelected=visibleSections.slice(firstIndex);
-          const reordered=[...fromSelected,...before];
-
-          reordered.forEach(section => mainContent.appendChild(section));
-
-          // El cierre editorial permanece siempre al final.
-          const contactSection=document.getElementById('contacto');
-          if(contactSection) mainContent.appendChild(contactSection);
-        }
-      }
+      if(heroSection) heroSection.classList.remove('nav-hero-hidden');
 
       document.querySelectorAll('#nav-links a[href^="#"]').forEach(link => {
         const id=(link.getAttribute('href')||'').slice(1);
@@ -3094,14 +3095,7 @@
       if(toggle) toggle.setAttribute('aria-expanded','false');
 
       if(options.scroll !== false) {
-        if(targetView === 'contact') {
-          const contactSection=document.getElementById('contacto');
-          if(contactSection) {
-            contactSection.scrollIntoView({behavior:'smooth',block:'start'});
-          }
-        } else {
-          window.scrollTo({top:0,left:0,behavior:'auto'});
-        }
+        window.scrollTo({top:0,left:0,behavior:'auto'});
       }
 
       if(options.history !== false) {
