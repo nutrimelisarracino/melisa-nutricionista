@@ -1993,6 +1993,141 @@
       }
     }
 
+    /* Equipo: tarjetas gemelas, equilibradas y más institucionales */
+    .proposal-accordion {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:24px;
+      align-items:stretch;
+    }
+    .proposal-card {
+      display:block;
+      height:100%;
+      border-radius:28px;
+    }
+    .proposal-card:not([open]) {
+      min-height:250px;
+    }
+    .proposal-summary {
+      min-height:250px;
+      height:100%;
+      grid-template-columns:96px minmax(0,1fr) 52px;
+      gap:24px;
+      padding:30px 32px;
+      align-items:center;
+    }
+    .proposal-photo-placeholder {
+      width:96px;
+      height:96px;
+      justify-self:center;
+      align-self:center;
+      margin:0;
+    }
+    .proposal-summary-copy {
+      align-self:center;
+      display:grid;
+      align-content:center;
+      min-width:0;
+      max-width:none;
+    }
+    .proposal-kicker {
+      margin-bottom:7px;
+    }
+    .proposal-summary h3 {
+      margin:0 0 8px;
+      min-height:2.3em;
+      display:flex;
+      align-items:center;
+      font-size:1.5rem;
+      line-height:1.12;
+    }
+    .proposal-summary p {
+      margin:0;
+      max-width:320px;
+      min-height:4.65em;
+      line-height:1.55;
+    }
+    .proposal-summary-copy::after {
+      margin-top:14px;
+    }
+    .proposal-toggle {
+      justify-self:end;
+      align-self:center;
+      width:48px;
+      height:48px;
+      flex:0 0 48px;
+    }
+    .proposal-summary::before {
+      right:30px;
+      bottom:-12px;
+    }
+    .proposal-summary::after {
+      right:72px;
+      bottom:-36px;
+    }
+    .proposal-card[open] {
+      height:auto;
+    }
+    .proposal-card[open] .proposal-summary {
+      min-height:220px;
+      height:auto;
+    }
+
+    @media(max-width:900px){
+      .proposal-accordion {
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+      .proposal-card:not([open]) {
+        min-height:0;
+      }
+      .proposal-summary {
+        min-height:auto;
+        height:auto;
+        grid-template-columns:78px minmax(0,1fr) 46px;
+        gap:18px;
+        padding:24px;
+      }
+      .proposal-photo-placeholder {
+        width:78px;
+        height:78px;
+      }
+      .proposal-summary h3,
+      .proposal-summary p {
+        min-height:0;
+      }
+      .proposal-summary p {
+        max-width:none;
+      }
+      .proposal-toggle {
+        width:44px;
+        height:44px;
+      }
+    }
+
+    @media(max-width:560px){
+      .proposal-summary {
+        grid-template-columns:64px minmax(0,1fr) 42px;
+        gap:14px;
+        padding:20px 18px;
+      }
+      .proposal-photo-placeholder {
+        width:64px;
+        height:64px;
+      }
+      .proposal-summary h3 {
+        font-size:1.25rem;
+      }
+      .proposal-summary p {
+        font-size:.92rem;
+      }
+      .proposal-toggle {
+        width:40px;
+        height:40px;
+        font-size:1.25rem;
+      }
+    }
+
     /* Jerarquía tipográfica refinada */
     body {
       font-size:16px;
