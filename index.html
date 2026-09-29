@@ -1658,10 +1658,33 @@
     .view-section {
       display:block;
     }
+    .nav-links a {
+      position:relative;
+      transition:color .2s ease, background .2s ease, border-color .2s ease;
+    }
     .nav-links a.is-current {
-      background:rgba(239,226,231,.72);
-      border-color:rgba(143,75,98,.16);
+      background:rgba(239,226,231,.78);
+      border-color:rgba(143,75,98,.18);
       color:#653848;
+    }
+    .nav-links a.is-current::after {
+      content:"";
+      position:absolute;
+      left:12px;
+      right:12px;
+      bottom:-8px;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,#d57a59 0%,#9b5570 100%);
+      box-shadow:0 2px 8px rgba(143,75,98,.16);
+    }
+    @media(max-width:720px){
+      .nav-links a.is-current::after {
+        left:4px;
+        right:auto;
+        bottom:4px;
+        width:34px;
+      }
     }
 
     /* Al navegar desde el menú, ocultar la portada para evitar que reaparezca más abajo */
@@ -4364,6 +4387,50 @@
       originalSections.forEach(section => mainContent.appendChild(section));
     }
 
+    function updateActiveNav(view) {
+      document.querySelectorAll('#nav-links a[href^="#"]').forEach(link => {
+        const id=(link.getAttribute('href')||'').slice(1);
+        const active=viewByTarget[id]===view;
+        link.classList.toggle('is-current',active);
+        if(active) link.setAttribute('aria-current','page');
+        else link.removeAttribute('aria-current');
+      });
+    }
+
+    let navScrollTick=false;
+    function updateActiveNavFromScroll() {
+      navScrollTick=false;
+
+      const visibleSections=originalSections.filter(section =>
+        !section.classList.contains('nav-section-hidden') &&
+        section.offsetParent!==null &&
+        section.dataset?.view
+      );
+      if(!visibleSections.length) return;
+
+      const header=document.querySelector('.site-header');
+      const marker=(header?.offsetHeight || 0)+120;
+      let active=visibleSections[0];
+
+      visibleSections.forEach(section=>{
+        if(section.getBoundingClientRect().top<=marker) active=section;
+      });
+
+      updateActiveNav(active.dataset.view);
+    }
+
+    window.addEventListener('scroll',()=>{
+      if(navScrollTick) return;
+      navScrollTick=true;
+      requestAnimationFrame(updateActiveNavFromScroll);
+    },{passive:true});
+
+    window.addEventListener('resize',()=>{
+      if(navScrollTick) return;
+      navScrollTick=true;
+      requestAnimationFrame(updateActiveNavFromScroll);
+    });
+
     function showSiteView(view, options={}) {
       const targetView=['home','about','nutrition','agenda','team','faq','contact'].includes(view) ? view : 'home';
       restoreOriginalOrder();
@@ -4389,10 +4456,7 @@
       const heroSection=document.getElementById('inicio');
       if(heroSection) heroSection.classList.remove('nav-hero-hidden');
 
-      document.querySelectorAll('#nav-links a[href^="#"]').forEach(link => {
-        const id=(link.getAttribute('href')||'').slice(1);
-        link.classList.toggle('is-current', viewByTarget[id] === targetView);
-      });
+      updateActiveNav(targetView);
 
       const menu=document.getElementById('nav-links');
       const toggle=document.querySelector('.menu-toggle');
@@ -4436,6 +4500,7 @@
 
     const initialTarget=location.hash.replace('#','') || 'inicio';
     showSiteView(viewByTarget[initialTarget] || 'home',{history:false,scroll:false});
+    requestAnimationFrame(updateActiveNavFromScroll);
 
     setLanguage(currentLang);
 
