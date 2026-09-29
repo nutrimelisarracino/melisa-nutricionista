@@ -1200,6 +1200,21 @@
         filter:brightness(1.015);
       }
     }
+
+    /* Interacción táctil sutil de la foto de Sobre mí en móviles/tablets */
+    @media (hover:none) and (pointer:coarse) {
+      #sobre-mi .founder-photo-frame {
+        -webkit-tap-highlight-color: transparent;
+      }
+      #sobre-mi .founder-photo-frame:active {
+        transform:translateY(-1px) scale(1.005);
+        box-shadow:0 20px 42px rgba(65,78,35,.14);
+      }
+      #sobre-mi .founder-photo-frame:active .founder-photo {
+        transform:scale(1.02) translateY(-1px);
+        filter:brightness(1.01);
+      }
+    }
 </style>
 </head>
 <body>
