@@ -1212,6 +1212,67 @@
         filter:brightness(1.01);
       }
     }
+
+    /* Cierre editorial de NUTRIELITE */
+    .closing-quote-section {
+      padding:82px 0 88px;
+      background:linear-gradient(180deg,#fffdf9 0%,#fbf7f1 100%);
+    }
+    .closing-quote-box {
+      position:relative;
+      max-width:980px;
+      margin:0 auto;
+      padding:54px 56px;
+      overflow:hidden;
+      border:1px solid rgba(143,75,98,.10);
+      border-radius:30px;
+      background:
+        radial-gradient(circle at 14% 18%,rgba(255,255,255,.62),transparent 30%),
+        linear-gradient(145deg,#f8f0e7 0%,#f3e5dd 52%,#efe1d6 100%);
+      box-shadow:0 20px 48px rgba(65,78,35,.07);
+      text-align:center;
+    }
+    .closing-quote-box::before {
+      content:"“";
+      position:absolute;
+      left:26px;
+      top:2px;
+      color:rgba(176,44,104,.13);
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:7.5rem;
+      line-height:1;
+      pointer-events:none;
+    }
+    .closing-quote-text {
+      position:relative;
+      z-index:1;
+      max-width:830px;
+      margin:0 auto;
+      color:#8a405b;
+      font-family:"Cormorant Garamond","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size:clamp(1.65rem,2.7vw,2.35rem);
+      font-style:italic;
+      font-weight:600;
+      line-height:1.45;
+      letter-spacing:.005em;
+      text-wrap:balance;
+    }
+    @media (max-width:720px) {
+      .closing-quote-section { padding:58px 0 64px; }
+      .closing-quote-box {
+        padding:38px 24px;
+        border-radius:24px;
+      }
+      .closing-quote-box::before {
+        left:14px;
+        top:4px;
+        font-size:5.5rem;
+      }
+      .closing-quote-text {
+        font-size:clamp(1.4rem,6vw,1.85rem);
+        line-height:1.5;
+      }
+    }
 </style>
 </head>
 <body>
@@ -1729,32 +1790,10 @@
       </div>
     </section>
 
-    <section class="section section-soft" id="contacto">
-      <div class="wrap contact-card contact-card-single">
-        <div class="contact-main contact-main-single">
-          <h2>Solicita información para comenzar.</h2>
-
-          <div class="contact-line">
-            <small>WhatsApp</small>
-            <a href="tel:+541133069146">+54 11 3306 9146</a>
-          </div>
-
-          <div class="contact-line">
-            <small>Nutrición</small>
-            <a href="mailto:nutri.sarracinomelisa@gmail.com">nutri.sarracinomelisa@gmail.com</a>
-          </div>
-
-          <div class="contact-line">
-            <small>NUTRIELITE</small>
-            <a href="mailto:nutrieliteoficial@gmail.com">nutrieliteoficial@gmail.com</a>
-          </div>
-
-          <div class="contact-line">
-            <small>Ubicación</small>
-            <span>San Nicolás de los Arroyos, Argentina</span>
-          </div>
-
-          <a class="button" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    <section class="section closing-quote-section" id="contacto">
+      <div class="wrap">
+        <div class="closing-quote-box">
+          <p class="closing-quote-text">La nutrición no puede reducirse a nutrientes, calorías o restricciones: implica comprender procesos biológicos, etapas de vida, contexto clínico y realidad cotidiana.</p>
         </div>
       </div>
     </section>
@@ -1896,6 +1935,7 @@
       "Ir al contenido principal":"Skip to main content",
       "Menú":"Menu",
       "Sobre mí":"About me",
+      "La nutrición no puede reducirse a nutrientes, calorías o restricciones: implica comprender procesos biológicos, etapas de vida, contexto clínico y realidad cotidiana.":"Nutrition cannot be reduced to nutrients, calories, or restrictions: it requires an understanding of biological processes, stages of life, clinical context, and everyday reality.",
       "Hola, soy Melisa Sarracino":"Hello, I am Melisa Sarracino",
       "Licenciada en Nutrición.":"Registered Dietitian.",
       "Nutrición":"Nutrition",
