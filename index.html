@@ -1167,6 +1167,18 @@
       font-weight:600;
       line-height:1.2;
     }
+
+    /* Evitar que aparezca el cursor de texto sobre la foto de Sobre mí */
+    #sobre-mi .founder-photo-column,
+    #sobre-mi .founder-photo-frame,
+    #sobre-mi .founder-photo {
+      caret-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    #sobre-mi .founder-photo {
+      pointer-events: none;
+    }
 </style>
 </head>
 <body>
