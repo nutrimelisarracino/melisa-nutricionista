@@ -155,10 +155,10 @@
       box-shadow:0 0 0 1px rgba(0,0,0,.10);
     }
     .lang-toggle .flag-es {
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Crect width='30' height='20' fill='%23aa151b'/%3E%3Crect y='5' width='30' height='10' fill='%23f1bf00'/%3E%3C/svg%3E");
+      
     }
     .lang-toggle .flag-en {
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='s'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23s)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23c8102e' stroke-width='3'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23c8102e' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+      
     }
 
     .hero {
@@ -1235,11 +1235,24 @@
     .closing-quote-box::before {
       content:"“";
       position:absolute;
-      left:26px;
-      top:2px;
-      color:rgba(176,44,104,.13);
+      left:30px;
+      top:8px;
+      color:rgba(205,120,150,.24);
       font-family:Georgia,"Times New Roman",serif;
-      font-size:7.5rem;
+      font-size:7rem;
+      font-weight:700;
+      line-height:1;
+      pointer-events:none;
+    }
+    .closing-quote-box::after {
+      content:"”";
+      position:absolute;
+      right:30px;
+      bottom:-6px;
+      color:rgba(205,120,150,.24);
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:7rem;
+      font-weight:700;
       line-height:1;
       pointer-events:none;
     }
@@ -1266,6 +1279,11 @@
       .closing-quote-box::before {
         left:14px;
         top:4px;
+        font-size:5.5rem;
+      }
+      .closing-quote-box::after {
+        right:14px;
+        bottom:-4px;
         font-size:5.5rem;
       }
       .closing-quote-text {
@@ -1793,7 +1811,7 @@
     <section class="section closing-quote-section" id="contacto">
       <div class="wrap">
         <div class="closing-quote-box">
-          <p class="closing-quote-text">La nutrición no puede reducirse a nutrientes, calorías o restricciones: implica comprender procesos biológicos, etapas de vida, contexto clínico y realidad cotidiana.”</p>
+          <p class="closing-quote-text">La nutrición no puede reducirse a nutrientes, calorías o restricciones: implica comprender procesos biológicos, etapas de la vida, contexto clínico y realidad cotidiana.</p>
         </div>
       </div>
     </section>
@@ -1935,7 +1953,7 @@
       "Ir al contenido principal":"Skip to main content",
       "Menú":"Menu",
       "Sobre mí":"About me",
-      "La nutrición no puede reducirse a nutrientes, calorías o restricciones: implica comprender procesos biológicos, etapas de vida, contexto clínico y realidad cotidiana.”":"Nutrition cannot be reduced to nutrients, calories, or restrictions: it requires an understanding of biological processes, stages of life, clinical context, and everyday reality.”",
+      "La nutrición no puede reducirse a nutrientes, calorías o restricciones: implica comprender procesos biológicos, etapas de la vida, contexto clínico y realidad cotidiana.":"Nutrition cannot be reduced to nutrients, calories, or restrictions: it requires an understanding of biological processes, stages of life, clinical context, and everyday reality.”",
       "Hola, soy Melisa Sarracino":"Hello, I am Melisa Sarracino",
       "Licenciada en Nutrición.":"Registered Dietitian.",
       "Nutrición":"Nutrition",
