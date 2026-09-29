@@ -1076,19 +1076,19 @@
     /* Aparición suave al entrar en pantalla */
     .scroll-reveal {
       opacity:0;
-      transform:translateY(16px);
+      transform:translateY(30px) scale(.985);
       transition:
-        opacity .58s cubic-bezier(.22,.61,.36,1),
-        transform .58s cubic-bezier(.22,.61,.36,1);
+        opacity .76s cubic-bezier(.22,.61,.36,1),
+        transform .76s cubic-bezier(.22,.61,.36,1);
       will-change:opacity,transform;
     }
     .scroll-reveal.is-visible {
       opacity:1;
-      transform:none;
+      transform:translateY(0) scale(1);
     }
-    .scroll-reveal.reveal-delay-1 { transition-delay:.06s; }
-    .scroll-reveal.reveal-delay-2 { transition-delay:.12s; }
-    .scroll-reveal.reveal-delay-3 { transition-delay:.18s; }
+    .scroll-reveal.reveal-delay-1 { transition-delay:.08s; }
+    .scroll-reveal.reveal-delay-2 { transition-delay:.16s; }
+    .scroll-reveal.reveal-delay-3 { transition-delay:.24s; }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -2584,10 +2584,13 @@
       const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const selectors=[
         '.section-head',
+        '.founder-grid',
         '.consult-card',
         '.step',
         '.agenda-shell',
+        '.team-intro',
         '.proposal-card',
+        '.catalog-group',
         '.book-faq',
         '#preguntas details',
         '.closing-quote-box'
@@ -2614,8 +2617,8 @@
           }
         });
       },{
-        threshold:.12,
-        rootMargin:'0px 0px -45px 0px'
+        threshold:.16,
+        rootMargin:'0px 0px -75px 0px'
       });
 
       elements.forEach(el=>observer.observe(el));
