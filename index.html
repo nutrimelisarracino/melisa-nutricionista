@@ -1179,6 +1179,27 @@
     #sobre-mi .founder-photo {
       pointer-events: none;
     }
+
+    /* Movimiento sutil de la foto de Sobre mí al pasar el cursor */
+    #sobre-mi .founder-photo-frame {
+      overflow:hidden;
+      transition:box-shadow .45s ease, transform .45s ease;
+    }
+    #sobre-mi .founder-photo {
+      transition:transform .45s ease, filter .45s ease;
+      transform:scale(1);
+      will-change:transform;
+    }
+    @media (hover:hover) and (pointer:fine) {
+      #sobre-mi .founder-photo-frame:hover {
+        transform:translateY(-2px);
+        box-shadow:0 22px 46px rgba(65,78,35,.16);
+      }
+      #sobre-mi .founder-photo-frame:hover .founder-photo {
+        transform:scale(1.03) translateY(-3px);
+        filter:brightness(1.015);
+      }
+    }
 </style>
 </head>
 <body>
