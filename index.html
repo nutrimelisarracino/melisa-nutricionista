@@ -701,6 +701,36 @@
       border:2px solid white; border-radius:999px; background:white; color:var(--clay); font-size:.68rem; font-weight:850;
     }
     .cart-count.is-empty { display:none; }
+
+    @keyframes cartPulse {
+      0%   { transform:scale(1); }
+      35%  { transform:scale(1.13); }
+      68%  { transform:scale(.97); }
+      100% { transform:scale(1); }
+    }
+    @keyframes cartIconNudge {
+      0%,100% { transform:translateX(0) rotate(0deg); }
+      35% { transform:translateX(2px) rotate(-5deg); }
+      70% { transform:translateX(-1px) rotate(3deg); }
+    }
+    @keyframes cartCountPop {
+      0%   { transform:scale(.72); opacity:.45; }
+      55%  { transform:scale(1.18); opacity:1; }
+      100% { transform:scale(1); opacity:1; }
+    }
+    .cart-fab.cart-added {
+      animation:cartPulse .48s cubic-bezier(.2,.75,.25,1);
+    }
+    .cart-fab.cart-added .cart-fab-icon {
+      animation:cartIconNudge .48s ease;
+    }
+    .cart-fab.cart-added .cart-count {
+      animation:cartCountPop .42s cubic-bezier(.2,.8,.3,1);
+    }
+    .book-cart-add.cart-added-feedback {
+      transform:translateY(-1px) scale(.985);
+      box-shadow:0 8px 18px rgba(143,75,98,.13);
+    }
     .cart-panel {
       position: fixed; z-index: 1100; right: 22px; bottom: 140px; width: min(390px, calc(100% - 28px)); max-height: 70vh;
       overflow: auto; padding: 22px; border: 1px solid var(--line); border-radius: 24px; background: white; box-shadow: var(--shadow);
@@ -1209,6 +1239,11 @@
         opacity:1 !important;
         transform:none !important;
         transition:none !important;
+      }
+      .cart-fab.cart-added,
+      .cart-fab.cart-added .cart-fab-icon,
+      .cart-fab.cart-added .cart-count {
+        animation:none !important;
       }
     }
   
@@ -2762,6 +2797,22 @@
       renderBookCart();
       if (typeof renderAgenda === 'function') renderAgenda();
     }
+    function animateCartAdded(sourceButton) {
+      const cartFab=document.getElementById('cartFab');
+      if(!cartFab) return;
+
+      cartFab.classList.remove('cart-added');
+      void cartFab.offsetWidth;
+      cartFab.classList.add('cart-added');
+
+      if(sourceButton){
+        sourceButton.classList.add('cart-added-feedback');
+        window.setTimeout(()=>sourceButton.classList.remove('cart-added-feedback'),240);
+      }
+
+      window.setTimeout(()=>cartFab.classList.remove('cart-added'),520);
+    }
+
     function addBookToCart(button) {
       const name = button.dataset.name;
       const price = Number(button.dataset.price);
@@ -2770,8 +2821,13 @@
       if (found) found.qty += 1;
       else cart.push({ name, price, qty: 1 });
       saveBookCart(cart);
-      document.getElementById('cartPanel').classList.add('open');
-      document.getElementById('cartFab').setAttribute('aria-expanded', 'true');
+
+      const cartPanel=document.getElementById('cartPanel');
+      const cartFab=document.getElementById('cartFab');
+      if(cartPanel) cartPanel.classList.add('open');
+      if(cartFab) cartFab.setAttribute('aria-expanded', 'true');
+
+      animateCartAdded(button);
     }
     function changeBookQty(index, delta) {
       const cart = getBookCart();
