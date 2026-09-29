@@ -1527,7 +1527,8 @@
       }
       .cart-fab.cart-added,
       .cart-fab.cart-added .cart-fab-icon,
-      .cart-fab.cart-added .cart-count {
+      .cart-fab.cart-added .cart-count,
+      .agenda-submit.is-loading::before {
         animation:none !important;
       }
     }
@@ -2350,6 +2351,53 @@
       font-size:.76rem;
       line-height:1.5;
     }
+    .agenda-status {
+      min-height:38px;
+      margin:12px 0 0;
+      padding:9px 11px;
+      border:1px solid transparent;
+      border-radius:11px;
+      font-size:.82rem;
+      line-height:1.45;
+      opacity:0;
+      transform:translateY(-3px);
+      transition:opacity .18s ease, transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .agenda-status:not(:empty) {
+      opacity:1;
+      transform:none;
+    }
+    .agenda-status.is-success {
+      background:#f1f6e6;
+      border-color:rgba(113,128,66,.18);
+      color:#53622f;
+    }
+    .agenda-status.is-error {
+      background:#fbefef;
+      border-color:rgba(163,79,107,.18);
+      color:#7f3e51;
+    }
+    .agenda-status.is-loading {
+      background:#f8f1f4;
+      border-color:rgba(143,75,98,.14);
+      color:#754559;
+    }
+    .agenda-submit.is-loading {
+      pointer-events:none;
+      opacity:.82;
+    }
+    .agenda-submit.is-loading::before {
+      content:"";
+      width:15px;
+      height:15px;
+      border:2px solid rgba(255,255,255,.45);
+      border-top-color:#fff;
+      border-radius:50%;
+      animation:agendaSpin .7s linear infinite;
+    }
+    @keyframes agendaSpin {
+      to { transform:rotate(360deg); }
+    }
     @media(max-width:900px){
       .agenda-shell { grid-template-columns:1fr; }
     }
@@ -2715,6 +2763,7 @@
             </label>
 
             <button class="button button-primary agenda-submit" id="agendaSubmit" type="button" disabled>Solicitar turno por WhatsApp</button>
+            <div class="agenda-status" id="agendaStatus" role="status" aria-live="polite"></div>
             <p class="agenda-note">La fecha elegida se mantiene como solicitud hasta que confirmemos disponibilidad y horario contigo.</p>
           </div>
         </div>
@@ -4496,6 +4545,7 @@
     const agendaService=document.getElementById('agendaService');
     const agendaTime=document.getElementById('agendaTime');
     const agendaEmail=document.getElementById('agendaEmail');
+    const agendaStatus=document.getElementById('agendaStatus');
 
     const agendaToday=new Date();
     agendaToday.setHours(0,0,0,0);
@@ -4612,6 +4662,13 @@
             it:'Completa i tuoi dati e invia la richiesta per confermare la disponibilità.'
           }[currentLang] || 'Completa tus datos y envía la solicitud para confirmar disponibilidad.';
           agendaSubmit.disabled=false;
+          setAgendaStatus('success', {
+            es:'✓ Fecha seleccionada: '+agendaDateLabel(agendaSelectedDate),
+            en:'✓ Selected date: '+agendaDateLabel(agendaSelectedDate),
+            pt:'✓ Data selecionada: '+agendaDateLabel(agendaSelectedDate),
+            fr:'✓ Date sélectionnée : '+agendaDateLabel(agendaSelectedDate),
+            it:'✓ Data selezionata: '+agendaDateLabel(agendaSelectedDate)
+          }[currentLang]);
           renderAgenda();
         });
       });
@@ -4620,6 +4677,52 @@
       const maxCursor=new Date(agendaToday.getFullYear(),agendaToday.getMonth()+11,1);
       agendaPrev.disabled=agendaCursor<=minCursor;
       agendaNext.disabled=agendaCursor>=maxCursor;
+    }
+
+    function setAgendaStatus(type,message){
+      if(!agendaStatus) return;
+      agendaStatus.className='agenda-status'+(type ? ' is-'+type : '');
+      agendaStatus.textContent=message || '';
+    }
+
+    function agendaFeedback(){
+      return {
+        es:{
+          name:'Completa tu nombre y apellido para continuar.',
+          email:'Completa tu correo electrónico para continuar.',
+          emailInvalid:'Ingresa un correo electrónico válido.',
+          loading:'Preparando tu solicitud…',
+          ready:'✓ Solicitud preparada. Abriendo WhatsApp…'
+        },
+        en:{
+          name:'Enter your full name to continue.',
+          email:'Enter your email address to continue.',
+          emailInvalid:'Enter a valid email address.',
+          loading:'Preparing your request…',
+          ready:'✓ Request prepared. Opening WhatsApp…'
+        },
+        pt:{
+          name:'Preencha seu nome e sobrenome para continuar.',
+          email:'Preencha seu e-mail para continuar.',
+          emailInvalid:'Digite um e-mail válido.',
+          loading:'Preparando sua solicitação…',
+          ready:'✓ Solicitação preparada. Abrindo o WhatsApp…'
+        },
+        fr:{
+          name:'Indiquez votre nom complet pour continuer.',
+          email:'Indiquez votre adresse e-mail pour continuer.',
+          emailInvalid:'Saisissez une adresse e-mail valide.',
+          loading:'Préparation de votre demande…',
+          ready:'✓ Demande préparée. Ouverture de WhatsApp…'
+        },
+        it:{
+          name:'Inserisci nome e cognome per continuare.',
+          email:'Inserisci il tuo indirizzo e-mail per continuare.',
+          emailInvalid:'Inserisci un indirizzo e-mail valido.',
+          loading:'Preparazione della richiesta…',
+          ready:'✓ Richiesta pronta. Apertura di WhatsApp…'
+        }
+      }[currentLang] || {};
     }
 
     agendaPrev?.addEventListener('click',()=>{
@@ -4640,6 +4743,29 @@
       const service=agendaService?.value || '';
       const time=agendaTime?.value || '';
       const date=agendaDateLabel(agendaSelectedDate);
+      const feedback=agendaFeedback();
+
+      if(!name){
+        setAgendaStatus('error',feedback.name);
+        agendaName?.focus();
+        return;
+      }
+      if(!email){
+        setAgendaStatus('error',feedback.email);
+        agendaEmail?.focus();
+        return;
+      }
+      if(agendaEmail && !agendaEmail.checkValidity()){
+        setAgendaStatus('error',feedback.emailInvalid);
+        agendaEmail.focus();
+        return;
+      }
+
+      agendaSubmit.classList.add('is-loading');
+      agendaSubmit.disabled=true;
+      const originalSubmitText=agendaSubmit.textContent;
+      agendaSubmit.textContent=feedback.loading;
+      setAgendaStatus('loading',feedback.loading);
       const intro={
         es:'Hola, Melisa. Quisiera solicitar un turno.',
         en:'Hello, Melisa. I would like to request an appointment.',
@@ -4665,7 +4791,22 @@
         labels.email+': '+(email || '-')
       ].join('\n');
 
-      window.open('https://wa.me/541133069146?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
+      const whatsappUrl='https://wa.me/541133069146?text='+encodeURIComponent(msg);
+      const whatsappWindow=window.open('about:blank','_blank');
+
+      window.setTimeout(()=>{
+        setAgendaStatus('success',feedback.ready);
+        agendaSubmit.classList.remove('is-loading');
+        agendaSubmit.disabled=false;
+        agendaSubmit.textContent=originalSubmitText;
+
+        if(whatsappWindow){
+          whatsappWindow.opener=null;
+          whatsappWindow.location.href=whatsappUrl;
+        }else{
+          window.location.href=whatsappUrl;
+        }
+      },520);
     });
 
     renderAgenda();
