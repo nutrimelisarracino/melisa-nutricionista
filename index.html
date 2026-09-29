@@ -1586,6 +1586,23 @@
         border-radius:11px;
       }
     }
+
+    .site-search-nav {
+      width:34px;
+      height:34px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0;
+      background:#f7eef1;
+      color:#7a4055;
+      font-size:1.3rem !important;
+      line-height:1;
+    }
+    .site-search-nav:disabled {
+      opacity:.35;
+      cursor:default;
+    }
 </style>
 </head>
 <body>
@@ -1636,6 +1653,8 @@
         </svg>
         <input id="siteSearchInput" type="search" autocomplete="off" placeholder="Buscar en NUTRIELITE…" aria-label="Buscar en NUTRIELITE">
         <button id="siteSearchSubmit" type="button">Buscar</button>
+        <button id="siteSearchPrev" class="site-search-nav" type="button" aria-label="Coincidencia anterior" title="Coincidencia anterior">‹</button>
+        <button id="siteSearchNext" class="site-search-nav" type="button" aria-label="Siguiente coincidencia" title="Siguiente coincidencia">›</button>
         <button id="siteSearchClose" class="site-search-close" type="button" aria-label="Cerrar buscador">×</button>
       </div>
       <div class="site-search-status" id="siteSearchStatus" aria-live="polite"></div>
@@ -2281,6 +2300,9 @@
 
     /* Idiomas ES / EN */
     const translations = {
+      "Coincidencia anterior":"Previous match",
+      "Siguiente coincidencia":"Next match",
+
       "Buscar en la página":"Search the site",
       "Buscar en NUTRIELITE…":"Search NUTRIELITE…",
       "Buscar":"Search",
@@ -2489,6 +2511,9 @@
     }
 
     const translationsPt = {
+      "Coincidencia anterior":"Correspondência anterior",
+      "Siguiente coincidencia":"Próxima correspondência",
+
       "Buscar en la página":"Pesquisar no site",
       "Buscar en NUTRIELITE…":"Pesquisar na NUTRIELITE…",
       "Buscar":"Pesquisar",
@@ -2682,6 +2707,9 @@
 };
 
     const translationsFr = {
+      "Coincidencia anterior":"Résultat précédent",
+      "Siguiente coincidencia":"Résultat suivant",
+
       "Buscar en la página":"Rechercher sur le site",
       "Buscar en NUTRIELITE…":"Rechercher dans NUTRIELITE…",
       "Buscar":"Rechercher",
@@ -2875,6 +2903,9 @@
 };
 
     const translationsIt = {
+      "Coincidencia anterior":"Risultato precedente",
+      "Siguiente coincidencia":"Risultato successivo",
+
       "Buscar en la página":"Cerca nel sito",
       "Buscar en NUTRIELITE…":"Cerca in NUTRIELITE…",
       "Buscar":"Cerca",
@@ -3233,9 +3264,13 @@
     const siteSearchPanel=document.getElementById('siteSearchPanel');
     const siteSearchInput=document.getElementById('siteSearchInput');
     const siteSearchSubmit=document.getElementById('siteSearchSubmit');
+    const siteSearchPrev=document.getElementById('siteSearchPrev');
+    const siteSearchNext=document.getElementById('siteSearchNext');
     const siteSearchClose=document.getElementById('siteSearchClose');
     const siteSearchStatus=document.getElementById('siteSearchStatus');
-    let activeSearchHit=null;
+    let searchHits=[];
+    let searchHitIndex=-1;
+    let lastSearchTerm='';
 
     function normalizeSearchText(value) {
       return (value || '')
@@ -3260,37 +3295,70 @@
       siteSearchToggle?.setAttribute('aria-expanded','false');
     }
 
-    function clearSearchHit() {
-      if(activeSearchHit) activeSearchHit.classList.remove('site-search-hit');
-      activeSearchHit=null;
+    function clearSearchHits() {
+      document.querySelectorAll('.site-search-hit').forEach(el=>el.classList.remove('site-search-hit'));
+      searchHits=[];
+      searchHitIndex=-1;
     }
 
-    function runSiteSearch() {
-      const term=normalizeSearchText(siteSearchInput?.value);
-      clearSearchHit();
-      if(!term) {
-        if(siteSearchStatus) siteSearchStatus.textContent='';
-        return;
-      }
-
-      const searchable=Array.from(document.querySelectorAll('#contenido h1,#contenido h2,#contenido h3,#contenido h4,#contenido p,#contenido li,#contenido a,#contenido button,#contenido strong,#contenido span'))
+    function collectSearchHits(term) {
+      const selectors='#contenido h1,#contenido h2,#contenido h3,#contenido h4,#contenido p,#contenido li,#contenido a,#contenido button,#contenido strong,#contenido span';
+      const candidates=Array.from(document.querySelectorAll(selectors))
         .filter(el => !el.closest('.cart-panel') && normalizeSearchText(el.textContent).includes(term));
 
-      if(!searchable.length) {
-        if(siteSearchStatus) siteSearchStatus.textContent='No se encontraron coincidencias.';
+      // Evitar contar dos veces el mismo texto por elementos anidados.
+      return candidates.filter(el =>
+        !candidates.some(other => other !== el && el.contains(other) && normalizeSearchText(other.textContent).includes(term))
+      );
+    }
+
+    function updateSearchStatus() {
+      if(!siteSearchStatus) return;
+      if(!searchHits.length) {
+        siteSearchStatus.textContent='No se encontraron coincidencias.';
         return;
       }
+      siteSearchStatus.textContent=(searchHitIndex+1)+' de '+searchHits.length+' coincidencias';
+    }
 
-      const hit=searchable[0];
+    function goToSearchHit(index) {
+      if(!searchHits.length) return;
+      document.querySelectorAll('.site-search-hit').forEach(el=>el.classList.remove('site-search-hit'));
+
+      searchHitIndex=(index+searchHits.length)%searchHits.length;
+      const hit=searchHits[searchHitIndex];
       const section=hit.closest('.view-section');
+
       if(section && section.dataset.view) {
         showSiteView(section.dataset.view,{history:true,scroll:false});
       }
 
-      activeSearchHit=hit;
       hit.classList.add('site-search-hit');
       hit.scrollIntoView({behavior:'smooth',block:'center'});
-      if(siteSearchStatus) siteSearchStatus.textContent='Coincidencia encontrada.';
+      updateSearchStatus();
+    }
+
+    function runSiteSearch(forceNew=false) {
+      const term=normalizeSearchText(siteSearchInput?.value);
+      if(!term) {
+        clearSearchHits();
+        lastSearchTerm='';
+        if(siteSearchStatus) siteSearchStatus.textContent='';
+        return;
+      }
+
+      if(forceNew || term!==lastSearchTerm || !searchHits.length) {
+        clearSearchHits();
+        lastSearchTerm=term;
+        searchHits=collectSearchHits(term);
+        if(!searchHits.length) {
+          updateSearchStatus();
+          return;
+        }
+        goToSearchHit(0);
+      } else {
+        goToSearchHit(searchHitIndex+1);
+      }
     }
 
     siteSearchToggle?.addEventListener('click',()=>{
@@ -3298,13 +3366,29 @@
       isOpen ? closeSiteSearch() : openSiteSearch();
     });
     siteSearchClose?.addEventListener('click',closeSiteSearch);
-    siteSearchSubmit?.addEventListener('click',runSiteSearch);
+    siteSearchSubmit?.addEventListener('click',()=>runSiteSearch(true));
+    siteSearchNext?.addEventListener('click',()=> {
+      if(!searchHits.length) runSiteSearch(true);
+      else goToSearchHit(searchHitIndex+1);
+    });
+    siteSearchPrev?.addEventListener('click',()=> {
+      if(!searchHits.length) runSiteSearch(true);
+      else goToSearchHit(searchHitIndex-1);
+    });
+    siteSearchInput?.addEventListener('input',()=>{
+      lastSearchTerm='';
+      clearSearchHits();
+      if(siteSearchStatus) siteSearchStatus.textContent='';
+    });
     siteSearchInput?.addEventListener('keydown',e=>{
-      if(e.key==='Enter') runSiteSearch();
+      if(e.key==='Enter') {
+        e.preventDefault();
+        runSiteSearch(false);
+      }
       if(e.key==='Escape') closeSiteSearch();
     });
 
-    const viewByTarget = {
+        const viewByTarget = {
       inicio:'home',
       'sobre-mi':'about',
       nutricion:'nutrition',
