@@ -1431,6 +1431,11 @@
       border-color:rgba(143,75,98,.16);
       color:#653848;
     }
+
+    /* Al navegar desde el menú, ocultar la portada para evitar que reaparezca más abajo */
+    #inicio.nav-hero-hidden {
+      display:none !important;
+    }
 </style>
 </head>
 <body>
@@ -3054,8 +3059,13 @@
       const targetView=['home','about','nutrition','team','faq','contact'].includes(view) ? view : 'home';
       restoreOriginalOrder();
 
-      // Mantener siempre el cierre/Contacto en su posición final.
-      // Las demás secciones pueden mostrarse primero sin ocultar el resto.
+      const heroSection=document.getElementById('inicio');
+      if(heroSection) {
+        heroSection.classList.toggle('nav-hero-hidden', targetView !== 'home');
+      }
+
+      // Mantener todo el contenido visible. Solo la sección elegida pasa primero.
+      // La portada se oculta mientras se navega por otras opciones del menú.
       if(targetView !== 'home' && targetView !== 'contact' && mainContent) {
         const selected=originalSections.filter(section => section.dataset && section.dataset.view === targetView);
         selected.slice().reverse().forEach(section => mainContent.insertBefore(section, mainContent.firstChild));
