@@ -3054,7 +3054,9 @@
       const targetView=['home','about','nutrition','team','faq','contact'].includes(view) ? view : 'home';
       restoreOriginalOrder();
 
-      if(targetView !== 'home' && mainContent) {
+      // Mantener siempre el cierre/Contacto en su posición final.
+      // Las demás secciones pueden mostrarse primero sin ocultar el resto.
+      if(targetView !== 'home' && targetView !== 'contact' && mainContent) {
         const selected=originalSections.filter(section => section.dataset && section.dataset.view === targetView);
         selected.slice().reverse().forEach(section => mainContent.insertBefore(section, mainContent.firstChild));
       }
@@ -3070,8 +3072,16 @@
       if(toggle) toggle.setAttribute('aria-expanded','false');
 
       if(options.scroll !== false) {
-        window.scrollTo({top:0,left:0,behavior:'auto'});
+        if(targetView === 'contact') {
+          const contactSection=document.getElementById('contacto');
+          if(contactSection) {
+            contactSection.scrollIntoView({behavior:'smooth',block:'start'});
+          }
+        } else {
+          window.scrollTo({top:0,left:0,behavior:'auto'});
+        }
       }
+
       if(options.history !== false) {
         const id={
           home:'inicio',
