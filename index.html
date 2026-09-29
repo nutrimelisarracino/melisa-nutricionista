@@ -3064,11 +3064,23 @@
         heroSection.classList.toggle('nav-hero-hidden', targetView !== 'home');
       }
 
-      // Mantener todo el contenido visible. Solo la sección elegida pasa primero.
-      // La portada se oculta mientras se navega por otras opciones del menú.
+      // Mantener todo el contenido visible, pero continuar desde la sección elegida
+      // para evitar que, debajo de Equipo o Preguntas, parezca que la página vuelve a empezar.
       if(targetView !== 'home' && targetView !== 'contact' && mainContent) {
-        const selected=originalSections.filter(section => section.dataset && section.dataset.view === targetView);
-        selected.slice().reverse().forEach(section => mainContent.insertBefore(section, mainContent.firstChild));
+        const visibleSections=originalSections.filter(section => section.id !== 'inicio');
+        const firstIndex=visibleSections.findIndex(section => section.dataset && section.dataset.view === targetView);
+
+        if(firstIndex >= 0) {
+          const before=visibleSections.slice(0,firstIndex);
+          const fromSelected=visibleSections.slice(firstIndex);
+          const reordered=[...fromSelected,...before];
+
+          reordered.forEach(section => mainContent.appendChild(section));
+
+          // El cierre editorial permanece siempre al final.
+          const contactSection=document.getElementById('contacto');
+          if(contactSection) mainContent.appendChild(contactSection);
+        }
       }
 
       document.querySelectorAll('#nav-links a[href^="#"]').forEach(link => {
