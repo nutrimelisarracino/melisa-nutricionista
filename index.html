@@ -1775,6 +1775,224 @@
       }
     }
 
+    /* Agenda integrada y preguntas frecuentes institucionales */
+    .agenda-shell {
+      position:relative;
+    }
+    .agenda-calendar,
+    .agenda-request {
+      overflow:hidden;
+    }
+    .agenda-calendar::before,
+    .agenda-request::before {
+      content:"";
+      display:block;
+      height:4px;
+      margin:-26px -26px 22px;
+      background:linear-gradient(90deg,#c9826f 0%,#a34f6b 52%,#9aa768 100%);
+      opacity:.72;
+    }
+    .agenda-calendar-head {
+      padding-bottom:14px;
+      border-bottom:1px solid rgba(36,72,62,.08);
+    }
+    .agenda-day {
+      position:relative;
+      transition:transform .16s ease,background .16s ease,border-color .16s ease,box-shadow .16s ease,color .16s ease;
+    }
+    .agenda-day:hover:not(:disabled) {
+      transform:translateY(-1px);
+    }
+    .agenda-day.is-selected {
+      background:linear-gradient(135deg,#8a405b 0%,#a34f6b 100%) !important;
+      color:#fff !important;
+      border-color:rgba(135,59,85,.7) !important;
+      box-shadow:0 8px 18px rgba(135,59,85,.20);
+      transform:translateY(-1px);
+    }
+    .agenda-day.is-selected::after {
+      content:"";
+      position:absolute;
+      inset:4px;
+      border:1px solid rgba(255,255,255,.42);
+      border-radius:9px;
+      pointer-events:none;
+    }
+    .agenda-day.is-unavailable,
+    .agenda-day:disabled {
+      opacity:.72;
+    }
+    .agenda-selected-copy {
+      min-height:44px;
+      padding:11px 13px;
+      border:1px solid rgba(143,75,98,.09);
+      border-radius:12px;
+      background:rgba(255,255,255,.46);
+    }
+    .agenda-field input,
+    .agenda-field select {
+      border-color:rgba(36,72,62,.13);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.55);
+    }
+    .agenda-field input:focus,
+    .agenda-field select:focus {
+      border-color:rgba(143,75,98,.46);
+      background:#fff;
+      box-shadow:0 0 0 4px rgba(143,75,98,.07);
+    }
+    .agenda-field input:invalid:not(:placeholder-shown) {
+      border-color:rgba(163,79,107,.42);
+      background:#fff8f8;
+    }
+    .agenda-submit {
+      min-height:50px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#b96d72 0%,#9c4f68 100%);
+      box-shadow:0 10px 24px rgba(143,75,98,.14);
+    }
+    .agenda-submit:disabled {
+      background:#d8d2cf;
+      color:#8d8580;
+      box-shadow:none;
+      opacity:1;
+    }
+    .agenda-status {
+      position:relative;
+      padding:11px 13px 11px 38px;
+      border-radius:12px;
+      font-weight:700;
+    }
+    .agenda-status:not(:empty)::before {
+      position:absolute;
+      left:13px;
+      top:50%;
+      transform:translateY(-50%);
+      display:grid;
+      place-items:center;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      font-size:.72rem;
+      font-weight:900;
+    }
+    .agenda-status.is-success {
+      background:#eef3df;
+      border-color:rgba(113,128,66,.22);
+      color:#526233;
+    }
+    .agenda-status.is-success::before {
+      content:"✓";
+      background:#dce6bb;
+      color:#53622f;
+    }
+    .agenda-status.is-error {
+      background:#f8e8eb;
+      border-color:rgba(163,79,107,.18);
+      color:#7b4054;
+    }
+    .agenda-status.is-error::before {
+      content:"!";
+      background:#efd2da;
+      color:#7f3e51;
+    }
+    .agenda-status.is-loading {
+      background:#f5edf0;
+      border-color:rgba(143,75,98,.14);
+      color:#754559;
+    }
+    .agenda-status.is-loading::before {
+      content:"";
+      border:2px solid rgba(143,75,98,.22);
+      border-top-color:#8a405b;
+      background:transparent;
+      animation:agendaSpin .7s linear infinite;
+    }
+    .agenda-note {
+      padding-top:10px;
+      border-top:1px solid rgba(36,72,62,.07);
+    }
+
+    #preguntas {
+      background:linear-gradient(180deg,#fffdf9 0%,#f8f3eb 100%);
+    }
+    #preguntas .faq {
+      max-width:920px;
+      padding:38px;
+      border:1px solid rgba(36,72,62,.09);
+      border-radius:30px;
+      background:linear-gradient(145deg,#fffaf6 0%,#fbf5ee 100%);
+      box-shadow:0 18px 42px rgba(35,54,48,.065);
+    }
+    #preguntas .faq > h2 {
+      margin-bottom:28px;
+    }
+    #preguntas details {
+      margin:0 0 12px;
+      overflow:hidden;
+      border:1px solid rgba(36,72,62,.09);
+      border-radius:16px;
+      background:rgba(255,255,255,.62);
+      box-shadow:0 7px 18px rgba(35,54,48,.035);
+    }
+    #preguntas details:last-child {
+      margin-bottom:0;
+    }
+    #preguntas summary {
+      padding:18px 54px 18px 20px;
+      font-size:1.08rem;
+      font-weight:650;
+      line-height:1.4;
+    }
+    #preguntas summary::after {
+      top:50%;
+      right:18px;
+      transform:translateY(-50%);
+      display:grid;
+      place-items:center;
+      width:28px;
+      height:28px;
+      border:1px solid rgba(143,75,98,.12);
+      border-radius:50%;
+      background:#f8eef1;
+      color:#8a405b;
+      font-family:system-ui;
+      font-size:1.05rem;
+      font-weight:500;
+    }
+    #preguntas details[open] {
+      border-color:rgba(143,75,98,.17);
+      background:#fffaf8;
+      box-shadow:0 10px 24px rgba(35,54,48,.055);
+    }
+    #preguntas details[open] summary {
+      color:#7f3e51;
+      border-bottom:1px solid rgba(143,75,98,.08);
+    }
+    #preguntas details p {
+      margin:0;
+      padding:16px 20px 20px;
+      color:#67635f;
+      line-height:1.65;
+    }
+
+    @media(max-width:720px){
+      .agenda-calendar::before,
+      .agenda-request::before {
+        margin:-22px -22px 18px;
+      }
+      #preguntas .faq {
+        padding:22px;
+        border-radius:24px;
+      }
+      #preguntas summary {
+        padding:16px 50px 16px 16px;
+        font-size:1rem;
+      }
+      #preguntas details p {
+        padding:14px 16px 18px;
+      }
+    }
+
     /* Jerarquía tipográfica refinada */
     body {
       font-size:16px;
