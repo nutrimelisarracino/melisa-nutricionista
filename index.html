@@ -1491,6 +1491,165 @@
       }
     }
 
+    /* Sistema visual institucional: tarjetas, títulos y datos profesionales */
+    :root {
+      --card-radius:28px;
+      --card-border:rgba(36,72,62,.10);
+      --card-shadow:0 16px 38px rgba(35,54,48,.07);
+      --card-pad:32px;
+    }
+
+    .service-card,
+    .modality,
+    .consult-card,
+    .step,
+    .agenda-calendar,
+    .agenda-request,
+    .proposal-card,
+    .catalog-group,
+    .book-faq,
+    .closing-quote-box {
+      border:1px solid var(--card-border);
+      border-radius:var(--card-radius);
+      box-shadow:var(--card-shadow);
+    }
+
+    .service-card,
+    .modality,
+    .consult-card {
+      padding:var(--card-pad);
+    }
+    .step {
+      padding:30px;
+    }
+    .agenda-calendar,
+    .agenda-request {
+      padding:26px;
+    }
+    .proposal-summary {
+      padding:32px;
+    }
+    .catalog-group,
+    .book-faq {
+      padding:26px;
+    }
+
+    /* Marca de sección: una misma firma visual para las áreas principales */
+    #nutricion .eyebrow,
+    #agenda .eyebrow,
+    #equipo .eyebrow,
+    #preguntas .eyebrow {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:15px;
+      padding:7px 10px 7px 0;
+      color:#7d4659;
+      font-size:.7rem;
+      font-weight:850;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    #nutricion .eyebrow::before,
+    #agenda .eyebrow::before,
+    #equipo .eyebrow::before,
+    #preguntas .eyebrow::before {
+      width:28px;
+      height:1px;
+      background:linear-gradient(90deg,#c9826f,#8f4b62);
+    }
+    #nutricion .eyebrow::after,
+    #agenda .eyebrow::after,
+    #equipo .eyebrow::after,
+    #preguntas .eyebrow::after {
+      display:inline-grid;
+      place-items:center;
+      min-width:28px;
+      height:22px;
+      margin-left:2px;
+      padding:0 6px;
+      border:1px solid rgba(143,75,98,.12);
+      border-radius:999px;
+      background:rgba(255,255,255,.52);
+      color:#9a6467;
+      font-size:.62rem;
+      letter-spacing:.06em;
+    }
+    #nutricion .eyebrow::after { content:"01"; }
+    #agenda .eyebrow::after { content:"02"; }
+    #equipo .eyebrow::after { content:"03"; }
+    #preguntas .eyebrow::after { content:"04"; }
+
+    /* Datos profesionales: visibles, compactos y sin repetición */
+    .hero-professional {
+      position:relative;
+      margin:0;
+      padding:4px 0 4px 18px;
+      border-left:2px solid rgba(166,95,77,.42);
+    }
+    .hero-kicker {
+      margin-bottom:11px;
+    }
+    .hero-credentials {
+      gap:8px;
+    }
+    .hero-credentials span {
+      min-height:28px;
+      padding:5px 10px;
+      border:1px solid rgba(135,59,85,.12);
+      background:rgba(255,253,249,.66);
+      color:#754559;
+      box-shadow:none;
+      font-size:.74rem;
+      letter-spacing:.045em;
+    }
+    .hero-panel {
+      border-width:1px;
+      border-color:rgba(143,75,98,.12);
+      border-radius:var(--card-radius);
+      background:linear-gradient(145deg,rgba(255,253,249,.96),rgba(248,241,235,.94));
+      box-shadow:var(--card-shadow);
+    }
+    .hero-panel::before {
+      inset:9px;
+      border-radius:20px;
+      border-color:rgba(163,79,107,.07);
+    }
+    .panel-label {
+      margin-bottom:16px;
+      color:#8f4b62;
+    }
+    .panel-item {
+      padding:15px 0;
+    }
+
+    @media(max-width:720px){
+      :root {
+        --card-radius:24px;
+        --card-pad:24px;
+      }
+      .step,
+      .agenda-calendar,
+      .agenda-request,
+      .catalog-group,
+      .book-faq {
+        padding:22px;
+      }
+      .proposal-summary {
+        padding:26px 22px;
+      }
+      .hero-professional {
+        padding-left:14px;
+      }
+      #nutricion .eyebrow::after,
+      #agenda .eyebrow::after,
+      #equipo .eyebrow::after,
+      #preguntas .eyebrow::after {
+        height:20px;
+        min-width:26px;
+      }
+    }
+
     /* Jerarquía tipográfica refinada */
     body {
       font-size:16px;
