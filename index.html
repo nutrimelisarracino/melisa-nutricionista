@@ -1379,6 +1379,118 @@
       transition:transform .2s ease,color .2s ease;
     }
 
+    /* Paleta institucional más controlada */
+    :root {
+      --institution-paper:#fffdf8;
+      --institution-cream:#f7f3ea;
+      --institution-sage:#e7ebcf;
+      --institution-sage-deep:#52624b;
+      --institution-terracotta:#d8a08b;
+      --institution-terracotta-soft:#f2ddd2;
+      --institution-berry:#873b55;
+    }
+
+    body {
+      background:var(--institution-paper);
+    }
+
+    .section-soft,
+    .agenda-section,
+    .closing-quote-section {
+      background:var(--institution-cream);
+    }
+
+    .about-section-clean {
+      background:linear-gradient(135deg,#e3e8c9 0%,#e9edd5 58%,#f2f3e4 100%);
+    }
+
+    .founder-photo-frame {
+      border-color:#c6d18f;
+    }
+
+    .service-card {
+      background:#fffdf9;
+      border-color:rgba(36,72,62,.10);
+    }
+    .service-card-materno {
+      background:
+        radial-gradient(circle at 92% 12%,rgba(216,160,139,.14),transparent 24%),
+        linear-gradient(145deg,#fffaf6 0%,#fffdf9 72%);
+      border-top:4px solid rgba(200,126,101,.55);
+    }
+    .service-card-renal {
+      background:
+        radial-gradient(circle at 92% 12%,rgba(124,146,104,.13),transparent 24%),
+        linear-gradient(145deg,#fbfcf4 0%,#fffdf9 72%);
+      border-top:4px solid rgba(126,145,93,.50);
+    }
+
+    .consult-card {
+      background:#fffdf9 !important;
+      border-color:rgba(36,72,62,.10);
+    }
+    .consult-card-sage {
+      border-top:4px solid rgba(126,145,93,.50);
+    }
+    .consult-card-blush {
+      border-top:4px solid rgba(143,75,98,.38);
+    }
+    .consult-card-sand {
+      border-top:4px solid rgba(190,157,105,.45);
+    }
+    .consult-card-peach {
+      border-top:4px solid rgba(200,126,101,.48);
+    }
+    .consult-note,
+    .consult-meta span {
+      background:rgba(247,243,234,.76);
+    }
+
+    .step:nth-child(1),
+    .step:nth-child(2),
+    .step:nth-child(3),
+    .step:nth-child(4) {
+      background:linear-gradient(145deg,#fffdf9 0%,#faf7f0 100%);
+    }
+    .step:nth-child(1) { border-top:3px solid rgba(126,145,93,.42); }
+    .step:nth-child(2) { border-top:3px solid rgba(143,75,98,.32); }
+    .step:nth-child(3) { border-top:3px solid rgba(190,157,105,.40); }
+    .step:nth-child(4) { border-top:3px solid rgba(200,126,101,.40); }
+
+    .proposal-card-coach .proposal-summary,
+    .proposal-card-kitchen .proposal-summary {
+      background:linear-gradient(145deg,#fffaf6 0%,#fffdf9 78%);
+    }
+    .proposal-card-coach .proposal-summary {
+      border-left:4px solid rgba(143,75,98,.34);
+    }
+    .proposal-card-kitchen .proposal-summary {
+      border-left:4px solid rgba(190,157,105,.42);
+    }
+    .proposal-content {
+      background:#fffdf9;
+    }
+
+    .catalog-group,
+    .book-faq {
+      background:rgba(255,253,249,.90);
+    }
+
+    .closing-quote-box {
+      background:
+        radial-gradient(circle at 14% 18%,rgba(255,255,255,.62),transparent 30%),
+        linear-gradient(145deg,#f8f1e8 0%,#f3e8dd 100%);
+    }
+
+    @media(max-width:720px){
+      .service-card-materno,
+      .service-card-renal,
+      .consult-card,
+      .step {
+        border-top-width:3px;
+      }
+    }
+
     /* Jerarquía tipográfica refinada */
     body {
       font-size:16px;
