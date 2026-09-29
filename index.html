@@ -3390,6 +3390,30 @@
         padding:18px 0;
       }
     }
+
+    /* Contacto final + privacidad */
+    .contact-institutional{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:34px;align-items:stretch;max-width:1060px;margin:0 auto 34px;padding:42px;border:1px solid rgba(143,75,98,.12);border-radius:30px;background:radial-gradient(circle at 10% 12%,rgba(255,255,255,.56),transparent 28%),linear-gradient(145deg,#f3e4da 0%,#f2e7d9 54%,#e9ecd8 100%);box-shadow:0 18px 44px rgba(35,54,48,.075)}
+    .contact-institutional-copy h2{max-width:680px;margin-bottom:14px;color:#7f3e51}
+    .contact-institutional-copy>p:not(.eyebrow){max-width:680px;margin-bottom:22px;color:#625d59;font-size:1.02rem}
+    .contact-trust{display:flex;flex-wrap:wrap;gap:8px}
+    .contact-trust span{display:inline-flex;align-items:center;min-height:30px;padding:6px 10px;border:1px solid rgba(36,72,62,.10);border-radius:999px;background:rgba(255,255,255,.52);color:#5e554f;font-size:.77rem;font-weight:750}
+    .contact-institutional-action{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:28px;border:1px solid rgba(36,72,62,.09);border-radius:24px;background:rgba(255,253,249,.70)}
+    .contact-action-label{margin:0 0 12px;color:#8a405b;font-size:.72rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+    .contact-whatsapp-button{width:100%;min-height:52px;border-radius:14px;background:linear-gradient(135deg,#b96d72 0%,#9c4f68 100%);box-shadow:0 10px 24px rgba(143,75,98,.14)}
+    .contact-action-note{margin:14px 0 0;color:#746e69;font-size:.78rem;line-height:1.55}
+    .legal-trust{max-width:1060px;margin:0 auto;padding:34px;border:1px solid rgba(36,72,62,.09);border-radius:28px;background:rgba(255,253,249,.82);box-shadow:0 14px 34px rgba(35,54,48,.055)}
+    .legal-trust-head{max-width:760px;margin-bottom:24px}
+    .legal-trust-head h2{margin-bottom:10px;font-size:clamp(1.8rem,3.2vw,2.55rem)}
+    .legal-trust-head>p:not(.eyebrow){margin:0;color:#6b6661}
+    .legal-trust-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .legal-card{margin:0;overflow:hidden;border:1px solid rgba(36,72,62,.09);border-radius:18px;background:linear-gradient(145deg,#faf5ed 0%,#fffdf9 100%);box-shadow:none}
+    .legal-card summary{min-height:78px;padding:20px 48px 20px 20px;color:#6f3d4f;font-size:1rem;font-weight:700;line-height:1.4}
+    .legal-card summary::after{top:50%;right:17px;transform:translateY(-50%);color:#8a405b}
+    .legal-card[open]{border-color:rgba(143,75,98,.16);background:#fffaf7}
+    .legal-card-body{padding:0 20px 20px;border-top:1px solid rgba(143,75,98,.07)}
+    .legal-card-body p{margin:14px 0 0;padding:0;color:#6b6661;font-size:.88rem;line-height:1.62}
+    @media(max-width:900px){.contact-institutional{grid-template-columns:1fr;padding:30px}.legal-trust-grid{grid-template-columns:1fr}}
+    @media(max-width:640px){.contact-institutional,.legal-trust{padding:22px;border-radius:24px}.contact-institutional-action{padding:22px}.contact-trust{display:grid}.contact-trust span{width:max-content;max-width:100%}}
 </style>
 </head>
 <body>
@@ -4014,8 +4038,53 @@
 
     <section class="section closing-quote-section view-section" id="contacto" data-view="contact">
       <div class="wrap">
-        <div class="closing-quote-box">
-          <p class="closing-quote-text">La nutrición no puede reducirse a nutrientes, calorías o restricciones: implica comprender procesos biológicos, etapas de la vida, contexto clínico y realidad cotidiana.</p>
+        <div class="contact-institutional">
+          <div class="contact-institutional-copy">
+            <p class="eyebrow">Contacto</p>
+            <h2>Solicita información para comenzar.</h2>
+            <p>Si deseas consultar por atención nutricional, disponibilidad o modalidad de atención, puedes comunicarte directamente por WhatsApp.</p>
+            <div class="contact-trust">
+              <span>Lic. Melisa Florencia Sarracino</span>
+              <span>M.P. 8068 · M.N. 13620</span>
+              <span>Atención en línea · Presencial próximamente</span>
+            </div>
+          </div>
+          <div class="contact-institutional-action">
+            <p class="contact-action-label">Canal de contacto</p>
+            <a class="button button-primary contact-whatsapp-button" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20NUTRIELITE." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            <p class="contact-action-note">Para proteger tu privacidad, evita incluir información clínica sensible en el primer mensaje.</p>
+          </div>
+        </div>
+
+        <div class="legal-trust" id="privacidad">
+          <div class="legal-trust-head">
+            <p class="eyebrow">Información y confianza</p>
+            <h2>Privacidad y condiciones del sitio.</h2>
+            <p>Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.</p>
+          </div>
+          <div class="legal-trust-grid">
+            <details class="legal-card">
+              <summary>Privacidad y datos personales</summary>
+              <div class="legal-card-body">
+                <p>Los datos que ingreses para solicitar un turno o realizar una consulta se utilizan únicamente para gestionar tu contacto, coordinar la atención o responder tu solicitud.</p>
+                <p>La agenda pública solicita datos básicos de identificación y contacto. No ingreses diagnósticos, estudios, antecedentes médicos ni otros datos de salud en estos campos.</p>
+              </div>
+            </details>
+            <details class="legal-card">
+              <summary>Derechos sobre tus datos</summary>
+              <div class="legal-card-body">
+                <p>Puedes solicitar información, acceso, rectificación, actualización o, cuando corresponda, supresión de tus datos personales comunicándote con NUTRIELITE mediante el canal de contacto publicado en este sitio.</p>
+                <p>Responsable de contacto: Melisa Florencia Sarracino · NUTRIELITE.</p>
+              </div>
+            </details>
+            <details class="legal-card">
+              <summary>Condiciones y alcance de la información</summary>
+              <div class="legal-card-body">
+                <p>El contenido de este sitio tiene finalidad informativa y educativa. No reemplaza una evaluación nutricional individual, una indicación médica ni la atención de otros profesionales de la salud cuando corresponda.</p>
+                <p>La disponibilidad de turnos, servicios y productos puede modificarse. Toda solicitud queda sujeta a confirmación por el canal de contacto correspondiente.</p>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </section>
@@ -4117,7 +4186,9 @@
         '.catalog-group',
         '.book-faq',
         '#preguntas details',
-        '.closing-quote-box'
+        '.closing-quote-box',
+        '.contact-institutional',
+        '.legal-trust'
       ];
       const elements=[...document.querySelectorAll(selectors.join(','))];
 
@@ -4497,6 +4568,24 @@
       "Tu carrito":"Your cart",
       "Todavía no agregaste productos.":"You have not added any products yet.",
       "Total":"Total",
+      "Solicita información para comenzar.": "Request information to get started.",
+      "Si deseas consultar por atención nutricional, disponibilidad o modalidad de atención, puedes comunicarte directamente por WhatsApp.": "For nutritional care, availability, or appointment format, you can contact us directly via WhatsApp.",
+      "Atención en línea · Presencial próximamente": "Online care · In-person care coming soon",
+      "Canal de contacto": "Contact channel",
+      "Escribir por WhatsApp": "Message via WhatsApp",
+      "Para proteger tu privacidad, evita incluir información clínica sensible en el primer mensaje.": "To protect your privacy, avoid including sensitive clinical information in your first message.",
+      "Información y confianza": "Information and trust",
+      "Privacidad y condiciones del sitio.": "Privacy and site terms.",
+      "Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.": "Basic information about site use, contact data, and the scope of published content.",
+      "Privacidad y datos personales": "Privacy and personal data",
+      "Los datos que ingreses para solicitar un turno o realizar una consulta se utilizan únicamente para gestionar tu contacto, coordinar la atención o responder tu solicitud.": "Data entered to request an appointment or make an inquiry are used only to manage contact, coordinate care, or respond to your request.",
+      "La agenda pública solicita datos básicos de identificación y contacto. No ingreses diagnósticos, estudios, antecedentes médicos ni otros datos de salud en estos campos.": "The public appointment form requests basic identification and contact information. Do not enter diagnoses, test results, medical history, or other health data in these fields.",
+      "Derechos sobre tus datos": "Your data rights",
+      "Puedes solicitar información, acceso, rectificación, actualización o, cuando corresponda, supresión de tus datos personales comunicándote con NUTRIELITE mediante el canal de contacto publicado en este sitio.": "You may request information, access, correction, updating, or, where applicable, deletion of your personal data by contacting NUTRIELITE through the contact channel published on this site.",
+      "Responsable de contacto: Melisa Florencia Sarracino · NUTRIELITE.": "Contact responsible: Melisa Florencia Sarracino · NUTRIELITE.",
+      "Condiciones y alcance de la información": "Terms and scope of information",
+      "El contenido de este sitio tiene finalidad informativa y educativa. No reemplaza una evaluación nutricional individual, una indicación médica ni la atención de otros profesionales de la salud cuando corresponda.": "The content of this site is informational and educational. It does not replace an individual nutritional assessment, medical advice, or care from other health professionals when appropriate.",
+      "La disponibilidad de turnos, servicios y productos puede modificarse. Toda solicitud queda sujeta a confirmación por el canal de contacto correspondiente.": "Availability of appointments, services, and products may change. Every request is subject to confirmation through the appropriate contact channel.",
       "Finalizar compra por WhatsApp":"Complete purchase via WhatsApp"
     };
 
@@ -4723,6 +4812,24 @@
       "Tu carrito": "Seu carrinho",
       "Todavía no agregaste productos.": "Você ainda não adicionou produtos.",
       "Total": "Total",
+      "Solicita información para comenzar.": "Solicite informações para começar.",
+      "Si deseas consultar por atención nutricional, disponibilidad o modalidad de atención, puedes comunicarte directamente por WhatsApp.": "For nutritional care, availability, or appointment format, you can contact us directly via WhatsApp.",
+      "Atención en línea · Presencial próximamente": "Online care · In-person care coming soon",
+      "Canal de contacto": "Canal de contato",
+      "Escribir por WhatsApp": "Enviar mensagem pelo WhatsApp",
+      "Para proteger tu privacidad, evita incluir información clínica sensible en el primer mensaje.": "To protect your privacy, avoid including sensitive clinical information in your first message.",
+      "Información y confianza": "Informação e confiança",
+      "Privacidad y condiciones del sitio.": "Privacidade e condições do site.",
+      "Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.": "Basic information about site use, contact data, and the scope of published content.",
+      "Privacidad y datos personales": "Privacidade e dados pessoais",
+      "Los datos que ingreses para solicitar un turno o realizar una consulta se utilizan únicamente para gestionar tu contacto, coordinar la atención o responder tu solicitud.": "Data entered to request an appointment or make an inquiry are used only to manage contact, coordinate care, or respond to your request.",
+      "La agenda pública solicita datos básicos de identificación y contacto. No ingreses diagnósticos, estudios, antecedentes médicos ni otros datos de salud en estos campos.": "The public appointment form requests basic identification and contact information. Do not enter diagnoses, test results, medical history, or other health data in these fields.",
+      "Derechos sobre tus datos": "Direitos sobre seus dados",
+      "Puedes solicitar información, acceso, rectificación, actualización o, cuando corresponda, supresión de tus datos personales comunicándote con NUTRIELITE mediante el canal de contacto publicado en este sitio.": "You may request information, access, correction, updating, or, where applicable, deletion of your personal data by contacting NUTRIELITE through the contact channel published on this site.",
+      "Responsable de contacto: Melisa Florencia Sarracino · NUTRIELITE.": "Contact responsible: Melisa Florencia Sarracino · NUTRIELITE.",
+      "Condiciones y alcance de la información": "Condições e alcance das informações",
+      "El contenido de este sitio tiene finalidad informativa y educativa. No reemplaza una evaluación nutricional individual, una indicación médica ni la atención de otros profesionales de la salud cuando corresponda.": "The content of this site is informational and educational. It does not replace an individual nutritional assessment, medical advice, or care from other health professionals when appropriate.",
+      "La disponibilidad de turnos, servicios y productos puede modificarse. Toda solicitud queda sujeta a confirmación por el canal de contacto correspondiente.": "Availability of appointments, services, and products may change. Every request is subject to confirmation through the appropriate contact channel.",
       "Finalizar compra por WhatsApp": "Finalizar compra pelo WhatsApp"
 };
 
@@ -4940,6 +5047,24 @@
       "Tu carrito": "Votre panier",
       "Todavía no agregaste productos.": "Vous n’avez encore ajouté aucun produit.",
       "Total": "Total",
+      "Solicita información para comenzar.": "Demandez des informations pour commencer.",
+      "Si deseas consultar por atención nutricional, disponibilidad o modalidad de atención, puedes comunicarte directamente por WhatsApp.": "For nutritional care, availability, or appointment format, you can contact us directly via WhatsApp.",
+      "Atención en línea · Presencial próximamente": "Online care · In-person care coming soon",
+      "Canal de contacto": "Canal de contact",
+      "Escribir por WhatsApp": "Écrire sur WhatsApp",
+      "Para proteger tu privacidad, evita incluir información clínica sensible en el primer mensaje.": "To protect your privacy, avoid including sensitive clinical information in your first message.",
+      "Información y confianza": "Information et confiance",
+      "Privacidad y condiciones del sitio.": "Confidentialité et conditions du site.",
+      "Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.": "Basic information about site use, contact data, and the scope of published content.",
+      "Privacidad y datos personales": "Confidentialité et données personnelles",
+      "Los datos que ingreses para solicitar un turno o realizar una consulta se utilizan únicamente para gestionar tu contacto, coordinar la atención o responder tu solicitud.": "Data entered to request an appointment or make an inquiry are used only to manage contact, coordinate care, or respond to your request.",
+      "La agenda pública solicita datos básicos de identificación y contacto. No ingreses diagnósticos, estudios, antecedentes médicos ni otros datos de salud en estos campos.": "The public appointment form requests basic identification and contact information. Do not enter diagnoses, test results, medical history, or other health data in these fields.",
+      "Derechos sobre tus datos": "Vos droits sur vos données",
+      "Puedes solicitar información, acceso, rectificación, actualización o, cuando corresponda, supresión de tus datos personales comunicándote con NUTRIELITE mediante el canal de contacto publicado en este sitio.": "You may request information, access, correction, updating, or, where applicable, deletion of your personal data by contacting NUTRIELITE through the contact channel published on this site.",
+      "Responsable de contacto: Melisa Florencia Sarracino · NUTRIELITE.": "Contact responsible: Melisa Florencia Sarracino · NUTRIELITE.",
+      "Condiciones y alcance de la información": "Conditions et portée des informations",
+      "El contenido de este sitio tiene finalidad informativa y educativa. No reemplaza una evaluación nutricional individual, una indicación médica ni la atención de otros profesionales de la salud cuando corresponda.": "The content of this site is informational and educational. It does not replace an individual nutritional assessment, medical advice, or care from other health professionals when appropriate.",
+      "La disponibilidad de turnos, servicios y productos puede modificarse. Toda solicitud queda sujeta a confirmación por el canal de contacto correspondiente.": "Availability of appointments, services, and products may change. Every request is subject to confirmation through the appropriate contact channel.",
       "Finalizar compra por WhatsApp": "Finaliser l’achat via WhatsApp"
 };
 
@@ -5157,6 +5282,24 @@
       "Tu carrito": "Il tuo carrello",
       "Todavía no agregaste productos.": "Non hai ancora aggiunto prodotti.",
       "Total": "Totale",
+      "Solicita información para comenzar.": "Richiedi informazioni per iniziare.",
+      "Si deseas consultar por atención nutricional, disponibilidad o modalidad de atención, puedes comunicarte directamente por WhatsApp.": "For nutritional care, availability, or appointment format, you can contact us directly via WhatsApp.",
+      "Atención en línea · Presencial próximamente": "Online care · In-person care coming soon",
+      "Canal de contacto": "Canale di contatto",
+      "Escribir por WhatsApp": "Scrivi su WhatsApp",
+      "Para proteger tu privacidad, evita incluir información clínica sensible en el primer mensaje.": "To protect your privacy, avoid including sensitive clinical information in your first message.",
+      "Información y confianza": "Informazioni e fiducia",
+      "Privacidad y condiciones del sitio.": "Privacy e condizioni del sito.",
+      "Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.": "Basic information about site use, contact data, and the scope of published content.",
+      "Privacidad y datos personales": "Privacy e dati personali",
+      "Los datos que ingreses para solicitar un turno o realizar una consulta se utilizan únicamente para gestionar tu contacto, coordinar la atención o responder tu solicitud.": "Data entered to request an appointment or make an inquiry are used only to manage contact, coordinate care, or respond to your request.",
+      "La agenda pública solicita datos básicos de identificación y contacto. No ingreses diagnósticos, estudios, antecedentes médicos ni otros datos de salud en estos campos.": "The public appointment form requests basic identification and contact information. Do not enter diagnoses, test results, medical history, or other health data in these fields.",
+      "Derechos sobre tus datos": "I tuoi diritti sui dati",
+      "Puedes solicitar información, acceso, rectificación, actualización o, cuando corresponda, supresión de tus datos personales comunicándote con NUTRIELITE mediante el canal de contacto publicado en este sitio.": "You may request information, access, correction, updating, or, where applicable, deletion of your personal data by contacting NUTRIELITE through the contact channel published on this site.",
+      "Responsable de contacto: Melisa Florencia Sarracino · NUTRIELITE.": "Contact responsible: Melisa Florencia Sarracino · NUTRIELITE.",
+      "Condiciones y alcance de la información": "Condizioni e ambito delle informazioni",
+      "El contenido de este sitio tiene finalidad informativa y educativa. No reemplaza una evaluación nutricional individual, una indicación médica ni la atención de otros profesionales de la salud cuando corresponda.": "The content of this site is informational and educational. It does not replace an individual nutritional assessment, medical advice, or care from other health professionals when appropriate.",
+      "La disponibilidad de turnos, servicios y productos puede modificarse. Toda solicitud queda sujeta a confirmación por el canal de contacto correspondiente.": "Availability of appointments, services, and products may change. Every request is subject to confirmation through the appropriate contact channel.",
       "Finalizar compra por WhatsApp": "Completa l’acquisto tramite WhatsApp"
 };
 
