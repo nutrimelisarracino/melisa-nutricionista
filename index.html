@@ -1652,6 +1652,174 @@
       font-weight:800;
       letter-spacing:.01em;
     }
+
+    .agenda-section {
+      background:linear-gradient(180deg,#fffdf9 0%,#fbf7f1 100%);
+    }
+    .agenda-shell {
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+      gap:28px;
+      align-items:start;
+    }
+    .agenda-calendar,
+    .agenda-request {
+      border:1px solid rgba(143,75,98,.10);
+      border-radius:24px;
+      background:#fff;
+      box-shadow:0 16px 36px rgba(35,54,48,.055);
+    }
+    .agenda-calendar { padding:22px; }
+    .agenda-request { padding:24px; }
+    .agenda-calendar-head {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+      text-align:center;
+    }
+    .agenda-month-label {
+      margin:0;
+      color:#24453d;
+      font-family:"Cormorant Garamond","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size:1.75rem;
+      font-weight:700;
+      text-transform:capitalize;
+    }
+    .agenda-year-label { margin:2px 0 0; color:#8a405b; font-size:.8rem; font-weight:800; letter-spacing:.08em; }
+    .agenda-arrow {
+      width:42px;
+      height:42px;
+      border:1px solid rgba(143,75,98,.12);
+      border-radius:12px;
+      background:#f8f0f3;
+      color:#7a4055;
+      font:inherit;
+      font-size:1.6rem;
+      cursor:pointer;
+    }
+    .agenda-arrow:disabled { opacity:.3; cursor:default; }
+    .agenda-weekdays,
+    .agenda-days {
+      display:grid;
+      grid-template-columns:repeat(7,minmax(0,1fr));
+      gap:7px;
+    }
+    .agenda-weekdays { margin-bottom:7px; }
+    .agenda-weekdays span {
+      padding:5px 0;
+      color:#7c7772;
+      font-size:.72rem;
+      font-weight:800;
+      text-align:center;
+      text-transform:uppercase;
+    }
+    .agenda-day {
+      aspect-ratio:1/1;
+      min-height:44px;
+      border:1px solid transparent;
+      border-radius:12px;
+      background:#f8f7f2;
+      color:#315249;
+      font:inherit;
+      font-size:.88rem;
+      font-weight:750;
+      cursor:pointer;
+    }
+    .agenda-day:hover:not(:disabled) {
+      border-color:rgba(143,75,98,.20);
+      background:#f6ecef;
+      color:#7b3f55;
+    }
+    .agenda-day.is-selected {
+      background:#8a405b;
+      color:#fff;
+      border-color:#8a405b;
+    }
+    .agenda-day:disabled,
+    .agenda-day.is-unavailable {
+      background:#f1efeb;
+      color:#b4afa9;
+      cursor:default;
+      text-decoration:line-through;
+    }
+    .agenda-day.is-empty { visibility:hidden; }
+    .agenda-legend {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px 18px;
+      margin-top:16px;
+      color:#756f6a;
+      font-size:.78rem;
+    }
+    .agenda-legend span { display:inline-flex; align-items:center; gap:7px; }
+    .agenda-dot { width:9px; height:9px; border-radius:50%; display:inline-block; }
+    .agenda-dot-available { background:#b8c97a; }
+    .agenda-dot-unavailable { background:#d8d3cc; }
+    .agenda-kicker {
+      display:inline-block;
+      margin-bottom:8px;
+      color:#8a405b;
+      font-size:.7rem;
+      font-weight:850;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+    .agenda-request h3 {
+      margin:0 0 6px;
+      font-size:1.65rem;
+    }
+    .agenda-selected-copy { margin:0 0 20px; color:#756f6a; }
+    .agenda-field {
+      display:grid;
+      gap:6px;
+      margin-bottom:13px;
+      color:#315249;
+      font-size:.82rem;
+      font-weight:800;
+    }
+    .agenda-field input,
+    .agenda-field select {
+      width:100%;
+      min-height:44px;
+      padding:10px 12px;
+      border:1px solid rgba(36,72,62,.15);
+      border-radius:11px;
+      background:#fffdf9;
+      color:#24453d;
+      font:inherit;
+      outline:none;
+    }
+    .agenda-field input:focus,
+    .agenda-field select:focus {
+      border-color:rgba(143,75,98,.42);
+      box-shadow:0 0 0 3px rgba(143,75,98,.07);
+    }
+    .agenda-submit {
+      width:100%;
+      margin-top:5px;
+    }
+    .agenda-submit:disabled {
+      opacity:.45;
+      cursor:not-allowed;
+    }
+    .agenda-note {
+      margin:12px 0 0;
+      color:#817a75;
+      font-size:.76rem;
+      line-height:1.5;
+    }
+    @media(max-width:900px){
+      .agenda-shell { grid-template-columns:1fr; }
+    }
+    @media(max-width:720px){
+      .agenda-calendar { padding:15px; }
+      .agenda-request { padding:18px; }
+      .agenda-weekdays,.agenda-days { gap:5px; }
+      .agenda-day { min-height:39px; border-radius:10px; font-size:.82rem; }
+      .agenda-month-label { font-size:1.55rem; }
+    }
 </style>
 </head>
 <body>
@@ -1668,6 +1836,7 @@
           <a href="#inicio">Home</a>
           <a href="#sobre-mi">Sobre mí</a>
           <a href="#nutricion">Nutrición</a>
+          <a href="#agenda">Agenda</a>
           <a href="#equipo">Equipo</a>
           <a href="#preguntas">Preguntas</a>
           <a class="nav-cta" href="#contacto">Contacto</a>
@@ -1943,6 +2112,75 @@
           <article class="step"><h3>Evaluar</h3><p>Analizo la información relevante, tus antecedentes, estudios e indicaciones médicas para definir el abordaje nutricional más adecuado.</p></article>
           <article class="step"><h3>Organizar</h3><p>Definimos recomendaciones posibles, adaptadas a tu situación y vida cotidiana.</p></article>
           <article class="step"><h3>Acompañar</h3><p>En los seguimientos revisamos avances, dificultades y cambios necesarios.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section agenda-section view-section" id="agenda" data-view="agenda">
+      <div class="wrap">
+        <div class="section-head agenda-head">
+          <div>
+            <p class="eyebrow">Agenda</p>
+            <h2>Solicita tu turno.</h2>
+          </div>
+          <p>Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.</p>
+        </div>
+
+        <div class="agenda-shell">
+          <div class="agenda-calendar">
+            <div class="agenda-calendar-head">
+              <button type="button" class="agenda-arrow" id="agendaPrev" aria-label="Mes anterior">‹</button>
+              <div>
+                <p class="agenda-month-label" id="agendaMonthLabel"></p>
+                <p class="agenda-year-label" id="agendaYearLabel"></p>
+              </div>
+              <button type="button" class="agenda-arrow" id="agendaNext" aria-label="Mes siguiente">›</button>
+            </div>
+            <div class="agenda-weekdays" id="agendaWeekdays"></div>
+            <div class="agenda-days" id="agendaDays"></div>
+            <div class="agenda-legend">
+              <span><i class="agenda-dot agenda-dot-available"></i>Disponible para solicitar</span>
+              <span><i class="agenda-dot agenda-dot-unavailable"></i>No disponible</span>
+            </div>
+          </div>
+
+          <div class="agenda-request">
+            <span class="agenda-kicker">Solicitud de turno</span>
+            <h3 id="agendaSelectedTitle">Selecciona una fecha</h3>
+            <p class="agenda-selected-copy" id="agendaSelectedCopy">Navega por los meses y elige un día disponible.</p>
+
+            <label class="agenda-field">
+              <span>Nombre y apellido</span>
+              <input id="agendaName" type="text" autocomplete="name" placeholder="Tu nombre">
+            </label>
+
+            <label class="agenda-field">
+              <span>Tipo de consulta</span>
+              <select id="agendaService">
+                <option value="Primera consulta nutricional">Primera consulta nutricional</option>
+                <option value="Consulta de seguimiento">Consulta de seguimiento</option>
+                <option value="Educación alimentaria sin plan alimentario">Educación alimentaria sin plan alimentario</option>
+                <option value="Orientación alimentaria familiar">Orientación alimentaria familiar</option>
+              </select>
+            </label>
+
+            <label class="agenda-field">
+              <span>Preferencia horaria</span>
+              <select id="agendaTime">
+                <option value="Mañana">Mañana</option>
+                <option value="Tarde">Tarde</option>
+                <option value="A coordinar">A coordinar</option>
+              </select>
+            </label>
+
+            <label class="agenda-field">
+              <span>Correo electrónico</span>
+              <input id="agendaEmail" type="email" autocomplete="email" placeholder="tu@email.com">
+            </label>
+
+            <button class="button button-primary agenda-submit" id="agendaSubmit" type="button" disabled>Solicitar turno por WhatsApp</button>
+            <p class="agenda-note">La fecha elegida se mantiene como solicitud hasta que confirmemos disponibilidad y horario contigo.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -2287,6 +2525,7 @@
     function saveBookCart(cart) {
       try { localStorage.setItem('nutrielite_book_cart', JSON.stringify(cart)); } catch (e) {}
       renderBookCart();
+      if (typeof renderAgenda === 'function') renderAgenda();
     }
     function addBookToCart(button) {
       const name = button.dataset.name;
@@ -2358,6 +2597,27 @@
 
     /* Idiomas ES / EN */
     const translations = {
+      "Agenda":"Appointments",
+      "Solicita tu turno.":"Request an appointment.",
+      "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Choose a date and send your request. Your appointment is confirmed once you receive confirmation via WhatsApp.",
+      "Disponible para solicitar":"Available to request",
+      "No disponible":"Unavailable",
+      "Solicitud de turno":"Appointment request",
+      "Selecciona una fecha":"Select a date",
+      "Navega por los meses y elige un día disponible.":"Browse the months and choose an available day.",
+      "Nombre y apellido":"Full name",
+      "Tu nombre":"Your name",
+      "Tipo de consulta":"Consultation type",
+      "Preferencia horaria":"Preferred time",
+      "Mañana":"Morning",
+      "Tarde":"Afternoon",
+      "A coordinar":"To be arranged",
+      "Correo electrónico":"Email",
+      "Solicitar turno por WhatsApp":"Request appointment via WhatsApp",
+      "La fecha elegida se mantiene como solicitud hasta que confirmemos disponibilidad y horario contigo.":"The selected date remains a request until availability and time are confirmed with you.",
+      "Mes anterior":"Previous month",
+      "Mes siguiente":"Next month",
+
       "Coincidencia anterior":"Previous match",
       "Siguiente coincidencia":"Next match",
 
@@ -2569,6 +2829,27 @@
     }
 
     const translationsPt = {
+      "Agenda":"Agenda",
+      "Solicita tu turno.":"Solicite sua consulta.",
+      "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Escolha uma data e envie sua solicitação. A consulta fica confirmada quando você receber a confirmação pelo WhatsApp.",
+      "Disponible para solicitar":"Disponível para solicitar",
+      "No disponible":"Indisponível",
+      "Solicitud de turno":"Solicitação de consulta",
+      "Selecciona una fecha":"Selecione uma data",
+      "Navega por los meses y elige un día disponible.":"Navegue pelos meses e escolha um dia disponível.",
+      "Nombre y apellido":"Nome e sobrenome",
+      "Tu nombre":"Seu nome",
+      "Tipo de consulta":"Tipo de consulta",
+      "Preferencia horaria":"Preferência de horário",
+      "Mañana":"Manhã",
+      "Tarde":"Tarde",
+      "A coordinar":"A combinar",
+      "Correo electrónico":"E-mail",
+      "Solicitar turno por WhatsApp":"Solicitar consulta pelo WhatsApp",
+      "La fecha elegida se mantiene como solicitud hasta que confirmemos disponibilidad y horario contigo.":"A data escolhida permanece como solicitação até confirmarmos a disponibilidade e o horário com você.",
+      "Mes anterior":"Mês anterior",
+      "Mes siguiente":"Próximo mês",
+
       "Coincidencia anterior":"Correspondência anterior",
       "Siguiente coincidencia":"Próxima correspondência",
 
@@ -2765,6 +3046,27 @@
 };
 
     const translationsFr = {
+      "Agenda":"Agenda",
+      "Solicita tu turno.":"Demandez votre rendez-vous.",
+      "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Choisissez une date et envoyez votre demande. Le rendez-vous est confirmé lorsque vous recevez la confirmation par WhatsApp.",
+      "Disponible para solicitar":"Disponible sur demande",
+      "No disponible":"Indisponible",
+      "Solicitud de turno":"Demande de rendez-vous",
+      "Selecciona una fecha":"Sélectionnez une date",
+      "Navega por los meses y elige un día disponible.":"Parcourez les mois et choisissez un jour disponible.",
+      "Nombre y apellido":"Nom et prénom",
+      "Tu nombre":"Votre nom",
+      "Tipo de consulta":"Type de consultation",
+      "Preferencia horaria":"Préférence horaire",
+      "Mañana":"Matin",
+      "Tarde":"Après-midi",
+      "A coordinar":"À convenir",
+      "Correo electrónico":"E-mail",
+      "Solicitar turno por WhatsApp":"Demander un rendez-vous via WhatsApp",
+      "La fecha elegida se mantiene como solicitud hasta que confirmemos disponibilidad y horario contigo.":"La date choisie reste une demande jusqu'à ce que nous confirmions avec vous la disponibilité et l'horaire.",
+      "Mes anterior":"Mois précédent",
+      "Mes siguiente":"Mois suivant",
+
       "Coincidencia anterior":"Résultat précédent",
       "Siguiente coincidencia":"Résultat suivant",
 
@@ -2961,6 +3263,27 @@
 };
 
     const translationsIt = {
+      "Agenda":"Agenda",
+      "Solicita tu turno.":"Richiedi un appuntamento.",
+      "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Scegli una data e invia la richiesta. L'appuntamento è confermato quando ricevi la conferma via WhatsApp.",
+      "Disponible para solicitar":"Disponibile su richiesta",
+      "No disponible":"Non disponibile",
+      "Solicitud de turno":"Richiesta di appuntamento",
+      "Selecciona una fecha":"Seleziona una data",
+      "Navega por los meses y elige un día disponible.":"Scorri i mesi e scegli un giorno disponibile.",
+      "Nombre y apellido":"Nome e cognome",
+      "Tu nombre":"Il tuo nome",
+      "Tipo de consulta":"Tipo di consulenza",
+      "Preferencia horaria":"Preferenza oraria",
+      "Mañana":"Mattina",
+      "Tarde":"Pomeriggio",
+      "A coordinar":"Da concordare",
+      "Correo electrónico":"E-mail",
+      "Solicitar turno por WhatsApp":"Richiedi appuntamento via WhatsApp",
+      "La fecha elegida se mantiene como solicitud hasta que confirmemos disponibilidad y horario contigo.":"La data scelta resta una richiesta finché non confermiamo con te disponibilità e orario.",
+      "Mes anterior":"Mese precedente",
+      "Mes siguiente":"Mese successivo",
+
       "Coincidencia anterior":"Risultato precedente",
       "Siguiente coincidencia":"Risultato successivo",
 
@@ -3446,11 +3769,146 @@
       if(e.key==='Escape') closeSiteSearch();
     });
 
-        const viewByTarget = {
+    
+    const agendaMonthLabel=document.getElementById('agendaMonthLabel');
+    const agendaYearLabel=document.getElementById('agendaYearLabel');
+    const agendaWeekdays=document.getElementById('agendaWeekdays');
+    const agendaDays=document.getElementById('agendaDays');
+    const agendaPrev=document.getElementById('agendaPrev');
+    const agendaNext=document.getElementById('agendaNext');
+    const agendaSelectedTitle=document.getElementById('agendaSelectedTitle');
+    const agendaSelectedCopy=document.getElementById('agendaSelectedCopy');
+    const agendaSubmit=document.getElementById('agendaSubmit');
+    const agendaName=document.getElementById('agendaName');
+    const agendaService=document.getElementById('agendaService');
+    const agendaTime=document.getElementById('agendaTime');
+    const agendaEmail=document.getElementById('agendaEmail');
+
+    const agendaToday=new Date();
+    agendaToday.setHours(0,0,0,0);
+    let agendaCursor=new Date(agendaToday.getFullYear(),agendaToday.getMonth(),1);
+    let agendaSelectedDate=null;
+
+    function agendaLocale(){
+      return {es:'es-AR',en:'en-US',pt:'pt-BR',fr:'fr-FR',it:'it-IT'}[currentLang] || 'es-AR';
+    }
+
+    function agendaWeekdayLabels(){
+      const base=new Date(2026,0,5); // Monday
+      return Array.from({length:7},(_,i)=>
+        new Intl.DateTimeFormat(agendaLocale(),{weekday:'short'}).format(new Date(base.getFullYear(),base.getMonth(),base.getDate()+i)).replace('.','')
+      );
+    }
+
+    function agendaDateLabel(date){
+      return new Intl.DateTimeFormat(agendaLocale(),{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(date);
+    }
+
+    function renderAgenda(){
+      if(!agendaDays) return;
+      const locale=agendaLocale();
+      agendaMonthLabel.textContent=new Intl.DateTimeFormat(locale,{month:'long'}).format(agendaCursor);
+      agendaYearLabel.textContent=String(agendaCursor.getFullYear());
+      agendaWeekdays.innerHTML=agendaWeekdayLabels().map(day=>'<span>'+day+'</span>').join('');
+
+      const year=agendaCursor.getFullYear();
+      const month=agendaCursor.getMonth();
+      const first=new Date(year,month,1);
+      const last=new Date(year,month+1,0);
+      const leading=(first.getDay()+6)%7;
+      const cells=[];
+
+      for(let i=0;i<leading;i++) cells.push('<button class="agenda-day is-empty" type="button" tabindex="-1"></button>');
+
+      for(let d=1;d<=last.getDate();d++){
+        const date=new Date(year,month,d);
+        date.setHours(0,0,0,0);
+        const weekend=date.getDay()===0 || date.getDay()===6;
+        const past=date<agendaToday;
+        const unavailable=weekend || past;
+        const iso=year+'-'+String(month+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+        const selected=agendaSelectedDate && agendaSelectedDate.getTime()===date.getTime();
+        cells.push('<button class="agenda-day'+(unavailable?' is-unavailable':'')+(selected?' is-selected':'')+'" type="button" data-date="'+iso+'"'+(unavailable?' disabled':'')+'>'+d+'</button>');
+      }
+      agendaDays.innerHTML=cells.join('');
+
+      agendaDays.querySelectorAll('.agenda-day[data-date]:not(:disabled)').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const parts=btn.dataset.date.split('-').map(Number);
+          agendaSelectedDate=new Date(parts[0],parts[1]-1,parts[2]);
+          agendaSelectedTitle.textContent=agendaDateLabel(agendaSelectedDate);
+          agendaSelectedCopy.textContent={
+            es:'Completa tus datos y envía la solicitud para confirmar disponibilidad.',
+            en:'Complete your details and send the request to confirm availability.',
+            pt:'Preencha seus dados e envie a solicitação para confirmar a disponibilidade.',
+            fr:'Complétez vos informations et envoyez la demande pour confirmer la disponibilité.',
+            it:'Completa i tuoi dati e invia la richiesta per confermare la disponibilità.'
+          }[currentLang] || 'Completa tus datos y envía la solicitud para confirmar disponibilidad.';
+          agendaSubmit.disabled=false;
+          renderAgenda();
+        });
+      });
+
+      const minCursor=new Date(agendaToday.getFullYear(),agendaToday.getMonth(),1);
+      const maxCursor=new Date(agendaToday.getFullYear(),agendaToday.getMonth()+11,1);
+      agendaPrev.disabled=agendaCursor<=minCursor;
+      agendaNext.disabled=agendaCursor>=maxCursor;
+    }
+
+    agendaPrev?.addEventListener('click',()=>{
+      const min=new Date(agendaToday.getFullYear(),agendaToday.getMonth(),1);
+      const prev=new Date(agendaCursor.getFullYear(),agendaCursor.getMonth()-1,1);
+      if(prev>=min){ agendaCursor=prev; renderAgenda(); }
+    });
+    agendaNext?.addEventListener('click',()=>{
+      const max=new Date(agendaToday.getFullYear(),agendaToday.getMonth()+11,1);
+      const next=new Date(agendaCursor.getFullYear(),agendaCursor.getMonth()+1,1);
+      if(next<=max){ agendaCursor=next; renderAgenda(); }
+    });
+
+    agendaSubmit?.addEventListener('click',()=>{
+      if(!agendaSelectedDate) return;
+      const name=(agendaName?.value || '').trim();
+      const email=(agendaEmail?.value || '').trim();
+      const service=agendaService?.value || '';
+      const time=agendaTime?.value || '';
+      const date=agendaDateLabel(agendaSelectedDate);
+      const intro={
+        es:'Hola, Melisa. Quisiera solicitar un turno.',
+        en:'Hello, Melisa. I would like to request an appointment.',
+        pt:'Olá, Melisa. Gostaria de solicitar uma consulta.',
+        fr:'Bonjour Melisa. Je souhaiterais demander un rendez-vous.',
+        it:'Ciao Melisa. Vorrei richiedere un appuntamento.'
+      }[currentLang] || 'Hola, Melisa. Quisiera solicitar un turno.';
+      const labels={
+        es:{date:'Fecha',service:'Consulta',time:'Preferencia horaria',name:'Nombre',email:'Correo'},
+        en:{date:'Date',service:'Consultation',time:'Preferred time',name:'Name',email:'Email'},
+        pt:{date:'Data',service:'Consulta',time:'Preferência de horário',name:'Nome',email:'E-mail'},
+        fr:{date:'Date',service:'Consultation',time:'Préférence horaire',name:'Nom',email:'E-mail'},
+        it:{date:'Data',service:'Consulenza',time:'Preferenza oraria',name:'Nome',email:'E-mail'}
+      }[currentLang] || {date:'Fecha',service:'Consulta',time:'Preferencia horaria',name:'Nombre',email:'Correo'};
+
+      const msg=[
+        intro,
+        '',
+        labels.date+': '+date,
+        labels.service+': '+service,
+        labels.time+': '+time,
+        labels.name+': '+(name || '-'),
+        labels.email+': '+(email || '-')
+      ].join('\n');
+
+      window.open('https://wa.me/541133069146?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
+    });
+
+    renderAgenda();
+
+    const viewByTarget = {
       inicio:'home',
       'sobre-mi':'about',
       nutricion:'nutrition',
       consultas:'nutrition',
+      agenda:'agenda',
       equipo:'team',
       preguntas:'faq',
       contacto:'contact'
@@ -3465,7 +3923,7 @@
     }
 
     function showSiteView(view, options={}) {
-      const targetView=['home','about','nutrition','team','faq','contact'].includes(view) ? view : 'home';
+      const targetView=['home','about','nutrition','agenda','team','faq','contact'].includes(view) ? view : 'home';
       restoreOriginalOrder();
 
       // Índice desde el que debe comenzar a mostrarse la página.
@@ -3473,6 +3931,7 @@
         home: 0,
         about: originalSections.findIndex(section => section.dataset && section.dataset.view === 'about'),
         nutrition: originalSections.findIndex(section => section.dataset && section.dataset.view === 'nutrition'),
+        agenda: originalSections.findIndex(section => section.dataset && section.dataset.view === 'agenda'),
         team: originalSections.findIndex(section => section.dataset && section.dataset.view === 'team'),
         faq: originalSections.findIndex(section => section.dataset && section.dataset.view === 'faq'),
         contact: originalSections.findIndex(section => section.dataset && section.dataset.view === 'contact')
@@ -3507,6 +3966,7 @@
           home:'inicio',
           about:'sobre-mi',
           nutrition:'nutricion',
+          agenda:'agenda',
           team:'equipo',
           faq:'preguntas',
           contact:'contacto'
