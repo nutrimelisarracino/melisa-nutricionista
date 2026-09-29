@@ -1560,6 +1560,32 @@
       }
       #siteSearchSubmit { padding:8px 10px; }
     }
+
+    /* Lupa visible junto a Contacto */
+    .site-search-toggle {
+      position:relative;
+      z-index:5;
+      margin-left:-8px;
+      background:#fffafc !important;
+      border:1px solid rgba(143,75,98,.20) !important;
+      box-shadow:0 4px 12px rgba(111,66,82,.07);
+    }
+    .site-search-toggle svg {
+      width:21px !important;
+      height:21px !important;
+      stroke:#7a4055 !important;
+      stroke-width:2 !important;
+    }
+    @media(max-width:720px){
+      .site-search-toggle {
+        width:42px !important;
+        min-width:42px;
+        height:42px;
+        margin-left:auto;
+        margin-right:4px;
+        border-radius:11px;
+      }
+    }
 </style>
 </head>
 <body>
@@ -1579,13 +1605,13 @@
           <a href="#equipo">Equipo</a>
           <a href="#preguntas">Preguntas</a>
           <a class="nav-cta" href="#contacto">Contacto</a>
-          <button class="site-search-toggle" id="siteSearchToggle" type="button" aria-label="Buscar en la página" title="Buscar en la página" aria-expanded="false" aria-controls="siteSearchPanel">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="11" cy="11" r="6.5"></circle>
-              <path d="M16 16l4.2 4.2"></path>
-            </svg>
-          </button>
         </nav>
+        <button class="site-search-toggle" id="siteSearchToggle" type="button" aria-label="Buscar en la página" title="Buscar en la página" aria-expanded="false" aria-controls="siteSearchPanel">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <path d="M16 16l4.2 4.2"></path>
+          </svg>
+        </button>
         <div class="lang-picker" id="langPicker">
           <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" aria-label="Seleccionar idioma" title="Seleccionar idioma">
             <span class="lang-flag flag-es" aria-hidden="true"><svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#AA151B"/><rect y="5" width="30" height="10" fill="#F1BF00"/></svg></span><span class="lang-current">ES</span><span class="lang-chevron" aria-hidden="true">⌄</span>
