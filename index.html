@@ -143,6 +143,7 @@
     .lang-toggle .lang-current { color:#873b55; }
     .lang-toggle .lang-other { color:#9b8a85; font-weight:700; }
     .lang-toggle .lang-separator { color:#c4aaa5; font-weight:500; }
+    .lang-toggle .lang-flag { font-size:.9rem; line-height:1; }
 
     .hero {
       position: relative;
@@ -932,7 +933,7 @@
           <a class="nav-cta" href="#contacto">Contacto</a>
         </nav>
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Cambiar idioma a inglés" title="Cambiar idioma a inglés">
-          <span class="lang-current">ES</span><span class="lang-separator">/</span><span class="lang-other">EN</span>
+          <span class="lang-flag" aria-hidden="true">🇪🇸</span><span class="lang-current">ES</span><span class="lang-separator">/</span><span class="lang-flag" aria-hidden="true">🇬🇧</span><span class="lang-other">EN</span>
         </button>
       </div>
     </div>
@@ -1740,8 +1741,8 @@
       const button = document.getElementById('langToggle');
       if (button) {
         button.innerHTML = lang === 'en'
-          ? '<span class="lang-current">EN</span><span class="lang-separator">/</span><span class="lang-other">ES</span>'
-          : '<span class="lang-current">ES</span><span class="lang-separator">/</span><span class="lang-other">EN</span>';
+          ? '<span class="lang-flag" aria-hidden="true">🇬🇧</span><span class="lang-current">EN</span><span class="lang-separator">/</span><span class="lang-flag" aria-hidden="true">🇪🇸</span><span class="lang-other">ES</span>'
+          : '<span class="lang-flag" aria-hidden="true">🇪🇸</span><span class="lang-current">ES</span><span class="lang-separator">/</span><span class="lang-flag" aria-hidden="true">🇬🇧</span><span class="lang-other">EN</span>';
         const label = lang === 'en' ? 'Switch language to Spanish' : 'Cambiar idioma a inglés';
         button.setAttribute('aria-label', label);
         button.setAttribute('title', label);
