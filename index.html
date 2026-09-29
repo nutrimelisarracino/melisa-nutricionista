@@ -1421,6 +1421,25 @@
       .lang-menu { width:178px; right:0; }
       .lang-option { padding:10px; font-size:.8rem; }
     }
+
+    /* Navegación por vistas: el menú cambia el contenido sin desplazar una página larga */
+    main#contenido {
+      min-height:calc(100vh - 98px);
+    }
+    .view-section {
+      display:none;
+    }
+    .view-section.is-active {
+      display:block;
+    }
+    .nav-links a.is-current {
+      background:rgba(239,226,231,.72);
+      border-color:rgba(143,75,98,.16);
+      color:#653848;
+    }
+    @media (max-width:720px) {
+      main#contenido { min-height:calc(100vh - 86px); }
+    }
 </style>
 </head>
 <body>
@@ -1458,7 +1477,7 @@
   </header>
 
   <main id="contenido">
-    <section class="hero" id="inicio">
+    <section class="hero view-section is-active" id="inicio" data-view="home">
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Atención nutricional personalizada</p>
@@ -1492,7 +1511,7 @@
       </div>
     </section>
 
-    <section class="section about-section-clean" id="sobre-mi">
+    <section class="section about-section-clean view-section" id="sobre-mi" data-view="about">
       <div class="wrap founder-grid">
         <div class="founder-photo-column">
 <div class="founder-photo-frame">
@@ -1515,7 +1534,7 @@
       </div>
     </section>
 
-    <section class="section section-soft" id="nutricion">
+    <section class="section section-soft view-section" id="nutricion" data-view="nutrition">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -1580,7 +1599,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section view-section" data-view="nutrition">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -1604,7 +1623,7 @@
       </div>
     </section>
 
-    <section class="section section-soft" id="consultas">
+    <section class="section section-soft view-section" id="consultas" data-view="nutrition">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -1675,7 +1694,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section view-section" data-view="nutrition">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -1693,7 +1712,7 @@
       </div>
     </section>
 
-    <section class="section section-soft" id="equipo">
+    <section class="section section-soft view-section" id="equipo" data-view="team">
       <div class="wrap">
         <div class="team-intro compact-team-intro">
           <p class="eyebrow">Propuestas complementarias</p>
@@ -1916,7 +1935,7 @@
       </div>
     </section>
 
-    <section class="section" id="preguntas">
+    <section class="section view-section" id="preguntas" data-view="faq">
       <div class="wrap faq">
         <p class="eyebrow">Preguntas frecuentes</p>
         <h2>Información antes de comenzar.</h2>
@@ -1948,7 +1967,7 @@
       </div>
     </section>
 
-    <section class="section closing-quote-section" id="contacto">
+    <section class="section closing-quote-section view-section" id="contacto" data-view="contact">
       <div class="wrap">
         <div class="closing-quote-box">
           <p class="closing-quote-text">La nutrición no puede reducirse a nutrientes, calorías o restricciones: implica comprender procesos biológicos, etapas de la vida, contexto clínico y realidad cotidiana.</p>
@@ -3021,6 +3040,70 @@
         }
       });
     }
+
+    const viewByTarget = {
+      inicio:'home',
+      'sobre-mi':'about',
+      nutricion:'nutrition',
+      consultas:'nutrition',
+      equipo:'team',
+      preguntas:'faq',
+      contacto:'contact'
+    };
+    const canonicalIdByView = {
+      home:'inicio',
+      about:'sobre-mi',
+      nutrition:'nutricion',
+      team:'equipo',
+      faq:'preguntas',
+      contact:'contacto'
+    };
+
+    function showSiteView(view, options={}) {
+      const targetView = canonicalIdByView[view] ? view : 'home';
+      document.querySelectorAll('.view-section').forEach(section => {
+        section.classList.toggle('is-active', section.dataset.view === targetView);
+      });
+
+      document.querySelectorAll('#nav-links a[href^="#"]').forEach(link => {
+        const id=(link.getAttribute('href')||'').slice(1);
+        link.classList.toggle('is-current', viewByTarget[id] === targetView);
+      });
+
+      const menu=document.getElementById('nav-links');
+      const toggle=document.querySelector('.menu-toggle');
+      if(menu) menu.classList.remove('open');
+      if(toggle) toggle.setAttribute('aria-expanded','false');
+
+      if(options.scroll !== false) {
+        window.scrollTo({top:0,left:0,behavior:'auto'});
+      }
+      if(options.history !== false) {
+        const id=canonicalIdByView[targetView];
+        history.pushState({view:targetView},'', '#'+id);
+      }
+    }
+
+    document.addEventListener('click', event => {
+      const link=event.target.closest('a[href^="#"]');
+      if(!link) return;
+      const href=link.getAttribute('href');
+      if(!href || href==='#') return;
+      const id=href.slice(1);
+      const view=viewByTarget[id];
+      if(!view) return;
+      event.preventDefault();
+      showSiteView(view);
+    });
+
+    window.addEventListener('popstate', () => {
+      const id=location.hash.replace('#','') || 'inicio';
+      showSiteView(viewByTarget[id] || 'home',{history:false});
+    });
+
+    const initialTarget=location.hash.replace('#','') || 'inicio';
+    showSiteView(viewByTarget[initialTarget] || 'home',{history:false,scroll:false});
+
     setLanguage(currentLang);
 
   </script>
