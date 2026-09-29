@@ -1422,23 +1422,14 @@
       .lang-option { padding:10px; font-size:.8rem; }
     }
 
-    /* Navegación por vistas: el menú cambia el contenido sin desplazar una página larga */
-    main#contenido {
-      min-height:calc(100vh - 98px);
-    }
+    /* Navegación superior sin ocultar el contenido de la página */
     .view-section {
-      display:none;
-    }
-    .view-section.is-active {
       display:block;
     }
     .nav-links a.is-current {
       background:rgba(239,226,231,.72);
       border-color:rgba(143,75,98,.16);
       color:#653848;
-    }
-    @media (max-width:720px) {
-      main#contenido { min-height:calc(100vh - 86px); }
     }
 </style>
 </head>
@@ -3050,20 +3041,23 @@
       preguntas:'faq',
       contacto:'contact'
     };
-    const canonicalIdByView = {
-      home:'inicio',
-      about:'sobre-mi',
-      nutrition:'nutricion',
-      team:'equipo',
-      faq:'preguntas',
-      contact:'contacto'
-    };
+
+    const mainContent=document.getElementById('contenido');
+    const originalSections=mainContent ? Array.from(mainContent.children) : [];
+
+    function restoreOriginalOrder() {
+      if(!mainContent) return;
+      originalSections.forEach(section => mainContent.appendChild(section));
+    }
 
     function showSiteView(view, options={}) {
-      const targetView = canonicalIdByView[view] ? view : 'home';
-      document.querySelectorAll('.view-section').forEach(section => {
-        section.classList.toggle('is-active', section.dataset.view === targetView);
-      });
+      const targetView=['home','about','nutrition','team','faq','contact'].includes(view) ? view : 'home';
+      restoreOriginalOrder();
+
+      if(targetView !== 'home' && mainContent) {
+        const selected=originalSections.filter(section => section.dataset && section.dataset.view === targetView);
+        selected.slice().reverse().forEach(section => mainContent.insertBefore(section, mainContent.firstChild));
+      }
 
       document.querySelectorAll('#nav-links a[href^="#"]').forEach(link => {
         const id=(link.getAttribute('href')||'').slice(1);
@@ -3079,7 +3073,14 @@
         window.scrollTo({top:0,left:0,behavior:'auto'});
       }
       if(options.history !== false) {
-        const id=canonicalIdByView[targetView];
+        const id={
+          home:'inicio',
+          about:'sobre-mi',
+          nutrition:'nutricion',
+          team:'equipo',
+          faq:'preguntas',
+          contact:'contacto'
+        }[targetView];
         history.pushState({view:targetView},'', '#'+id);
       }
     }
