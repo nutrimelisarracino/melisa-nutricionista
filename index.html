@@ -3558,7 +3558,92 @@
       updateLanguageChrome(currentLang);
       localStorage.setItem('nutrielite_lang', currentLang);
       renderBookCart();
+      updateWhatsAppLinks();
       if (typeof renderAgenda === 'function') renderAgenda();
+    }
+
+    function updateWhatsAppLinks() {
+      const number='541133069146';
+      const staticMessages={
+        'Hola, Melisa. Quisiera solicitar información para reservar una consulta nutricional en línea.':{
+          en:'Hello, Melisa. I would like information to book an online nutrition consultation.',
+          pt:'Olá, Melisa. Gostaria de receber informações para agendar uma consulta nutricional on-line.',
+          fr:'Bonjour Melisa. Je souhaiterais recevoir des informations pour réserver une consultation nutritionnelle en ligne.',
+          it:'Ciao Melisa. Vorrei ricevere informazioni per prenotare una consulenza nutrizionale online.'
+        },
+        'Hola, Melisa. Quisiera consultar por una primera consulta nutricional.':{
+          en:'Hello, Melisa. I would like to ask about an initial nutrition consultation.',
+          pt:'Olá, Melisa. Gostaria de informações sobre uma primeira consulta nutricional.',
+          fr:'Bonjour Melisa. Je souhaiterais me renseigner sur une première consultation nutritionnelle.',
+          it:'Ciao Melisa. Vorrei informazioni su una prima consulenza nutrizionale.'
+        },
+        'Hola, Melisa. Quisiera consultar por una consulta de seguimiento.':{
+          en:'Hello, Melisa. I would like to ask about a follow-up nutrition consultation.',
+          pt:'Olá, Melisa. Gostaria de informações sobre uma consulta nutricional de acompanhamento.',
+          fr:'Bonjour Melisa. Je souhaiterais me renseigner sur une consultation nutritionnelle de suivi.',
+          it:'Ciao Melisa. Vorrei informazioni su una consulenza nutrizionale di follow-up.'
+        },
+        'Hola. Quisiera consultar por educación alimentaria sin plan alimentario.':{
+          en:'Hello. I would like information about nutrition education without a personalized meal plan.',
+          pt:'Olá. Gostaria de informações sobre educação alimentar sem plano alimentar personalizado.',
+          fr:'Bonjour. Je souhaiterais recevoir des informations sur l’éducation alimentaire sans plan alimentaire personnalisé.',
+          it:'Buongiorno. Vorrei informazioni sull’educazione alimentare senza piano alimentare personalizzato.'
+        },
+        'Hola. Quisiera consultar por una consulta de orientación alimentaria para grupo familiar.':{
+          en:'Hello. I would like information about a family nutrition guidance consultation.',
+          pt:'Olá. Gostaria de informações sobre uma consulta de orientação alimentar para o grupo familiar.',
+          fr:'Bonjour. Je souhaiterais recevoir des informations sur une consultation d’orientation alimentaire pour la famille.',
+          it:'Buongiorno. Vorrei informazioni su una consulenza di orientamento alimentare per la famiglia.'
+        },
+        'Hola. Quisiera solicitar información sobre la sesión inicial de coaching con Mónica Andrea Sarracino.':{
+          en:'Hello. I would like information about the initial coaching session with Mónica Andrea Sarracino.',
+          pt:'Olá. Gostaria de receber informações sobre a sessão inicial de coaching com Mónica Andrea Sarracino.',
+          fr:'Bonjour. Je souhaiterais recevoir des informations sur la séance initiale de coaching avec Mónica Andrea Sarracino.',
+          it:'Buongiorno. Vorrei ricevere informazioni sulla sessione iniziale di coaching con Mónica Andrea Sarracino.'
+        },
+        'Hola. Quisiera solicitar información sobre los servicios de NUTRIELITE.':{
+          en:'Hello. I would like information about NUTRIELITE services.',
+          pt:'Olá. Gostaria de receber informações sobre os serviços da NUTRIELITE.',
+          fr:'Bonjour. Je souhaiterais recevoir des informations sur les services de NUTRIELITE.',
+          it:'Buongiorno. Vorrei ricevere informazioni sui servizi NUTRIELITE.'
+        }
+      };
+
+      document.querySelectorAll('a[href^="https://wa.me/'+number+'?text="]').forEach(link=>{
+        if(!link.dataset.waSource){
+          try{
+            const url=new URL(link.href);
+            link.dataset.waSource=url.searchParams.get('text') || '';
+          }catch(e){
+            link.dataset.waSource='';
+          }
+        }
+
+        const source=link.dataset.waSource;
+        let message=source;
+
+        const staticTranslation=staticMessages[source];
+        if(currentLang!=='es' && staticTranslation?.[currentLang]){
+          message=staticTranslation[currentLang];
+        }
+
+        const productMatch=source.match(/^Hola\. Quisiera comprar (.+) de NUTRIELITE por (\$[\d.]+)\.$/);
+        if(productMatch){
+          const product=productMatch[1];
+          const price=productMatch[2];
+          const translatedProduct=(productNamesByLang[currentLang] || {})[product] || product;
+          const templates={
+            es:'Hola. Quisiera comprar '+product+' de NUTRIELITE por '+price+'.',
+            en:'Hello. I would like to purchase '+translatedProduct+' from NUTRIELITE for '+price+'.',
+            pt:'Olá. Gostaria de comprar '+translatedProduct+' da NUTRIELITE por '+price+'.',
+            fr:'Bonjour. Je souhaiterais acheter '+translatedProduct+' de NUTRIELITE pour '+price+'.',
+            it:'Buongiorno. Vorrei acquistare '+translatedProduct+' di NUTRIELITE per '+price+'.'
+          };
+          message=templates[currentLang] || templates.es;
+        }
+
+        link.href='https://wa.me/'+number+'?text='+encodeURIComponent(message);
+      });
     }
 
     const productNamesByLang = {
