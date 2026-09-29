@@ -615,6 +615,57 @@
       .book-package-actions { grid-template-columns: 1fr; }
     }
 
+    .book-faq {
+      margin-top:28px;
+      padding:28px;
+      border:1px solid rgba(135,59,85,.09);
+      border-radius:24px;
+      background:linear-gradient(145deg,#fffaf6 0%,#f6eee6 100%);
+      box-shadow:0 14px 34px rgba(35,54,48,.05);
+    }
+    .book-faq-head { margin-bottom:12px; }
+    .book-faq-head h3 { margin:4px 0 0; color:#873b55; }
+    .book-faq-item {
+      border-top:1px solid rgba(135,59,85,.10);
+      background:transparent;
+    }
+    .book-faq-item:first-of-type { border-top:0; }
+    .book-faq-item summary {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      min-height:auto;
+      padding:18px 0;
+      cursor:pointer;
+      list-style:none;
+      color:#5b313b;
+      font-family:inherit;
+      font-size:1rem;
+      font-weight:700;
+    }
+    .book-faq-item summary::-webkit-details-marker { display:none; }
+    .book-faq-item summary::after {
+      content:"+";
+      position:static;
+      width:auto;
+      height:auto;
+      border:0;
+      border-radius:0;
+      color:#a34f6b;
+      font-size:1.35rem;
+      line-height:1;
+      flex:0 0 auto;
+    }
+    .book-faq-item[open] summary::after { content:"−"; }
+    .book-faq-item summary::before { content:none; }
+    .book-faq-item p {
+      margin:0;
+      padding:0 30px 18px 0;
+      color:#5d5652;
+      line-height:1.65;
+    }
+
 @media (max-width: 900px) {
       .section { padding: 82px 0; }
       .hero { min-height: auto; padding-top: 42px; }
@@ -629,6 +680,9 @@
     @media (max-width: 720px) {
       .wrap { width: calc(100% - 30px); max-width: 100%; }
       .section { padding: 58px 0; }
+      .book-faq { padding:22px 18px; border-radius:20px; }
+      .book-faq-item summary { font-size:.96rem; padding:16px 0; }
+      .book-faq-item p { padding-right:18px; }
       .site-header .nav {
         position:relative;
         width:calc(100% - 30px);
@@ -1304,6 +1358,43 @@
                   </div>
                 </article>
                   </div>
+
+                  <div class="book-faq" aria-label="Preguntas frecuentes sobre los libros digitales">
+                    <div class="book-faq-head">
+                      <span class="catalog-kicker">Preguntas frecuentes</span>
+                      <h3>Antes de comprar</h3>
+                    </div>
+
+                    <details class="book-faq-item">
+                      <summary>¿Qué incluye cada libro?</summary>
+                      <p>Cada libro reúne propuestas e ideas prácticas correspondientes a ese momento del día: desayunos, almuerzos, meriendas o cenas.</p>
+                    </details>
+
+                    <details class="book-faq-item">
+                      <summary>¿Los libros se venden por separado?</summary>
+                      <p>Sí. Podés comprar cada libro individualmente o elegir la colección completa.</p>
+                    </details>
+
+                    <details class="book-faq-item">
+                      <summary>¿Qué incluye la colección completa?</summary>
+                      <p>Incluye los cuatro libros digitales: desayunos, almuerzos, meriendas y cenas.</p>
+                    </details>
+
+                    <details class="book-faq-item">
+                      <summary>¿En qué formato se entrega?</summary>
+                      <p>Se entrega en formato digital para que puedas acceder al material desde tu celular, tablet o computadora.</p>
+                    </details>
+
+                    <details class="book-faq-item">
+                      <summary>¿Cómo recibo el material después de comprarlo?</summary>
+                      <p>Una vez confirmado el pago, se coordina la entrega del material digital por WhatsApp.</p>
+                    </details>
+
+                    <details class="book-faq-item">
+                      <summary>¿Los libros reemplazan una consulta nutricional?</summary>
+                      <p>No. Son materiales educativos y de cocina, y no reemplazan una evaluación nutricional individual.</p>
+                    </details>
+                  </div>
                 </div>
 
                 <div class="catalog-group">
@@ -1695,6 +1786,20 @@
       "Selección digital de recetas de barritas saludables.":"Digital selection of healthy bar recipes.",
       "Recetas de bolitas energéticas":"Energy bite recipes",
       "Selección digital de recetas de bolitas energéticas.":"Digital selection of energy bite recipes.",
+      "Preguntas frecuentes":"Frequently asked questions",
+      "Antes de comprar":"Before purchasing",
+      "¿Qué incluye cada libro?":"What does each book include?",
+      "Cada libro reúne propuestas e ideas prácticas correspondientes a ese momento del día: desayunos, almuerzos, meriendas o cenas.":"Each book includes practical recipes and ideas designed for that specific time of day: breakfast, lunch, afternoon snacks or dinner.",
+      "¿Los libros se venden por separado?":"Are the books sold separately?",
+      "Sí. Podés comprar cada libro individualmente o elegir la colección completa.":"Yes. Each book may be purchased individually, or you may choose the complete collection.",
+      "¿Qué incluye la colección completa?":"What is included in the complete collection?",
+      "Incluye los cuatro libros digitales: desayunos, almuerzos, meriendas y cenas.":"It includes all four digital books: breakfasts, lunches, afternoon snacks and dinners.",
+      "¿En qué formato se entrega?":"In what format is the material provided?",
+      "Se entrega en formato digital para que puedas acceder al material desde tu celular, tablet o computadora.":"The material is provided in digital format and can be accessed from a mobile phone, tablet or computer.",
+      "¿Cómo recibo el material después de comprarlo?":"How will I receive the material after purchase?",
+      "Una vez confirmado el pago, se coordina la entrega del material digital por WhatsApp.":"Once payment has been confirmed, delivery of the digital material is coordinated via WhatsApp.",
+      "¿Los libros reemplazan una consulta nutricional?":"Do the books replace a nutritional consultation?",
+      "No. Son materiales educativos y de cocina, y no reemplazan una evaluación nutricional individual.":"No. These are educational and culinary materials and do not replace an individualized nutritional assessment.",
       "Recetas de tartaletas saludables":"Healthy tartlet recipes",
       "Selección digital de recetas de tartaletas saludables.":"Digital selection of healthy tartlet recipes.",
       "Preguntas frecuentes":"Frequently asked questions",
