@@ -1650,6 +1650,131 @@
       }
     }
 
+    /* Tarjetas cálidas e institucionales: paleta coordinada */
+    .service-card,
+    .consult-card,
+    .step,
+    .agenda-calendar,
+    .agenda-request,
+    .proposal-card,
+    .catalog-group,
+    .book-faq {
+      border-width:1px;
+      box-shadow:0 16px 34px rgba(35,54,48,.065);
+    }
+
+    .service-card-materno {
+      background:
+        radial-gradient(circle at 92% 10%,rgba(216,160,139,.16),transparent 26%),
+        linear-gradient(145deg,#f6e7df 0%,#fbf3ed 58%,#fffaf6 100%) !important;
+      border-color:rgba(200,126,101,.16) !important;
+    }
+    .service-card-renal {
+      background:
+        radial-gradient(circle at 90% 10%,rgba(126,145,93,.14),transparent 25%),
+        linear-gradient(145deg,#e6ead1 0%,#f1f3e3 60%,#fbfbf5 100%) !important;
+      border-color:rgba(126,145,93,.16) !important;
+    }
+
+    .modality-online {
+      background:
+        radial-gradient(circle at 88% 12%,rgba(216,160,139,.12),transparent 28%),
+        linear-gradient(145deg,#f3ddd3 0%,#f7e8e0 58%,#fbf2ed 100%) !important;
+      border-color:rgba(200,126,101,.14) !important;
+    }
+    .modality-soon {
+      background:
+        radial-gradient(circle at 88% 12%,rgba(126,145,93,.12),transparent 28%),
+        linear-gradient(145deg,#e2e8c8 0%,#edf0da 58%,#f5f6e9 100%) !important;
+      border-color:rgba(126,145,93,.14) !important;
+    }
+
+    .consult-card-sage {
+      background:linear-gradient(145deg,#e5e9cf 0%,#f0f2df 100%) !important;
+      border-color:rgba(126,145,93,.14) !important;
+    }
+    .consult-card-blush {
+      background:linear-gradient(145deg,#f0dce2 0%,#f8ecef 100%) !important;
+      border-color:rgba(143,75,98,.13) !important;
+    }
+    .consult-card-sand {
+      background:linear-gradient(145deg,#efe4d0 0%,#f8f1e5 100%) !important;
+      border-color:rgba(190,157,105,.14) !important;
+    }
+    .consult-card-peach {
+      background:linear-gradient(145deg,#f0d6c7 0%,#f8e9e1 100%) !important;
+      border-color:rgba(200,126,101,.14) !important;
+    }
+
+    .step:nth-child(1) {
+      background:linear-gradient(145deg,#e9edd8 0%,#f6f7ed 100%) !important;
+      border-color:rgba(126,145,93,.14) !important;
+    }
+    .step:nth-child(2) {
+      background:linear-gradient(145deg,#f3e2e7 0%,#faf1f3 100%) !important;
+      border-color:rgba(143,75,98,.12) !important;
+    }
+    .step:nth-child(3) {
+      background:linear-gradient(145deg,#f2e8d8 0%,#faf6ef 100%) !important;
+      border-color:rgba(190,157,105,.14) !important;
+    }
+    .step:nth-child(4) {
+      background:linear-gradient(145deg,#f3ded2 0%,#faf0ea 100%) !important;
+      border-color:rgba(200,126,101,.14) !important;
+    }
+
+    .agenda-calendar {
+      background:linear-gradient(145deg,#fffaf5 0%,#fbf4ec 100%) !important;
+      border-color:rgba(200,126,101,.12) !important;
+    }
+    .agenda-request {
+      background:linear-gradient(145deg,#f3e7eb 0%,#fbf5f6 100%) !important;
+      border-color:rgba(143,75,98,.12) !important;
+    }
+
+    .proposal-card-coach {
+      background:linear-gradient(145deg,#f4e7e9 0%,#fff9f7 100%) !important;
+      border-color:rgba(143,75,98,.13) !important;
+    }
+    .proposal-card-kitchen {
+      background:linear-gradient(145deg,#efe3d1 0%,#faf4e9 100%) !important;
+      border-color:rgba(190,157,105,.14) !important;
+    }
+    .proposal-card-coach .proposal-summary,
+    .proposal-card-kitchen .proposal-summary {
+      background:transparent !important;
+    }
+
+    .catalog-group {
+      background:linear-gradient(145deg,#fbf4ec 0%,#fffaf6 100%) !important;
+      border-color:rgba(200,126,101,.10) !important;
+    }
+    .book-faq {
+      background:linear-gradient(145deg,#edf0dc 0%,#f8f8ef 100%) !important;
+      border-color:rgba(126,145,93,.12) !important;
+    }
+
+    .closing-quote-box {
+      border-width:1px;
+      background:
+        radial-gradient(circle at 14% 18%,rgba(255,255,255,.62),transparent 30%),
+        linear-gradient(145deg,#f5e7de 0%,#efe3d2 55%,#e8ead5 100%) !important;
+    }
+
+    @media(max-width:720px){
+      .service-card,
+      .modality,
+      .consult-card,
+      .step,
+      .agenda-calendar,
+      .agenda-request,
+      .proposal-card,
+      .catalog-group,
+      .book-faq {
+        box-shadow:0 12px 26px rgba(35,54,48,.055);
+      }
+    }
+
     /* Jerarquía tipográfica refinada */
     body {
       font-size:16px;
