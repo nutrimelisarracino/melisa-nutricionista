@@ -1441,6 +1441,125 @@
     .nav-section-hidden {
       display:none !important;
     }
+
+    .site-search-toggle {
+      width:40px;
+      height:40px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 40px;
+      border:1px solid rgba(143,75,98,.10);
+      border-radius:11px;
+      background:rgba(255,255,255,.42);
+      color:#6f4252;
+      cursor:pointer;
+      transition:background .22s ease,border-color .22s ease,transform .22s ease;
+    }
+    .site-search-toggle:hover {
+      background:rgba(244,235,229,.68);
+      border-color:rgba(143,75,98,.14);
+      transform:translateY(-1px);
+    }
+    .site-search-toggle svg {
+      width:20px;
+      height:20px;
+      fill:none;
+      stroke:currentColor;
+      stroke-width:1.8;
+      stroke-linecap:round;
+    }
+    .site-search-panel {
+      display:none;
+      position:sticky;
+      top:98px;
+      z-index:1150;
+      padding:10px 0 14px;
+      background:rgba(255,253,249,.97);
+      border-bottom:1px solid rgba(143,75,98,.10);
+      box-shadow:0 10px 26px rgba(35,54,48,.06);
+      backdrop-filter:blur(10px);
+    }
+    .site-search-panel.open { display:block; }
+    .site-search-inner { display:grid; gap:7px; }
+    .site-search-box {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      max-width:760px;
+      margin:0 auto;
+      padding:8px 10px 8px 14px;
+      border:1px solid rgba(143,75,98,.14);
+      border-radius:16px;
+      background:#fff;
+    }
+    .site-search-box > svg {
+      width:19px;
+      height:19px;
+      flex:0 0 auto;
+      fill:none;
+      stroke:#8a405b;
+      stroke-width:1.8;
+      stroke-linecap:round;
+    }
+    .site-search-box input {
+      min-width:0;
+      flex:1;
+      border:0;
+      outline:0;
+      background:transparent;
+      color:#24453d;
+      font:inherit;
+      font-size:.98rem;
+    }
+    .site-search-box input::placeholder { color:#8d8a84; }
+    .site-search-box button {
+      border:0;
+      border-radius:10px;
+      cursor:pointer;
+      font:inherit;
+      font-weight:700;
+    }
+    #siteSearchSubmit {
+      padding:9px 14px;
+      background:#8a405b;
+      color:#fff;
+    }
+    .site-search-close {
+      width:34px;
+      height:34px;
+      background:transparent;
+      color:#6f4252;
+      font-size:1.45rem !important;
+      line-height:1;
+    }
+    .site-search-status {
+      min-height:1.2em;
+      max-width:760px;
+      margin:0 auto;
+      color:#6f625f;
+      font-size:.9rem;
+    }
+    .site-search-hit {
+      outline:3px solid rgba(199,43,114,.22);
+      outline-offset:5px;
+      border-radius:6px;
+      scroll-margin-top:170px;
+    }
+    @media(max-width:720px){
+      .site-search-toggle {
+        width:100%;
+        min-height:42px;
+        height:42px;
+        flex-basis:auto;
+      }
+      .site-search-panel { top:86px; }
+      .site-search-box {
+        gap:7px;
+        padding:7px 8px 7px 12px;
+      }
+      #siteSearchSubmit { padding:8px 10px; }
+    }
 </style>
 </head>
 <body>
@@ -1460,6 +1579,12 @@
           <a href="#equipo">Equipo</a>
           <a href="#preguntas">Preguntas</a>
           <a class="nav-cta" href="#contacto">Contacto</a>
+          <button class="site-search-toggle" id="siteSearchToggle" type="button" aria-label="Buscar en la página" title="Buscar en la página" aria-expanded="false" aria-controls="siteSearchPanel">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5"></circle>
+              <path d="M16 16l4.2 4.2"></path>
+            </svg>
+          </button>
         </nav>
         <div class="lang-picker" id="langPicker">
           <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" aria-label="Seleccionar idioma" title="Seleccionar idioma">
@@ -1476,6 +1601,21 @@
       </div>
     </div>
   </header>
+  <div class="site-search-panel" id="siteSearchPanel" aria-hidden="true">
+    <div class="wrap site-search-inner">
+      <div class="site-search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5"></circle>
+          <path d="M16 16l4.2 4.2"></path>
+        </svg>
+        <input id="siteSearchInput" type="search" autocomplete="off" placeholder="Buscar en NUTRIELITE…" aria-label="Buscar en NUTRIELITE">
+        <button id="siteSearchSubmit" type="button">Buscar</button>
+        <button id="siteSearchClose" class="site-search-close" type="button" aria-label="Cerrar buscador">×</button>
+      </div>
+      <div class="site-search-status" id="siteSearchStatus" aria-live="polite"></div>
+    </div>
+  </div>
+
 
   <main id="contenido">
     <section class="hero view-section is-active" id="inicio" data-view="home">
@@ -2115,6 +2255,11 @@
 
     /* Idiomas ES / EN */
     const translations = {
+      "Buscar en la página":"Search the site",
+      "Buscar en NUTRIELITE…":"Search NUTRIELITE…",
+      "Buscar":"Search",
+      "Cerrar buscador":"Close search",
+
       "Ir al contenido principal":"Skip to main content",
       "Menú":"Menu",
       "Home":"Home",
@@ -2318,6 +2463,11 @@
     }
 
     const translationsPt = {
+      "Buscar en la página":"Pesquisar no site",
+      "Buscar en NUTRIELITE…":"Pesquisar na NUTRIELITE…",
+      "Buscar":"Pesquisar",
+      "Cerrar buscador":"Fechar pesquisa",
+
       "Ir al contenido principal": "Ir para o conteúdo principal",
       "Menú": "Menu",
       "Home": "Início",
@@ -2506,6 +2656,11 @@
 };
 
     const translationsFr = {
+      "Buscar en la página":"Rechercher sur le site",
+      "Buscar en NUTRIELITE…":"Rechercher dans NUTRIELITE…",
+      "Buscar":"Rechercher",
+      "Cerrar buscador":"Fermer la recherche",
+
       "Ir al contenido principal": "Aller au contenu principal",
       "Menú": "Menu",
       "Home": "Accueil",
@@ -2694,6 +2849,11 @@
 };
 
     const translationsIt = {
+      "Buscar en la página":"Cerca nel sito",
+      "Buscar en NUTRIELITE…":"Cerca in NUTRIELITE…",
+      "Buscar":"Cerca",
+      "Cerrar buscador":"Chiudi ricerca",
+
       "Ir al contenido principal": "Vai al contenuto principale",
       "Menú": "Menu",
       "Home": "Home",
@@ -3041,6 +3201,82 @@
         }
       });
     }
+
+
+    const siteSearchToggle=document.getElementById('siteSearchToggle');
+    const siteSearchPanel=document.getElementById('siteSearchPanel');
+    const siteSearchInput=document.getElementById('siteSearchInput');
+    const siteSearchSubmit=document.getElementById('siteSearchSubmit');
+    const siteSearchClose=document.getElementById('siteSearchClose');
+    const siteSearchStatus=document.getElementById('siteSearchStatus');
+    let activeSearchHit=null;
+
+    function normalizeSearchText(value) {
+      return (value || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,'')
+        .toLowerCase()
+        .trim();
+    }
+
+    function openSiteSearch() {
+      if(!siteSearchPanel) return;
+      siteSearchPanel.classList.add('open');
+      siteSearchPanel.setAttribute('aria-hidden','false');
+      siteSearchToggle?.setAttribute('aria-expanded','true');
+      setTimeout(()=>siteSearchInput?.focus(),40);
+    }
+
+    function closeSiteSearch() {
+      if(!siteSearchPanel) return;
+      siteSearchPanel.classList.remove('open');
+      siteSearchPanel.setAttribute('aria-hidden','true');
+      siteSearchToggle?.setAttribute('aria-expanded','false');
+    }
+
+    function clearSearchHit() {
+      if(activeSearchHit) activeSearchHit.classList.remove('site-search-hit');
+      activeSearchHit=null;
+    }
+
+    function runSiteSearch() {
+      const term=normalizeSearchText(siteSearchInput?.value);
+      clearSearchHit();
+      if(!term) {
+        if(siteSearchStatus) siteSearchStatus.textContent='';
+        return;
+      }
+
+      const searchable=Array.from(document.querySelectorAll('#contenido h1,#contenido h2,#contenido h3,#contenido h4,#contenido p,#contenido li,#contenido a,#contenido button,#contenido strong,#contenido span'))
+        .filter(el => !el.closest('.cart-panel') && normalizeSearchText(el.textContent).includes(term));
+
+      if(!searchable.length) {
+        if(siteSearchStatus) siteSearchStatus.textContent='No se encontraron coincidencias.';
+        return;
+      }
+
+      const hit=searchable[0];
+      const section=hit.closest('.view-section');
+      if(section && section.dataset.view) {
+        showSiteView(section.dataset.view,{history:true,scroll:false});
+      }
+
+      activeSearchHit=hit;
+      hit.classList.add('site-search-hit');
+      hit.scrollIntoView({behavior:'smooth',block:'center'});
+      if(siteSearchStatus) siteSearchStatus.textContent='Coincidencia encontrada.';
+    }
+
+    siteSearchToggle?.addEventListener('click',()=>{
+      const isOpen=siteSearchPanel?.classList.contains('open');
+      isOpen ? closeSiteSearch() : openSiteSearch();
+    });
+    siteSearchClose?.addEventListener('click',closeSiteSearch);
+    siteSearchSubmit?.addEventListener('click',runSiteSearch);
+    siteSearchInput?.addEventListener('keydown',e=>{
+      if(e.key==='Enter') runSiteSearch();
+      if(e.key==='Escape') closeSiteSearch();
+    });
 
     const viewByTarget = {
       inicio:'home',
