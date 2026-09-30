@@ -3689,6 +3689,9 @@
         font-size:1.02rem;
       }
     }
+
+    .proposal-photo-pending{opacity:0}
+    .proposal-photo-error{display:none}
 </style>
   <script type="application/ld+json">
   {
@@ -4086,7 +4089,7 @@
           <details class="proposal-card proposal-card-coach">
             <summary class="proposal-summary">
               <div class="proposal-photo-frame">
-                <img src="monica-andrea-sarracino.jpg" alt="Mónica Andrea Sarracino, Coach Ontológico Profesional" class="proposal-photo">
+                <img src="monica-andrea-sarracino.jpg" data-photo-text="monica-photo.b64" alt="Mónica Andrea Sarracino, Coach Ontológico Profesional" class="proposal-photo proposal-photo-pending">
               </div>
               <div class="proposal-summary-copy">
                 <span class="proposal-kicker">Coaching ontológico</span>
@@ -4470,6 +4473,26 @@
     </svg>
     <span>WhatsApp</span>
   </a>
+
+  <script>
+    (function loadPhotoAssets(){
+      document.querySelectorAll('img[data-photo-text]').forEach(async (img)=>{
+        try{
+          const response=await fetch(img.dataset.photoText,{cache:'force-cache'});
+          if(!response.ok) throw new Error('photo');
+          const encoded=(await response.text()).trim();
+          const binary=atob(encoded);
+          const bytes=new Uint8Array(binary.length);
+          for(let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i);
+          const objectUrl=URL.createObjectURL(new Blob([bytes],{type:'image/jpeg'}));
+          img.onload=()=>{img.classList.remove('proposal-photo-pending'); URL.revokeObjectURL(objectUrl);};
+          img.src=objectUrl;
+        }catch(error){
+          img.classList.add('proposal-photo-error');
+        }
+      });
+    })();
+  </script>
 
   <script>
     function initScrollReveal() {
