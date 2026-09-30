@@ -5272,10 +5272,15 @@
 
   <script>
     (function loadPhotoAssets(){
-      document.querySelectorAll('img[data-photo-text], img[data-photo-prefix]').forEach(async (img)=>{
+      document.querySelectorAll('img[data-photo-text], img[data-photo-prefix], img[data-photo-chunks]').forEach(async (img)=>{
         try{
           let encoded='';
-          if(img.dataset.photoText){
+          if(img.dataset.photoChunks){
+            const parts=img.dataset.photoChunks.split(',').map(part=>part.trim()).filter(Boolean);
+            const responses=await Promise.all(parts.map(path=>fetch(path,{cache:'force-cache'})));
+            if(responses.some(response=>!response.ok)) throw new Error('photo-chunks');
+            encoded=(await Promise.all(responses.map(response=>response.text()))).join('');
+          }else if(img.dataset.photoText){
             const response=await fetch(img.dataset.photoText,{cache:'force-cache'});
             if(!response.ok) throw new Error('photo');
             encoded=(await response.text()).trim();
