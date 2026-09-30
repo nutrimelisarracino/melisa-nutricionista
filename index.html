@@ -4532,96 +4532,6 @@
         filter:none !important;
       }
     }
-    /* Franja institucional — Home */
-    .institutional-strip{
-      margin-top:28px;
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      background:rgba(255,253,249,.76);
-      border:1px solid rgba(143,75,98,.10);
-      border-radius:20px;
-      box-shadow:0 12px 30px rgba(52,50,42,.055);
-      overflow:hidden;
-      backdrop-filter:blur(6px);
-    }
-    .institutional-item{
-      position:relative;
-      min-height:88px;
-      padding:18px 22px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:5px;
-    }
-    .institutional-item + .institutional-item::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:20%;
-      width:1px;
-      height:60%;
-      background:rgba(143,75,98,.12);
-    }
-    .institutional-label{
-      color:#916b72;
-      font-size:.68rem;
-      font-weight:800;
-      letter-spacing:.085em;
-      text-transform:uppercase;
-    }
-    .institutional-item strong{
-      color:var(--forest-deep);
-      font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
-      font-size:1.02rem;
-      line-height:1.25;
-      font-weight:650;
-    }
-    .institutional-brand strong{
-      color:#8f4b62;
-      letter-spacing:.035em;
-    }
-
-    @media(max-width:860px){
-      .institutional-strip{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-      .institutional-item:nth-child(3)::before{
-        display:none;
-      }
-      .institutional-item:nth-child(3),
-      .institutional-item:nth-child(4){
-        border-top:1px solid rgba(143,75,98,.10);
-      }
-    }
-
-    @media(max-width:520px){
-      .institutional-strip{
-        margin-top:22px;
-        grid-template-columns:1fr;
-        border-radius:18px;
-      }
-      .institutional-item{
-        min-height:auto;
-        padding:15px 18px;
-      }
-      .institutional-item + .institutional-item::before{
-        top:0;
-        left:18px;
-        width:calc(100% - 36px);
-        height:1px;
-      }
-      .institutional-item:nth-child(3)::before{
-        display:block;
-      }
-      .institutional-item:nth-child(3),
-      .institutional-item:nth-child(4){
-        border-top:0;
-      }
-      .institutional-item strong{
-        font-size:.98rem;
-      }
-    }
-
 </style>
   <script type="application/ld+json">
   {
@@ -4736,26 +4646,6 @@
         </div>
       </div>
 
-      <div class="wrap">
-        <div class="institutional-strip" aria-label="Información institucional">
-          <div class="institutional-item">
-            <span class="institutional-label">Matrículas profesionales</span>
-            <strong>M.P. 8068 · M.N. 13620</strong>
-          </div>
-          <div class="institutional-item">
-            <span class="institutional-label">Modalidad de atención</span>
-            <strong>Presencial y en línea</strong>
-          </div>
-          <div class="institutional-item">
-            <span class="institutional-label">Áreas de especialidad</span>
-            <strong>Materno-infantojuvenil y renal</strong>
-          </div>
-          <div class="institutional-item institutional-brand">
-            <span class="institutional-label">Marca profesional</span>
-            <strong>NUTRIELITE</strong>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="section about-section-clean view-section" id="sobre-mi" data-view="about">
@@ -5629,13 +5519,6 @@
 
     /* Idiomas ES / EN */
     const translations = {
-      "Matrículas profesionales":"Professional registrations",
-      "Modalidad de atención":"Consultation format",
-      "Presencial y en línea":"In person and online",
-      "Áreas de especialidad":"Specialty areas",
-      "Materno-infantojuvenil y renal":"Maternal, child and adolescent nutrition and renal nutrition",
-      "Marca profesional":"Professional brand",
-      "Información institucional":"Institutional information",
       "Agenda":"Appointments",
       "Solicita tu turno.":"Request an appointment.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Choose a date and send your request. Your appointment is confirmed once you receive confirmation via WhatsApp.",
@@ -5894,13 +5777,6 @@
     }
 
     const translationsPt = {
-      "Matrículas profesionales":"Registros profissionais",
-      "Modalidad de atención":"Modalidade de atendimento",
-      "Presencial y en línea":"Presencial e on-line",
-      "Áreas de especialidad":"Áreas de especialidade",
-      "Materno-infantojuvenil y renal":"Nutrição materno-infantil, juvenil e renal",
-      "Marca profesional":"Marca profissional",
-      "Información institucional":"Informações institucionais",
       "Agenda":"Agenda",
       "Solicita tu turno.":"Solicite sua consulta.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Escolha uma data e envie sua solicitação. A consulta fica confirmada quando você receber a confirmação pelo WhatsApp.",
@@ -6144,13 +6020,6 @@
 };
 
     const translationsFr = {
-      "Matrículas profesionales":"Inscriptions professionnelles",
-      "Modalidad de atención":"Modalité de consultation",
-      "Presencial y en línea":"En présentiel et en ligne",
-      "Áreas de especialidad":"Domaines de spécialité",
-      "Materno-infantojuvenil y renal":"Nutrition maternelle, infantile, adolescente et rénale",
-      "Marca profesional":"Marque professionnelle",
-      "Información institucional":"Informations institutionnelles",
       "Agenda":"Agenda",
       "Solicita tu turno.":"Demandez votre rendez-vous.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Choisissez une date et envoyez votre demande. Le rendez-vous est confirmé lorsque vous recevez la confirmation par WhatsApp.",
@@ -6394,13 +6263,6 @@
 };
 
     const translationsIt = {
-      "Matrículas profesionales":"Iscrizioni professionali",
-      "Modalidad de atención":"Modalità di consulenza",
-      "Presencial y en línea":"In presenza e online",
-      "Áreas de especialidad":"Aree di specializzazione",
-      "Materno-infantojuvenil y renal":"Nutrizione materno-infantile, adolescenziale e renale",
-      "Marca profesional":"Marchio professionale",
-      "Información institucional":"Informazioni istituzionali",
       "Agenda":"Agenda",
       "Solicita tu turno.":"Richiedi un appuntamento.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Scegli una data e invia la richiesta. L'appuntamento è confermato quando ricevi la conferma via WhatsApp.",
