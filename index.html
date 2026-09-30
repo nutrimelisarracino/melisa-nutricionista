@@ -3555,6 +3555,140 @@
         max-width:92%;
       }
     }
+
+    /* Equipo profesional con formato de retrato uniforme */
+    .proposal-accordion{
+      align-items:stretch;
+    }
+    .proposal-card{
+      overflow:hidden;
+    }
+    .proposal-summary{
+      grid-template-columns:132px minmax(0,1fr) 52px !important;
+      min-height:224px !important;
+      padding:26px 28px !important;
+      gap:24px !important;
+      align-items:center !important;
+    }
+    .proposal-photo-frame{
+      width:132px;
+      height:168px;
+      overflow:hidden;
+      border:1px solid rgba(143,75,98,.12);
+      border-radius:20px;
+      background:linear-gradient(145deg,#efe5dc,#e6ead8);
+      box-shadow:0 10px 26px rgba(35,54,48,.08);
+    }
+    .proposal-photo{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 35%;
+    }
+    .proposal-photo-frame.proposal-photo-placeholder{
+      display:grid;
+      place-items:center;
+      color:#9c7c80;
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+    .proposal-summary-copy{
+      align-self:center;
+    }
+    .proposal-summary-copy h3{
+      margin-bottom:9px;
+      font-size:clamp(1.45rem,2vw,1.8rem);
+    }
+    .proposal-summary-copy p{
+      max-width:520px;
+      margin:0;
+      color:#68625e;
+      line-height:1.55;
+    }
+    .team-profile-expanded .profile-body{
+      max-width:850px;
+      margin:0 auto;
+    }
+    .profile-greeting{
+      color:#6f3d4f;
+      font-size:1.08rem;
+      line-height:1.5;
+    }
+    .coach-focus{
+      margin:26px 0;
+      padding:24px 26px;
+      border:1px solid rgba(36,72,62,.09);
+      border-radius:20px;
+      background:linear-gradient(145deg,#fbf6ef,#fffdf9);
+    }
+    .coach-focus h3{
+      margin-bottom:14px;
+      font-size:1.28rem;
+    }
+    .coach-focus ul{
+      margin:0;
+      padding-left:20px;
+    }
+    .coach-focus li{
+      margin:0 0 10px;
+      color:#615c58;
+      line-height:1.62;
+    }
+    .coach-focus li:last-child{margin-bottom:0}
+    .coach-quote{
+      margin:26px 0;
+      padding:20px 24px;
+      border-left:3px solid rgba(143,75,98,.45);
+      border-radius:0 16px 16px 0;
+      background:rgba(242,221,210,.5);
+      color:#704354;
+      font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size:1.13rem;
+      line-height:1.6;
+    }
+    .offer-eyebrow{
+      display:block;
+      margin-bottom:7px;
+      color:#8f4b62;
+      font-size:.68rem;
+      font-weight:850;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+    }
+    @media(max-width:720px){
+      .proposal-summary{
+        grid-template-columns:92px minmax(0,1fr) 38px !important;
+        min-height:164px !important;
+        padding:18px !important;
+        gap:15px !important;
+      }
+      .proposal-photo-frame{
+        width:92px;
+        height:118px;
+        border-radius:16px;
+      }
+      .proposal-summary-copy h3{
+        font-size:1.15rem;
+        line-height:1.2;
+      }
+      .proposal-summary-copy p{
+        font-size:.79rem;
+        line-height:1.4;
+      }
+      .proposal-kicker{
+        font-size:.63rem;
+      }
+      .coach-focus{
+        padding:20px;
+      }
+      .coach-quote{
+        padding:18px;
+        font-size:1.02rem;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
@@ -3951,40 +4085,58 @@
         <div class="proposal-accordion">
           <details class="proposal-card proposal-card-coach">
             <summary class="proposal-summary">
-              <div class="proposal-photo-placeholder" aria-label="Espacio reservado para foto de Mónica"></div>
+              <div class="proposal-photo-frame">
+                <img src="monica-andrea-sarracino.jpg" alt="Mónica Andrea Sarracino, Coach Ontológico Profesional" class="proposal-photo">
+              </div>
               <div class="proposal-summary-copy">
                 <span class="proposal-kicker">Coaching ontológico</span>
                 <h3>Mónica Andrea Sarracino</h3>
-                <p>Acompañamiento orientado a procesos de cambio, hábitos y objetivos personales.</p>
+                <p>Coach Ontológico Profesional · Acompañamiento orientado a hábitos, cambios y objetivos personales.</p>
               </div>
               <span class="proposal-toggle" aria-hidden="true">+</span>
             </summary>
             <div class="proposal-content">
-          <article class="profile">
-            <div class="profile-body">
-              <p>Su interés por el desarrollo personal y los procesos de cambio la llevó a formarse como Coach Ontológica Profesional. Dentro de NUTRIELITE ofrece un espacio de acompañamiento para quienes desean revisar hábitos, creencias y obstáculos personales, y transformar sus objetivos en acciones posibles.</p>
-              <p>¿Sabes qué cambios quieres realizar, pero te cuesta sostenerlos en el tiempo? El coaching propone un espacio de conversación y reflexión para reconocer qué puede estar interfiriendo con tus objetivos y comenzar a construir nuevas posibilidades.</p>
+              <article class="profile team-profile-expanded">
+                <div class="profile-body">
+                  <p class="profile-greeting"><strong>¡Hola! Soy Andrea Sarracino</strong><br>Coach Ontológico Profesional</p>
+                  <p>Dentro de NUTRIELITE trabajamos de manera complementaria desde la nutrición, la gastronomía y el coaching, cada área desde su rol profesional.</p>
+                  <p>Muchas veces, el desafío no está solamente en saber qué comer o cómo prepararlo, sino en poder sostener los cambios en el tiempo cuando aparecen el estrés, la falta de motivación o distintas dificultades de la vida cotidiana.</p>
+                  <p>Ahí es donde entro yo. Mi propósito es acompañarte a observar hábitos, creencias y conversaciones internas que pueden facilitar o dificultar un proceso de cambio. No trabajamos desde la obligación o la restricción, sino desde el diseño de nuevos hábitos que tengan sentido con tu vida actual.</p>
 
-              <div class="offer-grid offer-grid-single">
-                <div class="offer">
-                  <h3>Sesión inicial de diagnóstico</h3>
-                  <p>Un primer encuentro para conocer tu situación actual, conversar sobre tu objetivo e identificar aspectos que podrían trabajarse mediante coaching.</p>
-                  <p class="session-note">Esta sesión no constituye un diagnóstico médico, psicológico ni nutricional. El coaching ontológico no reemplaza la atención de profesionales de la salud.</p>
+                  <div class="coach-focus">
+                    <h3>¿Qué podemos trabajar juntos?</h3>
+                    <ul>
+                      <li><strong>Identificar barreras:</strong> reconocer creencias, mandatos o formas de pensar que pueden dificultar la continuidad de los cambios.</li>
+                      <li><strong>Observar situaciones emocionales y cotidianas:</strong> identificar cómo determinados estados o contextos pueden influir en tus decisiones.</li>
+                      <li><strong>Diseñar un plan de acción real:</strong> crear metas cortas, concretas y realistas, adaptadas a tu rutina.</li>
+                      <li><strong>Construir una mirada más flexible:</strong> aprender de las dificultades sin convertir cada desvío en un fracaso.</li>
+                    </ul>
+                  </div>
+
+                  <blockquote class="coach-quote">“El cambio no empieza en la cocina, empieza en la conversación que tienes contigo mismo.”</blockquote>
+                  <p>¡Estoy lista para acompañarte a dar el paso!</p>
+
+                  <div class="offer-grid offer-grid-single">
+                    <div class="offer">
+                      <span class="offer-eyebrow">Primer encuentro</span>
+                      <h3>Sesión de Diagnóstico Individual</h3>
+                      <p>Un espacio inicial para conocer tu situación actual, conversar sobre tu objetivo e identificar qué aspectos pueden trabajarse desde el coaching.</p>
+                      <p class="session-note">Esta sesión no constituye un diagnóstico médico, psicológico ni nutricional. El coaching ontológico no reemplaza la atención de profesionales de la salud.</p>
+                    </div>
+                  </div>
+                  <a class="button button-primary" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20la%20sesi%C3%B3n%20de%20diagn%C3%B3stico%20individual%20de%20coaching%20con%20M%C3%B3nica%20Andrea%20Sarracino." target="_blank" rel="noopener">Solicitar sesión de diagnóstico</a>
                 </div>
-              </div>
-              <a class="button button-primary" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20la%20sesi%C3%B3n%20inicial%20de%20coaching%20con%20M%C3%B3nica%20Andrea%20Sarracino." target="_blank" rel="noopener">Solicitar sesión inicial</a>
-            </div>
-          </article>
+              </article>
             </div>
           </details>
 
           <details class="proposal-card proposal-card-kitchen">
             <summary class="proposal-summary">
-              <div class="proposal-photo-placeholder" aria-label="Espacio reservado para foto de Carla"></div>
+              <div class="proposal-photo-frame proposal-photo-placeholder" aria-label="Espacio reservado para foto de Carla"><span>Foto</span></div>
               <div class="proposal-summary-copy">
                 <span class="proposal-kicker">Gastronomía y libros digitales</span>
                 <h3>Carla Noemí Sarracino</h3>
-                <p>Recetarios y propuestas digitales desarrollados desde la cocina profesional.</p>
+                <p>Gastronomía profesional · Recetarios y propuestas digitales para la cocina cotidiana.</p>
               </div>
               <span class="proposal-toggle" aria-hidden="true">+</span>
             </summary>
