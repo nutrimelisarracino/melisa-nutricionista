@@ -4382,6 +4382,26 @@
         box-shadow:0 14px 28px rgba(52,50,42,.09);
       }
     }
+
+    /* Hover efectivo para bloques de especialidades, compatible con scroll-reveal */
+    @media (hover:hover) and (pointer:fine){
+      #nutricion .service-card-with-media.scroll-reveal.is-visible:hover,
+      #nutricion .service-card-with-media:not(.scroll-reveal):hover{
+        transform:translateY(-7px) scale(1.008);
+        box-shadow:0 28px 62px rgba(52,50,42,.15);
+      }
+
+      #nutricion .service-card-with-media.scroll-reveal.is-visible:hover .service-photo,
+      #nutricion .service-card-with-media:not(.scroll-reveal):hover .service-photo{
+        transform:scale(1.04);
+        filter:saturate(1.03) contrast(1.015);
+      }
+
+      #nutricion .service-card-with-media.scroll-reveal.is-visible:hover .service-icon,
+      #nutricion .service-card-with-media:not(.scroll-reveal):hover .service-icon{
+        transform:translateY(-3px) scale(1.03);
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
