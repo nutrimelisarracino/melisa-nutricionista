@@ -4722,6 +4722,39 @@
       opacity:1 !important;
       visibility:visible !important;
     }
+
+    /* Subtítulos institucionales: una línea en escritorio, fluidos en móvil */
+    @media(min-width:901px){
+      #agenda .agenda-head,
+      #nutricion .section-head,
+      .work-head,
+      #equipo .team-intro{
+        width:min(1080px,100%);
+        max-width:1080px;
+      }
+
+      #agenda .agenda-head > p,
+      #nutricion .section-head > p,
+      .work-head > p,
+      #equipo .team-intro .lede{
+        max-width:none !important;
+        white-space:nowrap;
+        overflow-wrap:normal;
+        word-break:normal;
+      }
+    }
+
+    @media(max-width:900px){
+      #agenda .agenda-head > p,
+      #nutricion .section-head > p,
+      .work-head > p,
+      #equipo .team-intro .lede{
+        max-width:none !important;
+        white-space:normal;
+        overflow-wrap:normal;
+        word-break:normal;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
