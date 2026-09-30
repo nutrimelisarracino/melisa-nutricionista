@@ -3165,6 +3165,51 @@
       }
     }
 
+
+    /* Encabezado de Cómo trabajo: mismo criterio que Agenda */
+    .work-head{
+      display:block;
+      max-width:1080px;
+      margin:0 0 38px;
+    }
+    .work-head > div{
+      max-width:none;
+    }
+    .work-head h2{
+      margin-bottom:0;
+    }
+    .work-head > p{
+      max-width:none;
+      margin:20px 0 0;
+      padding:4px 0 4px 18px;
+      border-left:2px solid rgba(143,75,98,.28);
+      color:#666e69;
+      font-size:1rem;
+      line-height:1.7;
+      justify-self:auto;
+    }
+
+    @media(min-width:901px){
+      .work-head > p{
+        white-space:nowrap;
+      }
+    }
+
+    @media(max-width:900px){
+      .work-head{
+        max-width:none;
+        margin-bottom:30px;
+      }
+      .work-head > p{
+        max-width:none;
+        margin-top:16px;
+        padding-left:14px;
+        white-space:normal;
+        font-size:.96rem;
+        line-height:1.62;
+      }
+    }
+
     /* Encabezado de áreas de atención: mismo criterio institucional */
     #nutricion .section-head{
       display:block;
@@ -4962,7 +5007,7 @@
 
     <section class="section view-section" data-view="nutrition">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head work-head">
           <div>
             <p class="eyebrow">Cómo trabajo</p>
             <h2>Acompañamiento paso a paso.</h2>
