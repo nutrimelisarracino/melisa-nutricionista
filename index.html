@@ -783,7 +783,35 @@
     .book-package-format { margin-bottom: 7px !important; color: var(--clay) !important; font-size: .63rem !important; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
     .book-package-price { margin-top: 8px !important; padding-top: 0; color: var(--forest-deep) !important; font-size: 1rem !important; font-weight: 850; }
     .book-buy { margin-top: 0; align-self: stretch; }
-    .book-package-actions { display: grid; grid-template-columns: 1fr; gap: 6px; margin-top: 2px; }
+    .book-package-actions { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 8px; }
+    .book-package > p:not(.book-package-format):not(.book-package-price):not(.book-package-price-usd) {
+      flex: 1 1 auto;
+    }
+    .book-package-price {
+      min-height: 1.5em;
+      display: flex;
+      align-items: flex-end;
+    }
+    .book-package-price-usd {
+      min-height: 34px;
+      display: flex !important;
+      align-items: center;
+      width: max-content;
+      margin-top: 10px !important;
+      margin-bottom: 0 !important;
+    }
+    .book-package-actions {
+      margin-top: auto;
+      padding-top: 10px;
+    }
+    .book-package-actions .button {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.15;
+    }
     .book-package-actions .button { width: 100%; min-height: 36px; padding: 7px 8px; font-size: .72rem; }
     .book-cart-add { cursor: pointer; }
     .cart-fab {
