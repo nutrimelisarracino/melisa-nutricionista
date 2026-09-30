@@ -6396,11 +6396,11 @@
           }[currentLang] || 'Completa tus datos y envía la solicitud para confirmar disponibilidad.';
           agendaSubmit.disabled=false;
           setAgendaStatus('success', {
-            es:'✓ Fecha seleccionada: '+agendaDateLabel(agendaSelectedDate),
-            en:'✓ Selected date: '+agendaDateLabel(agendaSelectedDate),
-            pt:'✓ Data selecionada: '+agendaDateLabel(agendaSelectedDate),
-            fr:'✓ Date sélectionnée : '+agendaDateLabel(agendaSelectedDate),
-            it:'✓ Data selezionata: '+agendaDateLabel(agendaSelectedDate)
+            es:'Fecha seleccionada: '+agendaDateLabel(agendaSelectedDate),
+            en:'Selected date: '+agendaDateLabel(agendaSelectedDate),
+            pt:'Data selecionada: '+agendaDateLabel(agendaSelectedDate),
+            fr:'Date sélectionnée : '+agendaDateLabel(agendaSelectedDate),
+            it:'Data selezionata: '+agendaDateLabel(agendaSelectedDate)
           }[currentLang]);
           renderAgenda();
         });
@@ -6425,35 +6425,35 @@
           email:'Completa tu correo electrónico para continuar.',
           emailInvalid:'Ingresa un correo electrónico válido.',
           loading:'Preparando tu solicitud…',
-          ready:'✓ Solicitud preparada. Abriendo WhatsApp…'
+          ready:'Solicitud preparada. Abriendo WhatsApp…'
         },
         en:{
           name:'Enter your full name to continue.',
           email:'Enter your email address to continue.',
           emailInvalid:'Enter a valid email address.',
           loading:'Preparing your request…',
-          ready:'✓ Request prepared. Opening WhatsApp…'
+          ready:'Request prepared. Opening WhatsApp…'
         },
         pt:{
           name:'Preencha seu nome e sobrenome para continuar.',
           email:'Preencha seu e-mail para continuar.',
           emailInvalid:'Digite um e-mail válido.',
           loading:'Preparando sua solicitação…',
-          ready:'✓ Solicitação preparada. Abrindo o WhatsApp…'
+          ready:'Solicitação preparada. Abrindo o WhatsApp…'
         },
         fr:{
           name:'Indiquez votre nom complet pour continuer.',
           email:'Indiquez votre adresse e-mail pour continuer.',
           emailInvalid:'Saisissez une adresse e-mail valide.',
           loading:'Préparation de votre demande…',
-          ready:'✓ Demande préparée. Ouverture de WhatsApp…'
+          ready:'Demande préparée. Ouverture de WhatsApp…'
         },
         it:{
           name:'Inserisci nome e cognome per continuare.',
           email:'Inserisci il tuo indirizzo e-mail per continuare.',
           emailInvalid:'Inserisci un indirizzo e-mail valido.',
           loading:'Preparazione della richiesta…',
-          ready:'✓ Richiesta pronta. Apertura di WhatsApp…'
+          ready:'Richiesta pronta. Apertura di WhatsApp…'
         }
       }[currentLang] || {};
     }
