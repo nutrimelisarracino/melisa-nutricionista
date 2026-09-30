@@ -4128,16 +4128,18 @@
     }
 
     #nutricion .service-card-materno .service-photo{
-      object-fit:cover;
-      object-position:center 40%;
+      object-fit:contain;
+      object-position:center center;
       image-rendering:auto;
+      background:linear-gradient(160deg,#f3ded6 0%,#fbefea 100%) !important;
+      padding:8px;
     }
 
     #nutricion .service-card-renal .service-photo{
       object-fit:contain;
-      object-position:36% center;
+      object-position:center center;
       background:linear-gradient(160deg,#d8e2d2 0%,#edf3e7 100%) !important;
-      padding:8px 8px 8px 10px;
+      padding:8px;
     }
 
     #nutricion .service-photo-content{
@@ -4318,9 +4320,11 @@
         max-height:none;
       }
 
+      #nutricion .service-card-materno .service-photo,
       #nutricion .service-card-renal .service-photo{
-        padding:6px 6px 6px 8px;
-        object-position:36% center;
+        padding:6px;
+        object-fit:contain;
+        object-position:center center;
       }
 
       #nutricion .service-photo-content,
