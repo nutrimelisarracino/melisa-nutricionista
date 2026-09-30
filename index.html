@@ -3700,6 +3700,47 @@
 
     .proposal-photo-pending{opacity:0}
     .proposal-photo-error{display:none}
+
+    /* Lectura editorial del desarrollo de coaching */
+    .proposal-card-coach .team-profile-expanded .profile-body{
+      max-width:760px;
+      margin:0 auto;
+      padding-top:4px;
+    }
+    .proposal-card-coach .team-profile-expanded .profile-body > p{
+      margin:0 0 16px;
+      color:#59645f;
+      font-size:1.01rem;
+      line-height:1.66;
+      letter-spacing:.002em;
+    }
+    .proposal-card-coach .team-profile-expanded .profile-body > p:first-child{
+      position:relative;
+      padding-top:18px;
+    }
+    .proposal-card-coach .team-profile-expanded .profile-body > p:first-child::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:44px;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,#a34f6b,#d79a83);
+    }
+    .proposal-card-coach .team-profile-expanded .profile-body > p:last-of-type{
+      margin-bottom:18px;
+    }
+    @media(max-width:720px){
+      .proposal-card-coach .team-profile-expanded .profile-body{
+        max-width:none;
+      }
+      .proposal-card-coach .team-profile-expanded .profile-body > p{
+        margin-bottom:14px;
+        font-size:.95rem;
+        line-height:1.62;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
