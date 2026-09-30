@@ -4402,6 +4402,35 @@
         transform:translateY(-3px) scale(1.03);
       }
     }
+
+    /* Hover visible de la foto renal */
+    @media (hover:hover) and (pointer:fine){
+      #nutricion .service-card-renal .service-media{
+        cursor:pointer;
+      }
+
+      #nutricion .service-card-renal .service-photo{
+        transform-origin:48% 50%;
+        transition:transform .42s cubic-bezier(.2,.7,.2,1), filter .42s ease !important;
+        will-change:transform;
+      }
+
+      #nutricion .service-card-renal:hover .service-photo,
+      #nutricion .service-card-renal .service-media:hover .service-photo{
+        transform:translateX(10px) scale(1.055) !important;
+        filter:saturate(1.035) contrast(1.015) !important;
+      }
+
+      #nutricion .service-card-renal .service-media::after{
+        transition:transform .42s cubic-bezier(.2,.7,.2,1), opacity .42s ease;
+      }
+
+      #nutricion .service-card-renal:hover .service-media::after,
+      #nutricion .service-card-renal .service-media:hover::after{
+        transform:translateX(8px);
+        opacity:.94;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
