@@ -4054,7 +4054,7 @@
     #nutricion .service-card-with-media{
       display:grid;
       grid-template-columns:minmax(350px,46%) minmax(0,54%);
-      min-height:430px;
+      min-height:390px;
       padding:0;
       overflow:hidden;
       align-items:stretch;
@@ -4072,7 +4072,8 @@
 
     #nutricion .service-media{
       position:relative;
-      min-height:430px;
+      min-height:390px;
+      height:390px;
       padding:0 !important;
       overflow:hidden;
       display:block;
@@ -4116,8 +4117,8 @@
     #nutricion .service-photo{
       display:block;
       width:100%;
-      height:100%;
-      min-height:430px;
+      height:390px;
+      min-height:390px;
       max-height:none;
       object-fit:cover;
       object-position:center center;
@@ -4158,7 +4159,8 @@
 
     #nutricion .service-card-materno .service-photo-content{
       justify-content:flex-start;
-      padding-top:30px;
+      padding-top:24px;
+      padding-bottom:24px;
     }
 
     #nutricion .service-card-renal{
@@ -4167,7 +4169,8 @@
 
     #nutricion .service-card-renal .service-photo-content{
       justify-content:flex-start;
-      padding-top:30px;
+      padding-top:24px;
+      padding-bottom:24px;
     }
 
     #nutricion .service-card-top-compact{
@@ -4195,9 +4198,9 @@
 
     #nutricion .service-card-with-media .service-lead{
       margin-bottom:18px;
-      max-width:34ch;
-      line-height:1.7;
-      font-size:1.08rem;
+      max-width:38ch;
+      line-height:1.62;
+      font-size:1.14rem;
     }
 
     #nutricion .service-card-with-media ul{
@@ -4208,9 +4211,9 @@
     }
 
     #nutricion .service-card-with-media li{
-      padding-top:7px;
-      padding-bottom:7px;
-      font-size:1.02rem;
+      padding-top:8px;
+      padding-bottom:8px;
+      font-size:1.08rem;
       line-height:1.5;
     }
 
@@ -4235,6 +4238,42 @@
       width:112px;
       height:112px;
       opacity:.82;
+    }
+
+    @media (min-width:761px) and (max-width:1100px){
+      #nutricion .service-card-with-media{
+        grid-template-columns:minmax(320px,45%) minmax(0,55%);
+        min-height:380px;
+      }
+
+      #nutricion .service-card-media-right{
+        grid-template-columns:minmax(0,55%) minmax(320px,45%);
+      }
+
+      #nutricion .service-media,
+      #nutricion .service-photo{
+        height:380px;
+        min-height:380px;
+      }
+
+      #nutricion .service-photo-content,
+      #nutricion .service-card-media-right .service-photo-content{
+        padding-left:30px;
+        padding-right:30px;
+      }
+
+      #nutricion .service-card-with-media h3{
+        font-size:clamp(2.15rem,4.1vw,2.8rem);
+      }
+
+      #nutricion .service-card-with-media .service-lead{
+        font-size:1.08rem;
+        line-height:1.58;
+      }
+
+      #nutricion .service-card-with-media li{
+        font-size:1.03rem;
+      }
     }
 
     @media(max-width:760px){
