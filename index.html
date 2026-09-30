@@ -4431,6 +4431,46 @@
         opacity:.94;
       }
     }
+
+    /* Movimiento de la foto renal igual de perceptible que en Sobre mí */
+    #nutricion .service-card-renal .service-media{
+      overflow:hidden;
+      transition:box-shadow .45s ease, transform .45s ease;
+    }
+
+    #nutricion .service-card-renal .service-photo{
+      transition:transform .45s ease, filter .45s ease !important;
+      transform:scale(1);
+      will-change:transform;
+    }
+
+    @media (hover:hover) and (pointer:fine){
+      #nutricion .service-card-renal .service-media:hover{
+        transform:translateY(-2px);
+        box-shadow:0 22px 46px rgba(65,78,35,.16);
+      }
+
+      #nutricion .service-card-renal .service-media:hover .service-photo{
+        transform:scale(1.06) translateY(-4px) !important;
+        filter:brightness(1.02) !important;
+      }
+    }
+
+    @media (hover:none) and (pointer:coarse){
+      #nutricion .service-card-renal .service-media{
+        -webkit-tap-highlight-color:transparent;
+      }
+
+      #nutricion .service-card-renal .service-media:active{
+        transform:translateY(-1px) scale(1.005);
+        box-shadow:0 20px 42px rgba(65,78,35,.14);
+      }
+
+      #nutricion .service-card-renal .service-media:active .service-photo{
+        transform:scale(1.035) translateY(-2px) !important;
+        filter:brightness(1.015) !important;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
