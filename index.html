@@ -3911,40 +3911,50 @@
     }
     #nutricion .service-card-with-media{
       display:grid;
-      grid-template-columns:minmax(300px,.78fr) minmax(0,1.22fr);
-      min-height:390px;
+      grid-template-columns:minmax(340px,390px) minmax(0,1fr);
+      min-height:440px;
       padding:0;
       overflow:hidden;
       align-items:stretch;
     }
     #nutricion .service-card-media-right{
-      grid-template-columns:minmax(0,1.22fr) minmax(300px,.78fr);
+      grid-template-columns:minmax(0,1fr) minmax(340px,390px);
     }
     #nutricion .service-card-with-media::after{display:none;}
     #nutricion .service-photo-content{
       display:flex;
       flex-direction:column;
       justify-content:center;
-      padding:42px 46px;
+      padding:44px 46px 44px 40px;
     }
     #nutricion .service-media{
       position:relative;
-      min-height:420px;
+      min-height:440px;
       display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
+      align-items:stretch;
+      justify-content:stretch;
+      padding:12px;
       overflow:hidden;
-      background:rgba(255,255,255,.38);
+      background:
+        radial-gradient(circle at 50% 22%,rgba(255,255,255,.76),transparent 42%),
+        linear-gradient(160deg,rgba(216,232,224,.92),rgba(244,248,245,.96));
+      border-right:1px solid rgba(36,72,62,.08);
+    }
+    #nutricion .service-card-media-right .service-media{
+      border-right:0;
+      border-left:1px solid rgba(143,75,98,.08);
     }
     #nutricion .service-photo{
       display:block;
       width:100%;
       height:100%;
-      max-height:384px;
       min-height:0;
+      max-height:none;
       object-fit:contain;
       object-position:center center;
+      border-radius:22px;
+      box-shadow:0 12px 26px rgba(35,54,48,.10);
+      background:#fff;
     }
     #nutricion .service-photo[data-photo-prefix]{
       opacity:0;
@@ -4012,16 +4022,20 @@
       }
       #nutricion .service-card-materno .service-media{order:-1;}
       #nutricion .service-media{
-        min-height:320px;
-        aspect-ratio:auto;
-        padding:14px;
+        min-height:0;
+        aspect-ratio:4/5;
+        padding:10px;
+        border-right:0;
+        border-left:0;
+        border-bottom:1px solid rgba(36,72,62,.08);
       }
       #nutricion .service-photo{
         min-height:0;
         height:100%;
-        max-height:290px;
+        max-height:none;
         object-fit:contain;
         object-position:center center;
+        border-radius:18px;
       }
       #nutricion .service-photo-content{
         padding:28px 24px 30px;
