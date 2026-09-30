@@ -4483,43 +4483,53 @@
       }
     }
 
-    /* Movimiento de la foto renal igual de perceptible que en Sobre mí */
+    /* Hover renal: únicamente se anima la tarjeta completa */
     #nutricion .service-card-renal .service-media{
       overflow:hidden;
-      transition:box-shadow .45s ease, transform .45s ease;
+      transform:none !important;
+      box-shadow:none !important;
+      transition:none !important;
     }
 
     #nutricion .service-card-renal .service-photo{
-      transition:transform .45s ease, filter .45s ease !important;
-      transform:scale(1);
-      will-change:transform;
+      transform:none !important;
+      filter:none !important;
+      transition:none !important;
+      will-change:auto;
     }
 
     @media (hover:hover) and (pointer:fine){
-      #nutricion .service-card-renal .service-media:hover{
-        transform:translateY(-2px);
-        box-shadow:0 22px 46px rgba(65,78,35,.16);
+      #nutricion .service-card-renal:hover,
+      #nutricion .service-card-renal.scroll-reveal.is-visible:hover,
+      #nutricion .service-card-renal:not(.scroll-reveal):hover{
+        transform:translateY(-7px) scale(1.008) !important;
+        box-shadow:0 28px 62px rgba(52,50,42,.15) !important;
       }
 
+      #nutricion .service-card-renal:hover .service-media,
+      #nutricion .service-card-renal:hover .service-photo,
+      #nutricion .service-card-renal .service-media:hover,
       #nutricion .service-card-renal .service-media:hover .service-photo{
-        transform:scale(1.06) translateY(-4px) !important;
-        filter:brightness(1.02) !important;
+        transform:none !important;
+        filter:none !important;
+        box-shadow:none !important;
       }
     }
 
     @media (hover:none) and (pointer:coarse){
-      #nutricion .service-card-renal .service-media{
+      #nutricion .service-card-renal{
         -webkit-tap-highlight-color:transparent;
       }
 
-      #nutricion .service-card-renal .service-media:active{
-        transform:translateY(-1px) scale(1.005);
+      #nutricion .service-card-renal:active{
+        transform:translateY(-2px) scale(1.004);
         box-shadow:0 20px 42px rgba(65,78,35,.14);
       }
 
-      #nutricion .service-card-renal .service-media:active .service-photo{
-        transform:scale(1.035) translateY(-2px) !important;
-        filter:brightness(1.015) !important;
+      #nutricion .service-card-renal:active .service-media,
+      #nutricion .service-card-renal:active .service-photo{
+        transform:none !important;
+        filter:none !important;
       }
     }
 </style>
