@@ -4352,6 +4352,36 @@
         font-size:.81rem;
       }
     }
+
+    /* Hover suave en especialidades */
+    @media (hover:hover) and (pointer:fine){
+      #nutricion .service-card-with-media{
+        transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+      }
+
+      #nutricion .service-card-with-media .service-photo{
+        transition:transform .38s ease, filter .38s ease;
+      }
+
+      #nutricion .service-card-with-media .service-icon{
+        transition:transform .28s ease, box-shadow .28s ease;
+      }
+
+      #nutricion .service-card-with-media:hover{
+        transform:translateY(-5px);
+        box-shadow:0 24px 54px rgba(52,50,42,.11);
+      }
+
+      #nutricion .service-card-with-media:hover .service-photo{
+        transform:scale(1.025);
+        filter:saturate(1.02) contrast(1.01);
+      }
+
+      #nutricion .service-card-with-media:hover .service-icon{
+        transform:translateY(-2px);
+        box-shadow:0 14px 28px rgba(52,50,42,.09);
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
