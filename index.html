@@ -4802,6 +4802,34 @@
         line-height:1.65 !important;
       }
     }
+
+    /* Título de Modalidad: una línea en escritorio, fluido en móvil */
+    @media(min-width:901px){
+      #nutricion ~ .section.view-section .section-head h2{
+        white-space:normal;
+      }
+      .section.view-section[data-view="nutrition"] .section-head h2{
+        max-width:none;
+      }
+      .section.view-section[data-view="nutrition"] .section-head:has(.eyebrow:first-child) h2{
+        white-space:normal;
+      }
+    }
+
+    @media(min-width:901px){
+      .section.view-section[data-view="nutrition"] .section-head > div:has(.eyebrow){
+        max-width:none;
+      }
+      .section.view-section[data-view="nutrition"] .section-head > div:has(.eyebrow) h2{
+        white-space:nowrap;
+      }
+    }
+
+    @media(max-width:900px){
+      .section.view-section[data-view="nutrition"] .section-head > div:has(.eyebrow) h2{
+        white-space:normal;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
