@@ -674,8 +674,36 @@
       line-height:1.65;
     }
 
-    .team-intro { max-width: 720px; margin-bottom: 48px; }
+    .team-intro { max-width: 1080px; margin-bottom: 48px; }
     .compact-team-intro { margin-bottom: 30px; }
+
+    /* Equipo: aprovechar el ancho en escritorio y adaptar en móvil */
+    @media(min-width:901px){
+      #equipo .team-intro{
+        width:min(1080px,100%);
+        max-width:1080px;
+      }
+      #equipo .team-intro h2{
+        white-space:nowrap;
+      }
+      #equipo .team-intro .lede{
+        max-width:none;
+        white-space:nowrap;
+      }
+    }
+
+    @media(max-width:900px){
+      #equipo .team-intro{
+        width:100%;
+        max-width:none;
+      }
+      #equipo .team-intro h2,
+      #equipo .team-intro .lede{
+        white-space:normal;
+        overflow-wrap:normal;
+        word-break:normal;
+      }
+    }
     .proposal-accordion { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 26px; align-items: start; }
     .proposal-card {
       overflow: hidden; border: 1px solid rgba(36,72,62,.14); border-radius: 30px; background: rgba(255,255,255,.94);
@@ -2367,8 +2395,9 @@
       }
 
       .team-intro {
-        max-width:680px;
-        margin-left:max(0px, calc((100% - 1080px) / 2));
+        width:min(1080px,100%);
+        max-width:1080px;
+        margin-inline:auto;
       }
 
       .catalog-group {
