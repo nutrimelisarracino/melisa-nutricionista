@@ -4089,16 +4089,28 @@
       width:38%;
       height:112%;
       border-radius:52% 0 0 52%;
-      background:rgba(255,255,255,.76);
-      box-shadow:-7px 0 0 rgba(255,255,255,.28);
+      background:linear-gradient(
+        180deg,
+        rgba(246,229,223,.96) 0%,
+        rgba(255,248,245,.96) 100%
+      );
+      box-shadow:none;
       pointer-events:none;
+    }
+
+    #nutricion .service-card-renal .service-media::after{
+      background:linear-gradient(
+        180deg,
+        rgba(223,232,209,.96) 0%,
+        rgba(244,247,236,.96) 100%
+      );
     }
 
     #nutricion .service-card-media-right .service-media::after{
       right:auto;
       left:-18%;
       border-radius:0 52% 52% 0;
-      box-shadow:7px 0 0 rgba(255,255,255,.28);
+      box-shadow:none;
     }
 
     #nutricion .service-photo{
