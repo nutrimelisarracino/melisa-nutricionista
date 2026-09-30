@@ -3061,6 +3061,43 @@
     .agenda-section {
       background:linear-gradient(180deg,#fffdf9 0%,#fbf7f1 100%);
     }
+
+    /* Encabezado de agenda: composición institucional y compacta */
+    #agenda .agenda-head{
+      display:block;
+      max-width:760px;
+      margin:0 0 38px;
+    }
+    #agenda .agenda-head > div{
+      max-width:none;
+    }
+    #agenda .agenda-head h2{
+      margin-bottom:0;
+    }
+    #agenda .agenda-head > p{
+      max-width:620px;
+      margin:20px 0 0;
+      padding:4px 0 4px 18px;
+      border-left:2px solid rgba(143,75,98,.28);
+      color:#666e69;
+      font-size:1rem;
+      line-height:1.7;
+      justify-self:auto;
+    }
+
+    @media(max-width:720px){
+      #agenda .agenda-head{
+        max-width:none;
+        margin-bottom:30px;
+      }
+      #agenda .agenda-head > p{
+        max-width:none;
+        margin-top:16px;
+        padding-left:14px;
+        font-size:.96rem;
+        line-height:1.62;
+      }
+    }
     .agenda-shell {
       display:grid;
       grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
