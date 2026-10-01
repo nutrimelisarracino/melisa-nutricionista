@@ -9416,26 +9416,13 @@
       }
     }
 
+    let lockedNavTarget=(location.hash || '').replace('#','') || 'inicio';
     let navScrollTick=false;
     function updateActiveNavFromScroll() {
       navScrollTick=false;
-
-      const visibleSections=originalSections.filter(section =>
-        !section.classList.contains('nav-section-hidden') &&
-        section.offsetParent!==null &&
-        section.dataset?.view
-      );
-      if(!visibleSections.length) return;
-
-      const header=document.querySelector('.site-header');
-      const marker=(header?.offsetHeight || 0)+120;
-      let active=visibleSections[0];
-
-      visibleSections.forEach(section=>{
-        if(section.getBoundingClientRect().top<=marker) active=section;
-      });
-
-      updateActiveNav(active.dataset.view, active.id || null);
+      const target=lockedNavTarget || 'inicio';
+      const view=viewByTarget[target] || 'home';
+      updateActiveNav(view,target);
     }
 
     window.addEventListener('scroll',()=>{
@@ -9475,7 +9462,7 @@
       const heroSection=document.getElementById('inicio');
       if(heroSection) heroSection.classList.remove('nav-hero-hidden');
 
-      updateActiveNav(targetView, options.activeTarget || null);
+      updateActiveNav(targetView, options.activeTarget || lockedNavTarget || null);
 
       const menu=document.getElementById('nav-links');
       const toggle=document.querySelector('.menu-toggle');
@@ -9509,6 +9496,7 @@
       const view=viewByTarget[id];
       if(!view) return;
       event.preventDefault();
+      lockedNavTarget=id;
 
       if(id==='testimonios' || id==='nutricion'){
         showSiteView('nutrition',{history:false,scroll:false,activeTarget:id});
@@ -9519,6 +9507,7 @@
         requestAnimationFrame(()=>{
           document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
           history.pushState({view:'nutrition',target:id},'', '#'+id);
+          updateActiveNav('nutrition',id);
         });
         return;
       }
@@ -9528,16 +9517,18 @@
 
     window.addEventListener('popstate', () => {
       const id=location.hash.replace('#','') || 'inicio';
+      lockedNavTarget=id;
       showSiteView(viewByTarget[id] || 'home',{history:false,activeTarget:id});
     });
 
     const initialTarget=location.hash.replace('#','') || 'inicio';
+    lockedNavTarget=initialTarget;
     showSiteView(viewByTarget[initialTarget] || 'home',{history:false,scroll:false,activeTarget:initialTarget});
     requestAnimationFrame(()=>{
       if(initialTarget==='nutricion' || initialTarget==='testimonios'){
         document.getElementById(initialTarget)?.scrollIntoView({behavior:'auto',block:'start'});
       }
-      updateActiveNavFromScroll();
+      updateActiveNav(viewByTarget[initialTarget] || 'home',initialTarget);
     });
 
     setLanguage(currentLang);
