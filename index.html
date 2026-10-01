@@ -6323,6 +6323,45 @@
       }
     }
 
+  
+    /* Inicio permanente en cabecera móvil */
+    .mobile-home-link{display:none;}
+    @media(max-width:900px){
+      .nav-home-mobile-hide{display:none !important;}
+      .mobile-home-link{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:5px;
+        min-height:38px;
+        padding:7px 10px;
+        border:1px solid rgba(143,75,98,.12);
+        border-radius:11px;
+        background:rgba(255,255,255,.52);
+        color:#294c42;
+        font-size:.78rem;
+        font-weight:800;
+        line-height:1;
+        text-decoration:none;
+        box-shadow:0 5px 14px rgba(35,54,48,.045);
+        flex:0 0 auto;
+      }
+      .mobile-home-icon{
+        font-size:1.05rem;
+        line-height:1;
+        color:#8f4b62;
+      }
+      .mobile-home-link:active{
+        transform:translateY(1px);
+      }
+    }
+    @media(max-width:420px){
+      .mobile-home-link{
+        padding:7px 8px;
+        font-size:.74rem;
+      }
+    }
+
   </style>
   <script type="application/ld+json">
   {
@@ -6360,7 +6399,7 @@
       </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menú</button>
         <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
-          <a href="#inicio">Home</a>
+          <a class="nav-home-mobile-hide" href="#inicio">Home</a>
           <a href="#sobre-mi">Sobre mí</a>
           <a href="#nutricion">Atención nutricional</a>
           <a href="#agenda">Agenda</a>
@@ -6369,6 +6408,7 @@
           <a href="#preguntas">Preguntas</a>
           <a class="nav-cta" href="#contacto">Información</a>
         </nav>
+        <a class="mobile-home-link" href="#inicio" aria-label="Ir al inicio"><span class="mobile-home-icon" aria-hidden="true">⌂</span><span>Inicio</span></a>
         <button class="site-search-toggle" id="siteSearchToggle" type="button" aria-label="Buscar en la página" title="Buscar en la página" aria-expanded="false" aria-controls="siteSearchPanel">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="11" cy="11" r="6.5"></circle>
@@ -7435,6 +7475,7 @@
       "Ir al contenido principal":"Skip to main content",
       "Menú":"Menu",
       "Home":"Home",
+      "Inicio":"Home",
       "Sobre mí":"About me",
       "La nutrición no puede reducirse a nutrientes, calorías o restricciones: implica comprender procesos biológicos, etapas de la vida, contexto clínico y realidad cotidiana.":"Nutrition cannot be reduced to nutrients, calories, or restrictions: it requires an understanding of biological processes, stages of life, clinical context, and everyday reality.”",
       "Hola, soy Melisa":"Hello, I am Melisa Sarracino",
