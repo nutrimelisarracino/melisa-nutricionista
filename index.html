@@ -9275,13 +9275,35 @@
     }
 
     function updateActiveNav(view, targetId=null) {
-      document.querySelectorAll('#nav-links a[href^="#"]').forEach(link => {
-        const id=(link.getAttribute('href')||'').slice(1);
-        const active=targetId ? id===targetId : (viewByTarget[id]===view && id!=='testimonios');
-        link.classList.toggle('is-current',active);
-        if(active) link.setAttribute('aria-current','page');
-        else link.removeAttribute('aria-current');
+      const links=Array.from(document.querySelectorAll('#nav-links a[href^="#"]'));
+
+      links.forEach(link=>{
+        link.classList.remove('is-current');
+        link.removeAttribute('aria-current');
       });
+
+      const defaultTargetByView={
+        home:'inicio',
+        about:'sobre-mi',
+        nutrition:'nutricion',
+        agenda:'agenda',
+        team:'equipo',
+        faq:'preguntas',
+        contact:'contacto'
+      };
+
+      let resolvedTarget=targetId || defaultTargetByView[view] || 'inicio';
+      let activeLink=links.find(link=>(link.getAttribute('href')||'')==='#'+resolvedTarget);
+
+      if(!activeLink){
+        resolvedTarget=defaultTargetByView[view] || 'inicio';
+        activeLink=links.find(link=>(link.getAttribute('href')||'')==='#'+resolvedTarget);
+      }
+
+      if(activeLink){
+        activeLink.classList.add('is-current');
+        activeLink.setAttribute('aria-current','page');
+      }
     }
 
     let navScrollTick=false;
