@@ -6737,6 +6737,32 @@
       }
     }
 
+  
+    /* Consultas móviles: igualar altura visual */
+    @media(max-width:720px){
+      #consultScroller{
+        align-items:stretch !important;
+      }
+
+      #consultScroller .consult-card{
+        height:100% !important;
+        min-height:760px !important;
+        align-self:stretch !important;
+        display:flex !important;
+        flex-direction:column !important;
+      }
+
+      #consultScroller .consult-button{
+        margin-top:auto !important;
+      }
+    }
+
+    @media(max-width:420px){
+      #consultScroller .consult-card{
+        min-height:730px !important;
+      }
+    }
+
   </style>
   <script type="application/ld+json">
   {
