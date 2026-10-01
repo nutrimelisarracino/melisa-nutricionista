@@ -6351,8 +6351,11 @@
         line-height:1;
         color:#8f4b62;
       }
+      .mobile-home-link{
+        transition:transform .12s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      }
       .mobile-home-link:active{
-        transform:translateY(1px);
+        transform:translateY(calc(-50% + 1px)) scale(.99);
       }
     }
     @media(max-width:420px){
