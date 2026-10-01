@@ -5058,21 +5058,27 @@
       }
     }
 
-    /* Cierre institucional: subtítulo en una línea en escritorio */
+    /* Cierre institucional: texto contenido dentro del recuadro */
+    #contacto .contact-institutional-message .contact-institutional-copy{
+      width:100%;
+      max-width:900px !important;
+    }
+    #contacto .contact-institutional-message .contact-institutional-copy > p:not(.eyebrow){
+      width:100% !important;
+      max-width:900px !important;
+      white-space:normal !important;
+      overflow-wrap:break-word;
+      word-break:normal;
+    }
     @media(min-width:901px){
-      #contacto .contact-institutional-message .contact-institutional-copy{
-        max-width:none !important;
-      }
       #contacto .contact-institutional-message .contact-institutional-copy > p:not(.eyebrow){
-        max-width:none !important;
-        width:100% !important;
-        white-space:nowrap !important;
+        font-size:clamp(.98rem,1.05vw,1.03rem);
+        line-height:1.65;
       }
     }
-
     @media(max-width:900px){
       #contacto .contact-institutional-message .contact-institutional-copy > p:not(.eyebrow){
-        white-space:normal !important;
+        max-width:100% !important;
       }
     }
 
