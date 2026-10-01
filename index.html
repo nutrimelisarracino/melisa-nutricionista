@@ -6763,6 +6763,88 @@
       }
     }
 
+  
+    /* Consultas móviles: misma altura sin aire */
+    @media(max-width:720px){
+      #consultScroller{
+        align-items:stretch !important;
+      }
+
+      #consultScroller .consult-card{
+        box-sizing:border-box !important;
+        min-height:0 !important;
+        height:690px !important;
+        align-self:stretch !important;
+        padding:20px 18px !important;
+        display:flex !important;
+        flex-direction:column !important;
+      }
+
+      #consultScroller .consult-kicker{
+        margin-bottom:5px !important;
+        font-size:.90rem !important;
+        line-height:1.22 !important;
+      }
+
+      #consultScroller .consult-card h3{
+        margin-bottom:8px !important;
+        font-size:1.62rem !important;
+        line-height:1.04 !important;
+      }
+
+      #consultScroller .consult-meta{
+        gap:5px !important;
+        margin:0 0 10px !important;
+      }
+
+      #consultScroller .consult-meta span{
+        min-height:27px !important;
+        padding:4px 9px !important;
+        font-size:.73rem !important;
+      }
+
+      #consultScroller .consult-lead{
+        margin-bottom:8px !important;
+        font-size:.90rem !important;
+        line-height:1.42 !important;
+      }
+
+      #consultScroller .check-list{
+        margin:0 0 8px !important;
+      }
+
+      #consultScroller .check-list li{
+        padding:4px 0 4px 24px !important;
+        font-size:.90rem !important;
+        line-height:1.33 !important;
+      }
+
+      #consultScroller .check-list li::before{
+        top:3px !important;
+        font-size:1rem !important;
+      }
+
+      #consultScroller .consult-note{
+        margin:0 0 8px !important;
+        padding:9px 11px !important;
+        font-size:.80rem !important;
+        line-height:1.34 !important;
+      }
+
+      #consultScroller .consult-button{
+        margin-top:6px !important;
+        min-height:48px !important;
+        padding:10px 14px !important;
+        font-size:.86rem !important;
+      }
+    }
+
+    @media(max-width:420px){
+      #consultScroller .consult-card{
+        height:665px !important;
+      }
+    }
+
   </style>
   <script type="application/ld+json">
   {
