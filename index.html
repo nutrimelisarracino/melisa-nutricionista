@@ -4932,6 +4932,72 @@
         line-height:1.12 !important;
       }
     }
+
+    /* Sobre mí — composición editorial optimizada para escritorio */
+    @media(min-width:1000px){
+      #sobre-mi{
+        padding-top:72px;
+        padding-bottom:72px;
+      }
+
+      #sobre-mi .founder-grid{
+        width:100%;
+        max-width:1160px;
+        margin-inline:auto;
+        grid-template-columns:minmax(360px,410px) minmax(0,1fr);
+        gap:54px;
+        align-items:start;
+      }
+
+      #sobre-mi .founder-photo-column{
+        align-self:start;
+        width:100%;
+        margin-top:150px;
+      }
+
+      #sobre-mi .founder-photo-frame{
+        width:100%;
+        max-width:410px;
+        margin-inline:auto;
+      }
+
+      #sobre-mi .founder-copy{
+        width:100%;
+        max-width:none;
+      }
+
+      #sobre-mi .founder-copy h2{
+        max-width:760px;
+        margin-bottom:18px;
+      }
+
+      #sobre-mi .founder-hello-inline{
+        margin-bottom:12px;
+      }
+
+      #sobre-mi .founder-copy > p:not(.founder-hello-inline){
+        width:100%;
+        max-width:none;
+        margin:0 0 17px;
+        text-align:justify;
+        text-align-last:left;
+        text-justify:inter-word;
+        hyphens:auto;
+        -webkit-hyphens:auto;
+      }
+
+      #sobre-mi .founder-copy > p:last-child{
+        margin-bottom:0;
+      }
+    }
+
+    @media(max-width:999px){
+      #sobre-mi .founder-copy > p{
+        text-align:left;
+        hyphens:none;
+        -webkit-hyphens:none;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
