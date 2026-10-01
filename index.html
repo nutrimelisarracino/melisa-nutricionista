@@ -5657,6 +5657,39 @@
       }
     }
 
+
+    /* Ajuste móvil: evitar corte de "infantojuvenil" */
+    #nutricion .keep-infantojuvenil{
+      white-space:nowrap;
+    }
+
+    @media(max-width:760px){
+      #nutricion .service-card-materno.service-card-with-media{
+        grid-template-columns:54% 46% !important;
+      }
+
+      #nutricion .service-card-materno .service-photo-content{
+        padding-left:16px !important;
+        padding-right:12px !important;
+      }
+
+      #nutricion .service-card-materno h3{
+        word-break:normal !important;
+        overflow-wrap:normal !important;
+        hyphens:none !important;
+      }
+    }
+
+    @media(max-width:420px){
+      #nutricion .service-card-materno.service-card-with-media{
+        grid-template-columns:56% 44% !important;
+      }
+
+      #nutricion .service-card-materno h3{
+        font-size:clamp(1.45rem,6.4vw,1.9rem) !important;
+      }
+    }
+
     /* ===== Refinamiento institucional NUTRIELITE · 30/09/2026 ===== */
     .hero-institutional-tagline{
       max-width:680px;
@@ -5925,7 +5958,7 @@
         <div class="service-grid">
           <article class="service-card service-card-materno service-card-with-media service-card-media-right">
             <div class="service-photo-content">
-              <h3>Nutrición materno-infantojuvenil</h3>
+              <h3>Nutrición materno-<span class="keep-infantojuvenil">infantojuvenil</span></h3>
               <p class="service-lead">Acompañamiento nutricional durante etapas que requieren una mirada cuidadosa, práctica y adaptada.</p>
               <ul>
                 <li>Embarazo y lactancia.</li>
