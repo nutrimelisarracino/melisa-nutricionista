@@ -6496,6 +6496,71 @@
       }
     }
 
+  
+    /* Carrusel móvil de opciones de consulta */
+    .consult-mobile-shell{position:relative;}
+    .consult-nav,
+    .consult-mobile-indicator{display:none;}
+
+    @media(max-width:720px){
+      .consult-mobile-shell{
+        padding:0 36px 30px;
+      }
+      .consult-grid{
+        display:flex !important;
+        grid-template-columns:none !important;
+        gap:14px !important;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+        scroll-behavior:smooth;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+        overscroll-behavior-x:contain;
+        padding:2px 2px 10px;
+      }
+      .consult-grid::-webkit-scrollbar{display:none;}
+      .consult-grid .consult-card{
+        flex:0 0 calc(100% - 10px);
+        min-width:calc(100% - 10px);
+        scroll-snap-align:start;
+        margin:0 !important;
+        height:auto;
+      }
+      .consult-nav{
+        display:grid;
+        place-items:center;
+        position:absolute;
+        z-index:5;
+        top:46%;
+        width:34px;
+        height:34px;
+        margin-top:-17px;
+        border:1px solid rgba(143,75,98,.16);
+        border-radius:50%;
+        background:rgba(255,253,249,.96);
+        color:#8f4b62;
+        font-size:1.55rem;
+        line-height:1;
+        box-shadow:0 8px 20px rgba(35,54,48,.10);
+        cursor:pointer;
+      }
+      .consult-nav-prev{left:0;}
+      .consult-nav-next{right:0;}
+      .consult-nav:disabled{
+        opacity:.35;
+        cursor:default;
+      }
+      .consult-mobile-indicator{
+        display:block;
+        margin-top:2px;
+        text-align:center;
+        color:#8f4b62;
+        font-size:.76rem;
+        font-weight:800;
+        letter-spacing:.08em;
+      }
+    }
+
   </style>
   <script type="application/ld+json">
   {
@@ -6689,6 +6754,9 @@
               </ul>
             </div>
           </article>
+          </div>
+          <button class="consult-nav consult-nav-next" type="button" aria-label="Opción siguiente" data-consult-next>›</button>
+          <div class="consult-mobile-indicator" aria-hidden="true"><span data-consult-index>1</span> / 4</div>
         </div>
       </div>
     </section>
@@ -6730,7 +6798,9 @@
           </div>
         </div>
 
-        <div class="consult-grid">
+        <div class="consult-mobile-shell">
+          <button class="consult-nav consult-nav-prev" type="button" aria-label="Opción anterior" data-consult-prev>‹</button>
+          <div class="consult-grid" id="consultScroller">
           <article class="consult-card consult-card-sage">
             <span class="consult-kicker">Para comenzar tu proceso</span>
             <h3>Primera consulta nutricional</h3>
@@ -8982,6 +9052,49 @@
 
     
 
+
+
+    /* CONSULT OPTIONS MOBILE CAROUSEL */
+    (function initConsultOptionsCarousel(){
+      const scroller=document.getElementById('consultScroller');
+      if(!scroller) return;
+      const prev=document.querySelector('[data-consult-prev]');
+      const next=document.querySelector('[data-consult-next]');
+      const indexEl=document.querySelector('[data-consult-index]');
+      const cards=Array.from(scroller.querySelectorAll('.consult-card'));
+
+      function getStepWidth(){
+        const first=cards[0];
+        if(!first) return scroller.clientWidth;
+        const styles=getComputedStyle(scroller);
+        const gap=parseFloat(styles.columnGap || styles.gap || 0) || 0;
+        return first.getBoundingClientRect().width + gap;
+      }
+
+      function currentIndex(){
+        const step=getStepWidth();
+        if(!step) return 0;
+        return Math.max(0,Math.min(cards.length-1,Math.round(scroller.scrollLeft/step)));
+      }
+
+      function update(){
+        const i=currentIndex();
+        if(indexEl) indexEl.textContent=String(i+1);
+        if(prev) prev.disabled=i===0;
+        if(next) next.disabled=i===cards.length-1;
+      }
+
+      function go(delta){
+        const i=Math.max(0,Math.min(cards.length-1,currentIndex()+delta));
+        scroller.scrollTo({left:i*getStepWidth(),behavior:'smooth'});
+      }
+
+      prev?.addEventListener('click',()=>go(-1));
+      next?.addEventListener('click',()=>go(1));
+      scroller.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
+      window.addEventListener('resize',update);
+      update();
+    })();
 
     /* MODALITIES MOBILE CAROUSEL */
     (function initModalitiesMobileCarousel(){
