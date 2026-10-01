@@ -7590,9 +7590,10 @@
       for(let d=1;d<=last.getDate();d++){
         const date=new Date(year,month,d);
         date.setHours(0,0,0,0);
-        const weekend=date.getDay()===0 || date.getDay()===6;
+        const dayOfWeek=date.getDay();
+        const availableDay=dayOfWeek===1 || dayOfWeek===3 || dayOfWeek===5;
         const past=date<agendaToday;
-        const unavailable=weekend || past;
+        const unavailable=!availableDay || past;
         const iso=year+'-'+String(month+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
         const selected=agendaSelectedDate && agendaSelectedDate.getTime()===date.getTime();
         cells.push('<button class="agenda-day'+(unavailable?' is-unavailable':'')+(selected?' is-selected':'')+'" type="button" data-date="'+iso+'"'+(unavailable?' disabled':'')+'>'+d+'</button>');
