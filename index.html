@@ -4844,6 +4844,30 @@
         white-space:normal;
       }
     }
+
+    /* Modalidad: ancho completo para mantener el título en una línea */
+    .modality-head{
+      display:block !important;
+      width:100% !important;
+      max-width:none !important;
+      grid-template-columns:none !important;
+    }
+    .modality-head > div{
+      width:100% !important;
+      max-width:none !important;
+    }
+    @media(min-width:901px){
+      .modality-head h2{
+        width:100% !important;
+        max-width:none !important;
+        white-space:nowrap !important;
+      }
+    }
+    @media(max-width:900px){
+      .modality-head h2{
+        white-space:normal !important;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
@@ -5036,7 +5060,7 @@
 
     <section class="section view-section" data-view="nutrition">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head modality-head">
           <div>
             <p class="eyebrow">Modalidad</p>
             <h2>Elige cómo realizar tu consulta.</h2>
