@@ -9274,10 +9274,10 @@
       originalSections.forEach(section => mainContent.appendChild(section));
     }
 
-    function updateActiveNav(view) {
+    function updateActiveNav(view, targetId=null) {
       document.querySelectorAll('#nav-links a[href^="#"]').forEach(link => {
         const id=(link.getAttribute('href')||'').slice(1);
-        const active=viewByTarget[id]===view;
+        const active=targetId ? id===targetId : (viewByTarget[id]===view && id!=='testimonios');
         link.classList.toggle('is-current',active);
         if(active) link.setAttribute('aria-current','page');
         else link.removeAttribute('aria-current');
@@ -9303,7 +9303,7 @@
         if(section.getBoundingClientRect().top<=marker) active=section;
       });
 
-      updateActiveNav(active.dataset.view);
+      updateActiveNav(active.dataset.view, active.id || null);
     }
 
     window.addEventListener('scroll',()=>{
@@ -9343,7 +9343,7 @@
       const heroSection=document.getElementById('inicio');
       if(heroSection) heroSection.classList.remove('nav-hero-hidden');
 
-      updateActiveNav(targetView);
+      updateActiveNav(targetView, options.activeTarget || null);
 
       const menu=document.getElementById('nav-links');
       const toggle=document.querySelector('.menu-toggle');
@@ -9379,7 +9379,7 @@
       event.preventDefault();
 
       if(id==='testimonios' || id==='nutricion'){
-        showSiteView('nutrition',{history:false,scroll:false});
+        showSiteView('nutrition',{history:false,scroll:false,activeTarget:id});
         const menu=document.getElementById('nav-links');
         const toggle=document.querySelector('.menu-toggle');
         if(menu) menu.classList.remove('open');
@@ -9396,11 +9396,11 @@
 
     window.addEventListener('popstate', () => {
       const id=location.hash.replace('#','') || 'inicio';
-      showSiteView(viewByTarget[id] || 'home',{history:false});
+      showSiteView(viewByTarget[id] || 'home',{history:false,activeTarget:id});
     });
 
     const initialTarget=location.hash.replace('#','') || 'inicio';
-    showSiteView(viewByTarget[initialTarget] || 'home',{history:false,scroll:false});
+    showSiteView(viewByTarget[initialTarget] || 'home',{history:false,scroll:false,activeTarget:initialTarget});
     requestAnimationFrame(()=>{
       if(initialTarget==='nutricion' || initialTarget==='testimonios'){
         document.getElementById(initialTarget)?.scrollIntoView({behavior:'auto',block:'start'});
