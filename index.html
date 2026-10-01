@@ -5418,6 +5418,39 @@
         padding-left:44px !important;
       }
     }
+
+    /* Línea discreta de identidad profesional antes del footer */
+    .professional-identity-line{
+      border-top:1px solid rgba(143,75,98,.10);
+      border-bottom:1px solid rgba(143,75,98,.08);
+      background:#fbf7f1;
+    }
+    .professional-identity-line .wrap{
+      min-height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .professional-identity-line span{
+      color:#7d4659;
+      font-size:.78rem;
+      font-weight:750;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    @media(max-width:720px){
+      .professional-identity-line .wrap{
+        min-height:42px;
+        padding-block:10px;
+      }
+      .professional-identity-line span{
+        font-size:.7rem;
+        line-height:1.45;
+        letter-spacing:.065em;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
@@ -6104,6 +6137,12 @@
     </section>
   </main>
 
+  <div class="professional-identity-line" aria-label="Identidad profesional">
+    <div class="wrap">
+      <span>NUTRIELITE · Nutrición materno-infantojuvenil y renal</span>
+    </div>
+  </div>
+
   <footer class="institutional-footer">
     <div class="wrap footer-main">
       <div class="footer-brand">
@@ -6402,6 +6441,7 @@
 
     /* Idiomas ES / EN */
     const translations = {
+      "NUTRIELITE · Nutrición materno-infantojuvenil y renal":"NUTRIELITE · Maternal, child and adolescent nutrition and renal nutrition",
       "Agenda":"Appointments",
       "Solicita tu turno.":"Request an appointment.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Choose a date and send your request. Your appointment is confirmed once you receive confirmation via WhatsApp.",
@@ -6659,6 +6699,7 @@
     }
 
     const translationsPt = {
+      "NUTRIELITE · Nutrición materno-infantojuvenil y renal": "NUTRIELITE · Nutrição materno-infantil, juvenil e renal",
       "Agenda":"Agenda",
       "Solicita tu turno.":"Solicite sua consulta.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Escolha uma data e envie sua solicitação. A consulta fica confirmada quando você receber a confirmação pelo WhatsApp.",
@@ -6901,6 +6942,7 @@
 };
 
     const translationsFr = {
+      "NUTRIELITE · Nutrición materno-infantojuvenil y renal": "NUTRIELITE · Nutrition maternelle, infantile, adolescente et rénale",
       "Agenda":"Agenda",
       "Solicita tu turno.":"Demandez votre rendez-vous.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Choisissez une date et envoyez votre demande. Le rendez-vous est confirmé lorsque vous recevez la confirmation par WhatsApp.",
@@ -7143,6 +7185,7 @@
 };
 
     const translationsIt = {
+      "NUTRIELITE · Nutrición materno-infantojuvenil y renal": "NUTRIELITE · Nutrizione materno-infantile, adolescenziale e renale",
       "Agenda":"Agenda",
       "Solicita tu turno.":"Richiedi un appuntamento.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Scegli una data e invia la richiesta. L'appuntamento è confermato quando ricevi la conferma via WhatsApp.",
