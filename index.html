@@ -5451,6 +5451,211 @@
         letter-spacing:.065em;
       }
     }
+
+    /* Privacidad y condiciones: jerarquía más institucional */
+    #privacidad.legal-trust{
+      max-width:1060px !important;
+      margin:34px auto 0 !important;
+      padding:40px 42px !important;
+      border:1px solid rgba(143,75,98,.14) !important;
+      border-top:4px solid rgba(143,75,98,.48) !important;
+      border-radius:26px !important;
+      background:linear-gradient(145deg,#fffdf9 0%,#faf6ef 100%) !important;
+      box-shadow:0 18px 42px rgba(35,54,48,.07) !important;
+    }
+
+    #privacidad .legal-trust-head{
+      max-width:900px !important;
+      margin-bottom:28px !important;
+    }
+
+    #privacidad .legal-trust-head h2{
+      margin:0 0 12px !important;
+      color:#873b55 !important;
+      font-size:clamp(2rem,3.2vw,2.7rem) !important;
+      line-height:1.08 !important;
+    }
+
+    #privacidad .legal-trust-head > p:not(.eyebrow){
+      max-width:820px !important;
+      margin:0 !important;
+      color:#625d59 !important;
+      font-size:1rem !important;
+      line-height:1.68 !important;
+    }
+
+    #privacidad .legal-trust-grid{
+      gap:18px !important;
+    }
+
+    #privacidad .legal-card{
+      border:1px solid rgba(143,75,98,.12) !important;
+      border-radius:18px !important;
+      background:#fffdf9 !important;
+      box-shadow:0 10px 24px rgba(35,54,48,.045) !important;
+      transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease !important;
+    }
+
+    #privacidad .legal-card summary{
+      min-height:80px !important;
+      padding:22px 52px 22px 22px !important;
+      color:#6f3d4f !important;
+      font-size:1.02rem !important;
+      font-weight:800 !important;
+      line-height:1.35 !important;
+    }
+
+    #privacidad .legal-card[open]{
+      border-color:rgba(143,75,98,.24) !important;
+      box-shadow:0 14px 30px rgba(35,54,48,.065) !important;
+    }
+
+    @media(hover:hover) and (pointer:fine){
+      #privacidad .legal-card:hover{
+        transform:translateY(-2px);
+        border-color:rgba(143,75,98,.20) !important;
+        box-shadow:0 14px 30px rgba(35,54,48,.065) !important;
+      }
+    }
+
+    /* Botones principales: sistema visual unificado */
+    .button,
+    .agenda-submit,
+    .consult-button,
+    #contacto .contact-main .button{
+      min-height:52px !important;
+      padding:12px 22px !important;
+      border-radius:16px !important;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif !important;
+      font-size:.92rem !important;
+      font-weight:800 !important;
+      line-height:1.15 !important;
+      letter-spacing:.005em !important;
+      transition:transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease, color .22s ease !important;
+    }
+
+    @media(hover:hover) and (pointer:fine){
+      .button:hover,
+      .agenda-submit:not(:disabled):hover,
+      .consult-button:hover,
+      #contacto .contact-main .button:hover{
+        transform:translateY(-2px) !important;
+      }
+    }
+
+    .button:focus-visible,
+    .agenda-submit:focus-visible,
+    .consult-button:focus-visible,
+    #contacto .contact-main .button:focus-visible{
+      outline:3px solid rgba(143,75,98,.18) !important;
+      outline-offset:3px !important;
+    }
+
+    /* Mantener compactos los botones internos de libros */
+    .book-package-actions .button{
+      min-height:42px !important;
+      padding:9px 10px !important;
+      border-radius:13px !important;
+      font-size:.76rem !important;
+    }
+
+    /* Equipo: dos tarjetas perfectamente alineadas */
+    #equipo .proposal-accordion{
+      align-items:stretch !important;
+    }
+
+    #equipo .proposal-card:not([open]){
+      height:100% !important;
+      min-height:224px !important;
+    }
+
+    #equipo .proposal-card:not([open]) .proposal-summary{
+      min-height:224px !important;
+      height:224px !important;
+      grid-template-columns:132px minmax(0,1fr) 52px !important;
+      gap:24px !important;
+      padding:26px 28px !important;
+      align-items:center !important;
+    }
+
+    #equipo .proposal-photo-frame{
+      width:132px !important;
+      height:168px !important;
+      margin:0 !important;
+      justify-self:center !important;
+      align-self:center !important;
+      border-radius:20px !important;
+    }
+
+    #equipo .proposal-summary-copy{
+      display:flex !important;
+      min-width:0 !important;
+      height:100% !important;
+      flex-direction:column !important;
+      justify-content:center !important;
+      align-self:center !important;
+    }
+
+    #equipo .proposal-summary-copy h3{
+      min-height:0 !important;
+      margin:0 0 9px !important;
+      display:block !important;
+      font-size:1.5rem !important;
+      line-height:1.15 !important;
+    }
+
+    #equipo .proposal-summary-copy p{
+      max-width:520px !important;
+      min-height:0 !important;
+      margin:0 !important;
+      line-height:1.55 !important;
+    }
+
+    #equipo .proposal-card,
+    #equipo .proposal-photo{
+      transition-duration:.38s !important;
+      transition-timing-function:cubic-bezier(.2,.7,.2,1) !important;
+    }
+
+    @media(hover:hover) and (pointer:fine){
+      #equipo .proposal-card:hover{
+        transform:translateY(-4px) !important;
+        box-shadow:0 26px 60px rgba(35,54,48,.11) !important;
+      }
+      #equipo .proposal-card:hover .proposal-photo{
+        transform:scale(1.025) !important;
+        filter:brightness(1.015) !important;
+      }
+    }
+
+    @media(max-width:720px){
+      #privacidad.legal-trust{
+        padding:26px 22px !important;
+        border-radius:22px !important;
+      }
+
+      #equipo .proposal-card:not([open]){
+        min-height:164px !important;
+      }
+
+      #equipo .proposal-card:not([open]) .proposal-summary{
+        min-height:164px !important;
+        height:auto !important;
+        grid-template-columns:92px minmax(0,1fr) 38px !important;
+        gap:15px !important;
+        padding:18px !important;
+      }
+
+      #equipo .proposal-photo-frame{
+        width:92px !important;
+        height:118px !important;
+        border-radius:16px !important;
+      }
+
+      #equipo .proposal-summary-copy h3{
+        font-size:1.15rem !important;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
