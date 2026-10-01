@@ -8682,30 +8682,7 @@
             it:'Data selezionata: '+agendaDateLabel(agendaSelectedDate)
           }[currentLang]);
       
-    /* TESTIMONIOS VIDEO INIT 2026-09-30 */
-    (function initTestimonialVideos(){
-      const section=document.getElementById('testimonios');
-      if(!section) return;
-      const cards=Array.from(section.querySelectorAll('[data-testimonial-video]'));
-      let readyCount=0;
-      const reveal=(card)=>{
-        if(card.classList.contains('is-ready')) return;
-        card.classList.add('is-ready');
-        readyCount+=1;
-        section.classList.add('is-ready');
-      };
-      cards.forEach(card=>{
-        const video=card.querySelector('video');
-        if(!video) return;
-        video.addEventListener('loadedmetadata',()=>reveal(card),{once:true});
-        video.addEventListener('canplay',()=>reveal(card),{once:true});
-        video.addEventListener('error',()=>card.classList.remove('is-ready'),{once:true});
-        if(video.readyState>=1) reveal(card);
-        video.load();
-      });
-    })();
 
-    renderAgenda();
         });
       });
 
@@ -8846,6 +8823,27 @@
     });
 
     renderAgenda();
+
+    /* TESTIMONIOS VIDEO INIT 2026-09-30 */
+    (function initTestimonialVideos(){
+      const section=document.getElementById('testimonios');
+      if(!section) return;
+      const cards=Array.from(section.querySelectorAll('[data-testimonial-video]'));
+      const reveal=(card)=>{
+        if(card.classList.contains('is-ready')) return;
+        card.classList.add('is-ready');
+        section.classList.add('is-ready');
+      };
+      cards.forEach(card=>{
+        const video=card.querySelector('video');
+        if(!video) return;
+        video.addEventListener('loadedmetadata',()=>reveal(card),{once:true});
+        video.addEventListener('canplay',()=>reveal(card),{once:true});
+        video.addEventListener('error',()=>card.classList.remove('is-ready'),{once:true});
+        if(video.readyState>=1) reveal(card);
+        video.load();
+      });
+    })();
 
     const viewByTarget = {
       inicio:'home',
