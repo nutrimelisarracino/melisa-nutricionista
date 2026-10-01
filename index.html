@@ -6738,43 +6738,19 @@
     }
 
   
-    /* Consultas móviles: igualar altura visual */
-    @media(max-width:720px){
-      #consultScroller{
-        align-items:stretch !important;
-      }
-
-      #consultScroller .consult-card{
-        height:100% !important;
-        min-height:760px !important;
-        align-self:stretch !important;
-        display:flex !important;
-        flex-direction:column !important;
-      }
-
-      #consultScroller .consult-button{
-        margin-top:auto !important;
-      }
-    }
-
-    @media(max-width:420px){
-      #consultScroller .consult-card{
-        min-height:730px !important;
-      }
-    }
 
   
-    /* Consultas móviles: misma altura sin aire */
+    /* Consultas móviles: compactas y altura real igualada */
     @media(max-width:720px){
       #consultScroller{
-        align-items:stretch !important;
+        align-items:flex-start !important;
       }
 
       #consultScroller .consult-card{
         box-sizing:border-box !important;
         min-height:0 !important;
-        height:690px !important;
-        align-self:stretch !important;
+        height:auto;
+        align-self:flex-start !important;
         padding:20px 18px !important;
         display:flex !important;
         flex-direction:column !important;
@@ -6836,12 +6812,7 @@
         min-height:48px !important;
         padding:10px 14px !important;
         font-size:.86rem !important;
-      }
-    }
-
-    @media(max-width:420px){
-      #consultScroller .consult-card{
-        height:665px !important;
+        align-self:stretch !important;
       }
     }
 
@@ -9346,6 +9317,35 @@
       const next=document.querySelector('[data-consult-next]');
       const indexEl=document.querySelector('[data-consult-index]');
       const cards=Array.from(scroller.querySelectorAll('.consult-card'));
+      let heightTimer=null;
+
+      function syncCardHeights(){
+        if(window.innerWidth>720){
+          cards.forEach(card=>{
+            card.style.removeProperty('height');
+            card.style.removeProperty('min-height');
+          });
+          return;
+        }
+
+        cards.forEach(card=>{
+          card.style.setProperty('height','auto','important');
+          card.style.setProperty('min-height','0','important');
+        });
+
+        requestAnimationFrame(()=>{
+          const maxHeight=Math.ceil(Math.max(...cards.map(card=>card.getBoundingClientRect().height)));
+          cards.forEach(card=>{
+            card.style.setProperty('height',maxHeight+'px','important');
+            card.style.setProperty('min-height',maxHeight+'px','important');
+          });
+        });
+      }
+
+      function scheduleHeightSync(){
+        window.clearTimeout(heightTimer);
+        heightTimer=window.setTimeout(syncCardHeights,60);
+      }
 
       function getStepWidth(){
         const first=cards[0];
@@ -9376,8 +9376,17 @@
       prev?.addEventListener('click',()=>go(-1));
       next?.addEventListener('click',()=>go(1));
       scroller.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
-      window.addEventListener('resize',update);
+      window.addEventListener('resize',()=>{
+        update();
+        scheduleHeightSync();
+      },{passive:true});
+
+      const observer=new MutationObserver(scheduleHeightSync);
+      observer.observe(scroller,{subtree:true,childList:true,characterData:true});
+
+      window.addEventListener('load',scheduleHeightSync,{once:true});
       update();
+      scheduleHeightSync();
     })();
 
     /* MODALITIES MOBILE CAROUSEL */
