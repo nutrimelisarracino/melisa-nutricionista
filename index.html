@@ -5097,6 +5097,39 @@
         letter-spacing:.105em !important;
       }
     }
+
+    /* Hover suave para los bloques y fotos del equipo */
+    #equipo .proposal-card{
+      transition:transform .36s ease, box-shadow .36s ease, border-color .36s ease;
+    }
+    #equipo .proposal-photo-frame{
+      overflow:hidden;
+    }
+    #equipo .proposal-photo{
+      transition:transform .42s cubic-bezier(.2,.7,.2,1), filter .42s ease;
+      transform:scale(1);
+      will-change:transform;
+    }
+
+    @media(hover:hover) and (pointer:fine){
+      #equipo .proposal-card:hover{
+        transform:translateY(-4px);
+        box-shadow:0 26px 60px rgba(35,54,48,.11);
+      }
+      #equipo .proposal-card:hover .proposal-photo{
+        transform:scale(1.025);
+        filter:brightness(1.015);
+      }
+    }
+
+    @media(hover:none) and (pointer:coarse){
+      #equipo .proposal-card:active{
+        transform:translateY(-1px);
+      }
+      #equipo .proposal-card:active .proposal-photo{
+        transform:scale(1.012);
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
