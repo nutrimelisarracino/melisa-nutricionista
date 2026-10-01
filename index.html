@@ -5936,6 +5936,31 @@
         margin-bottom:24px;
       }
     }
+
+    /* Títulos principales de sección: tipografía, tamaño y color unificados */
+    .section-head h2,
+    #equipo .team-intro h2,
+    #preguntas .faq > h2,
+    #contacto .contact-institutional-message h2,
+    #contacto .legal-trust-head h2{
+      font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif !important;
+      font-size:clamp(2rem,3.7vw,3.35rem) !important;
+      line-height:1.08 !important;
+      font-weight:600 !important;
+      letter-spacing:-.018em !important;
+      color:var(--forest-deep) !important;
+    }
+
+    @media(max-width:720px){
+      .section-head h2,
+      #equipo .team-intro h2,
+      #preguntas .faq > h2,
+      #contacto .contact-institutional-message h2,
+      #contacto .legal-trust-head h2{
+        font-size:clamp(1.8rem,8vw,2.45rem) !important;
+        line-height:1.12 !important;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
@@ -6081,7 +6106,7 @@
         <div class="section-head">
           <div>
             <p class="eyebrow">Áreas de atención</p>
-            <h2>Nutrición en distintas etapas y situaciones.</h2>
+            <h2>Nutrición en distintas etapas y situaciones</h2>
           </div>
           <p>Las recomendaciones se definen a partir de una evaluación individual y se adaptan a las necesidades de cada paciente y su familia.</p>
         </div>
@@ -6130,7 +6155,7 @@
         <div class="section-head modality-head">
           <div>
             <p class="eyebrow">Modalidad</p>
-            <h2>Elige cómo realizar tu consulta.</h2>
+            <h2>Elige cómo realizar tu consulta</h2>
           </div>
         </div>
         <div class="modalities">
@@ -6153,7 +6178,7 @@
         <div class="section-head">
           <div>
             <p class="eyebrow">Consultas</p>
-            <h2>Opciones de atención nutricional.</h2>
+            <h2>Opciones de atención nutricional</h2>
           </div>
         </div>
 
@@ -6223,7 +6248,7 @@
         <div class="section-head work-head">
           <div>
             <p class="eyebrow">Cómo trabajo</p>
-            <h2>Acompañamiento paso a paso.</h2>
+            <h2>Acompañamiento paso a paso</h2>
           </div>
           <p>Cada proceso se construye de manera individual, evitando recomendaciones generales que no contemplen tu situación.</p>
         </div>
@@ -6241,7 +6266,7 @@
         <div class="section-head agenda-head">
           <div>
             <p class="eyebrow">Agenda</p>
-            <h2>Solicita tu turno.</h2>
+            <h2>Solicita tu turno</h2>
           </div>
           <p>Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.</p>
         </div>
@@ -6310,7 +6335,7 @@
       <div class="wrap">
         <div class="team-intro compact-team-intro">
           <p class="eyebrow">Equipo y servicios</p>
-          <h2>Profesionales que acompañan desde distintas áreas.</h2>
+          <h2>Profesionales que acompañan desde distintas áreas</h2>
           <p class="lede">Un equipo interdisciplinario con servicios diferenciados. Cada profesional trabaja desde su propia área, alcance y formación.</p>
         </div>
 
@@ -6565,7 +6590,7 @@
     <section class="section view-section" id="preguntas" data-view="faq">
       <div class="wrap faq">
         <p class="eyebrow">Preguntas frecuentes</p>
-        <h2>Información antes de comenzar.</h2>
+        <h2>Información antes de comenzar</h2>
 
         <details>
           <summary>¿La consulta nutricional es en línea o presencial?</summary>
@@ -6595,7 +6620,7 @@
         <div class="contact-institutional contact-institutional-message">
           <div class="contact-institutional-copy">
             <p class="eyebrow">NUTRIELITE</p>
-            <h2>Cada etapa necesita una mirada propia.</h2>
+            <h2>Cada etapa necesita una mirada propia</h2>
             <p>La atención nutricional parte de comprender a la persona, su contexto y sus necesidades para definir un abordaje adecuado a cada momento de la vida.</p>
           </div>
         </div>
@@ -6603,7 +6628,7 @@
         <div class="legal-trust" id="privacidad">
           <div class="legal-trust-head">
             <p class="eyebrow">Información y confianza</p>
-            <h2>Privacidad y condiciones del sitio.</h2>
+            <h2>Privacidad y condiciones del sitio</h2>
             <p>Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.</p>
           </div>
           <div class="legal-trust-grid legal-trust-grid-simple">
@@ -6934,7 +6959,7 @@
     const translations = {
       "NUTRIELITE · Nutrición materno-infantojuvenil y renal":"NUTRIELITE · Maternal, child and adolescent nutrition and renal nutrition",
       "Agenda":"Appointments",
-      "Solicita tu turno.":"Request an appointment.",
+      "Solicita tu turno":"Request an appointment",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Choose a date and send your request. Your appointment is confirmed once you receive confirmation via WhatsApp.",
       "Disponible para solicitar":"Available to request",
       "No disponible":"Unavailable",
@@ -7007,7 +7032,7 @@
       ". Su historia, sus hábitos, sus estudios, sus necesidades y su realidad cotidiana forman parte de cada decisión.":". Their history, habits, clinical studies, individual needs and everyday context are considered in each professional decision.",
       "Sigo capacitándome de manera permanente porque entiendo que la nutrición también implica actualizarse, aprender y revisar constantemente la propia práctica.":"I pursue continuing professional education in order to maintain an up-to-date, evidence-informed and reflective practice.",
       "NUTRIELITE representa esa forma de ejercer mi profesión: cercana, individualizada y comprometida con cada proceso.":"NUTRIELITE represents this way of practising my profession: individualized, attentive and committed to each person’s nutritional care process.",
-      "Nutrición en distintas etapas y situaciones.":"Nutritional care across different stages of life and clinical situations.",
+      "Nutrición en distintas etapas y situaciones":"Nutritional care across different stages of life and clinical situations.",
       "Las recomendaciones se definen a partir de una evaluación individual y se adaptan a las necesidades de cada paciente y su familia.":"Recommendations are established following an individual assessment and adapted to the clinical and personal needs of each patient and, when appropriate, their family.",
       "01 / Materno-infantojuvenil":"01 / Maternal, child & adolescent",
       "Acompañamiento nutricional durante etapas que requieren una mirada cuidadosa, práctica y adaptada.":"Nutritional care during stages that require a careful, practical and individualized approach.",
@@ -7022,7 +7047,7 @@
       "Alteraciones de la función renal.":"Alterations in renal function.",
       "Niños, adolescentes y adultos.":"Children, adolescents and adults.",
       "Modalidad":"Format",
-      "Elige cómo realizar tu consulta.":"Choose the consultation format that best suits your needs.",
+      "Elige cómo realizar tu consulta":"Choose the consultation format that best suits your needs.",
       
       "Disponible":"Available",
       "Atención en línea":"Online consultations",
@@ -7031,7 +7056,7 @@
       "Atención presencial":"In-person consultations",
       "Próximamente. Los detalles para la atención presencial se informarán cuando esta modalidad se encuentre habilitada.":"Coming soon. Details for in-person consultations will be provided once this service becomes available.",
       "Consultas":"Consultations",
-      "Opciones de atención nutricional.":"Nutritional consultation options.",
+      "Opciones de atención nutricional":"Nutritional consultation options.",
       "Para comenzar tu proceso":"to begin your process",
       "Primera consulta nutricional":"Initial nutrition consultation",
       "En línea":"Online",
@@ -7065,7 +7090,7 @@
       "Acompañamiento en hábitos del hogar.":"Support with household habits.",
       "No incluye plan alimentario personalizado ni abordaje de situaciones patológicas.":"Does not include an individualized meal plan or nutritional management of medical conditions.",
       "Cómo trabajo":"How I work",
-      "Acompañamiento paso a paso.":"Structured, step-by-step support.",
+      "Acompañamiento paso a paso":"Structured, step-by-step support.",
       "Cada proceso se construye de manera individual, evitando recomendaciones generales que no contemplen tu situación.":"Each process is built individually, avoiding generic recommendations that do not reflect your situation.",
       "Conocer":"Understand",
       "Conversamos sobre tus necesidades, antecedentes, alimentación, rutina y objetivos.":"We discuss your needs, medical and nutritional history, eating patterns, routine and goals.",
@@ -7134,7 +7159,7 @@
       "Recetas de tartaletas saludables":"Healthy tartlet recipes",
       "Selección digital de recetas de tartaletas saludables.":"Digital selection of healthy tartlet recipes.",
       "Preguntas frecuentes":"Frequently asked questions",
-      "Información antes de comenzar.":"Information before getting started.",
+      "Información antes de comenzar":"Information before getting started",
       "¿La consulta nutricional es en línea o presencial?":"Is the nutrition consultation online or in person?",
       "Actualmente la atención nutricional se encuentra disponible en línea. La modalidad presencial estará disponible próximamente en San Nicolás de los Arroyos.":"Nutritional consultations are currently available online. In-person consultations will be available soon in San Nicolás de los Arroyos.",
       "¿Cómo solicito un turno?":"How do I book an appointment?",
@@ -7164,7 +7189,7 @@
       "Escribir por WhatsApp": "Message via WhatsApp",
       "Para proteger tu privacidad, evita incluir información clínica sensible en el primer mensaje.": "To protect your privacy, avoid including sensitive clinical information in your first message.",
       "Información y confianza": "Information and trust",
-      "Privacidad y condiciones del sitio.": "Privacy and site terms.",
+      "Privacidad y condiciones del sitio": "Privacy and site terms",
       "Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.": "Basic information about site use, contact data, and the scope of published content.",
       "Privacidad y datos personales": "Privacy and personal data",
       "Los datos que ingreses para solicitar un turno o realizar una consulta se utilizan únicamente para gestionar tu contacto, coordinar la atención o responder tu solicitud.": "Data entered to request an appointment or make an inquiry are used only to manage contact, coordinate care, or respond to your request.",
@@ -7176,7 +7201,7 @@
       "El contenido de este sitio tiene finalidad informativa y educativa. No reemplaza una evaluación nutricional individual, una indicación médica ni la atención de otros profesionales de la salud cuando corresponda.": "The content of this site is informational and educational. It does not replace an individual nutritional assessment, medical advice, or care from other health professionals when appropriate.",
       "La disponibilidad de turnos, servicios y productos puede modificarse. Toda solicitud queda sujeta a confirmación por el canal de contacto correspondiente.": "Availability of appointments, services, and products may change. Every request is subject to confirmation through the appropriate contact channel.",
       "NUTRIELITE": "NUTRIELITE",
-      "Cada etapa necesita una mirada propia.": "Each stage of life deserves its own perspective.",
+      "Cada etapa necesita una mirada propia": "Each stage of life deserves its own perspective.",
       "La atención nutricional parte de comprender a la persona, su contexto y sus necesidades para definir un abordaje adecuado a cada momento de la vida.": "Nutritional care begins with understanding the person, their context, and their needs in order to define an approach suited to each stage of life.",
       "Privacidad": "Privacy",
       "Los datos solicitados en la agenda se utilizan únicamente para gestionar tu solicitud de turno y contacto.": "The data requested in the appointment form are used only to manage your appointment request and contact.",
@@ -7198,7 +7223,7 @@
     const translationsPt = {
       "NUTRIELITE · Nutrición materno-infantojuvenil y renal": "NUTRIELITE · Nutrição materno-infantil, juvenil e renal",
       "Agenda":"Agenda",
-      "Solicita tu turno.":"Solicite sua consulta.",
+      "Solicita tu turno":"Solicite sua consulta.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Escolha uma data e envie sua solicitação. A consulta fica confirmada quando você receber a confirmação pelo WhatsApp.",
       "Disponible para solicitar":"Disponível para solicitar",
       "No disponible":"Indisponível",
@@ -7266,7 +7291,7 @@
       ". Su historia, sus hábitos, sus estudios, sus necesidades y su realidad cotidiana forman parte de cada decisión.": ". Sua história, seus hábitos, seus exames, suas necessidades e sua realidade cotidiana fazem parte de cada decisão.",
       "Sigo capacitándome de manera permanente porque entiendo que la nutrición también implica actualizarse, aprender y revisar constantemente la propia práctica.": "Continuo me aperfeiçoando de forma permanente porque entendo que a nutrição também exige atualização, aprendizado e revisão constante da própria prática.",
       "NUTRIELITE representa esa forma de ejercer mi profesión: cercana, individualizada y comprometida con cada proceso.": "A NUTRIELITE representa essa forma de exercer minha profissão: próxima, individualizada e comprometida com cada processo.",
-      "Nutrición en distintas etapas y situaciones.": "Nutrição em diferentes etapas e situações.",
+      "Nutrición en distintas etapas y situaciones": "Nutrição em diferentes etapas e situações.",
       "Las recomendaciones se definen a partir de una evaluación individual y se adaptan a las necesidades de cada paciente y su familia.": "As recomendações são definidas a partir de uma avaliação individual e adaptadas às necessidades de cada paciente e de sua família.",
       "01 / Materno-infantojuvenil": "01 / Materno-infantil e adolescente",
       "Acompañamiento nutricional durante etapas que requieren una mirada cuidadosa, práctica y adaptada.": "Acompanhamento nutricional em etapas que exigem uma abordagem cuidadosa, prática e adaptada.",
@@ -7281,7 +7306,7 @@
       "Alteraciones de la función renal.": "Alterações da função renal.",
       "Niños, adolescentes y adultos.": "Crianças, adolescentes e adultos.",
       "Modalidad": "Modalidade",
-      "Elige cómo realizar tu consulta.": "Escolha como realizar sua consulta.",
+      "Elige cómo realizar tu consulta": "Escolha como realizar sua consulta.",
       
       "Disponible": "Disponível",
       "Atención en línea": "Atendimento on-line",
@@ -7290,7 +7315,7 @@
       "Atención presencial": "Atendimento presencial",
       "Próximamente. Los detalles para la atención presencial se informarán cuando esta modalidad se encuentre habilitada.": "Em breve. Os detalhes do atendimento presencial serão informados quando esta modalidade estiver disponível.",
       "Consultas": "Consultas",
-      "Opciones de atención nutricional.": "Opções de atendimento nutricional.",
+      "Opciones de atención nutricional": "Opções de atendimento nutricional.",
       "Para comenzar tu proceso": "para iniciar seu processo",
       "Primera consulta nutricional": "Primeira consulta nutricional",
       "En línea": "On-line",
@@ -7324,7 +7349,7 @@
       "Acompañamiento en hábitos del hogar.": "Acompanhamento dos hábitos do lar.",
       "No incluye plan alimentario personalizado ni abordaje de situaciones patológicas.": "Não inclui plano alimentar personalizado nem abordagem de condições patológicas.",
       "Cómo trabajo": "Como trabalho",
-      "Acompañamiento paso a paso.": "Acompanhamento passo a passo.",
+      "Acompañamiento paso a paso": "Acompanhamento passo a passo.",
       "Cada proceso se construye de manera individual, evitando recomendaciones generales que no contemplen tu situación.": "Cada processo é construído de forma individual, evitando recomendações gerais que não considerem sua situação.",
       "Conocer": "Conhecer",
       "Conversamos sobre tus necesidades, antecedentes, alimentación, rutina y objetivos.": "Conversamos sobre suas necessidades, antecedentes, alimentação, rotina e objetivos.",
@@ -7339,7 +7364,7 @@
       "Solicitar sesión inicial":"Solicitar sessão inicial",
       "Recursos digitales NUTRIELITE":"Recursos digitais NUTRIELITE",
       "Biblioteca gastronómica digital":"Biblioteca gastronômica digital",
-      "Profesionales que acompañan desde distintas áreas.": "Profissionais que acompanham a partir de diferentes áreas.",
+      "Profesionales que acompañan desde distintas áreas": "Profissionais que acompanham a partir de diferentes áreas.",
       "Un equipo interdisciplinario con servicios diferenciados. Cada profesional trabaja desde su propia área, alcance y formación.": "Uma equipe interdisciplinar com serviços diferenciados. Cada profissional atua a partir de sua própria área, escopo e formação.",
       "Coaching ontológico": "Coaching ontológico",
       "Acompañamiento orientado a procesos de cambio, hábitos y objetivos personales.": "Acompanhamento voltado a processos de mudança, hábitos e objetivos pessoais.",
@@ -7396,7 +7421,7 @@
       "No. Son materiales educativos y de cocina, y no reemplazan una evaluación nutricional individual.": "Não. São materiais educativos e culinários e não substituem uma avaliação nutricional individual.",
       "Recetas de tartaletas saludables": "Receitas de tortinhas saudáveis",
       "Selección digital de recetas de tartaletas saludables.": "Seleção digital de receitas de tortinhas saudáveis.",
-      "Información antes de comenzar.": "Informações antes de começar.",
+      "Información antes de comenzar": "Informações antes de começar.",
       "¿La consulta nutricional es en línea o presencial?": "A consulta nutricional é on-line ou presencial?",
       "Actualmente la atención nutricional se encuentra disponible en línea. La modalidad presencial estará disponible próximamente en San Nicolás de los Arroyos.": "Atualmente, o atendimento nutricional está disponível on-line. A modalidade presencial estará disponível em breve em San Nicolás de los Arroyos.",
       "¿Cómo solicito un turno?": "Como solicito um horário?",
@@ -7421,7 +7446,7 @@
       "Escribir por WhatsApp": "Enviar mensagem pelo WhatsApp",
       "Para proteger tu privacidad, evita incluir información clínica sensible en el primer mensaje.": "To protect your privacy, avoid including sensitive clinical information in your first message.",
       "Información y confianza": "Informação e confiança",
-      "Privacidad y condiciones del sitio.": "Privacidade e condições do site.",
+      "Privacidad y condiciones del sitio": "Privacidade e condições do site.",
       "Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.": "Basic information about site use, contact data, and the scope of published content.",
       "Privacidad y datos personales": "Privacidade e dados pessoais",
       "Los datos que ingreses para solicitar un turno o realizar una consulta se utilizan únicamente para gestionar tu contacto, coordinar la atención o responder tu solicitud.": "Data entered to request an appointment or make an inquiry are used only to manage contact, coordinate care, or respond to your request.",
@@ -7433,7 +7458,7 @@
       "El contenido de este sitio tiene finalidad informativa y educativa. No reemplaza una evaluación nutricional individual, una indicación médica ni la atención de otros profesionales de la salud cuando corresponda.": "The content of this site is informational and educational. It does not replace an individual nutritional assessment, medical advice, or care from other health professionals when appropriate.",
       "La disponibilidad de turnos, servicios y productos puede modificarse. Toda solicitud queda sujeta a confirmación por el canal de contacto correspondiente.": "Availability of appointments, services, and products may change. Every request is subject to confirmation through the appropriate contact channel.",
       "NUTRIELITE": "NUTRIELITE",
-      "Cada etapa necesita una mirada propia.": "Cada etapa da vida precisa de um olhar próprio.",
+      "Cada etapa necesita una mirada propia": "Cada etapa da vida precisa de um olhar próprio.",
       "La atención nutricional parte de comprender a la persona, su contexto y sus necesidades para definir un abordaje adecuado a cada momento de la vida.": "O atendimento nutricional parte da compreensão da pessoa, de seu contexto e de suas necessidades para definir uma abordagem adequada a cada momento da vida.",
       "Privacidad": "Privacidade",
       "Los datos solicitados en la agenda se utilizan únicamente para gestionar tu solicitud de turno y contacto.": "Os dados solicitados na agenda são utilizados apenas para gerenciar sua solicitação de consulta e contato.",
@@ -7446,7 +7471,7 @@
     const translationsFr = {
       "NUTRIELITE · Nutrición materno-infantojuvenil y renal": "NUTRIELITE · Nutrition maternelle, infantile, adolescente et rénale",
       "Agenda":"Agenda",
-      "Solicita tu turno.":"Demandez votre rendez-vous.",
+      "Solicita tu turno":"Demandez votre rendez-vous.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Choisissez une date et envoyez votre demande. Le rendez-vous est confirmé lorsque vous recevez la confirmation par WhatsApp.",
       "Disponible para solicitar":"Disponible sur demande",
       "No disponible":"Indisponible",
@@ -7514,7 +7539,7 @@
       ". Su historia, sus hábitos, sus estudios, sus necesidades y su realidad cotidiana forman parte de cada decisión.": ". Son histoire, ses habitudes, ses examens, ses besoins et sa réalité quotidienne font partie de chaque décision.",
       "Sigo capacitándome de manera permanente porque entiendo que la nutrición también implica actualizarse, aprender y revisar constantemente la propia práctica.": "Je poursuis une formation continue, car la nutrition implique aussi de se tenir à jour, d’apprendre et de réévaluer constamment sa pratique.",
       "NUTRIELITE representa esa forma de ejercer mi profesión: cercana, individualizada y comprometida con cada proceso.": "NUTRIELITE représente cette façon d’exercer ma profession : proche, individualisée et engagée dans chaque parcours.",
-      "Nutrición en distintas etapas y situaciones.": "Nutrition à différentes étapes et dans différentes situations.",
+      "Nutrición en distintas etapas y situaciones": "Nutrition à différentes étapes et dans différentes situations.",
       "Las recomendaciones se definen a partir de una evaluación individual y se adaptan a las necesidades de cada paciente y su familia.": "Les recommandations sont définies à partir d’une évaluation individuelle et adaptées aux besoins de chaque patient et de sa famille.",
       "01 / Materno-infantojuvenil": "01 / Maternelle, infantile et adolescent",
       "Acompañamiento nutricional durante etapas que requieren una mirada cuidadosa, práctica y adaptada.": "Accompagnement nutritionnel pendant des étapes qui nécessitent une approche attentive, pratique et adaptée.",
@@ -7529,7 +7554,7 @@
       "Alteraciones de la función renal.": "Altérations de la fonction rénale.",
       "Niños, adolescentes y adultos.": "Enfants, adolescents et adultes.",
       "Modalidad": "Modalité",
-      "Elige cómo realizar tu consulta.": "Choisissez la modalité de consultation qui vous convient.",
+      "Elige cómo realizar tu consulta": "Choisissez la modalité de consultation qui vous convient.",
       
       "Disponible": "Disponible",
       "Atención en línea": "Consultation en ligne",
@@ -7538,7 +7563,7 @@
       "Atención presencial": "Consultation en présentiel",
       "Próximamente. Los detalles para la atención presencial se informarán cuando esta modalidad se encuentre habilitada.": "Prochainement. Les détails concernant les consultations en présentiel seront communiqués lorsque cette modalité sera disponible.",
       "Consultas": "Consultations",
-      "Opciones de atención nutricional.": "Options de prise en charge nutritionnelle.",
+      "Opciones de atención nutricional": "Options de prise en charge nutritionnelle.",
       "Para comenzar tu proceso": "pour commencer votre parcours",
       "Primera consulta nutricional": "Première consultation nutritionnelle",
       "En línea": "En ligne",
@@ -7572,7 +7597,7 @@
       "Acompañamiento en hábitos del hogar.": "Accompagnement des habitudes au sein du foyer.",
       "No incluye plan alimentario personalizado ni abordaje de situaciones patológicas.": "N’inclut ni plan alimentaire personnalisé ni prise en charge de situations pathologiques.",
       "Cómo trabajo": "Ma façon de travailler",
-      "Acompañamiento paso a paso.": "Un accompagnement étape par étape.",
+      "Acompañamiento paso a paso": "Un accompagnement étape par étape.",
       "Cada proceso se construye de manera individual, evitando recomendaciones generales que no contemplen tu situación.": "Chaque parcours est construit de manière individuelle, en évitant les recommandations générales qui ne tiennent pas compte de votre situation.",
       "Conocer": "Comprendre",
       "Conversamos sobre tus necesidades, antecedentes, alimentación, rutina y objetivos.": "Nous échangeons sur vos besoins, vos antécédents, votre alimentation, votre routine et vos objectifs.",
@@ -7588,7 +7613,7 @@
       "Recursos digitales NUTRIELITE":"Ressources numériques NUTRIELITE",
       "Biblioteca gastronómica digital":"Bibliothèque gastronomique numérique",
       "Un equipo interdisciplinario con servicios diferenciados. Cada profesional trabaja desde su propia área, alcance y formación.": "Une équipe interdisciplinaire avec des services différenciés. Chaque professionnelle intervient dans son propre domaine, selon son champ d’exercice et sa formation.",
-      "Profesionales que acompañan desde distintas áreas.": "Des professionnels qui accompagnent depuis différents domaines.",
+      "Profesionales que acompañan desde distintas áreas": "Des professionnels qui accompagnent depuis différents domaines.",
       "Además de la atención nutricional, NUTRIELITE reúne propuestas desarrolladas desde la formación de cada profesional.": "En plus de la prise en charge nutritionnelle, NUTRIELITE réunit des propositions développées à partir de la formation de chaque professionnelle.",
       "Coaching ontológico": "Coaching ontologique",
       "Acompañamiento orientado a procesos de cambio, hábitos y objetivos personales.": "Accompagnement axé sur les processus de changement, les habitudes et les objectifs personnels.",
@@ -7645,7 +7670,7 @@
       "No. Son materiales educativos y de cocina, y no reemplazan una evaluación nutricional individual.": "Non. Il s’agit de contenus éducatifs et culinaires qui ne remplacent pas une évaluation nutritionnelle individuelle.",
       "Recetas de tartaletas saludables": "Recettes de tartelettes saines",
       "Selección digital de recetas de tartaletas saludables.": "Sélection numérique de recettes de tartelettes saines.",
-      "Información antes de comenzar.": "Informations avant de commencer.",
+      "Información antes de comenzar": "Informations avant de commencer.",
       "¿La consulta nutricional es en línea o presencial?": "La consultation nutritionnelle est-elle en ligne ou en présentiel ?",
       "Actualmente la atención nutricional se encuentra disponible en línea. La modalidad presencial estará disponible próximamente en San Nicolás de los Arroyos.": "Actuellement, la prise en charge nutritionnelle est disponible en ligne. Les consultations en présentiel seront prochainement disponibles à San Nicolás de los Arroyos.",
       "¿Cómo solicito un turno?": "Comment demander un rendez-vous ?",
@@ -7670,7 +7695,7 @@
       "Escribir por WhatsApp": "Écrire sur WhatsApp",
       "Para proteger tu privacidad, evita incluir información clínica sensible en el primer mensaje.": "To protect your privacy, avoid including sensitive clinical information in your first message.",
       "Información y confianza": "Information et confiance",
-      "Privacidad y condiciones del sitio.": "Confidentialité et conditions du site.",
+      "Privacidad y condiciones del sitio": "Confidentialité et conditions du site.",
       "Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.": "Basic information about site use, contact data, and the scope of published content.",
       "Privacidad y datos personales": "Confidentialité et données personnelles",
       "Los datos que ingreses para solicitar un turno o realizar una consulta se utilizan únicamente para gestionar tu contacto, coordinar la atención o responder tu solicitud.": "Data entered to request an appointment or make an inquiry are used only to manage contact, coordinate care, or respond to your request.",
@@ -7682,7 +7707,7 @@
       "El contenido de este sitio tiene finalidad informativa y educativa. No reemplaza una evaluación nutricional individual, una indicación médica ni la atención de otros profesionales de la salud cuando corresponda.": "The content of this site is informational and educational. It does not replace an individual nutritional assessment, medical advice, or care from other health professionals when appropriate.",
       "La disponibilidad de turnos, servicios y productos puede modificarse. Toda solicitud queda sujeta a confirmación por el canal de contacto correspondiente.": "Availability of appointments, services, and products may change. Every request is subject to confirmation through the appropriate contact channel.",
       "NUTRIELITE": "NUTRIELITE",
-      "Cada etapa necesita una mirada propia.": "Chaque étape de la vie mérite une approche qui lui est propre.",
+      "Cada etapa necesita una mirada propia": "Chaque étape de la vie mérite une approche qui lui est propre.",
       "La atención nutricional parte de comprender a la persona, su contexto y sus necesidades para definir un abordaje adecuado a cada momento de la vida.": "L’accompagnement nutritionnel commence par la compréhension de la personne, de son contexte et de ses besoins afin de définir une approche adaptée à chaque étape de la vie.",
       "Privacidad": "Confidentialité",
       "Los datos solicitados en la agenda se utilizan únicamente para gestionar tu solicitud de turno y contacto.": "Les données demandées dans l’agenda sont utilisées uniquement pour gérer votre demande de rendez-vous et le contact.",
@@ -7695,7 +7720,7 @@
     const translationsIt = {
       "NUTRIELITE · Nutrición materno-infantojuvenil y renal": "NUTRIELITE · Nutrizione materno-infantile, adolescenziale e renale",
       "Agenda":"Agenda",
-      "Solicita tu turno.":"Richiedi un appuntamento.",
+      "Solicita tu turno":"Richiedi un appuntamento.",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Scegli una data e invia la richiesta. L'appuntamento è confermato quando ricevi la conferma via WhatsApp.",
       "Disponible para solicitar":"Disponibile su richiesta",
       "No disponible":"Non disponibile",
@@ -7763,7 +7788,7 @@
       ". Su historia, sus hábitos, sus estudios, sus necesidades y su realidad cotidiana forman parte de cada decisión.": ". La sua storia, le sue abitudini, i suoi esami, le sue necessità e la sua realtà quotidiana fanno parte di ogni decisione.",
       "Sigo capacitándome de manera permanente porque entiendo que la nutrición también implica actualizarse, aprender y revisar constantemente la propia práctica.": "Continuo a formarmi costantemente perché ritengo che la nutrizione richieda anche aggiornamento, apprendimento e revisione continua della propria pratica.",
       "NUTRIELITE representa esa forma de ejercer mi profesión: cercana, individualizada y comprometida con cada proceso.": "NUTRIELITE rappresenta questo modo di esercitare la mia professione: vicino alla persona, individualizzato e attento a ogni percorso.",
-      "Nutrición en distintas etapas y situaciones.": "Nutrizione nelle diverse fasi e situazioni.",
+      "Nutrición en distintas etapas y situaciones": "Nutrizione nelle diverse fasi e situazioni.",
       "Las recomendaciones se definen a partir de una evaluación individual y se adaptan a las necesidades de cada paciente y su familia.": "Le raccomandazioni vengono definite sulla base di una valutazione individuale e adattate alle esigenze di ogni paziente e della sua famiglia.",
       "01 / Materno-infantojuvenil": "01 / Materna, infantile e adolescenziale",
       "Acompañamiento nutricional durante etapas que requieren una mirada cuidadosa, práctica y adaptada.": "Supporto nutrizionale durante fasi che richiedono un approccio attento, pratico e personalizzato.",
@@ -7778,7 +7803,7 @@
       "Alteraciones de la función renal.": "Alterazioni della funzione renale.",
       "Niños, adolescentes y adultos.": "Bambini, adolescenti e adulti.",
       "Modalidad": "Modalità",
-      "Elige cómo realizar tu consulta.": "Scegli come svolgere la tua consulenza.",
+      "Elige cómo realizar tu consulta": "Scegli come svolgere la tua consulenza.",
       
       "Disponible": "Disponibile",
       "Atención en línea": "Consulenza online",
@@ -7787,7 +7812,7 @@
       "Atención presencial": "Consulenza in presenza",
       "Próximamente. Los detalles para la atención presencial se informarán cuando esta modalidad se encuentre habilitada.": "Prossimamente. I dettagli relativi alle consulenze in presenza saranno comunicati quando questa modalità sarà disponibile.",
       "Consultas": "Consulenze",
-      "Opciones de atención nutricional.": "Opzioni di assistenza nutrizionale.",
+      "Opciones de atención nutricional": "Opzioni di assistenza nutrizionale.",
       "Para comenzar tu proceso": "per iniziare il tuo percorso",
       "Primera consulta nutricional": "Prima consulenza nutrizionale",
       "En línea": "Online",
@@ -7821,7 +7846,7 @@
       "Acompañamiento en hábitos del hogar.": "Supporto nelle abitudini domestiche.",
       "No incluye plan alimentario personalizado ni abordaje de situaciones patológicas.": "Non include un piano alimentare personalizzato né il trattamento di condizioni patologiche.",
       "Cómo trabajo": "Come lavoro",
-      "Acompañamiento paso a paso.": "Un percorso passo dopo passo.",
+      "Acompañamiento paso a paso": "Un percorso passo dopo passo.",
       "Cada proceso se construye de manera individual, evitando recomendaciones generales que no contemplen tu situación.": "Ogni percorso viene costruito in modo individuale, evitando raccomandazioni generiche che non tengano conto della tua situazione.",
       "Conocer": "Conoscere",
       "Conversamos sobre tus necesidades, antecedentes, alimentación, rutina y objetivos.": "Parliamo delle tue necessità, dei precedenti, dell’alimentazione, della routine e degli obiettivi.",
@@ -7837,7 +7862,7 @@
       "Recursos digitales NUTRIELITE":"Risorse digitali NUTRIELITE",
       "Biblioteca gastronómica digital":"Biblioteca gastronomica digitale",
       "Un equipo interdisciplinario con servicios diferenciados. Cada profesional trabaja desde su propia área, alcance y formación.": "Un team interdisciplinare con servizi distinti. Ogni professionista opera nel proprio ambito, secondo il proprio ruolo e la propria formazione.",
-      "Profesionales que acompañan desde distintas áreas.": "Professionisti che accompagnano da ambiti diversi.",
+      "Profesionales que acompañan desde distintas áreas": "Professionisti che accompagnano da ambiti diversi.",
       "Además de la atención nutricional, NUTRIELITE reúne propuestas desarrolladas desde la formación de cada profesional.": "Oltre all’assistenza nutrizionale, NUTRIELITE riunisce proposte sviluppate a partire dalla formazione di ciascuna professionista.",
       "Coaching ontológico": "Coaching ontologico",
       "Acompañamiento orientado a procesos de cambio, hábitos y objetivos personales.": "Supporto orientato ai processi di cambiamento, alle abitudini e agli obiettivi personali.",
@@ -7894,7 +7919,7 @@
       "No. Son materiales educativos y de cocina, y no reemplazan una evaluación nutricional individual.": "No. Sono materiali educativi e di cucina e non sostituiscono una valutazione nutrizionale individuale.",
       "Recetas de tartaletas saludables": "Ricette di tartellette salutari",
       "Selección digital de recetas de tartaletas saludables.": "Selezione digitale di ricette di tartellette salutari.",
-      "Información antes de comenzar.": "Informazioni prima di iniziare.",
+      "Información antes de comenzar": "Informazioni prima di iniziare.",
       "¿La consulta nutricional es en línea o presencial?": "La consulenza nutrizionale è online o in presenza?",
       "Actualmente la atención nutricional se encuentra disponible en línea. La modalidad presencial estará disponible próximamente en San Nicolás de los Arroyos.": "Attualmente l’assistenza nutrizionale è disponibile online. La modalità in presenza sarà disponibile prossimamente a San Nicolás de los Arroyos.",
       "¿Cómo solicito un turno?": "Come posso richiedere un appuntamento?",
@@ -7919,7 +7944,7 @@
       "Escribir por WhatsApp": "Scrivi su WhatsApp",
       "Para proteger tu privacidad, evita incluir información clínica sensible en el primer mensaje.": "To protect your privacy, avoid including sensitive clinical information in your first message.",
       "Información y confianza": "Informazioni e fiducia",
-      "Privacidad y condiciones del sitio.": "Privacy e condizioni del sito.",
+      "Privacidad y condiciones del sitio": "Privacy e condizioni del sito.",
       "Información básica sobre el uso del sitio, los datos de contacto y el alcance del contenido publicado.": "Basic information about site use, contact data, and the scope of published content.",
       "Privacidad y datos personales": "Privacy e dati personali",
       "Los datos que ingreses para solicitar un turno o realizar una consulta se utilizan únicamente para gestionar tu contacto, coordinar la atención o responder tu solicitud.": "Data entered to request an appointment or make an inquiry are used only to manage contact, coordinate care, or respond to your request.",
@@ -7931,7 +7956,7 @@
       "El contenido de este sitio tiene finalidad informativa y educativa. No reemplaza una evaluación nutricional individual, una indicación médica ni la atención de otros profesionales de la salud cuando corresponda.": "The content of this site is informational and educational. It does not replace an individual nutritional assessment, medical advice, or care from other health professionals when appropriate.",
       "La disponibilidad de turnos, servicios y productos puede modificarse. Toda solicitud queda sujeta a confirmación por el canal de contacto correspondiente.": "Availability of appointments, services, and products may change. Every request is subject to confirmation through the appropriate contact channel.",
       "NUTRIELITE": "NUTRIELITE",
-      "Cada etapa necesita una mirada propia.": "Ogni fase della vita richiede uno sguardo specifico.",
+      "Cada etapa necesita una mirada propia": "Ogni fase della vita richiede uno sguardo specifico.",
       "La atención nutricional parte de comprender a la persona, su contexto y sus necesidades para definir un abordaje adecuado a cada momento de la vida.": "L’assistenza nutrizionale parte dalla comprensione della persona, del suo contesto e delle sue esigenze per definire un approccio adeguato a ogni fase della vita.",
       "Privacidad": "Privacy",
       "Los datos solicitados en la agenda se utilizan únicamente para gestionar tu solicitud de turno y contacto.": "I dati richiesti nell’agenda vengono utilizzati esclusivamente per gestire la richiesta di appuntamento e il contatto.",
