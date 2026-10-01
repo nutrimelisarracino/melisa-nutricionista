@@ -5022,6 +5022,20 @@
       hyphens:auto !important;
       -webkit-hyphens:auto !important;
     }
+
+    /* Modalidades: aprovechar el ancho de cada tarjeta en escritorio */
+    @media(min-width:901px){
+      .modality-online p,
+      .modality-soon p{
+        max-width:none !important;
+        width:100%;
+      }
+
+      .modality{
+        padding-left:36px;
+        padding-right:36px;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
