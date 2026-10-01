@@ -6825,6 +6825,17 @@
       }
     }
 
+  
+    /* Mantener cabecera visible al navegar a testimonios */
+    @media(max-width:720px){
+      .site-header{
+        position:sticky !important;
+        top:0 !important;
+        z-index:5000 !important;
+        isolation:isolate;
+      }
+    }
+
   </style>
   <script type="application/ld+json">
   {
@@ -9991,7 +10002,13 @@
         if(menu) menu.classList.remove('open');
         if(toggle) toggle.setAttribute('aria-expanded','false');
         requestAnimationFrame(()=>{
-          document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+          const target=document.getElementById(id);
+          const header=document.querySelector('.site-header');
+          if(target){
+            const headerHeight=header?.getBoundingClientRect().height || 0;
+            const top=window.scrollY + target.getBoundingClientRect().top - headerHeight - 8;
+            window.scrollTo({top:Math.max(0,top),left:0,behavior:'smooth'});
+          }
           history.pushState({view:'nutrition',target:id},'', '#'+id);
           updateActiveNav('nutrition',id);
         });
@@ -10012,7 +10029,13 @@
     showSiteView(viewByTarget[initialTarget] || 'home',{history:false,scroll:false,activeTarget:initialTarget});
     requestAnimationFrame(()=>{
       if(initialTarget==='nutricion' || initialTarget==='testimonios'){
-        document.getElementById(initialTarget)?.scrollIntoView({behavior:'auto',block:'start'});
+        const target=document.getElementById(initialTarget);
+        const header=document.querySelector('.site-header');
+        if(target){
+          const headerHeight=header?.getBoundingClientRect().height || 0;
+          const top=window.scrollY + target.getBoundingClientRect().top - headerHeight - 8;
+          window.scrollTo({top:Math.max(0,top),left:0,behavior:'auto'});
+        }
       }
       updateActiveNav(viewByTarget[initialTarget] || 'home',initialTarget);
     });
