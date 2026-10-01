@@ -6187,6 +6187,71 @@
       }
     }
 
+  
+    /* Carrusel móvil de testimonios */
+    .testimonials-mobile-shell{position:relative;}
+    .testimonials-nav,
+    .testimonials-mobile-indicator{display:none;}
+
+    @media(max-width:620px){
+      .testimonials-mobile-shell{
+        padding:0 36px 32px;
+      }
+      .testimonial-grid{
+        display:flex !important;
+        grid-template-columns:none !important;
+        gap:14px !important;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+        scroll-behavior:smooth;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+        overscroll-behavior-x:contain;
+        max-width:none !important;
+        margin:0 !important;
+        padding:2px 2px 10px;
+      }
+      .testimonial-grid::-webkit-scrollbar{display:none;}
+      .testimonial-card.is-ready{
+        display:block;
+        flex:0 0 calc(100% - 10px);
+        min-width:calc(100% - 10px);
+        scroll-snap-align:start;
+      }
+      .testimonials-nav{
+        display:grid;
+        place-items:center;
+        position:absolute;
+        z-index:5;
+        top:42%;
+        width:34px;
+        height:34px;
+        border:1px solid rgba(143,75,98,.16);
+        border-radius:50%;
+        background:rgba(255,253,249,.96);
+        color:#8f4b62;
+        font-size:1.55rem;
+        line-height:1;
+        box-shadow:0 8px 20px rgba(35,54,48,.10);
+        cursor:pointer;
+      }
+      .testimonials-nav-prev{left:0;}
+      .testimonials-nav-next{right:0;}
+      .testimonials-nav:disabled{
+        opacity:.35;
+        cursor:default;
+      }
+      .testimonials-mobile-indicator{
+        display:block;
+        margin-top:2px;
+        text-align:center;
+        color:#8f4b62;
+        font-size:.76rem;
+        font-weight:800;
+        letter-spacing:.08em;
+      }
+    }
+
   </style>
   <script type="application/ld+json">
   {
@@ -6501,7 +6566,9 @@
           <h2 id="testimonialsTitle">Experiencias compartidas</h2>
         </div>
 
-        <div class="testimonial-grid">
+        <div class="testimonials-mobile-shell">
+          <button class="testimonials-nav testimonials-nav-prev" type="button" aria-label="Testimonio anterior" data-testimonial-prev>‹</button>
+          <div class="testimonial-grid" id="testimonialScroller">
           <article class="testimonial-card" data-testimonial-video>
             <div class="testimonial-media">
               <video controls playsinline preload="metadata" aria-label="Testimonio de Jack">
@@ -6549,6 +6616,9 @@
               <p class="testimonial-country"><img class="testimonial-flag-img" src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" width="20" height="11" alt="" aria-hidden="true"><span>Estados Unidos</span></p>
             </div>
           </article>
+          </div>
+          <button class="testimonials-nav testimonials-nav-next" type="button" aria-label="Testimonio siguiente" data-testimonial-next>›</button>
+          <div class="testimonials-mobile-indicator" aria-hidden="true"><span data-testimonial-index>1</span> / 4</div>
         </div>
 
         <p class="testimonial-note">Los testimonios reflejan experiencias personales y no implican que otras personas obtengan los mismos resultados.</p>
@@ -8977,6 +9047,64 @@
     });
 
     renderAgenda();
+
+
+    /* TESTIMONIALS MOBILE CAROUSEL */
+    (function initTestimonialsMobileCarousel(){
+      const scroller=document.getElementById('testimonialScroller');
+      if(!scroller) return;
+      const prev=document.querySelector('[data-testimonial-prev]');
+      const next=document.querySelector('[data-testimonial-next]');
+      const indexEl=document.querySelector('[data-testimonial-index]');
+
+      function cards(){
+        return Array.from(scroller.querySelectorAll('.testimonial-card.is-ready'));
+      }
+
+      function getStepWidth(){
+        const list=cards();
+        const first=list[0];
+        if(!first) return scroller.clientWidth;
+        const styles=getComputedStyle(scroller);
+        const gap=parseFloat(styles.columnGap || styles.gap || 0) || 0;
+        return first.getBoundingClientRect().width + gap;
+      }
+
+      function currentIndex(){
+        const list=cards();
+        const step=getStepWidth();
+        if(!step || !list.length) return 0;
+        return Math.max(0,Math.min(list.length-1,Math.round(scroller.scrollLeft/step)));
+      }
+
+      function updateControls(){
+        const list=cards();
+        const i=currentIndex();
+        if(indexEl) indexEl.textContent=String(i+1);
+        if(prev) prev.disabled=i===0;
+        if(next) next.disabled=!list.length || i===list.length-1;
+      }
+
+      function go(delta){
+        const list=cards();
+        if(!list.length) return;
+        const i=currentIndex();
+        const target=Math.max(0,Math.min(list.length-1,i+delta));
+        scroller.scrollTo({left:target*getStepWidth(),behavior:'smooth'});
+      }
+
+      prev?.addEventListener('click',()=>go(-1));
+      next?.addEventListener('click',()=>go(1));
+      scroller.addEventListener('scroll',()=>{
+        window.clearTimeout(scroller._testimonialTimer);
+        scroller._testimonialTimer=window.setTimeout(updateControls,70);
+      },{passive:true});
+      window.addEventListener('resize',updateControls,{passive:true});
+
+      const observer=new MutationObserver(updateControls);
+      observer.observe(scroller,{attributes:true,subtree:true,attributeFilter:['class']});
+      updateControls();
+    })();
 
     /* TESTIMONIOS VIDEO INIT 2026-09-30 */
     (function initTestimonialVideos(){
