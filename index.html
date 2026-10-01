@@ -5727,6 +5727,100 @@
       }
     }
 
+
+    /* Presentación clara de monedas en libros digitales */
+    .book-package-price,
+    .book-package-price-usd{
+      display:flex !important;
+      flex-direction:column !important;
+      align-items:flex-start !important;
+      justify-content:flex-start !important;
+      gap:3px !important;
+      width:100% !important;
+      min-height:0 !important;
+      padding:10px 12px !important;
+      margin-left:0 !important;
+      margin-right:0 !important;
+      border-radius:12px;
+      text-align:left !important;
+      box-sizing:border-box;
+    }
+
+    .book-package-price{
+      margin-top:12px !important;
+      background:linear-gradient(135deg,rgba(143,75,98,.075),rgba(143,75,98,.025));
+      border:1px solid rgba(143,75,98,.14);
+    }
+
+    .book-package-price-usd{
+      margin-top:7px !important;
+      margin-bottom:0 !important;
+      background:linear-gradient(135deg,rgba(67,111,96,.075),rgba(67,111,96,.025));
+      border:1px solid rgba(67,111,96,.14);
+    }
+
+    .price-currency-label{
+      display:flex;
+      align-items:center;
+      gap:7px;
+      color:#6b625f;
+      font-size:.66rem;
+      line-height:1.2;
+      font-weight:750;
+      letter-spacing:.045em;
+      text-transform:uppercase;
+    }
+
+    .price-currency-label small{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:34px;
+      min-height:20px;
+      padding:2px 7px;
+      border-radius:999px;
+      background:#fffdf9;
+      border:1px solid rgba(143,75,98,.16);
+      color:#7d4659;
+      font-size:.6rem;
+      font-weight:850;
+      letter-spacing:.06em;
+    }
+
+    .book-package-price-usd .price-currency-label small{
+      border-color:rgba(67,111,96,.18);
+      color:#365f53;
+    }
+
+    .price-value{
+      display:block;
+      color:#713d4f;
+      font-size:1.08rem;
+      line-height:1.18;
+      font-weight:850;
+      letter-spacing:-.01em;
+    }
+
+    .book-package-price-usd .price-value{
+      color:#31584d;
+    }
+
+    @media(max-width:720px){
+      .book-package-price,
+      .book-package-price-usd{
+        padding:9px 10px !important;
+        border-radius:11px;
+      }
+
+      .price-currency-label{
+        font-size:.62rem;
+      }
+
+      .price-value{
+        font-size:1.02rem;
+      }
+    }
+
     /* ===== Refinamiento institucional NUTRIELITE · 30/09/2026 ===== */
     .hero-institutional-tagline{
       max-width:680px;
@@ -6305,8 +6399,8 @@
                   <h3>Desayunos</h3>
                   <p class="book-package-format">Digital</p>
                   <p>Paquete digital con propuestas para sumar variedad e ideas prácticas a los desayunos cotidianos.</p>
-                  <p class="book-package-price">$10.000</p>
-                  <p class="book-package-price-usd">USD 10</p>
+                  <p class="book-package-price"><span class="price-currency-label">Pesos argentinos <small>ARS</small></span><strong class="price-value">$10.000</strong></p>
+                  <p class="book-package-price-usd"><span class="price-currency-label">Dólares estadounidenses <small>USD</small></span><strong class="price-value">USD 10</strong></p>
                   <div class="book-package-actions">
                     <button class="button button-secondary book-cart-add" type="button" data-name="Desayunos" data-price="10000" onclick="addBookToCart(this)">Agregar al carrito</button>
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Desayunos%20de%20NUTRIELITE%20por%20%2410.000." target="_blank" rel="noopener">Comprar</a>
@@ -6317,8 +6411,8 @@
                   <h3>Almuerzos</h3>
                   <p class="book-package-format">Digital</p>
                   <p>Paquete digital con preparaciones e ideas pensadas para organizar almuerzos variados.</p>
-                  <p class="book-package-price">$10.000</p>
-                  <p class="book-package-price-usd">USD 10</p>
+                  <p class="book-package-price"><span class="price-currency-label">Pesos argentinos <small>ARS</small></span><strong class="price-value">$10.000</strong></p>
+                  <p class="book-package-price-usd"><span class="price-currency-label">Dólares estadounidenses <small>USD</small></span><strong class="price-value">USD 10</strong></p>
                   <div class="book-package-actions">
                     <button class="button button-secondary book-cart-add" type="button" data-name="Almuerzos" data-price="10000" onclick="addBookToCart(this)">Agregar al carrito</button>
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Almuerzos%20de%20NUTRIELITE%20por%20%2410.000." target="_blank" rel="noopener">Comprar</a>
@@ -6329,8 +6423,8 @@
                   <h3>Meriendas</h3>
                   <p class="book-package-format">Digital</p>
                   <p>Paquete digital con opciones para resolver meriendas de forma práctica y creativa.</p>
-                  <p class="book-package-price">$10.000</p>
-                  <p class="book-package-price-usd">USD 10</p>
+                  <p class="book-package-price"><span class="price-currency-label">Pesos argentinos <small>ARS</small></span><strong class="price-value">$10.000</strong></p>
+                  <p class="book-package-price-usd"><span class="price-currency-label">Dólares estadounidenses <small>USD</small></span><strong class="price-value">USD 10</strong></p>
                   <div class="book-package-actions">
                     <button class="button button-secondary book-cart-add" type="button" data-name="Meriendas" data-price="10000" onclick="addBookToCart(this)">Agregar al carrito</button>
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Meriendas%20de%20NUTRIELITE%20por%20%2410.000." target="_blank" rel="noopener">Comprar</a>
@@ -6341,8 +6435,8 @@
                   <h3>Cenas</h3>
                   <p class="book-package-format">Digital</p>
                   <p>Paquete digital con propuestas para incorporar nuevas ideas a las cenas de todos los días.</p>
-                  <p class="book-package-price">$10.000</p>
-                  <p class="book-package-price-usd">USD 10</p>
+                  <p class="book-package-price"><span class="price-currency-label">Pesos argentinos <small>ARS</small></span><strong class="price-value">$10.000</strong></p>
+                  <p class="book-package-price-usd"><span class="price-currency-label">Dólares estadounidenses <small>USD</small></span><strong class="price-value">USD 10</strong></p>
                   <div class="book-package-actions">
                     <button class="button button-secondary book-cart-add" type="button" data-name="Cenas" data-price="10000" onclick="addBookToCart(this)">Agregar al carrito</button>
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Cenas%20de%20NUTRIELITE%20por%20%2410.000." target="_blank" rel="noopener">Comprar</a>
@@ -6353,8 +6447,8 @@
                   <h3>Colección completa</h3>
                   <p class="book-package-format">Digital</p>
                   <p>Incluye desayuno, almuerzo, merienda y cena.</p>
-                  <p class="book-package-price">$25.000</p>
-                  <p class="book-package-price-usd">USD 25</p>
+                  <p class="book-package-price"><span class="price-currency-label">Pesos argentinos <small>ARS</small></span><strong class="price-value">$25.000</strong></p>
+                  <p class="book-package-price-usd"><span class="price-currency-label">Dólares estadounidenses <small>USD</small></span><strong class="price-value">USD 25</strong></p>
                   <div class="book-package-actions">
                     <button class="button button-secondary book-cart-add" type="button" data-name="Colección completa" data-price="25000" onclick="addBookToCart(this)">Agregar al carrito</button>
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Colecci%C3%B3n%20completa%20de%20NUTRIELITE%20por%20%2425.000." target="_blank" rel="noopener">Comprar</a>
@@ -6414,8 +6508,8 @@
                   <h3>Recetas de paletas saludables</h3>
                   <p class="book-package-format">Digital</p>
                   <p>Selección digital de recetas de paletas saludables.</p>
-                  <p class="book-package-price">$18.000</p>
-                  <p class="book-package-price-usd">USD 18</p>
+                  <p class="book-package-price"><span class="price-currency-label">Pesos argentinos <small>ARS</small></span><strong class="price-value">$18.000</strong></p>
+                  <p class="book-package-price-usd"><span class="price-currency-label">Dólares estadounidenses <small>USD</small></span><strong class="price-value">USD 18</strong></p>
                   <div class="book-package-actions">
                     <button class="button button-secondary book-cart-add" type="button" data-name="Recetas de paletas saludables" data-price="18000" onclick="addBookToCart(this)">Agregar al carrito</button>
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Recetas%20de%20paletas%20saludables%20de%20NUTRIELITE%20por%20%2418.000." target="_blank" rel="noopener">Comprar</a>
@@ -6426,8 +6520,8 @@
                   <h3>Recetas de barritas saludables</h3>
                   <p class="book-package-format">Digital</p>
                   <p>Selección digital de recetas de barritas saludables.</p>
-                  <p class="book-package-price">$20.000</p>
-                  <p class="book-package-price-usd">USD 20</p>
+                  <p class="book-package-price"><span class="price-currency-label">Pesos argentinos <small>ARS</small></span><strong class="price-value">$20.000</strong></p>
+                  <p class="book-package-price-usd"><span class="price-currency-label">Dólares estadounidenses <small>USD</small></span><strong class="price-value">USD 20</strong></p>
                   <div class="book-package-actions">
                     <button class="button button-secondary book-cart-add" type="button" data-name="Recetas de barritas saludables" data-price="20000" onclick="addBookToCart(this)">Agregar al carrito</button>
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Recetas%20de%20barritas%20saludables%20de%20NUTRIELITE%20por%20%2420.000." target="_blank" rel="noopener">Comprar</a>
@@ -6438,8 +6532,8 @@
                   <h3>Recetas de bolitas energéticas</h3>
                   <p class="book-package-format">Digital</p>
                   <p>Selección digital de recetas de bolitas energéticas.</p>
-                  <p class="book-package-price">$25.000</p>
-                  <p class="book-package-price-usd">USD 25</p>
+                  <p class="book-package-price"><span class="price-currency-label">Pesos argentinos <small>ARS</small></span><strong class="price-value">$25.000</strong></p>
+                  <p class="book-package-price-usd"><span class="price-currency-label">Dólares estadounidenses <small>USD</small></span><strong class="price-value">USD 25</strong></p>
                   <div class="book-package-actions">
                     <button class="button button-secondary book-cart-add" type="button" data-name="Recetas de bolitas energéticas" data-price="25000" onclick="addBookToCart(this)">Agregar al carrito</button>
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Recetas%20de%20bolitas%20energ%C3%A9ticas%20de%20NUTRIELITE%20por%20%2425.000." target="_blank" rel="noopener">Comprar</a>
@@ -6450,8 +6544,8 @@
                   <h3>Recetas de tartaletas saludables</h3>
                   <p class="book-package-format">Digital</p>
                   <p>Selección digital de recetas de tartaletas saludables.</p>
-                  <p class="book-package-price">$10.000</p>
-                  <p class="book-package-price-usd">USD 10</p>
+                  <p class="book-package-price"><span class="price-currency-label">Pesos argentinos <small>ARS</small></span><strong class="price-value">$10.000</strong></p>
+                  <p class="book-package-price-usd"><span class="price-currency-label">Dólares estadounidenses <small>USD</small></span><strong class="price-value">USD 10</strong></p>
                   <div class="book-package-actions">
                     <button class="button button-secondary book-cart-add" type="button" data-name="Recetas de tartaletas saludables" data-price="10000" onclick="addBookToCart(this)">Agregar al carrito</button>
                     <a class="button button-primary book-buy" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20comprar%20Recetas%20de%20tartaletas%20saludables%20de%20NUTRIELITE%20por%20%2410.000." target="_blank" rel="noopener">Comprar</a>
