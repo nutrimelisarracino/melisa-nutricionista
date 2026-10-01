@@ -6297,7 +6297,7 @@
         <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
           <a href="#inicio">Home</a>
           <a href="#sobre-mi">Sobre mí</a>
-          <a href="#nutricion">Nutrición</a>
+          <a href="#nutricion">Atención nutricional</a>
           <a href="#agenda">Agenda</a>
           <a class="nav-testimonials-mobile" href="#testimonios">Testimonios</a>
           <a href="#equipo">Equipo</a>
@@ -7370,6 +7370,7 @@
       "Hola, soy Melisa":"Hello, I am Melisa Sarracino",
       "Licenciada en Nutrición.":"Registered Dietitian.",
       "Nutrición":"Nutrition",
+      "Atención nutricional":"Nutritional care",
       "Equipo":"Team",
       "Testimonios":"Testimonials",
       "Sesión inicial de coaching":"Initial coaching session",
@@ -9260,15 +9261,15 @@
       if(!view) return;
       event.preventDefault();
 
-      if(id==='testimonios'){
+      if(id==='testimonios' || id==='nutricion'){
         showSiteView('nutrition',{history:false,scroll:false});
         const menu=document.getElementById('nav-links');
         const toggle=document.querySelector('.menu-toggle');
         if(menu) menu.classList.remove('open');
         if(toggle) toggle.setAttribute('aria-expanded','false');
         requestAnimationFrame(()=>{
-          document.getElementById('testimonios')?.scrollIntoView({behavior:'smooth',block:'start'});
-          history.pushState({view:'nutrition',target:'testimonios'},'', '#testimonios');
+          document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+          history.pushState({view:'nutrition',target:id},'', '#'+id);
         });
         return;
       }
@@ -9283,7 +9284,12 @@
 
     const initialTarget=location.hash.replace('#','') || 'inicio';
     showSiteView(viewByTarget[initialTarget] || 'home',{history:false,scroll:false});
-    requestAnimationFrame(updateActiveNavFromScroll);
+    requestAnimationFrame(()=>{
+      if(initialTarget==='nutricion' || initialTarget==='testimonios'){
+        document.getElementById(initialTarget)?.scrollIntoView({behavior:'auto',block:'start'});
+      }
+      updateActiveNavFromScroll();
+    });
 
     setLanguage(currentLang);
 
