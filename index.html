@@ -5690,6 +5690,43 @@
       }
     }
 
+
+    /* Precios de libros: alineación estable a la izquierda en todos los tamaños */
+    .book-package-price,
+    .book-package-price-usd{
+      width:100% !important;
+      max-width:none !important;
+      margin-left:0 !important;
+      margin-right:0 !important;
+      justify-content:flex-start !important;
+      align-items:flex-start !important;
+      text-align:left !important;
+      align-self:stretch !important;
+    }
+
+    .book-package-price{
+      display:block !important;
+      min-height:auto !important;
+      margin-top:10px !important;
+    }
+
+    .book-package-price-usd{
+      display:block !important;
+      min-height:auto !important;
+      margin-top:4px !important;
+      margin-bottom:0 !important;
+    }
+
+    @media(max-width:720px){
+      .book-package-price,
+      .book-package-price-usd{
+        text-align:left !important;
+        justify-content:flex-start !important;
+        margin-left:0 !important;
+        margin-right:0 !important;
+      }
+    }
+
     /* ===== Refinamiento institucional NUTRIELITE · 30/09/2026 ===== */
     .hero-institutional-tagline{
       max-width:680px;
