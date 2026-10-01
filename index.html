@@ -9567,7 +9567,8 @@
           selected:'Completa tus datos y envía la solicitud para confirmar disponibilidad.',
           prev:'Mes anterior',
           next:'Mes siguiente',
-          name:'Tu nombre'
+          name:'Tu nombre',
+          emailPlaceholder:'tu@email.com'
         },
         en:{
           select:'Select a date',
@@ -9575,7 +9576,8 @@
           selected:'Complete your details and send the request to confirm availability.',
           prev:'Previous month',
           next:'Next month',
-          name:'Your name'
+          name:'Your name',
+          emailPlaceholder:'your@email.com'
         },
         pt:{
           select:'Selecione uma data',
@@ -9583,7 +9585,8 @@
           selected:'Preencha seus dados e envie a solicitação para confirmar a disponibilidade.',
           prev:'Mês anterior',
           next:'Próximo mês',
-          name:'Seu nome'
+          name:'Seu nome',
+          emailPlaceholder:'seu@email.com'
         },
         fr:{
           select:'Sélectionnez une date',
@@ -9591,7 +9594,8 @@
           selected:'Complétez vos informations et envoyez la demande pour confirmer la disponibilité.',
           prev:'Mois précédent',
           next:'Mois suivant',
-          name:'Votre nom'
+          name:'Votre nom',
+          emailPlaceholder:'votre@email.com'
         },
         it:{
           select:'Seleziona una data',
@@ -9599,13 +9603,15 @@
           selected:'Completa i tuoi dati e invia la richiesta per confermare la disponibilità.',
           prev:'Mese precedente',
           next:'Mese successivo',
-          name:'Il tuo nome'
+          name:'Il tuo nome',
+          emailPlaceholder:'tuo@email.com'
         }
       };
       const agendaText=agendaTexts[currentLang] || agendaTexts.es;
       agendaPrev?.setAttribute('aria-label',agendaText.prev);
       agendaNext?.setAttribute('aria-label',agendaText.next);
       if(agendaName) agendaName.setAttribute('placeholder',agendaText.name);
+      if(agendaEmail) agendaEmail.setAttribute('placeholder',agendaText.emailPlaceholder || 'tu@email.com');
       if(agendaSelectedDate){
         agendaSelectedTitle.textContent=agendaDateLabel(agendaSelectedDate);
         agendaSelectedCopy.textContent=agendaText.selected;
