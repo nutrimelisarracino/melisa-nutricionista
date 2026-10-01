@@ -6362,6 +6362,69 @@
       }
     }
 
+  
+    /* Corrección final cabecera y CTA móvil */
+    @media(max-width:720px){
+      .site-header .nav{
+        position:relative;
+      }
+
+      .mobile-home-link{
+        display:grid !important;
+        place-items:center;
+        position:absolute;
+        left:72px;
+        top:50%;
+        transform:translateY(-50%);
+        width:38px;
+        height:38px;
+        min-height:38px;
+        padding:0;
+        border:1px solid rgba(143,75,98,.16);
+        border-radius:11px;
+        background:#fffafc;
+        color:#6f4252;
+        box-shadow:0 4px 12px rgba(111,66,82,.07);
+        z-index:5;
+      }
+      .mobile-home-link:hover,
+      .mobile-home-link:focus-visible{
+        background:#f7eef1;
+        border-color:rgba(143,75,98,.24);
+      }
+      .mobile-home-icon{
+        display:block;
+        width:21px;
+        height:21px;
+        margin:0;
+        fill:none;
+        stroke:currentColor;
+        stroke-width:1.8;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+        filter:none;
+      }
+
+      .site-search-toggle{
+        left:116px !important;
+      }
+
+      #nav-links .nav-cta:not(.is-current){
+        background:rgba(255,255,255,.42) !important;
+        border:1px solid rgba(143,75,98,.08) !important;
+        color:#24453d !important;
+      }
+      #nav-links .nav-cta.is-current{
+        background:rgba(239,226,231,.78) !important;
+        border:1px solid rgba(143,75,98,.18) !important;
+        color:#653848 !important;
+      }
+    }
+
+    @media(min-width:721px){
+      .mobile-home-link{display:none !important;}
+    }
+
   </style>
   <script type="application/ld+json">
   {
@@ -6408,7 +6471,13 @@
           <a href="#preguntas">Preguntas</a>
           <a class="nav-cta" href="#contacto">Información</a>
         </nav>
-        <a class="mobile-home-link" href="#inicio" aria-label="Ir al inicio"><span class="mobile-home-icon" aria-hidden="true">⌂</span><span>Inicio</span></a>
+        <a class="mobile-home-link" href="#inicio" aria-label="Ir al inicio" title="Inicio">
+    <svg class="mobile-home-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 10.8 12 3l9 7.8"></path>
+      <path d="M5.5 9.5V21h13V9.5"></path>
+      <path d="M9.5 21v-6h5v6"></path>
+    </svg>
+  </a>
         <button class="site-search-toggle" id="siteSearchToggle" type="button" aria-label="Buscar en la página" title="Buscar en la página" aria-expanded="false" aria-controls="siteSearchPanel">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="11" cy="11" r="6.5"></circle>
