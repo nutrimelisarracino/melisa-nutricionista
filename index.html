@@ -6864,6 +6864,64 @@
       opacity:1 !important;
     }
 
+  
+    /* Móvil: reducir aire superior de secciones y bloques */
+    @media(max-width:720px){
+      /* Secciones: menos espacio antes del primer contenido */
+      .section{
+        padding-top:34px !important;
+      }
+      .about-section-clean{
+        padding-top:34px !important;
+      }
+      .agenda-section,
+      .testimonials-section,
+      #equipo,
+      #preguntas,
+      #contacto{
+        padding-top:34px !important;
+      }
+      .closing-quote-section{
+        padding-top:38px !important;
+      }
+
+      /* Encabezados internos: acercarlos al comienzo de cada sección */
+      .section-head,
+      .team-intro,
+      .testimonials-head{
+        margin-top:0 !important;
+      }
+
+      /* Tarjetas y bloques: reducir solo el relleno superior */
+      .service-card,
+      .modality,
+      .step,
+      .agenda-calendar,
+      .agenda-request,
+      .catalog-group,
+      .book-faq{
+        padding-top:17px !important;
+      }
+
+      #equipo .proposal-summary{
+        padding-top:16px !important;
+      }
+
+      #preguntas .faq{
+        padding-top:17px !important;
+      }
+
+      #contacto .contact-main-single,
+      #contacto .contact-institutional-message,
+      #contacto .legal-trust{
+        padding-top:20px !important;
+      }
+
+      .closing-quote-box{
+        padding-top:26px !important;
+      }
+    }
+
   </style>
   <script type="application/ld+json">
   {
