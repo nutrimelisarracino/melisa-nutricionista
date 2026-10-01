@@ -5057,6 +5057,24 @@
         white-space:normal !important;
       }
     }
+
+    /* Cierre institucional: subtítulo en una línea en escritorio */
+    @media(min-width:901px){
+      #contacto .contact-institutional-message .contact-institutional-copy{
+        max-width:none !important;
+      }
+      #contacto .contact-institutional-message .contact-institutional-copy > p:not(.eyebrow){
+        max-width:none !important;
+        width:100% !important;
+        white-space:nowrap !important;
+      }
+    }
+
+    @media(max-width:900px){
+      #contacto .contact-institutional-message .contact-institutional-copy > p:not(.eyebrow){
+        white-space:normal !important;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
