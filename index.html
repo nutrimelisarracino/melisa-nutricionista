@@ -6117,6 +6117,76 @@
       .testimonial-copy{padding:16px 16px 18px;}
     }
 
+  
+    /* Carrusel móvil de pasos */
+    .steps-mobile-shell{
+      position:relative;
+    }
+    .steps-nav,
+    .steps-mobile-indicator{
+      display:none;
+    }
+
+    @media(max-width:720px){
+      .steps-mobile-shell{
+        margin-inline:-2px;
+        padding:0 36px 34px;
+      }
+      .steps{
+        display:flex !important;
+        grid-template-columns:none !important;
+        gap:14px !important;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+        scroll-behavior:smooth;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+        overscroll-behavior-x:contain;
+        padding:2px 2px 10px;
+      }
+      .steps::-webkit-scrollbar{display:none;}
+      .steps .step{
+        flex:0 0 calc(100% - 16px);
+        min-width:calc(100% - 16px);
+        scroll-snap-align:start;
+        min-height:330px;
+        margin:0 !important;
+      }
+      .steps-nav{
+        display:grid;
+        place-items:center;
+        position:absolute;
+        z-index:4;
+        top:50%;
+        width:34px;
+        height:34px;
+        margin-top:-30px;
+        border:1px solid rgba(143,75,98,.16);
+        border-radius:50%;
+        background:rgba(255,253,249,.94);
+        color:#8f4b62;
+        font-size:1.55rem;
+        line-height:1;
+        box-shadow:0 8px 20px rgba(35,54,48,.10);
+        cursor:pointer;
+      }
+      .steps-nav-prev{left:0;}
+      .steps-nav-next{right:0;}
+      .steps-nav:disabled{
+        opacity:.35;
+        cursor:default;
+      }
+      .steps-mobile-indicator{
+        display:block;
+        margin-top:2px;
+        text-align:center;
+        color:#8f4b62;
+        font-size:.76rem;
+        font-weight:800;
+        letter-spacing:.08em;
+      }
+    }
+
   </style>
   <script type="application/ld+json">
   {
@@ -6408,11 +6478,16 @@
           </div>
           <p>Cada proceso se construye de manera individual, evitando recomendaciones generales que no contemplen tu situación.</p>
         </div>
-        <div class="steps">
-          <article class="step"><h3>Conocer</h3><p>Conversamos sobre tus necesidades, antecedentes, alimentación, rutina y objetivos.</p></article>
-          <article class="step"><h3>Evaluar</h3><p>Analizo la información relevante, tus antecedentes, estudios e indicaciones médicas para definir el abordaje nutricional más adecuado.</p></article>
-          <article class="step"><h3>Organizar</h3><p>Definimos recomendaciones posibles, adaptadas a tu situación y vida cotidiana.</p></article>
-          <article class="step"><h3>Acompañar</h3><p>En los seguimientos revisamos avances, dificultades y cambios necesarios.</p></article>
+        <div class="steps-mobile-shell">
+          <button class="steps-nav steps-nav-prev" type="button" aria-label="Paso anterior" data-steps-prev>‹</button>
+          <div class="steps" id="workSteps">
+            <article class="step"><h3>Conocer</h3><p>Conversamos sobre tus necesidades, antecedentes, alimentación, rutina y objetivos.</p></article>
+            <article class="step"><h3>Evaluar</h3><p>Analizo la información relevante, tus antecedentes, estudios e indicaciones médicas para definir el abordaje nutricional más adecuado.</p></article>
+            <article class="step"><h3>Organizar</h3><p>Definimos recomendaciones posibles, adaptadas a tu situación y vida cotidiana.</p></article>
+            <article class="step"><h3>Acompañar</h3><p>En los seguimientos revisamos avances, dificultades y cambios necesarios.</p></article>
+          </div>
+          <button class="steps-nav steps-nav-next" type="button" aria-label="Paso siguiente" data-steps-next>›</button>
+          <div class="steps-mobile-indicator" aria-hidden="true"><span data-steps-index>1</span> / 4</div>
         </div>
       </div>
     </section>
@@ -8575,6 +8650,53 @@
     });
 
     
+
+    /* STEPS MOBILE CAROUSEL */
+    (function initStepsMobileCarousel(){
+      const scroller=document.getElementById('workSteps');
+      if(!scroller) return;
+      const prev=document.querySelector('[data-steps-prev]');
+      const next=document.querySelector('[data-steps-next]');
+      const indexEl=document.querySelector('[data-steps-index]');
+      const cards=Array.from(scroller.querySelectorAll('.step'));
+
+      function getStepWidth(){
+        const first=cards[0];
+        if(!first) return scroller.clientWidth;
+        const styles=getComputedStyle(scroller);
+        const gap=parseFloat(styles.columnGap || styles.gap || 0) || 0;
+        return first.getBoundingClientRect().width + gap;
+      }
+
+      function currentIndex(){
+        const step=getStepWidth();
+        if(!step) return 0;
+        return Math.max(0,Math.min(cards.length-1,Math.round(scroller.scrollLeft/step)));
+      }
+
+      function updateControls(){
+        const i=currentIndex();
+        if(indexEl) indexEl.textContent=String(i+1);
+        if(prev) prev.disabled=i===0;
+        if(next) next.disabled=i===cards.length-1;
+      }
+
+      function go(delta){
+        const i=currentIndex();
+        const target=Math.max(0,Math.min(cards.length-1,i+delta));
+        scroller.scrollTo({left:target*getStepWidth(),behavior:'smooth'});
+      }
+
+      prev?.addEventListener('click',()=>go(-1));
+      next?.addEventListener('click',()=>go(1));
+      scroller.addEventListener('scroll',()=>{
+        window.clearTimeout(scroller._stepsTimer);
+        scroller._stepsTimer=window.setTimeout(updateControls,70);
+      },{passive:true});
+      window.addEventListener('resize',updateControls,{passive:true});
+      updateControls();
+    })();
+
     const agendaMonthLabel=document.getElementById('agendaMonthLabel');
     const agendaYearLabel=document.getElementById('agendaYearLabel');
     const agendaWeekdays=document.getElementById('agendaWeekdays');
