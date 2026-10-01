@@ -5149,6 +5149,31 @@
       background:linear-gradient(135deg,#8a405b 0%,#a34f6b 100%) !important;
       color:#fff !important;
     }
+
+    /* Agenda: evitar superposición del icono de estado con el texto */
+    .agenda-status:not(:empty){
+      position:relative !important;
+      padding:11px 13px 11px 42px !important;
+    }
+
+    .agenda-status:not(:empty)::before{
+      left:14px !important;
+      top:50% !important;
+      width:18px !important;
+      height:18px !important;
+      transform:translateY(-50%) !important;
+      margin:0 !important;
+      flex:none !important;
+    }
+
+    @media(max-width:720px){
+      .agenda-status:not(:empty){
+        padding-left:40px !important;
+      }
+      .agenda-status:not(:empty)::before{
+        left:13px !important;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
