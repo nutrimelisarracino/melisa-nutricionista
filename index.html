@@ -5961,7 +5961,129 @@
         line-height:1.12 !important;
       }
     }
-</style>
+
+    /* TESTIMONIOS NUTRIELITE 2026-09-30 */
+    .testimonials-section{
+      display:none;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 9% 12%, rgba(215,121,88,.10), transparent 24%),
+        radial-gradient(circle at 91% 86%, rgba(143,75,98,.08), transparent 26%),
+        linear-gradient(145deg,#fffaf5 0%,#f8f0ea 52%,#fffdf9 100%);
+      border-top:1px solid rgba(143,75,98,.08);
+      border-bottom:1px solid rgba(143,75,98,.08);
+    }
+    .testimonials-section.is-ready{display:block;}
+    .testimonials-head{
+      max-width:820px;
+      margin:0 auto 44px;
+      text-align:center;
+    }
+    .testimonials-head .eyebrow{
+      justify-content:center;
+      color:#9a4e67;
+      font-size:.80rem;
+    }
+    .testimonials-head h2{
+      margin-bottom:15px;
+      color:#713d50;
+      font-size:clamp(2.15rem,4vw,3.45rem);
+    }
+    .testimonials-head .lede{
+      max-width:760px;
+      margin:0 auto;
+      color:#665a57;
+      font-size:clamp(1.02rem,1.7vw,1.16rem);
+      line-height:1.7;
+    }
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:20px;
+      align-items:start;
+    }
+    .testimonial-card{
+      display:none;
+      min-width:0;
+      overflow:hidden;
+      border:1px solid rgba(143,75,98,.12);
+      border-radius:26px;
+      background:rgba(255,255,255,.88);
+      box-shadow:0 18px 42px rgba(82,52,58,.08);
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .testimonial-card.is-ready{display:block;}
+    .testimonial-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(143,75,98,.22);
+      box-shadow:0 22px 48px rgba(82,52,58,.11);
+    }
+    .testimonial-media{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      aspect-ratio:4/5;
+      overflow:hidden;
+      background:#efe7e2;
+    }
+    .testimonial-card.is-landscape .testimonial-media{
+      aspect-ratio:4/5;
+      background:#eadfd9;
+    }
+    .testimonial-media video{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:contain;
+      background:#171717;
+    }
+    .testimonial-copy{
+      padding:18px 18px 20px;
+      text-align:center;
+    }
+    .testimonial-copy h3{
+      margin:0 0 5px;
+      color:#713d50;
+      font-size:1.18rem;
+      font-weight:650;
+    }
+    .testimonial-copy p{
+      margin:0;
+      color:#756864;
+      font-size:.88rem;
+      line-height:1.5;
+    }
+    .testimonial-note{
+      max-width:800px;
+      margin:28px auto 0;
+      color:#81736f;
+      font-size:.82rem;
+      line-height:1.55;
+      text-align:center;
+    }
+    @media(max-width:980px){
+      .testimonial-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .testimonial-media{aspect-ratio:9/12;}
+    }
+    @media(max-width:620px){
+      .testimonials-section{padding-top:82px;padding-bottom:82px;}
+      .testimonials-head{margin-bottom:30px;}
+      .testimonials-head .eyebrow{font-size:.75rem;}
+      .testimonials-head h2{font-size:clamp(2rem,10vw,2.65rem);}
+      .testimonial-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+        max-width:420px;
+        margin:0 auto;
+      }
+      .testimonial-media{aspect-ratio:9/12;}
+      .testimonial-copy{padding:16px 16px 18px;}
+    }
+
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -6258,6 +6380,70 @@
           <article class="step"><h3>Organizar</h3><p>Definimos recomendaciones posibles, adaptadas a tu situación y vida cotidiana.</p></article>
           <article class="step"><h3>Acompañar</h3><p>En los seguimientos revisamos avances, dificultades y cambios necesarios.</p></article>
         </div>
+      </div>
+    </section>
+
+
+    <!-- TESTIMONIOS NUTRIELITE 2026-09-30 -->
+    <section class="section testimonials-section view-section" id="testimonios" data-view="nutrition" aria-labelledby="testimonialsTitle">
+      <div class="wrap">
+        <div class="testimonials-head">
+          <p class="eyebrow">Experiencias de pacientes</p>
+          <h2 id="testimonialsTitle">Historias compartidas en primera persona</h2>
+          <p class="lede">Algunas personas que realizaron su proceso de acompañamiento nutricional comparten su experiencia.</p>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card" data-testimonial-video>
+            <div class="testimonial-media">
+              <video controls playsinline preload="metadata" aria-label="Testimonio de Jack">
+                <source src="testimonios/subtitulado-jack.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="testimonial-copy">
+              <h3>Jack</h3>
+              <p>Experiencia con acompañamiento nutricional</p>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-testimonial-video>
+            <div class="testimonial-media">
+              <video controls playsinline preload="metadata" aria-label="Testimonio de Joff">
+                <source src="testimonios/subtitulado-joff.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="testimonial-copy">
+              <h3>Joff</h3>
+              <p>Experiencia con acompañamiento nutricional</p>
+            </div>
+          </article>
+
+          <article class="testimonial-card is-landscape" data-testimonial-video>
+            <div class="testimonial-media">
+              <video controls playsinline preload="metadata" aria-label="Testimonio de Meli">
+                <source src="testimonios/subtitulado-meli.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="testimonial-copy">
+              <h3>Meli</h3>
+              <p>Experiencia con acompañamiento nutricional</p>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-testimonial-video>
+            <div class="testimonial-media">
+              <video controls playsinline preload="metadata" aria-label="Testimonio de Mimi">
+                <source src="testimonios/subtitulado-mimi.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="testimonial-copy">
+              <h3>Mimi</h3>
+              <p>Experiencia con acompañamiento nutricional</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="testimonial-note">Los testimonios reflejan experiencias personales y no implican que otras personas obtengan los mismos resultados.</p>
       </div>
     </section>
 
@@ -6959,6 +7145,11 @@
     const translations = {
       "NUTRIELITE · Nutrición materno-infantojuvenil y renal":"NUTRIELITE · Maternal, child and adolescent nutrition and renal nutrition",
       "Agenda":"Appointments",
+      "Experiencias de pacientes":"Patient experiences",
+      "Historias compartidas en primera persona":"First-person experiences",
+      "Algunas personas que realizaron su proceso de acompañamiento nutricional comparten su experiencia.":"Some people who received nutritional support share their experience.",
+      "Experiencia con acompañamiento nutricional":"Experience with nutritional support",
+      "Los testimonios reflejan experiencias personales y no implican que otras personas obtengan los mismos resultados.":"Testimonials reflect individual experiences and do not imply that others will achieve the same results.",
       "Solicita tu turno":"Request an appointment",
       "Elige una fecha y envía tu solicitud. El turno queda confirmado cuando recibes la confirmación por WhatsApp.":"Choose a date and send your request. Your appointment is confirmed once you receive confirmation via WhatsApp.",
       "Disponible para solicitar":"Available to request",
@@ -8490,7 +8681,31 @@
             fr:'Date sélectionnée : '+agendaDateLabel(agendaSelectedDate),
             it:'Data selezionata: '+agendaDateLabel(agendaSelectedDate)
           }[currentLang]);
-          renderAgenda();
+      
+    /* TESTIMONIOS VIDEO INIT 2026-09-30 */
+    (function initTestimonialVideos(){
+      const section=document.getElementById('testimonios');
+      if(!section) return;
+      const cards=Array.from(section.querySelectorAll('[data-testimonial-video]'));
+      let readyCount=0;
+      const reveal=(card)=>{
+        if(card.classList.contains('is-ready')) return;
+        card.classList.add('is-ready');
+        readyCount+=1;
+        section.classList.add('is-ready');
+      };
+      cards.forEach(card=>{
+        const video=card.querySelector('video');
+        if(!video) return;
+        video.addEventListener('loadedmetadata',()=>reveal(card),{once:true});
+        video.addEventListener('canplay',()=>reveal(card),{once:true});
+        video.addEventListener('error',()=>card.classList.remove('is-ready'),{once:true});
+        if(video.readyState>=1) reveal(card);
+        video.load();
+      });
+    })();
+
+    renderAgenda();
         });
       });
 
