@@ -1,0 +1,1 @@
+Activar corrección del encabezado móvil.
