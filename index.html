@@ -7833,6 +7833,230 @@
       }
     }
 
+
+    /* ===== Consultas horizontales desplegables · 02/10/2026 ===== */
+    #consultas{
+      padding-top:68px;
+      padding-bottom:68px;
+    }
+    #consultas .section-head{
+      margin-bottom:28px;
+    }
+    #consultas .consult-accordion{
+      width:min(1100px,100%);
+      margin-inline:auto;
+      display:grid;
+      gap:12px;
+    }
+    #consultas .consult-option{
+      overflow:hidden;
+      border:1px solid rgba(135,59,85,.10);
+      border-radius:20px;
+      box-shadow:0 9px 24px rgba(35,54,48,.045);
+    }
+    #consultas .consult-option-sage{background:linear-gradient(135deg,#e2e8bd 0%,#eef1d4 100%);}
+    #consultas .consult-option-blush{background:linear-gradient(135deg,#f2d7df 0%,#f8e7eb 100%);}
+    #consultas .consult-option-sand{background:linear-gradient(135deg,#eee0c8 0%,#f7efe1 100%);}
+    #consultas .consult-option-peach{background:linear-gradient(135deg,#f0cfbd 0%,#f8e3d8 100%);}
+
+    #consultas .consult-option-summary{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto 42px;
+      align-items:center;
+      gap:20px;
+      min-height:92px;
+      padding:17px 20px 17px 24px;
+      cursor:pointer;
+      list-style:none;
+      user-select:none;
+    }
+    #consultas .consult-option-summary::-webkit-details-marker{display:none;}
+    #consultas .consult-option-summary::marker{content:"";}
+    #consultas .consult-option-main{
+      min-width:0;
+      display:block;
+    }
+    #consultas .consult-option-summary .consult-kicker{
+      display:block;
+      margin:0 0 4px;
+      font-size:.86rem;
+      line-height:1.25;
+    }
+    #consultas .consult-option-title{
+      display:block;
+      color:var(--berry-deep);
+      font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size:clamp(1.24rem,2vw,1.62rem);
+      font-weight:700;
+      line-height:1.15;
+    }
+    #consultas .consult-option-summary .consult-meta{
+      display:flex;
+      flex-wrap:nowrap;
+      justify-content:flex-end;
+      gap:7px;
+      margin:0;
+    }
+    #consultas .consult-option-summary .consult-meta span{
+      white-space:nowrap;
+      min-height:28px;
+      padding:4px 9px;
+      font-size:.70rem;
+      background:rgba(255,255,255,.55);
+    }
+    #consultas .consult-option-toggle{
+      display:grid;
+      place-items:center;
+      width:38px;
+      height:38px;
+      border:1px solid rgba(135,59,85,.18);
+      border-radius:50%;
+      background:rgba(255,255,255,.62);
+      color:#8f4b62;
+      font-family:Arial,sans-serif;
+      font-size:1.42rem;
+      font-weight:400;
+      line-height:1;
+      transition:transform .24s ease, background .2s ease;
+    }
+    #consultas .consult-option[open] .consult-option-toggle{
+      transform:rotate(45deg);
+      background:rgba(255,255,255,.82);
+    }
+    #consultas .consult-option[open] .consult-option-summary{
+      border-bottom:1px solid rgba(135,59,85,.11);
+    }
+    #consultas .consult-option-body{
+      display:grid;
+      grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+      gap:24px 34px;
+      padding:22px 24px 24px;
+    }
+    #consultas .consult-option-body .consult-lead{
+      margin:0;
+      color:#5d343d !important;
+      font-size:.94rem;
+      line-height:1.55;
+    }
+    #consultas .consult-option-body .check-list{
+      margin:0;
+      display:grid;
+      gap:1px;
+    }
+    #consultas .consult-option-body .check-list li{
+      padding:5px 0 5px 24px;
+      font-size:.84rem;
+      line-height:1.38;
+    }
+    #consultas .consult-option-body .check-list li::before{
+      top:4px;
+      font-size:1rem;
+    }
+    #consultas .consult-option-body .consult-note{
+      grid-column:1 / -1;
+      margin:0;
+      padding:10px 12px;
+      font-size:.76rem;
+      line-height:1.38;
+    }
+    #consultas .consult-option-body .consult-button{
+      grid-column:1 / -1;
+      justify-self:start;
+      min-height:40px;
+      margin:0;
+      padding:9px 15px;
+      border-radius:13px;
+      font-size:.78rem;
+    }
+    @media(hover:hover) and (pointer:fine){
+      #consultas .consult-option{
+        transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+      }
+      #consultas .consult-option:hover{
+        transform:translateY(-2px);
+        box-shadow:0 13px 30px rgba(35,54,48,.07);
+        border-color:rgba(135,59,85,.16);
+      }
+    }
+
+    @media(max-width:720px){
+      #consultas{
+        padding-top:50px;
+        padding-bottom:50px;
+      }
+      #consultas .section-head{
+        margin-bottom:20px;
+      }
+      #consultas .consult-accordion{
+        gap:9px;
+      }
+      #consultas .consult-option{
+        border-radius:17px;
+      }
+      #consultas .consult-option-summary{
+        grid-template-columns:minmax(0,1fr) 34px;
+        gap:10px;
+        min-height:76px;
+        padding:13px 12px 13px 15px;
+      }
+      #consultas .consult-option-summary .consult-kicker{
+        font-size:.70rem;
+        margin-bottom:3px;
+      }
+      #consultas .consult-option-title{
+        font-size:clamp(1rem,4.8vw,1.18rem);
+        line-height:1.12;
+      }
+      #consultas .consult-option-summary .consult-meta{
+        grid-column:1;
+        grid-row:2;
+        justify-content:flex-start;
+        margin-top:2px;
+      }
+      #consultas .consult-option-summary .consult-meta span{
+        min-height:23px;
+        padding:3px 7px;
+        font-size:.61rem;
+      }
+      #consultas .consult-option-toggle{
+        grid-column:2;
+        grid-row:1 / span 2;
+        width:32px;
+        height:32px;
+        font-size:1.22rem;
+      }
+      #consultas .consult-option-body{
+        grid-template-columns:1fr;
+        gap:10px;
+        padding:14px 15px 16px;
+      }
+      #consultas .consult-option-body .consult-lead{
+        font-size:.82rem;
+        line-height:1.43;
+      }
+      #consultas .consult-option-body .check-list li{
+        padding:4px 0 4px 20px;
+        font-size:.75rem;
+        line-height:1.32;
+      }
+      #consultas .consult-option-body .check-list li::before{
+        top:3px;
+        font-size:.9rem;
+      }
+      #consultas .consult-option-body .consult-note{
+        grid-column:1;
+        padding:8px 9px;
+        font-size:.70rem;
+      }
+      #consultas .consult-option-body .consult-button{
+        grid-column:1;
+        width:100%;
+        min-height:38px;
+        padding:8px 10px;
+        font-size:.73rem;
+      }
+    }
+
 </style>
   <script type="application/ld+json">
   {
@@ -8186,68 +8410,91 @@
           </div>
         </div>
 
-        <div class="consult-mobile-shell">
-          <button class="consult-nav consult-nav-prev" type="button" aria-label="Opción anterior" data-consult-prev>‹</button>
-          <div class="consult-grid" id="consultScroller">
-          <article class="consult-card consult-card-sage">
-            <span class="consult-kicker">Para comenzar tu proceso</span>
-            <h3>Primera consulta nutricional</h3>
-            <div class="consult-meta"><span>En línea</span><span>45 min</span></div>
-            <p class="consult-lead">Una consulta inicial para conocer tu situación, antecedentes, hábitos y necesidades, y así definir el abordaje más adecuado para ti.</p>
-            <ul class="check-list">
-              <li>Entrevista y evaluación inicial.</li>
-              <li>Revisión de antecedentes, estudios e indicaciones médicas.</li>
-              <li>Definición del abordaje nutricional.</li>
-              <li>Orientación nutricional personalizada.</li>
-            </ul>
-            <a class="button consult-button" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20primera%20consulta%20nutricional." target="_blank" rel="noopener">Consultar por WhatsApp</a>
-          </article>
+        <div class="consult-accordion" aria-label="Opciones de atención nutricional">
+          <details class="consult-option consult-option-sage">
+            <summary class="consult-option-summary">
+              <span class="consult-option-main">
+                <span class="consult-kicker">Para comenzar tu proceso</span>
+                <span class="consult-option-title">Primera consulta nutricional</span>
+              </span>
+              <span class="consult-meta"><span>En línea</span><span>45 min</span></span>
+              <span class="consult-option-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="consult-option-body">
+              <p class="consult-lead">Una consulta inicial para conocer tu situación, antecedentes, hábitos y necesidades, y así definir el abordaje más adecuado para ti.</p>
+              <ul class="check-list">
+                <li>Entrevista y evaluación inicial.</li>
+                <li>Revisión de antecedentes, estudios e indicaciones médicas.</li>
+                <li>Definición del abordaje nutricional.</li>
+                <li>Orientación nutricional personalizada.</li>
+              </ul>
+              <a class="button consult-button" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20primera%20consulta%20nutricional." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            </div>
+          </details>
 
-          <article class="consult-card consult-card-blush">
-            <span class="consult-kicker">Para acompañar tu evolución</span>
-            <h3>Consulta de seguimiento</h3>
-            <div class="consult-meta"><span>En línea</span><span>30 min</span></div>
-            <p class="consult-lead">Un espacio pensado para revisar avances, dificultades y ajustes necesarios dentro de tu proceso.</p>
-            <ul class="check-list">
-              <li>Revisión de evolución y cambios.</li>
-              <li>Resolución de dudas.</li>
-              <li>Ajustes de las indicaciones.</li>
-              <li>Definición de nuevos objetivos.</li>
-            </ul>
-            <a class="button consult-button" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20consulta%20de%20seguimiento." target="_blank" rel="noopener">Solicitar seguimiento</a>
-          </article>
+          <details class="consult-option consult-option-blush">
+            <summary class="consult-option-summary">
+              <span class="consult-option-main">
+                <span class="consult-kicker">Para acompañar tu evolución</span>
+                <span class="consult-option-title">Consulta de seguimiento</span>
+              </span>
+              <span class="consult-meta"><span>En línea</span><span>30 min</span></span>
+              <span class="consult-option-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="consult-option-body">
+              <p class="consult-lead">Un espacio pensado para revisar avances, dificultades y ajustes necesarios dentro de tu proceso.</p>
+              <ul class="check-list">
+                <li>Revisión de evolución y cambios.</li>
+                <li>Resolución de dudas.</li>
+                <li>Ajustes de las indicaciones.</li>
+                <li>Definición de nuevos objetivos.</li>
+              </ul>
+              <a class="button consult-button" href="https://wa.me/541133069146?text=Hola%2C%20Melisa.%20Quisiera%20consultar%20por%20una%20consulta%20de%20seguimiento." target="_blank" rel="noopener">Solicitar seguimiento</a>
+            </div>
+          </details>
 
-          <article class="consult-card consult-card-sand">
-            <span class="consult-kicker">Para aprender y organizarte mejor</span>
-            <h3>Educación alimentaria sin plan alimentario</h3>
-            <div class="consult-meta"><span>En línea</span></div>
-            <p class="consult-lead">Una instancia de orientación nutricional para resolver dudas, ordenar hábitos y mejorar decisiones alimentarias sin indicar un plan alimentario personalizado.</p>
-            <ul class="check-list">
-              <li>Educación alimentaria práctica.</li>
-              <li>Organización de comidas y hábitos.</li>
-              <li>Resolución de dudas frecuentes.</li>
-              <li>Recomendaciones generales adaptadas a tu situación.</li>
-            </ul>
-            <a class="button consult-button" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20educaci%C3%B3n%20alimentaria%20sin%20plan%20alimentario." target="_blank" rel="noopener">Consultar por WhatsApp</a>
-          </article>
+          <details class="consult-option consult-option-sand">
+            <summary class="consult-option-summary">
+              <span class="consult-option-main">
+                <span class="consult-kicker">Para aprender y organizarte mejor</span>
+                <span class="consult-option-title">Educación alimentaria sin plan alimentario</span>
+              </span>
+              <span class="consult-meta"><span>En línea</span></span>
+              <span class="consult-option-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="consult-option-body">
+              <p class="consult-lead">Una instancia de orientación nutricional para resolver dudas, ordenar hábitos y mejorar decisiones alimentarias sin indicar un plan alimentario personalizado.</p>
+              <ul class="check-list">
+                <li>Educación alimentaria práctica.</li>
+                <li>Organización de comidas y hábitos.</li>
+                <li>Resolución de dudas frecuentes.</li>
+                <li>Recomendaciones generales adaptadas a tu situación.</li>
+              </ul>
+              <a class="button consult-button" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20educaci%C3%B3n%20alimentaria%20sin%20plan%20alimentario." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            </div>
+          </details>
 
-          <article class="consult-card consult-card-peach">
-            <span class="consult-kicker">Para acompañar a tu grupo familiar</span>
-            <h3>Orientación alimentaria familiar</h3>
-            <div class="consult-meta"><span>En línea</span><span>50 min</span></div>
-            <p class="consult-lead">Un espacio de consejería para abordar hábitos, organización y educación alimentaria dentro del entorno familiar.</p>
-            <ul class="check-list">
-              <li>Orientación alimentaria para el grupo familiar.</li>
-              <li>Sugerencias prácticas para la organización cotidiana.</li>
-              <li>Educación alimentaria general.</li>
-              <li>Acompañamiento en hábitos del hogar.</li>
-            </ul>
-            <p class="consult-note">No incluye plan alimentario personalizado ni abordaje de situaciones patológicas.</p>
-            <a class="button consult-button" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20una%20consulta%20de%20orientaci%C3%B3n%20alimentaria%20para%20grupo%20familiar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
-          </article>
-          </div>
-          <button class="consult-nav consult-nav-next" type="button" aria-label="Opción siguiente" title="Ver siguiente opción" data-consult-next>›</button>
-          <div class="consult-mobile-indicator" aria-hidden="true"><span data-consult-index>1</span> / 4</div>
+          <details class="consult-option consult-option-peach">
+            <summary class="consult-option-summary">
+              <span class="consult-option-main">
+                <span class="consult-kicker">Para acompañar a tu grupo familiar</span>
+                <span class="consult-option-title">Orientación alimentaria familiar</span>
+              </span>
+              <span class="consult-meta"><span>En línea</span><span>50 min</span></span>
+              <span class="consult-option-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="consult-option-body">
+              <p class="consult-lead">Un espacio de consejería para abordar hábitos, organización y educación alimentaria dentro del entorno familiar.</p>
+              <ul class="check-list">
+                <li>Orientación alimentaria para el grupo familiar.</li>
+                <li>Sugerencias prácticas para la organización cotidiana.</li>
+                <li>Educación alimentaria general.</li>
+                <li>Acompañamiento en hábitos del hogar.</li>
+              </ul>
+              <p class="consult-note">No incluye plan alimentario personalizado ni abordaje de situaciones patológicas.</p>
+              <a class="button consult-button" href="https://wa.me/541133069146?text=Hola.%20Quisiera%20consultar%20por%20una%20consulta%20de%20orientaci%C3%B3n%20alimentaria%20para%20grupo%20familiar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            </div>
+          </details>
         </div>
       </div>
     </section>
