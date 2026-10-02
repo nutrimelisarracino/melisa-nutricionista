@@ -414,6 +414,22 @@
       padding-top:28px;
       border-top:1px solid rgba(91,49,59,.16);
     }
+    @media(min-width:761px){
+      .founder-grid > .professional-training{
+        grid-column:1 / -1;
+        width:100%;
+        margin-top:10px;
+      }
+      .founder-grid > .professional-training .training-heading{
+        max-width:none;
+      }
+      .founder-grid > .professional-training .training-card-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+      .founder-grid > .professional-training .training-card{
+        min-height:102px;
+      }
+    }
     .training-heading {
       margin-bottom:26px;
     }
@@ -7355,90 +7371,92 @@
           <p>Mi interés por la nutrición materno-infantojuvenil está relacionado con el acompañamiento nutricional en distintas etapas de la vida, mientras que mi interés por la nutrición renal se consolidó durante mi formación y mis prácticas profesionales. Desde entonces continué capacitándome en ambas áreas.</p>
           <p>También cuento con formación en <strong>nutrición deportiva, Pilates, entrenamiento funcional, musculación y entrenamiento personal</strong>, conocimientos que complementan mi mirada profesional sobre la alimentación, el movimiento, los hábitos y el bienestar.</p>
 
-          <div class="professional-training">
-            <div class="training-heading">
-              <h3>Formación y actualización profesional</h3>
-              <p>Capacitaciones seleccionadas que acompañan y amplían mi práctica profesional.</p>
-            </div>
 
-            <div class="training-group">
-              <p class="training-group-title">Áreas principales</p>
-              <div class="training-card-grid training-card-grid-featured">
-                <article class="training-card training-card-featured">
-                  <span class="training-year">2026</span>
-                  <strong>Curso de Posgrado en Nutrición Infantojuvenil</strong>
-                  <span>Universidad Nacional de Rosario (UNR)</span>
-                </article>
-                <article class="training-card training-card-featured">
-                  <span class="training-year">2025</span>
-                  <strong>Diplomado en Patología Renal y Alimentación Basada en Plantas como Abordaje a la Terapéutica Nutricional</strong>
-                  <span>SLANH / SAN / UNA</span>
-                </article>
-              </div>
-            </div>
+        </div>
 
-            <div class="training-group">
-              <p class="training-group-title">Nutrición deportiva y movimiento</p>
-              <div class="training-card-grid">
-                <article class="training-card">
-                  <span class="training-year">2025</span>
-                  <strong>Nutrición Deportiva para Running y Trail Running</strong>
-                  <span>Universidad Tecnológica Nacional (UTN), Facultad Regional Buenos Aires</span>
-                </article>
-                <article class="training-card training-mobile-extra">
-                  <span class="training-year">2018</span>
-                  <strong>Nutrición para la Salud y el Entrenamiento</strong>
-                  <span>Nutreal</span>
-                </article>
-                <article class="training-card training-mobile-extra">
-                  <span class="training-year">2016</span>
-                  <strong>Seminario de Suplementación Deportiva</strong>
-                  <span>Grupos de Estudio 757</span>
-                </article>
-                <article class="training-card training-mobile-extra">
-                  <span class="training-year">2015</span>
-                  <strong>Formación Profesional en Nutrición Deportiva, Nivel I</strong>
-                  <span>Universidad Nacional del Litoral (UNL)</span>
-                </article>
-              </div>
-            </div>
-
-            <div class="training-group">
-              <p class="training-group-title">Formación complementaria</p>
-              <div class="training-card-grid">
-                <article class="training-card training-mobile-extra">
-                  <span class="training-year">2024</span>
-                  <strong>Entrenadora personal</strong>
-                  <span>ICAI</span>
-                </article>
-                <article class="training-card training-mobile-extra">
-                  <span class="training-year">2024</span>
-                  <strong>Instructora en Musculación Deportiva</strong>
-                  <span>ICAI</span>
-                </article>
-                <article class="training-card">
-                  <span class="training-year">2016</span>
-                  <strong>Instructora de Método Pilates</strong>
-                  <span>AMICI Formación en Fitness y Salud</span>
-                </article>
-                <article class="training-card training-mobile-extra">
-                  <span class="training-year">2016</span>
-                  <strong>Instructora en Técnicas de Entrenamiento Funcional y Resistencia Manual</strong>
-                  <span>IDEHA Capacitaciones / IDCA</span>
-                </article>
-                <article class="training-card training-mobile-extra">
-                  <span class="training-year">2015</span>
-                  <strong>Abordaje Nutricional del Paciente con Cáncer</strong>
-                  <span>Centro Argentino de Formación Profesional</span>
-                </article>
-              </div>
-            </div>
-
-            <button class="training-mobile-toggle" type="button" aria-expanded="false">
-              <span class="training-toggle-more">Ver formación completa</span>
-              <span class="training-toggle-less">Ver menos</span>
-            </button>
+        <div class="professional-training">
+          <div class="training-heading">
+            <h3>Formación y actualización profesional</h3>
+            <p>Capacitaciones seleccionadas que acompañan y amplían mi práctica profesional.</p>
           </div>
+
+          <div class="training-group">
+            <p class="training-group-title">Áreas principales</p>
+            <div class="training-card-grid training-card-grid-featured">
+              <article class="training-card training-card-featured">
+                <span class="training-year">2026</span>
+                <strong>Curso de Posgrado en Nutrición Infantojuvenil</strong>
+                <span>Universidad Nacional de Rosario (UNR)</span>
+              </article>
+              <article class="training-card training-card-featured">
+                <span class="training-year">2025</span>
+                <strong>Diplomado en Patología Renal y Alimentación Basada en Plantas como Abordaje a la Terapéutica Nutricional</strong>
+                <span>SLANH / SAN / UNA</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="training-group">
+            <p class="training-group-title">Nutrición deportiva y movimiento</p>
+            <div class="training-card-grid">
+              <article class="training-card">
+                <span class="training-year">2025</span>
+                <strong>Nutrición Deportiva para Running y Trail Running</strong>
+                <span>Universidad Tecnológica Nacional (UTN), Facultad Regional Buenos Aires</span>
+              </article>
+              <article class="training-card training-mobile-extra">
+                <span class="training-year">2018</span>
+                <strong>Nutrición para la Salud y el Entrenamiento</strong>
+                <span>Nutreal</span>
+              </article>
+              <article class="training-card training-mobile-extra">
+                <span class="training-year">2016</span>
+                <strong>Seminario de Suplementación Deportiva</strong>
+                <span>Grupos de Estudio 757</span>
+              </article>
+              <article class="training-card training-mobile-extra">
+                <span class="training-year">2015</span>
+                <strong>Formación Profesional en Nutrición Deportiva, Nivel I</strong>
+                <span>Universidad Nacional del Litoral (UNL)</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="training-group">
+            <p class="training-group-title">Formación complementaria</p>
+            <div class="training-card-grid">
+              <article class="training-card training-mobile-extra">
+                <span class="training-year">2024</span>
+                <strong>Entrenadora personal</strong>
+                <span>ICAI</span>
+              </article>
+              <article class="training-card training-mobile-extra">
+                <span class="training-year">2024</span>
+                <strong>Instructora en Musculación Deportiva</strong>
+                <span>ICAI</span>
+              </article>
+              <article class="training-card">
+                <span class="training-year">2016</span>
+                <strong>Instructora de Método Pilates</strong>
+                <span>AMICI Formación en Fitness y Salud</span>
+              </article>
+              <article class="training-card training-mobile-extra">
+                <span class="training-year">2016</span>
+                <strong>Instructora en Técnicas de Entrenamiento Funcional y Resistencia Manual</strong>
+                <span>IDEHA Capacitaciones / IDCA</span>
+              </article>
+              <article class="training-card training-mobile-extra">
+                <span class="training-year">2015</span>
+                <strong>Abordaje Nutricional del Paciente con Cáncer</strong>
+                <span>Centro Argentino de Formación Profesional</span>
+              </article>
+            </div>
+          </div>
+
+          <button class="training-mobile-toggle" type="button" aria-expanded="false">
+            <span class="training-toggle-more">Ver formación completa</span>
+            <span class="training-toggle-less">Ver menos</span>
+          </button>
         </div>
       </div>
     </section>
