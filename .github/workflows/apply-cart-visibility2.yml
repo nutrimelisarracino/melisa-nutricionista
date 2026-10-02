@@ -1,0 +1,36 @@
+name: Aplicar corrección del carrito
+on: push
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Apply fix
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = 'NUTRIELITE CART VISIBILITY FIX 2026-10-02'
+          if marker in s:
+              print('Fix already applied')
+              raise SystemExit(0)
+          css = '''\n<style id="nutrielite-cart-visibility-fix">\n/* NUTRIELITE CART VISIBILITY FIX 2026-10-02 */\n.cart-fab.cart-hidden-until-buy { display:none !important; }\n.cart-fab.cart-visible-after-buy { display:inline-flex !important; }\n</style>\n'''
+          js = '''\n<script id="nutrielite-cart-visibility-script">\n(function(){\n  function setup(){\n    const cart=document.querySelector('.cart-fab');\n    if(!cart) return;\n    cart.classList.add('cart-hidden-until-buy');\n    document.querySelectorAll('.book-cart-add').forEach(function(button){\n      if(button.dataset.cartVisibilityBound==='1') return;\n      button.dataset.cartVisibilityBound='1';\n      button.addEventListener('click',function(){\n        cart.classList.remove('cart-hidden-until-buy');\n        cart.classList.add('cart-visible-after-buy');\n      });\n    });\n  }\n  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',setup); else setup();\n})();\n</script>\n'''
+          if '</head>' not in s or '</body>' not in s:
+              raise SystemExit('index.html insertion points not found')
+          s=s.replace('</head>',css+'</head>',1)
+          s=s.replace('</body>',js+'</body>',1)
+          p.write_text(s,encoding='utf-8')
+          print('Fix applied')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Mostrar carrito solo al comprar libros digitales"
+          git push
