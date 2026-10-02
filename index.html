@@ -8292,6 +8292,45 @@
       }
     }
 
+
+    /* ===== Flechas carrusel móvil Carla · 02/10/2026 ===== */
+    .carla-carousel-shell{position:relative;}
+    .carla-carousel-nav{display:none;}
+    @media(max-width:720px){
+      .carla-carousel-shell{
+        position:relative;
+      }
+      .carla-carousel-nav{
+        display:grid;
+        place-items:center;
+        position:absolute;
+        z-index:8;
+        top:50%;
+        width:36px;
+        height:36px;
+        margin-top:-18px;
+        border:1px solid #8f4b62;
+        border-radius:50%;
+        background:#8f4b62;
+        color:#fff;
+        font-size:1.55rem;
+        line-height:1;
+        box-shadow:0 8px 20px rgba(111,66,82,.22);
+        cursor:pointer;
+        transition:opacity .18s ease,transform .12s ease,background .18s ease;
+      }
+      .carla-carousel-nav-prev{left:4px;}
+      .carla-carousel-nav-next{right:4px;}
+      .carla-carousel-nav:disabled{
+        opacity:0;
+        pointer-events:none;
+      }
+      .carla-carousel-nav:active:not(:disabled){
+        transform:scale(.94);
+        background:#74364e;
+      }
+    }
+
 </style>
   <script type="application/ld+json">
   {
@@ -11652,5 +11691,56 @@
 
   </script>
   <!-- visual-fix-2026-09-26-2159 -->
+
+  <script>
+  /* FLECHAS CARRUSEL MÓVIL CARLA · 02/10/2026 */
+  (function initCarlaMobileCarousels(){
+    const carousels=document.querySelectorAll('#equipo .book-packages-main, #equipo .book-packages-special');
+    carousels.forEach((scroller,index)=>{
+      if(scroller.closest('.carla-carousel-shell')) return;
+
+      const shell=document.createElement('div');
+      shell.className='carla-carousel-shell';
+      scroller.parentNode.insertBefore(shell,scroller);
+      shell.appendChild(scroller);
+
+      const prev=document.createElement('button');
+      prev.type='button';
+      prev.className='carla-carousel-nav carla-carousel-nav-prev';
+      prev.setAttribute('aria-label','Ver producto anterior');
+      prev.textContent='‹';
+
+      const next=document.createElement('button');
+      next.type='button';
+      next.className='carla-carousel-nav carla-carousel-nav-next';
+      next.setAttribute('aria-label','Ver producto siguiente');
+      next.textContent='›';
+
+      shell.appendChild(prev);
+      shell.appendChild(next);
+
+      function step(){
+        const card=scroller.querySelector('.book-package');
+        if(!card) return scroller.clientWidth;
+        const styles=getComputedStyle(scroller);
+        const gap=parseFloat(styles.columnGap || styles.gap || 0) || 0;
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      function update(){
+        const max=Math.max(0,scroller.scrollWidth-scroller.clientWidth);
+        prev.disabled=scroller.scrollLeft<=4;
+        next.disabled=scroller.scrollLeft>=max-4;
+      }
+
+      prev.addEventListener('click',()=>scroller.scrollBy({left:-step(),behavior:'smooth'}));
+      next.addEventListener('click',()=>scroller.scrollBy({left:step(),behavior:'smooth'}));
+      scroller.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
+      window.addEventListener('resize',update,{passive:true});
+      update();
+    });
+  })();
+  </script>
+
 </body>
 </html>
