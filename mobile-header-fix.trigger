@@ -1,1 +1,1 @@
-Activar corrección del encabezado móvil v2.
+Activar corrección del encabezado móvil v3.
