@@ -9786,6 +9786,36 @@
       z-index:2 !important;
     }
 
+
+    /* ===== Forzar visibilidad foto renal · 02/10/2026 ===== */
+    #nutricion .service-card-renal .service-media{
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      visibility:visible !important;
+      opacity:1 !important;
+      overflow:hidden !important;
+    }
+
+    #nutricion .service-card-renal .service-photo{
+      display:block !important;
+      visibility:visible !important;
+      opacity:1 !important;
+      width:100% !important;
+      height:auto !important;
+      max-width:100% !important;
+      max-height:300px !important;
+      object-fit:contain !important;
+      object-position:center center !important;
+      border-radius:22px !important;
+    }
+
+    @media(max-width:760px){
+      #nutricion .service-card-renal .service-photo{
+        max-height:235px !important;
+      }
+    }
+
 </style>
   <script type="application/ld+json">
   {
