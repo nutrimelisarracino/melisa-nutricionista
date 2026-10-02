@@ -7249,7 +7249,42 @@
       }
     }
 
-  </style>
+  
+    /* Corrección definitiva foto Sobre mí: tamaño y alineación */
+    #sobre-mi .founder-grid{
+      align-items:start !important;
+    }
+    #sobre-mi .founder-photo-column{
+      align-self:start !important;
+      margin-top:0 !important;
+      padding-top:0 !important;
+    }
+    #sobre-mi .founder-photo-frame{
+      width:100% !important;
+      max-width:260px !important;
+      margin:0 auto !important;
+      border-width:7px !important;
+    }
+    @media(max-width:999px){
+      #sobre-mi .founder-photo-column{
+        width:100% !important;
+        max-width:230px !important;
+        margin:0 auto !important;
+      }
+      #sobre-mi .founder-photo-frame{
+        max-width:230px !important;
+      }
+    }
+    @media(max-width:720px){
+      #sobre-mi .founder-photo-column{
+        max-width:200px !important;
+      }
+      #sobre-mi .founder-photo-frame{
+        max-width:200px !important;
+        border-width:6px !important;
+      }
+    }
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
