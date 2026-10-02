@@ -1,0 +1,1 @@
+Aplicar corrección: separar visualmente la casita de inicio de la lupa en móvil.
