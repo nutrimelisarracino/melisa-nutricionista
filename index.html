@@ -7608,6 +7608,220 @@
         margin-top:0 !important;
       }
     }
+
+    /* ===== Opciones de atención compactas horizontales · 02/10/2026 ===== */
+    #consultas{
+      padding-top:72px;
+      padding-bottom:72px;
+    }
+    #consultas .section-head{
+      margin-bottom:30px;
+    }
+    #consultas .consult-mobile-shell{
+      padding:0;
+    }
+    #consultas .consult-grid{
+      width:min(1120px,100%);
+      margin-inline:auto;
+      display:grid !important;
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      gap:16px !important;
+      overflow:visible !important;
+      padding:0 !important;
+    }
+    #consultas .consult-card{
+      display:grid;
+      grid-template-columns:minmax(145px,.42fr) minmax(0,.58fr);
+      grid-template-rows:auto auto 1fr auto;
+      column-gap:22px;
+      row-gap:7px;
+      min-height:0;
+      padding:23px 24px;
+      border-radius:22px;
+      align-items:start;
+      box-shadow:0 12px 30px rgba(35,54,48,.06);
+    }
+    #consultas .consult-card::after{
+      width:92px;
+      height:92px;
+      right:-30px;
+      bottom:-30px;
+      opacity:.72;
+    }
+    #consultas .consult-kicker{
+      grid-column:1;
+      grid-row:1;
+      margin:0 0 2px;
+      font-size:.88rem;
+      line-height:1.35;
+    }
+    #consultas .consult-card h3{
+      grid-column:1;
+      grid-row:2;
+      margin:0;
+      font-size:clamp(1.28rem,1.8vw,1.62rem);
+      line-height:1.12;
+    }
+    #consultas .consult-meta{
+      grid-column:1;
+      grid-row:3;
+      align-self:start;
+      gap:6px;
+      margin:8px 0 0;
+    }
+    #consultas .consult-meta span{
+      min-height:27px;
+      padding:4px 9px;
+      font-size:.70rem;
+    }
+    #consultas .consult-lead{
+      grid-column:2;
+      grid-row:1 / span 2;
+      margin:0;
+      font-size:.91rem;
+      line-height:1.48;
+    }
+    #consultas .check-list{
+      grid-column:2;
+      grid-row:3;
+      margin:4px 0 8px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:0;
+    }
+    #consultas .check-list li{
+      padding:4px 0 4px 22px;
+      font-size:.84rem;
+      line-height:1.38;
+    }
+    #consultas .check-list li::before{
+      top:3px;
+      font-size:1rem;
+    }
+    #consultas .consult-note{
+      grid-column:2;
+      grid-row:4;
+      margin:0 0 9px;
+      padding:9px 11px;
+      border-radius:11px;
+      font-size:.75rem;
+      line-height:1.35;
+    }
+    #consultas .consult-button{
+      grid-column:1 / -1;
+      grid-row:5;
+      justify-self:start;
+      align-self:end;
+      min-height:40px;
+      margin:4px 0 0;
+      padding:9px 15px;
+      border-radius:13px;
+      font-size:.79rem;
+    }
+    #consultas .consult-nav,
+    #consultas .consult-mobile-indicator{
+      display:none !important;
+    }
+
+    @media(max-width:760px){
+      #consultas{
+        padding-top:52px;
+        padding-bottom:52px;
+      }
+      #consultas .section-head{
+        margin-bottom:22px;
+      }
+      #consultas .consult-mobile-shell{
+        padding:0 !important;
+      }
+      #consultas .consult-grid{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        gap:11px !important;
+        overflow:visible !important;
+        scroll-snap-type:none !important;
+        padding:0 !important;
+      }
+      #consultas .consult-grid .consult-card{
+        width:100%;
+        min-width:0;
+        flex:none;
+        display:grid !important;
+        grid-template-columns:minmax(112px,.40fr) minmax(0,.60fr);
+        grid-template-rows:auto auto 1fr auto;
+        column-gap:13px;
+        row-gap:5px;
+        min-height:0;
+        padding:17px 16px;
+        border-radius:18px;
+        scroll-snap-align:none;
+      }
+      #consultas .consult-kicker{
+        font-size:.74rem;
+        line-height:1.25;
+      }
+      #consultas .consult-card h3{
+        font-size:clamp(1.08rem,5vw,1.28rem);
+        line-height:1.1;
+      }
+      #consultas .consult-meta{
+        margin-top:6px;
+      }
+      #consultas .consult-meta span{
+        min-height:24px;
+        padding:3px 7px;
+        font-size:.64rem;
+      }
+      #consultas .consult-lead{
+        font-size:.80rem;
+        line-height:1.38;
+      }
+      #consultas .check-list{
+        margin:2px 0 5px;
+      }
+      #consultas .check-list li{
+        padding:3px 0 3px 18px;
+        font-size:.73rem;
+        line-height:1.28;
+      }
+      #consultas .check-list li::before{
+        top:2px;
+        font-size:.88rem;
+      }
+      #consultas .consult-note{
+        padding:7px 8px;
+        margin-bottom:5px;
+        font-size:.68rem;
+        line-height:1.28;
+      }
+      #consultas .consult-button{
+        grid-column:1 / -1;
+        width:100%;
+        min-height:38px;
+        margin-top:3px;
+        padding:8px 10px;
+        border-radius:12px;
+        font-size:.74rem;
+      }
+    }
+
+    @media(max-width:420px){
+      #consultas .consult-grid .consult-card{
+        grid-template-columns:minmax(102px,.39fr) minmax(0,.61fr);
+        column-gap:11px;
+        padding:15px 13px;
+      }
+      #consultas .consult-card h3{
+        font-size:1.03rem;
+      }
+      #consultas .consult-lead{
+        font-size:.77rem;
+      }
+      #consultas .check-list li{
+        font-size:.70rem;
+      }
+    }
+
 </style>
   <script type="application/ld+json">
   {
