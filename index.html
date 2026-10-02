@@ -7424,6 +7424,48 @@
         margin-top:-20px;
       }
     }
+
+    /* Banda institucional de testimonios */
+    .testimonials-note{
+      margin-top:22px;
+      padding:0;
+    }
+    .testimonials-note-inner{
+      border:1px solid rgba(127,62,81,.16);
+      border-left:4px solid #8f4b62;
+      border-radius:18px;
+      background:linear-gradient(135deg,rgba(255,249,246,.96),rgba(250,242,235,.82));
+      box-shadow:0 10px 26px rgba(91,49,59,.05);
+      padding:18px 20px;
+    }
+    .testimonials-note-label{
+      display:inline-block;
+      margin-bottom:8px;
+      color:#8f4b62;
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .testimonials-note-inner p{
+      margin:0;
+      color:#5b4c50;
+      font-size:.95rem;
+      line-height:1.6;
+    }
+    @media(max-width:720px){
+      .testimonials-note{
+        margin-top:18px;
+      }
+      .testimonials-note-inner{
+        padding:16px;
+        border-radius:16px;
+      }
+      .testimonials-note-inner p{
+        font-size:.9rem;
+        line-height:1.55;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
@@ -7930,7 +7972,12 @@
           <div class="testimonials-mobile-indicator" aria-hidden="true"><span data-testimonial-index>1</span> / 4</div>
         </div>
 
-        <p class="testimonial-note">Los testimonios reflejan experiencias personales y no implican que otras personas obtengan los mismos resultados.</p>
+        <div class="testimonials-note">
+          <div class="testimonials-note-inner">
+            <span class="testimonials-note-label">Testimonios</span>
+            <p>Las opiniones compartidas reflejan experiencias personales e individuales. Su contenido es informativo y no reemplaza una consulta profesional personalizada.</p>
+          </div>
+        </div>
       </div>
     </section>
 
