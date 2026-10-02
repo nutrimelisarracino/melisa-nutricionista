@@ -447,8 +447,8 @@
     }
     .training-card {
       position:relative;
-      min-height:132px;
-      padding:20px 18px 17px;
+      min-height:108px;
+      padding:16px 16px 14px;
       border:1px solid rgba(135,59,85,.13);
       border-radius:18px;
       background:rgba(255,253,248,.62);
@@ -461,7 +461,7 @@
     }
     .training-card strong {
       display:block;
-      margin:0 52px 8px 0;
+      margin:0 50px 6px 0;
       color:#4f2f38;
       font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
       font-size:1.01rem;
@@ -475,8 +475,8 @@
     }
     .training-year {
       position:absolute;
-      top:16px;
-      right:16px;
+      top:13px;
+      right:13px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -492,6 +492,45 @@
       letter-spacing:.03em;
       line-height:1;
     }
+    .training-mobile-toggle{
+      display:none;
+    }
+    .training-toggle-less{
+      display:none;
+    }
+    @media(max-width:760px){
+      .training-mobile-extra{
+        display:none;
+      }
+      .professional-training.training-expanded .training-mobile-extra{
+        display:block;
+      }
+      .training-mobile-toggle{
+        display:flex;
+        width:100%;
+        min-height:46px;
+        align-items:center;
+        justify-content:center;
+        margin-top:18px;
+        padding:11px 16px;
+        border:1px solid rgba(143,75,98,.22);
+        border-radius:14px;
+        background:rgba(255,255,255,.72);
+        color:#7b3f53;
+        font:inherit;
+        font-size:.9rem;
+        font-weight:800;
+        cursor:pointer;
+        box-shadow:0 6px 18px rgba(91,49,59,.04);
+      }
+      .professional-training.training-expanded .training-toggle-more{
+        display:none;
+      }
+      .professional-training.training-expanded .training-toggle-less{
+        display:inline;
+      }
+    }
+
     @media(max-width:760px){
       .professional-training {
         margin-top:26px;
@@ -7325,17 +7364,17 @@
                   <strong>Nutrición Deportiva para Running y Trail Running</strong>
                   <span>Universidad Tecnológica Nacional (UTN), Facultad Regional Buenos Aires</span>
                 </article>
-                <article class="training-card">
+                <article class="training-card training-mobile-extra">
                   <span class="training-year">2018</span>
                   <strong>Nutrición para la Salud y el Entrenamiento</strong>
                   <span>Nutreal</span>
                 </article>
-                <article class="training-card">
+                <article class="training-card training-mobile-extra">
                   <span class="training-year">2016</span>
                   <strong>Seminario de Suplementación Deportiva</strong>
                   <span>Grupos de Estudio 757</span>
                 </article>
-                <article class="training-card">
+                <article class="training-card training-mobile-extra">
                   <span class="training-year">2015</span>
                   <strong>Formación Profesional en Nutrición Deportiva, Nivel I</strong>
                   <span>Universidad Nacional del Litoral (UNL)</span>
@@ -7346,14 +7385,14 @@
             <div class="training-group">
               <p class="training-group-title">Formación complementaria</p>
               <div class="training-card-grid">
-                <article class="training-card">
+                <article class="training-card training-mobile-extra">
                   <span class="training-year">2024</span>
-                  <strong>Personal Trainer</strong>
+                  <strong>Entrenadora personal</strong>
                   <span>ICAI</span>
                 </article>
-                <article class="training-card">
+                <article class="training-card training-mobile-extra">
                   <span class="training-year">2024</span>
-                  <strong>Instructor en Musculación Deportiva</strong>
+                  <strong>Instructora en Musculación Deportiva</strong>
                   <span>ICAI</span>
                 </article>
                 <article class="training-card">
@@ -7361,18 +7400,23 @@
                   <strong>Instructora de Método Pilates</strong>
                   <span>AMICI Formación en Fitness y Salud</span>
                 </article>
-                <article class="training-card">
+                <article class="training-card training-mobile-extra">
                   <span class="training-year">2016</span>
-                  <strong>Instructor en Técnicas de Entrenamiento Funcional y Resistencia Manual</strong>
+                  <strong>Instructora en Técnicas de Entrenamiento Funcional y Resistencia Manual</strong>
                   <span>IDEHA Capacitaciones / IDCA</span>
                 </article>
-                <article class="training-card">
+                <article class="training-card training-mobile-extra">
                   <span class="training-year">2015</span>
                   <strong>Abordaje Nutricional del Paciente con Cáncer</strong>
                   <span>Centro Argentino de Formación Profesional</span>
                 </article>
               </div>
             </div>
+
+            <button class="training-mobile-toggle" type="button" aria-expanded="false">
+              <span class="training-toggle-more">Ver formación completa</span>
+              <span class="training-toggle-less">Ver menos</span>
+            </button>
           </div>
         </div>
       </div>
@@ -10439,6 +10483,13 @@
         }
       }
       updateActiveNav(viewByTarget[initialTarget] || 'home',initialTarget);
+    });
+
+    const trainingSection=document.querySelector('.professional-training');
+    const trainingToggle=trainingSection?.querySelector('.training-mobile-toggle');
+    trainingToggle?.addEventListener('click',()=>{
+      const expanded=trainingSection.classList.toggle('training-expanded');
+      trainingToggle.setAttribute('aria-expanded',String(expanded));
     });
 
     setLanguage(currentLang);
