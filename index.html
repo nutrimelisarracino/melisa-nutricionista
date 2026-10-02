@@ -696,6 +696,95 @@
     .service-card-materno li::before { background:#c98470; box-shadow:0 0 0 5px rgba(201,132,112,.12); }
     .service-card-renal li::before { background:#4f8a76; box-shadow:0 0 0 5px rgba(79,138,118,.12); }
 
+    .materno-topics{
+      display:grid;
+      gap:10px;
+      margin-top:20px;
+    }
+    .materno-topic{
+      border:1px solid rgba(127,62,81,.14);
+      border-radius:16px;
+      background:rgba(255,255,255,.48);
+      overflow:hidden;
+    }
+    .materno-topic summary{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      min-height:50px;
+      padding:13px 15px;
+      color:#7f3e51;
+      font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size:.98rem;
+      font-weight:700;
+      line-height:1.3;
+      cursor:pointer;
+      list-style:none;
+      user-select:none;
+    }
+    .materno-topic summary::-webkit-details-marker{
+      display:none;
+    }
+    .materno-topic summary::marker{
+      content:"";
+    }
+    .materno-topic[open] summary{
+      border-bottom:1px solid rgba(127,62,81,.11);
+      background:rgba(255,255,255,.32);
+    }
+    .materno-topic-icon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:28px;
+      height:28px;
+      flex:0 0 28px;
+      border:1px solid rgba(127,62,81,.18);
+      border-radius:50%;
+      background:rgba(255,255,255,.70);
+      font-family:Arial,sans-serif;
+      font-size:1.05rem;
+      font-weight:500;
+      line-height:1;
+      transition:transform .24s ease;
+    }
+    .materno-topic[open] .materno-topic-icon{
+      transform:rotate(45deg);
+    }
+    .materno-topic ul{
+      margin:0 !important;
+      padding:12px 15px 14px !important;
+    }
+    .materno-topic li{
+      padding:7px 0 7px 22px !important;
+      color:#59605c;
+      line-height:1.48;
+    }
+    .materno-topic li::before{
+      top:14px !important;
+      left:1px !important;
+      width:7px !important;
+      height:7px !important;
+    }
+    @media(max-width:720px){
+      .materno-topics{
+        margin-top:16px;
+        gap:8px;
+      }
+      .materno-topic summary{
+        min-height:48px;
+        padding:12px 13px;
+        font-size:.94rem;
+      }
+      .materno-topic ul{
+        padding:10px 13px 12px !important;
+      }
+      .materno-topic li{
+        font-size:.92rem;
+      }
+    }
+
     .modalities {
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
@@ -7547,11 +7636,48 @@
             <div class="service-photo-content">
               <h3>Nutrición materno-<span class="keep-infantojuvenil">infantojuvenil</span></h3>
               <p class="service-lead">Acompañamiento nutricional durante etapas que requieren una mirada cuidadosa, práctica y adaptada.</p>
-              <ul>
-                <li>Embarazo y lactancia.</li>
-                <li>Alimentación infantil.</li>
-                <li>Niñez y adolescencia.</li>
-              </ul>
+
+              <div class="materno-topics">
+                <details class="materno-topic">
+                  <summary>
+                    <span>Embarazo y Lactancia</span>
+                    <span class="materno-topic-icon" aria-hidden="true">+</span>
+                  </summary>
+                  <ul>
+                    <li><strong>Planes alimentarios personalizados</strong> para cada trimestre de gestación.</li>
+                    <li><strong>Control de peso saludable</strong> y prevención de complicaciones (diabetes gestacional).</li>
+                    <li><strong>Guía en suplementación</strong> y manejo de síntomas digestivos comunes.</li>
+                    <li><strong>Asesoramiento en lactancia</strong>, técnicas de acople y prevención de dolor.</li>
+                    <li><strong>Armado de banco de leche</strong> y organización para el regreso al trabajo.</li>
+                  </ul>
+                </details>
+
+                <details class="materno-topic">
+                  <summary>
+                    <span>Primera Infancia y Niñez</span>
+                    <span class="materno-topic-icon" aria-hidden="true">+</span>
+                  </summary>
+                  <ul>
+                    <li><strong>Asesoramiento en alimentación complementaria</strong> (tradicional y método BLW).</li>
+                    <li><strong>Abordaje de la selectividad alimentaria</strong> y neofobias del desarrollo.</li>
+                    <li><strong>Monitoreo nutricional</strong> del crecimiento y desarrollo físico.</li>
+                    <li><strong>Tratamiento de patologías infantiles</strong> (alergias alimentarias, celiaquía, constipación).</li>
+                  </ul>
+                </details>
+
+                <details class="materno-topic">
+                  <summary>
+                    <span>Adolescencia</span>
+                    <span class="materno-topic-icon" aria-hidden="true">+</span>
+                  </summary>
+                  <ul>
+                    <li><strong>Nutrición adaptada al desarrollo</strong> y estirón puberal.</li>
+                    <li><strong>Nutrición deportiva</strong> para adolescentes en competencia o recreación.</li>
+                    <li><strong>Orientación en alimentación vegetariana y vegana</strong> segura en la juventud.</li>
+                    <li><strong>Prevención y detección temprana</strong> de trastornos de la conducta alimentaria (TCA).</li>
+                  </ul>
+                </details>
+              </div>
             </div>
             <div class="service-media" aria-label="Nutrición materno-infantojuvenil">
               <img class="service-photo" src="materno-photo-hq.jpg" alt="Mujer embarazada con un bebé y una niña, representando la nutrición materno-infantojuvenil" loading="lazy" decoding="async">
