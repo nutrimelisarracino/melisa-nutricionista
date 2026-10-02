@@ -410,44 +410,127 @@
     .founder-copy .intro { color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: clamp(1.35rem, 2.6vw, 1.85rem); line-height: 1.45; }
 
     .professional-training {
-      margin-top:30px;
-      padding-top:24px;
-      border-top:1px solid rgba(91,49,59,.18);
+      margin-top:34px;
+      padding-top:28px;
+      border-top:1px solid rgba(91,49,59,.16);
+    }
+    .training-heading {
+      margin-bottom:26px;
     }
     .professional-training h3 {
-      margin-bottom:18px;
+      margin:0 0 7px;
       color:#873b55;
-      font-size:1.35rem;
+      font-size:clamp(1.4rem,2.2vw,1.72rem);
     }
-    .professional-training-list {
+    .training-heading p {
+      margin:0;
+      max-width:62ch;
+      color:#6f555b;
+      font-size:.94rem;
+      line-height:1.55;
+    }
+    .training-group + .training-group {
+      margin-top:28px;
+    }
+    .training-group-title {
+      margin:0 0 12px !important;
+      color:#7b3f53 !important;
+      font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size:1.02rem !important;
+      font-weight:700;
+      line-height:1.3 !important;
+    }
+    .training-card-grid {
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:10px 26px;
-      margin:0;
-      padding:0;
-      list-style:none;
+      gap:12px;
     }
-    .professional-training-list li {
+    .training-card {
       position:relative;
-      padding:0 0 10px 18px;
-      color:#5b313b;
-      font-size:.95rem;
-      line-height:1.5;
+      min-height:132px;
+      padding:20px 18px 17px;
+      border:1px solid rgba(135,59,85,.13);
+      border-radius:18px;
+      background:rgba(255,253,248,.62);
+      box-shadow:0 8px 24px rgba(91,49,59,.045);
     }
-    .professional-training-list li::before {
-      content:"";
+    .training-card-featured {
+      background:linear-gradient(145deg,rgba(255,249,246,.90),rgba(248,237,231,.78));
+      border-color:rgba(163,79,107,.20);
+      box-shadow:0 10px 28px rgba(91,49,59,.06);
+    }
+    .training-card strong {
+      display:block;
+      margin:0 52px 8px 0;
+      color:#4f2f38;
+      font-family:"Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+      font-size:1.01rem;
+      line-height:1.35;
+    }
+    .training-card > span:not(.training-year) {
+      display:block;
+      color:#765f65;
+      font-size:.86rem;
+      line-height:1.42;
+    }
+    .training-year {
       position:absolute;
-      left:0;
-      top:.62em;
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:#a34f6b;
+      top:16px;
+      right:16px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:48px;
+      min-height:28px;
+      padding:4px 9px;
+      border:1px solid rgba(163,79,107,.16);
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      color:#8a4b61;
+      font-size:.73rem;
+      font-weight:800;
+      letter-spacing:.03em;
+      line-height:1;
     }
     @media(max-width:760px){
-      .professional-training { margin-top:24px; padding-top:20px; }
-      .professional-training-list { grid-template-columns:1fr; gap:6px; }
-      .professional-training-list li { font-size:.93rem; padding-bottom:8px; }
+      .professional-training {
+        margin-top:26px;
+        padding-top:22px;
+      }
+      .training-heading {
+        margin-bottom:22px;
+      }
+      .training-heading p {
+        font-size:.9rem;
+      }
+      .training-group + .training-group {
+        margin-top:24px;
+      }
+      .training-card-grid {
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+      .training-card {
+        min-height:0;
+        padding:17px 16px 15px;
+        border-radius:16px;
+      }
+      .training-card strong {
+        margin-right:50px;
+        margin-bottom:7px;
+        font-size:.97rem;
+      }
+      .training-card > span:not(.training-year) {
+        font-size:.84rem;
+      }
+      .training-year {
+        top:14px;
+        right:14px;
+        min-width:45px;
+        min-height:26px;
+        padding:4px 8px;
+        font-size:.7rem;
+      }
     }
 
     .section-head { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.75fr); gap: 50px; align-items: end; margin-bottom: 46px; }
@@ -7103,20 +7186,83 @@
           <p>También cuento con formación en <strong>nutrición deportiva, Pilates, entrenamiento funcional, musculación y entrenamiento personal</strong>, conocimientos que complementan mi mirada profesional sobre la alimentación, el movimiento, los hábitos y el bienestar.</p>
 
           <div class="professional-training">
-            <h3>Formación y actualización profesional</h3>
-            <ul class="professional-training-list">
-              <li><strong>Curso de Posgrado en Nutrición Infantojuvenil</strong> — Universidad Nacional de Rosario (UNR), 2026.</li>
-              <li><strong>Diplomado en Patología Renal y Alimentación Basada en Plantas como Abordaje a la Terapéutica Nutricional</strong> — SLANH / SAN / UNA, 2025.</li>
-              <li><strong>Nutrición Deportiva para Running y Trail Running</strong> — Universidad Tecnológica Nacional (UTN), Facultad Regional Buenos Aires, 2025.</li>
-              <li><strong>Personal Trainer</strong> — ICAI, 2024.</li>
-              <li><strong>Instructor en Musculación Deportiva</strong> — ICAI, 2024.</li>
-              <li><strong>Nutrición para la Salud y el Entrenamiento</strong> — Nutreal, 2018.</li>
-              <li><strong>Instructora de Método Pilates</strong> — AMICI Formación en Fitness y Salud, 2016.</li>
-              <li><strong>Instructor en Técnicas de Entrenamiento Funcional y Resistencia Manual</strong> — IDEHA Capacitaciones / IDCA, 2016.</li>
-              <li><strong>Seminario de Suplementación Deportiva</strong> — Grupos de Estudio 757, 2016.</li>
-              <li><strong>Formación Profesional en Nutrición Deportiva, Nivel I</strong> — Universidad Nacional del Litoral (UNL), 2015.</li>
-              <li><strong>Abordaje Nutricional del Paciente con Cáncer</strong> — Centro Argentino de Formación Profesional, 2015.</li>
-            </ul>
+            <div class="training-heading">
+              <h3>Formación y actualización profesional</h3>
+              <p>Capacitaciones seleccionadas que acompañan y amplían mi práctica profesional.</p>
+            </div>
+
+            <div class="training-group">
+              <p class="training-group-title">Áreas principales</p>
+              <div class="training-card-grid training-card-grid-featured">
+                <article class="training-card training-card-featured">
+                  <span class="training-year">2026</span>
+                  <strong>Curso de Posgrado en Nutrición Infantojuvenil</strong>
+                  <span>Universidad Nacional de Rosario (UNR)</span>
+                </article>
+                <article class="training-card training-card-featured">
+                  <span class="training-year">2025</span>
+                  <strong>Diplomado en Patología Renal y Alimentación Basada en Plantas como Abordaje a la Terapéutica Nutricional</strong>
+                  <span>SLANH / SAN / UNA</span>
+                </article>
+              </div>
+            </div>
+
+            <div class="training-group">
+              <p class="training-group-title">Nutrición deportiva y movimiento</p>
+              <div class="training-card-grid">
+                <article class="training-card">
+                  <span class="training-year">2025</span>
+                  <strong>Nutrición Deportiva para Running y Trail Running</strong>
+                  <span>Universidad Tecnológica Nacional (UTN), Facultad Regional Buenos Aires</span>
+                </article>
+                <article class="training-card">
+                  <span class="training-year">2018</span>
+                  <strong>Nutrición para la Salud y el Entrenamiento</strong>
+                  <span>Nutreal</span>
+                </article>
+                <article class="training-card">
+                  <span class="training-year">2016</span>
+                  <strong>Seminario de Suplementación Deportiva</strong>
+                  <span>Grupos de Estudio 757</span>
+                </article>
+                <article class="training-card">
+                  <span class="training-year">2015</span>
+                  <strong>Formación Profesional en Nutrición Deportiva, Nivel I</strong>
+                  <span>Universidad Nacional del Litoral (UNL)</span>
+                </article>
+              </div>
+            </div>
+
+            <div class="training-group">
+              <p class="training-group-title">Formación complementaria</p>
+              <div class="training-card-grid">
+                <article class="training-card">
+                  <span class="training-year">2024</span>
+                  <strong>Personal Trainer</strong>
+                  <span>ICAI</span>
+                </article>
+                <article class="training-card">
+                  <span class="training-year">2024</span>
+                  <strong>Instructor en Musculación Deportiva</strong>
+                  <span>ICAI</span>
+                </article>
+                <article class="training-card">
+                  <span class="training-year">2016</span>
+                  <strong>Instructora de Método Pilates</strong>
+                  <span>AMICI Formación en Fitness y Salud</span>
+                </article>
+                <article class="training-card">
+                  <span class="training-year">2016</span>
+                  <strong>Instructor en Técnicas de Entrenamiento Funcional y Resistencia Manual</strong>
+                  <span>IDEHA Capacitaciones / IDCA</span>
+                </article>
+                <article class="training-card">
+                  <span class="training-year">2015</span>
+                  <strong>Abordaje Nutricional del Paciente con Cáncer</strong>
+                  <span>Centro Argentino de Formación Profesional</span>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </div>
