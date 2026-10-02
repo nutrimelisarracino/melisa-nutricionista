@@ -7391,6 +7391,39 @@
         border-width:6px !important;
       }
     }
+
+    /* Cómo trabajo: tarjetas más horizontales y compactas en celular */
+    @media(max-width:720px){
+      .steps-mobile-shell{
+        padding-bottom:24px;
+      }
+      .steps .step{
+        min-height:235px !important;
+        padding:20px 22px 22px !important;
+        border-radius:22px !important;
+      }
+      .steps .step::before{
+        width:42px;
+        height:42px;
+        margin-bottom:16px;
+        font-size:.92rem;
+      }
+      .steps .step h3{
+        margin-bottom:9px;
+        font-size:1.48rem;
+      }
+      .steps .step h3::after{
+        width:34px;
+        margin-top:10px;
+      }
+      .steps .step p{
+        font-size:.92rem;
+        line-height:1.5;
+      }
+      .steps-nav{
+        margin-top:-20px;
+      }
+    }
 </style>
   <script type="application/ld+json">
   {
