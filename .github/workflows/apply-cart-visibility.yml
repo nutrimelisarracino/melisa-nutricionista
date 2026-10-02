@@ -1,86 +1,34 @@
 name: Ajustar carrito flotante de libros
-
-on:
-  push:
-    paths:
-      - '.github/workflows/apply-cart-visibility.yml'
-
+on: push
 permissions:
   contents: write
-
 jobs:
   apply:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Mostrar carrito solo después de Comprar
+      - name: Aplicar corrección
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('index.html')
-          s = p.read_text(encoding='utf-8')
-          marker = 'NUTRIELITE CART VISIBILITY FIX 2026-10-02'
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          marker='NUTRIELITE CART VISIBILITY FIX 2026-10-02'
           if marker in s:
               print('La corrección ya está aplicada.')
               raise SystemExit(0)
-
-          css = '''
-<style id="nutrielite-cart-visibility-fix">
-/* NUTRIELITE CART VISIBILITY FIX 2026-10-02 */
-.cart-fab.cart-hidden-until-buy {
-  display: none !important;
-}
-.cart-fab.cart-visible-after-buy {
-  display: inline-flex !important;
-}
-</style>
-'''
-
-          js = '''
-<script id="nutrielite-cart-visibility-script">
-(function () {
-  function setupCartVisibility() {
-    const cart = document.querySelector('.cart-fab');
-    if (!cart) return;
-
-    cart.classList.add('cart-hidden-until-buy');
-    cart.classList.remove('cart-visible-after-buy');
-
-    document.querySelectorAll('.book-cart-add').forEach(function (button) {
-      if (button.dataset.cartVisibilityBound === '1') return;
-      button.dataset.cartVisibilityBound = '1';
-      button.addEventListener('click', function () {
-        cart.classList.remove('cart-hidden-until-buy');
-        cart.classList.add('cart-visible-after-buy');
-      });
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupCartVisibility);
-  } else {
-    setupCartVisibility();
-  }
-})();
-</script>
-'''
-
+          css='<style id="nutrielite-cart-visibility-fix">/* NUTRIELITE CART VISIBILITY FIX 2026-10-02 */ .cart-fab.cart-hidden-until-buy{display:none!important}.cart-fab.cart-visible-after-buy{display:inline-flex!important}</style>'
+          js='<script id="nutrielite-cart-visibility-script">(function(){function setup(){const cart=document.querySelector(".cart-fab");if(!cart)return;cart.classList.add("cart-hidden-until-buy");document.querySelectorAll(".book-cart-add").forEach(function(button){if(button.dataset.cartVisibilityBound==="1")return;button.dataset.cartVisibilityBound="1";button.addEventListener("click",function(){cart.classList.remove("cart-hidden-until-buy");cart.classList.add("cart-visible-after-buy")})})}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",setup);else setup()})();</script>'
           if '</head>' not in s or '</body>' not in s:
-              raise RuntimeError('No se encontraron los puntos de inserción esperados.')
-
-          s = s.replace('</head>', css + '</head>', 1)
-          s = s.replace('</body>', js + '</body>', 1)
-          p.write_text(s, encoding='utf-8')
+              raise SystemExit('No se encontraron los puntos de inserción.')
+          s=s.replace('</head>',css+'</head>',1).replace('</body>',js+'</body>',1)
+          p.write_text(s,encoding='utf-8')
           print('Corrección aplicada.')
           PY
-
       - name: Guardar cambios
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Mostrar carrito flotante solo al comprar libros digitales"
+          git diff --cached --quiet || git commit -m "Mostrar carrito solo al comprar libros digitales"
           git push
