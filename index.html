@@ -431,10 +431,16 @@
     }
     .training-heading p {
       margin:0;
-      max-width:62ch;
+      max-width:none;
       color:#6f555b;
       font-size:.94rem;
       line-height:1.55;
+      white-space:nowrap;
+    }
+    @media(max-width:760px){
+      .training-heading p{
+        white-space:normal;
+      }
     }
     .training-group + .training-group {
       margin-top:28px;
