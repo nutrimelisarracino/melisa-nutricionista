@@ -8159,6 +8159,139 @@
       }
     }
 
+
+    /* ===== Rediseño catálogo Carla: escritorio amplio + carrusel móvil · 02/10/2026 ===== */
+    #equipo .book-package,
+    #equipo .book-package *{
+      min-width:0;
+    }
+
+    #equipo .book-package{
+      text-align:left !important;
+    }
+
+    #equipo .book-package h3,
+    #equipo .book-package p,
+    #equipo .book-package-format,
+    #equipo .book-package-price,
+    #equipo .book-package-price-usd,
+    #equipo .price-currency-label,
+    #equipo .price-value{
+      text-align:left !important;
+    }
+
+    #equipo .book-package-price,
+    #equipo .book-package-price-usd{
+      width:100% !important;
+      max-width:100% !important;
+      overflow:hidden !important;
+      align-items:flex-start !important;
+    }
+
+    #equipo .price-currency-label{
+      display:flex !important;
+      flex-wrap:wrap !important;
+      justify-content:flex-start !important;
+      align-items:center !important;
+      gap:6px !important;
+      width:100% !important;
+      max-width:100% !important;
+      white-space:normal !important;
+      overflow-wrap:normal !important;
+      word-break:normal !important;
+      hyphens:none !important;
+    }
+
+    #equipo .price-currency-label small{
+      flex:0 0 auto !important;
+      white-space:nowrap !important;
+    }
+
+    #equipo .price-value{
+      display:block !important;
+      width:100% !important;
+      white-space:nowrap !important;
+      overflow-wrap:normal !important;
+      word-break:normal !important;
+    }
+
+    @media(min-width:901px){
+      #equipo .book-packages-main{
+        grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+        gap:16px !important;
+      }
+
+      #equipo .book-packages-special{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:16px !important;
+      }
+
+      #equipo .book-package{
+        padding:18px !important;
+      }
+
+      #equipo .book-package-price,
+      #equipo .book-package-price-usd{
+        padding:11px 12px !important;
+      }
+
+      #equipo .price-currency-label{
+        font-size:.68rem !important;
+        line-height:1.25 !important;
+        letter-spacing:.035em !important;
+      }
+
+      #equipo .price-value{
+        margin-top:2px;
+        font-size:1.12rem !important;
+      }
+    }
+
+    @media(max-width:720px){
+      #equipo .book-packages-main,
+      #equipo .book-packages-special{
+        display:flex !important;
+        grid-template-columns:none !important;
+        gap:12px !important;
+        overflow-x:auto !important;
+        overflow-y:hidden !important;
+        scroll-snap-type:x mandatory;
+        scroll-behavior:smooth;
+        -webkit-overflow-scrolling:touch;
+        overscroll-behavior-x:contain;
+        scrollbar-width:none;
+        padding:2px 30px 10px 2px !important;
+        margin-right:-12px;
+      }
+
+      #equipo .book-packages-main::-webkit-scrollbar,
+      #equipo .book-packages-special::-webkit-scrollbar{
+        display:none;
+      }
+
+      #equipo .book-packages-main .book-package,
+      #equipo .book-packages-special .book-package{
+        flex:0 0 min(82vw,320px) !important;
+        width:min(82vw,320px) !important;
+        max-width:min(82vw,320px) !important;
+        scroll-snap-align:start;
+        padding:17px !important;
+      }
+
+      #equipo .price-currency-label{
+        font-size:.66rem !important;
+        line-height:1.25 !important;
+      }
+
+      #equipo .price-value{
+        font-size:1.08rem !important;
+      }
+
+      #equipo .catalog-group{
+        overflow:hidden;
+      }
+    }
+
 </style>
   <script type="application/ld+json">
   {
