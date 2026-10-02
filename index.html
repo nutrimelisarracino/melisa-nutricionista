@@ -409,6 +409,47 @@
     .about-section-clean .eyebrow { color:#a34f6b; }
     .founder-copy .intro { color: var(--forest-deep); font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif; font-size: clamp(1.35rem, 2.6vw, 1.85rem); line-height: 1.45; }
 
+    .professional-training {
+      margin-top:30px;
+      padding-top:24px;
+      border-top:1px solid rgba(91,49,59,.18);
+    }
+    .professional-training h3 {
+      margin-bottom:18px;
+      color:#873b55;
+      font-size:1.35rem;
+    }
+    .professional-training-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px 26px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .professional-training-list li {
+      position:relative;
+      padding:0 0 10px 18px;
+      color:#5b313b;
+      font-size:.95rem;
+      line-height:1.5;
+    }
+    .professional-training-list li::before {
+      content:"";
+      position:absolute;
+      left:0;
+      top:.62em;
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:#a34f6b;
+    }
+    @media(max-width:760px){
+      .professional-training { margin-top:24px; padding-top:20px; }
+      .professional-training-list { grid-template-columns:1fr; gap:6px; }
+      .professional-training-list li { font-size:.93rem; padding-bottom:8px; }
+    }
+
     .section-head { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.75fr); gap: 50px; align-items: end; margin-bottom: 46px; }
     .section-head p { margin-bottom: 4px; color: var(--muted); }
     .service-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
@@ -7057,15 +7098,27 @@
 
         <div class="founder-copy">
           <p class="eyebrow">Sobre mí</p>
-<h2>NUTRIELITE nace de una manera de entender la nutrición</h2>
-          <p class="founder-hello-inline">Hola, soy Melisa</p>
-          <p><strong>Licenciada en Nutrición.</strong> Siempre estuve muy cerca de niños y de sus distintas etapas de crecimiento, y eso despertó en mí un interés especial por la nutrición materno-infantojuvenil.</p>
-          <p>Creo que la nutrición empieza mucho antes de lo que solemos pensar: desde la etapa preconcepcional, continúa durante el embarazo y la lactancia, y acompaña luego cada etapa de la infancia y la adolescencia.</p>
-          <p>Mi interés por la <strong>nutrición renal</strong> nació durante mis prácticas profesionales, cuando todavía era estudiante. El contacto con pacientes con enfermedad renal me permitió comprender de cerca lo específico y delicado que puede ser su abordaje nutricional, y fue ahí donde decidí seguir formándome en esta área.</p>
-          <p>Hoy cuento con formación de posgrado en <strong>nutrición materno-infantojuvenil</strong> y <strong>nutrición renal</strong>, y trabajo con niños, adolescentes y adultos. También soy <strong>Instructora de Pilates</strong> y <strong>Entrenadora Personal</strong>, formaciones que complementan mi mirada sobre el movimiento, la salud y el bienestar.</p>
-          <p>Mi manera de trabajar parte de algo simple pero fundamental: <strong>conocer a la persona antes de pensar en una estrategia</strong>. Su historia, sus hábitos, sus estudios, sus necesidades y su realidad cotidiana forman parte de cada decisión.</p>
-          <p>Sigo capacitándome de manera permanente porque entiendo que la nutrición también implica actualizarse, aprender y revisar constantemente la propia práctica.</p>
-          <p><strong>NUTRIELITE representa esa forma de ejercer mi profesión: cercana, individualizada y comprometida con cada proceso.</strong></p>
+          <h2>Lic. Melisa Florencia Sarracino</h2>
+          <p>Soy <strong>Licenciada en Nutrición</strong> y oriento mi práctica principalmente a la <strong>nutrición materno-infantojuvenil</strong> y la <strong>nutrición renal</strong>. A lo largo de mi formación fui profundizando en estas áreas, junto con otros campos de la nutrición, la actividad física y el entrenamiento.</p>
+          <p>Mi interés por la nutrición materno-infantojuvenil está relacionado con el acompañamiento nutricional en distintas etapas de la vida, mientras que mi interés por la nutrición renal se consolidó durante mi formación y mis prácticas profesionales. Desde entonces continué capacitándome en ambas áreas.</p>
+          <p>También cuento con formación en <strong>nutrición deportiva, Pilates, entrenamiento funcional, musculación y entrenamiento personal</strong>, conocimientos que complementan mi mirada profesional sobre la alimentación, el movimiento, los hábitos y el bienestar.</p>
+
+          <div class="professional-training">
+            <h3>Formación académica y profesional</h3>
+            <ul class="professional-training-list">
+              <li><strong>Curso de Posgrado en Nutrición Infantojuvenil</strong> — Universidad Nacional de Rosario (UNR), 2026.</li>
+              <li><strong>Diplomado en Patología Renal y Alimentación Basada en Plantas como Abordaje a la Terapéutica Nutricional</strong> — SLANH / SAN / UNA, 2025.</li>
+              <li><strong>Nutrición Deportiva para Running y Trail Running</strong> — Universidad Tecnológica Nacional (UTN), Facultad Regional Buenos Aires, 2025.</li>
+              <li><strong>Personal Trainer</strong> — ICAI, 2024.</li>
+              <li><strong>Instructor en Musculación Deportiva</strong> — ICAI, 2024.</li>
+              <li><strong>Nutrición para la Salud y el Entrenamiento</strong> — Nutreal, 2018.</li>
+              <li><strong>Instructora de Método Pilates</strong> — AMICI Formación en Fitness y Salud, 2016.</li>
+              <li><strong>Instructor en Técnicas de Entrenamiento Funcional y Resistencia Manual</strong> — IDEHA Capacitaciones / IDCA, 2016.</li>
+              <li><strong>Seminario de Suplementación Deportiva</strong> — Grupos de Estudio 757, 2016.</li>
+              <li><strong>Formación Profesional en Nutrición Deportiva, Nivel I</strong> — Universidad Nacional del Litoral (UNL), 2015.</li>
+              <li><strong>Abordaje Nutricional del Paciente con Cáncer</strong> — Centro Argentino de Formación Profesional, 2015.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
