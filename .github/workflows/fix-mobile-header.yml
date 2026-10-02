@@ -1,6 +1,12 @@
 name: Fix mobile header
 
-on: push
+on:
+  push:
+    paths:
+      - 'mobile-header-fix.trigger'
+
+permissions:
+  contents: write
 
 jobs:
   fix:
@@ -8,9 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Patch index
-        run: python3 -c 'from pathlib import Path; p=Path("index.html"); s=p.read_text(encoding="utf-8"); marker="NUTRIELITE MOBILE HEADER FIX 2026-10-02"; css="""<style id="nutrielite-mobile-header-fix">\n/* NUTRIELITE MOBILE HEADER FIX 2026-10-02 */\n@media (max-width:900px){.site-header .nav{position:relative!important;min-height:78px!important;width:calc(100% - 20px)!important;gap:8px!important}.top-logo-link{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:3!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}.top-logo{display:block!important;width:88px!important;height:auto!important;background:transparent!important;border:0!important;box-shadow:none!important;mix-blend-mode:normal!important}.site-search-toggle{position:absolute!important;left:calc(50% - 112px)!important;top:50%!important;transform:translateY(-50%)!important;z-index:4!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;margin:0!important;padding:0!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:12px!important}.site-search-toggle svg{width:20px!important;height:20px!important}}\n@media(prefers-color-scheme:dark){.site-header,.nav-shell{background:#fdfdf5!important;color:#17342d!important}.site-search-toggle{background:#f7f3ea!important;color:#873b55!important;border-color:rgba(135,59,85,.24)!important;box-shadow:0 4px 14px rgba(0,0,0,.18)!important}.site-search-toggle svg{stroke:#873b55!important}}\n</style>\n"""; s=s if marker in s else s.replace("</head>",css+"</head>",1); p.write_text(s,encoding="utf-8")'
-      - name: Upload patched index
-        uses: actions/upload-artifact@v4
-        with:
-          name: patched-index-html
-          path: index.html
+        run: python3 -c 'from pathlib import Path; p=Path("index.html"); s=p.read_text(encoding="utf-8"); marker="NUTRIELITE MOBILE HEADER FIX 2026-10-02"; css="""<style id="nutrielite-mobile-header-fix">\n/* NUTRIELITE MOBILE HEADER FIX 2026-10-02 */\n@media (max-width:900px){.site-header .nav{position:relative!important;min-height:78px!important;width:calc(100% - 20px)!important;gap:8px!important}.top-logo-link{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:3!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}.top-logo{display:block!important;width:88px!important;height:auto!important;background:transparent!important;border:0!important;box-shadow:none!important;mix-blend-mode:multiply!important}.site-search-toggle{position:absolute!important;left:calc(50% - 112px)!important;top:50%!important;transform:translateY(-50%)!important;z-index:4!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;margin:0!important;padding:0!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:12px!important}.site-search-toggle svg{width:20px!important;height:20px!important}}\n@media(prefers-color-scheme:dark){.site-header,.nav-shell{background:#fdfdf5!important;color:#17342d!important}.site-search-toggle{background:#f7f3ea!important;color:#873b55!important;border-color:rgba(135,59,85,.24)!important;box-shadow:0 4px 14px rgba(0,0,0,.18)!important}.site-search-toggle svg{stroke:#873b55!important}.top-logo{mix-blend-mode:multiply!important}}\n</style>\n"""; s=s if marker in s else s.replace("</head>",css+"</head>",1); p.write_text(s,encoding="utf-8")'
+      - name: Commit and push fix branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Adaptar logo y lupa móvil a modo claro y oscuro"
+          git push origin HEAD:fix-mobile-header-20261002
