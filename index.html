@@ -492,42 +492,50 @@
       letter-spacing:.03em;
       line-height:1;
     }
-    .training-mobile-toggle{
+    .training-mobile-extra{
       display:none;
+    }
+    .professional-training.training-expanded .training-mobile-extra{
+      display:block;
+    }
+    .training-mobile-toggle{
+      display:flex;
+      width:100%;
+      min-height:46px;
+      align-items:center;
+      justify-content:center;
+      margin-top:18px;
+      padding:11px 16px;
+      border:1px solid rgba(143,75,98,.22);
+      border-radius:14px;
+      background:rgba(255,255,255,.72);
+      color:#7b3f53;
+      font:inherit;
+      font-size:.9rem;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(91,49,59,.04);
+    }
+    .training-mobile-toggle:hover{
+      background:#fff;
+      border-color:rgba(143,75,98,.32);
     }
     .training-toggle-less{
       display:none;
     }
-    @media(max-width:760px){
-      .training-mobile-extra{
-        display:none;
-      }
-      .professional-training.training-expanded .training-mobile-extra{
-        display:block;
-      }
+    .professional-training.training-expanded .training-toggle-more{
+      display:none;
+    }
+    .professional-training.training-expanded .training-toggle-less{
+      display:inline;
+    }
+    @media(min-width:761px){
       .training-mobile-toggle{
-        display:flex;
-        width:100%;
-        min-height:46px;
-        align-items:center;
-        justify-content:center;
-        margin-top:18px;
-        padding:11px 16px;
-        border:1px solid rgba(143,75,98,.22);
-        border-radius:14px;
-        background:rgba(255,255,255,.72);
-        color:#7b3f53;
-        font:inherit;
-        font-size:.9rem;
-        font-weight:800;
-        cursor:pointer;
-        box-shadow:0 6px 18px rgba(91,49,59,.04);
-      }
-      .professional-training.training-expanded .training-toggle-more{
-        display:none;
-      }
-      .professional-training.training-expanded .training-toggle-less{
-        display:inline;
+        width:auto;
+        min-width:220px;
+        margin:22px auto 0;
+        padding:10px 22px;
+        border-radius:999px;
       }
     }
 
