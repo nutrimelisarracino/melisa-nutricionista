@@ -1,0 +1,1 @@
+Aplicar ajuste de encabezado móvil: logo transparente y lupa separada, compatible con modo claro y oscuro.
