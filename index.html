@@ -420,7 +420,14 @@
     .professional-training h3 {
       margin:0 0 7px;
       color:#873b55;
-      font-size:clamp(1.4rem,2.2vw,1.72rem);
+      font-size:clamp(1.18rem,2.2vw,1.72rem);
+      white-space:nowrap;
+    }
+    @media(max-width:480px){
+      .professional-training h3{
+        font-size:clamp(1.02rem,4.7vw,1.16rem);
+        letter-spacing:-.015em;
+      }
     }
     .training-heading p {
       margin:0;
