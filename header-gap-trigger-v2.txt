@@ -1,0 +1,1 @@
+Aplicar v2: separar la casita de inicio de la lupa en móvil con 16 px de espacio visual.
