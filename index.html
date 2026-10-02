@@ -8057,6 +8057,63 @@
       }
     }
 
+
+    /* ===== Corrección precios Carla escritorio · 02/10/2026 ===== */
+    @media(min-width:901px){
+      #equipo .book-package{
+        min-width:0 !important;
+        overflow:hidden;
+      }
+      #equipo .book-package-price,
+      #equipo .book-package-price-usd{
+        width:100% !important;
+        min-width:0 !important;
+        max-width:100% !important;
+        overflow:hidden;
+        padding:10px 10px !important;
+      }
+      #equipo .price-currency-label{
+        display:grid !important;
+        grid-template-columns:minmax(0,1fr) auto;
+        align-items:center;
+        gap:6px;
+        width:100%;
+        min-width:0;
+        font-size:.60rem;
+        line-height:1.18;
+        letter-spacing:.025em;
+      }
+      #equipo .price-currency-label small{
+        flex:0 0 auto;
+        min-width:30px;
+        min-height:19px;
+        padding:2px 6px;
+        font-size:.56rem;
+        white-space:nowrap;
+      }
+      #equipo .price-currency-label{
+        overflow-wrap:anywhere;
+        word-break:normal;
+      }
+      #equipo .price-value{
+        width:100%;
+        min-width:0;
+        font-size:1.02rem;
+        line-height:1.15;
+        white-space:normal;
+        overflow-wrap:anywhere;
+      }
+    }
+
+    @media(min-width:901px) and (max-width:1180px){
+      #equipo .book-packages-main{
+        grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+      }
+      #equipo .book-packages-special{
+        grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+      }
+    }
+
 </style>
   <script type="application/ld+json">
   {
