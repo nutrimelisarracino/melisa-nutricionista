@@ -382,12 +382,20 @@
     }
     .founder-photo-column { align-self:center; }
     .founder-photo-frame {
-      max-width:390px;
+      max-width:320px;
+      margin:0 auto;
       padding:0;
-      border-radius:24px;
+      border-radius:22px;
       background:transparent;
-      border:10px solid #b8c97a;
-      box-shadow:0 18px 40px rgba(65,78,35,.12);
+      border:8px solid #b8c97a;
+      box-shadow:0 16px 34px rgba(65,78,35,.11);
+    }
+    @media(max-width:760px){
+      .founder-photo-frame{
+        max-width:250px;
+        border-width:7px;
+        border-radius:20px;
+      }
     }
     .founder-photo {
       display:block;
