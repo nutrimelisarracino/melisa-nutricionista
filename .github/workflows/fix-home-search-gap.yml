@@ -1,0 +1,38 @@
+name: Corregir separación inicio-lupa en móvil
+
+on:
+  push:
+    paths:
+      - 'header-gap-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Aplicar separación
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = 'FIX SEPARACION INICIO LUPA MOBILE 2026-10-02'
+          if marker not in s:
+              css = '''\n<style id="mobile-home-search-gap-fix">\n  /* FIX SEPARACION INICIO LUPA MOBILE 2026-10-02 */\n  @media (max-width: 900px) {\n    .site-search-toggle {\n      margin-left: 10px !important;\n    }\n  }\n</style>\n'''
+              if '</head>' not in s:
+                  raise RuntimeError('No se encontró </head> en index.html')
+              s = s.replace('</head>', css + '</head>', 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar cambio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Separar botón de inicio y lupa en móvil" || exit 0
+          git push
