@@ -1,0 +1,45 @@
+name: Ajustar encabezado móvil
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-mobile-header.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ajustar logo y lupa para claro/oscuro
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          marker = '/* FIX HEADER MOBILE CLARO/OSCURO 2026-10-02 */'
+          if marker in text:
+              raise SystemExit('El ajuste ya está aplicado.')
+
+          css = r'''\n<style id="nutrimel-header-mobile-fix">\n  /* FIX HEADER MOBILE CLARO/OSCURO 2026-10-02 */\n  .top-logo {\n    background: transparent !important;\n    position: relative;\n    z-index: 3;\n    filter: url(#nutrimel-logo-transparent-white);\n  }\n\n  @media (max-width: 720px) {\n    .site-header .nav {\n      position: relative;\n      isolation: isolate;\n    }\n\n    .top-logo-link {\n      left: 50% !important;\n      transform: translateX(-50%) !important;\n      z-index: 3 !important;\n      pointer-events: auto;\n    }\n\n    .top-logo {\n      width: 86px !important;\n      height: auto !important;\n    }\n\n    /* La lupa queda a la izquierda del logo, sin invadirlo. */\n    .site-search-toggle {\n      left: calc(50% - 92px) !important;\n      right: auto !important;\n      width: 42px !important;\n      min-width: 42px !important;\n      height: 42px !important;\n      min-height: 42px !important;\n      margin: 0 !important;\n      z-index: 4 !important;\n      display: inline-flex !important;\n      align-items: center !important;\n      justify-content: center !important;\n      box-sizing: border-box !important;\n    }\n\n    .site-search-toggle svg {\n      width: 21px !important;\n      height: 21px !important;\n    }\n  }\n\n  /* Modo claro: mantiene el aspecto suave actual. */\n  @media (prefers-color-scheme: light) {\n    .site-search-toggle {\n      background: rgba(255,250,252,.94) !important;\n      border-color: rgba(143,75,98,.20) !important;\n      color: #7a4055 !important;\n      box-shadow: 0 4px 12px rgba(111,66,82,.07) !important;\n    }\n    .site-search-toggle svg { stroke: #7a4055 !important; }\n  }\n\n  /* Modo oscuro del dispositivo: evita un botón/lupa demasiado brillante. */\n  @media (prefers-color-scheme: dark) {\n    .site-search-toggle {\n      background: rgba(35,52,48,.78) !important;\n      border-color: rgba(255,255,255,.30) !important;\n      color: #fff !important;\n      box-shadow: 0 4px 14px rgba(0,0,0,.22) !important;\n    }\n    .site-search-toggle svg { stroke: #fff !important; }\n  }\n</style>\n'''
+
+          # SVG filter: convierte el fondo blanco del logo rasterizado en transparencia,\n          # conservando sus trazos y colores.\n          svg = r'''\n<svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">\n  <defs>\n    <filter id="nutrimel-logo-transparent-white" color-interpolation-filters="sRGB">\n      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -1 -1 -1 0 3"/>\n    </filter>\n  </defs>\n</svg>\n'''
+
+          if '</head>' not in text or '</body>' not in text:\n              raise SystemExit('No se encontraron los puntos de inserción esperados.')
+          text = text.replace('</head>', css + '</head>', 1)
+          text = text.replace('</body>', svg + '</body>', 1)
+          p.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Guardar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Ajustar logo y lupa en móvil para modo claro y oscuro"
+          git push
