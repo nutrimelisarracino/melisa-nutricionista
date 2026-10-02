@@ -1,0 +1,66 @@
+name: Aplicar ajuste de encabezado
+
+on:
+  push:
+    paths:
+      - 'header-fix-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Aplicar ajuste
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          marker = 'FIX HEADER MOBILE CLARO/OSCURO 2026-10-02'
+          if marker in text:
+              print('El ajuste ya estaba aplicado.')
+              raise SystemExit(0)
+
+          css = '''
+<style id="nutrimel-header-mobile-fix">
+  /* FIX HEADER MOBILE CLARO/OSCURO 2026-10-02 */
+  .top-logo { background: transparent !important; position: relative; z-index: 3; filter: url(#nutrimel-logo-transparent-white); }
+  @media (max-width: 720px) {
+    .site-header .nav { position: relative; isolation: isolate; }
+    .top-logo-link { left: 50% !important; transform: translateX(-50%) !important; z-index: 3 !important; }
+    .top-logo { width: 86px !important; height: auto !important; }
+    .site-search-toggle { left: calc(50% - 92px) !important; right: auto !important; width: 42px !important; min-width: 42px !important; height: 42px !important; min-height: 42px !important; margin: 0 !important; z-index: 4 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; box-sizing: border-box !important; }
+    .site-search-toggle svg { width: 21px !important; height: 21px !important; }
+  }
+  @media (prefers-color-scheme: light) {
+    .site-search-toggle { background: rgba(255,250,252,.94) !important; border-color: rgba(143,75,98,.20) !important; color: #7a4055 !important; box-shadow: 0 4px 12px rgba(111,66,82,.07) !important; }
+    .site-search-toggle svg { stroke: #7a4055 !important; }
+  }
+  @media (prefers-color-scheme: dark) {
+    .site-search-toggle { background: rgba(35,52,48,.78) !important; border-color: rgba(255,255,255,.30) !important; color: #fff !important; box-shadow: 0 4px 14px rgba(0,0,0,.22) !important; }
+    .site-search-toggle svg { stroke: #fff !important; }
+  }
+</style>
+'''
+          svg = '''
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden"><defs><filter id="nutrimel-logo-transparent-white" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 -1 -1 -1 0 3" /></filter></defs></svg>
+'''
+          if '</head>' not in text or '</body>' not in text:
+              raise RuntimeError('No se encontraron los puntos de inserción esperados.')
+          p.write_text(text.replace('</head>', css + '</head>', 1).replace('</body>', svg + '</body>', 1), encoding='utf-8')
+          print('Ajuste aplicado correctamente.')
+          PY
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Ajustar logo y lupa en móvil para modo claro y oscuro"
+          git push
