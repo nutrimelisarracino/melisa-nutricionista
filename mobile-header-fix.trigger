@@ -1,1 +1,0 @@
-Activar corrección del encabezado móvil v4.
