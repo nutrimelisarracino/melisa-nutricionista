@@ -1,0 +1,12 @@
+/* Quitar únicamente el semicírculo decorativo que sobresale debajo del logo en móvil. */
+@media (max-width: 720px) {
+  .site-header::after,
+  .header::after,
+  .navbar::after,
+  .site-logo::after,
+  .logo-wrap::after,
+  .logo-container::after {
+    display: none !important;
+    content: none !important;
+  }
+}
