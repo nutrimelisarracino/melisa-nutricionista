@@ -10235,7 +10235,27 @@
     left:calc(50% - 58px) !important;
   }
 }
-</style></head>
+</style>
+<style id="mobile-header-two-row-final">
+@media (max-width:720px){
+  .site-header .nav{position:relative!important;min-height:112px!important;height:112px!important;padding:0 12px!important;width:100%!important;box-sizing:border-box!important}
+  .site-header .menu-toggle{position:absolute!important;left:12px!important;top:36px!important;transform:translateY(-50%)!important;z-index:20!important;min-width:46px!important;min-height:38px!important;margin:0!important}
+  .site-header .top-logo-link{position:absolute!important;left:50%!important;top:36px!important;transform:translate(-50%,-50%)!important;z-index:15!important;width:62px!important;height:62px!important}
+  .site-header .lang-picker{position:absolute!important;right:12px!important;top:36px!important;transform:translateY(-50%)!important;z-index:20!important;margin:0!important}
+  .site-header .mobile-home-link{position:absolute!important;left:calc(50% - 44px)!important;top:87px!important;transform:translate(-50%,-50%)!important;width:38px!important;height:38px!important;z-index:20!important;margin:0!important}
+  .site-header .site-search-toggle{position:absolute!important;left:calc(50% + 6px)!important;top:87px!important;transform:translate(-50%,-50%)!important;width:38px!important;min-width:38px!important;height:38px!important;min-height:38px!important;padding:0!important;box-sizing:border-box!important;border-radius:11px!important;z-index:20!important;margin:0!important}
+  .site-header .top-logo{width:62px!important;height:62px!important;border-radius:50%!important;object-fit:cover!important}
+}
+@media (max-width:360px){
+  .site-header .nav{min-height:108px!important;height:108px!important;padding:0 8px!important}
+  .site-header .menu-toggle{left:8px!important}
+  .site-header .lang-picker{right:8px!important}
+  .site-header .top-logo-link{width:56px!important;height:56px!important;top:35px!important}
+  .site-header .top-logo{width:56px!important;height:56px!important}
+  .site-header .mobile-home-link,.site-header .site-search-toggle{top:85px!important}
+}
+</style>
+</head>
 <body>
   <!-- NUTRIELITE build: renal-photo -->
   <a class="skip-link" href="#contenido">Ir al contenido principal</a>
