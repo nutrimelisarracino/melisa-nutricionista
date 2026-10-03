@@ -1,0 +1,33 @@
+name: Corregir buscador móvil
+on:
+  push:
+    paths:
+      - 'search-mobile-title-fix.trigger'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ajustar panel de búsqueda móvil
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          marker='/* FIX: buscador móvil no tapa el título */'
+          css='''\n    /* FIX: buscador móvil no tapa el título */\n    @media (max-width:720px){\n      .site-search-panel{\n        top:0 !important;\n        position:sticky !important;\n      }\n      .site-search-panel.open{\n        margin-bottom:0 !important;\n      }\n      .site-search-panel.open + main{\n        scroll-margin-top:150px !important;\n      }\n    }\n'''
+          if marker not in s:
+              pos=s.rfind('</style>')
+              if pos<0: raise SystemExit('No se encontró </style>')
+              s=s[:pos]+css+s[pos:]
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --cached --quiet || git commit -m 'Corregir título tapado al abrir buscador móvil'
+          git push
