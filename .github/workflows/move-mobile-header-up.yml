@@ -1,0 +1,38 @@
+name: Subir franja superior móvil
+
+on:
+  push:
+    paths:
+      - 'mobile-header-up-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Subir franja superior
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = 'NUTRIELITE MOBILE HEADER MOVE UP 2026-10-02'
+          css = '''\n<style id="nutrielite-mobile-header-move-up-final">\n/* NUTRIELITE MOBILE HEADER MOVE UP 2026-10-02 */\n@media (max-width:720px){\n  .site-header .nav-shell{\n    transform:translateY(-42px)!important;\n    margin-bottom:-42px!important;\n  }\n}\n@media (max-width:380px){\n  .site-header .nav-shell{\n    transform:translateY(-38px)!important;\n    margin-bottom:-38px!important;\n  }\n}\n</style>\n'''
+          if marker not in s:
+              if '</head>' not in s:
+                  raise SystemExit('No se encontró </head>.')
+              s = s.replace('</head>', css + '</head>', 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar cambio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Subir franja superior en móvil"
+          git push
