@@ -1,0 +1,38 @@
+name: Corregir Próximamente de Carla
+
+on:
+  push:
+    paths:
+      - 'fix-carla-coming-soon-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Ajustar etiqueta Próximamente
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = 'CARLA COMING SOON POSITION FIX 2026-10-02'
+          css = '''\n<style id="carla-coming-soon-position-fix">\n/* CARLA COMING SOON POSITION FIX 2026-10-02 */\n#equipo .proposal-card-kitchen .proposal-summary .coming{\n  left:36% !important;\n  bottom:10px !important;\n  transform:none !important;\n  margin:0 !important;\n  white-space:nowrap !important;\n}\n@media(max-width:720px){\n  #equipo .proposal-card-kitchen .proposal-summary .coming{\n    left:36% !important;\n    bottom:10px !important;\n    transform:none !important;\n  }\n}\n</style>\n'''
+          if marker not in s:
+              if '</head>' not in s:
+                  raise SystemExit('No se encontró </head>.')
+              s = s.replace('</head>', css + '</head>', 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar cambio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Corregir posición de Próximamente de Carla"
+          git push
