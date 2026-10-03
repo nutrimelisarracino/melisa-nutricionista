@@ -1,0 +1,38 @@
+name: Quitar semicírculo del logo móvil
+
+on:
+  push:
+    paths:
+      - 'remove-mobile-logo-semicircle-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Eliminar únicamente el fondo curvo bajo el logo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = 'NUTRIELITE REMOVE MOBILE LOGO SEMICIRCLE 2026-10-02'
+          css = '''\n<style id="remove-mobile-logo-semicircle-final">\n/* NUTRIELITE REMOVE MOBILE LOGO SEMICIRCLE 2026-10-02 */\n@media (max-width:720px){\n  .site-header .top-logo-link,\n  .site-header .top-logo-link::before,\n  .site-header .top-logo-link::after,\n  .site-header .nav::before,\n  .site-header .nav::after,\n  .site-header .nav-shell::before,\n  .site-header .nav-shell::after{\n    background-image:none!important;\n  }\n  .site-header .top-logo-link{\n    background:transparent!important;\n    box-shadow:none!important;\n    border:0!important;\n  }\n  .site-header .top-logo-link::before,\n  .site-header .top-logo-link::after,\n  .site-header .nav::before,\n  .site-header .nav::after,\n  .site-header .nav-shell::before,\n  .site-header .nav-shell::after{\n    content:none!important;\n    display:none!important;\n    width:0!important;\n    height:0!important;\n    border:0!important;\n    box-shadow:none!important;\n  }\n}\n</style>\n'''
+          if marker not in s:
+              if '</head>' not in s:
+                  raise SystemExit('No se encontró </head>.')
+              s = s.replace('</head>', css + '</head>', 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar cambio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Quitar semicírculo del logo móvil"
+          git push
