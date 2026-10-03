@@ -1,0 +1,1 @@
+trigger search mobile title fix 2026-10-02
