@@ -10513,6 +10513,20 @@
     border:0!important;
   }
 }
+
+    /* FIX: buscador móvil no tapa el título */
+    @media (max-width:720px){
+      .site-search-panel{
+        top:0 !important;
+        position:sticky !important;
+      }
+      .site-search-panel.open{
+        margin-bottom:0 !important;
+      }
+      .site-search-panel.open + main{
+        scroll-margin-top:150px !important;
+      }
+    }
 </style>
 </head>
 <body>
