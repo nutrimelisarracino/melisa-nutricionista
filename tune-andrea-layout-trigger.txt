@@ -1,1 +1,1 @@
-Ajuste visual de Andrea: mismo tratamiento de ancho de descripción y altura compacta al desplegar que Carla.
+Ajuste definitivo de Andrea y Carla: más ancho útil para la descripción en la primera línea y franja desplegable compacta, sin cambiar fotos, nombres ni estética.
