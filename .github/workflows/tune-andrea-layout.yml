@@ -1,0 +1,36 @@
+name: Ajustar diseño de Andrea
+
+on:
+  push:
+    paths:
+      - 'tune-andrea-layout-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  tune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Ajustar franja de Andrea
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = '/* Ajuste visual Andrea: ancho de texto y altura al desplegar */'
+          if marker not in s:
+              css = '''\n    /* Ajuste visual Andrea: ancho de texto y altura al desplegar */\n    .proposal-card-coach .proposal-summary-copy p {\n      max-width: 600px;\n    }\n    @media (min-width: 901px) {\n      .proposal-card-coach[open] .proposal-summary {\n        min-height: 190px !important;\n        padding-top: 24px !important;\n        padding-bottom: 24px !important;\n      }\n    }\n    @media (max-width: 900px) {\n      .proposal-card-coach .proposal-summary-copy p {\n        max-width: none;\n      }\n      .proposal-card-coach[open] .proposal-summary {\n        min-height: 185px !important;\n        padding-top: 20px !important;\n        padding-bottom: 20px !important;\n      }\n    }\n'''
+              s = s.replace('</style>', css + '  </style>', 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar cambio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Ajustar franja desplegable de Andrea"
+          git push
