@@ -1,0 +1,36 @@
+name: Quitar curva debajo del logo móvil
+
+on:
+  push:
+    paths:
+      - 'remove-logo-curve-mobile.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Quitar curva del logo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = 'REMOVE MOBILE LOGO CURVE 2026-10-02'
+          css = '''\n<style id="remove-mobile-logo-curve">\n/* REMOVE MOBILE LOGO CURVE 2026-10-02 */\n@media (max-width:720px){\n  .site-header .top-logo-link::before,\n  .site-header .top-logo-link::after,\n  .site-header .nav::before,\n  .site-header .nav::after,\n  .site-header .nav-shell::before,\n  .site-header .nav-shell::after{\n    display:none!important;\n    content:none!important;\n    background:transparent!important;\n    box-shadow:none!important;\n    border:0!important;\n  }\n  .site-header .top-logo-link{\n    background:transparent!important;\n    box-shadow:none!important;\n    border:0!important;\n  }\n}\n</style>\n'''
+          if marker not in s:
+              s = s.replace('</head>', css + '</head>', 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar cambio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Quitar curva debajo del logo móvil" || exit 0
+          git push
