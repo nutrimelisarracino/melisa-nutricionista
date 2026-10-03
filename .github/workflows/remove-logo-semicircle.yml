@@ -1,0 +1,34 @@
+name: Quitar semicírculo debajo del logo
+
+on:
+  push:
+    paths:
+      - 'remove-logo-semicircle-mobile.css'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Aplicar ajuste únicamente al semicírculo móvil
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = 'REMOVE LOGO SEMICIRCLE MOBILE 2026-10-02'
+          css = '''\n<style id="remove-logo-semicircle-mobile">\n/* REMOVE LOGO SEMICIRCLE MOBILE 2026-10-02 */\n@media (max-width: 720px) {\n  .top-logo-link::before,\n  .top-logo-link::after,\n  .site-header .nav::before,\n  .site-header .nav::after {\n    display: none !important;\n    content: none !important;\n  }\n}\n</style>\n'''
+          if marker not in s:
+              s = s.replace('</head>', css + '</head>', 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Guardar cambio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Quitar semicírculo decorativo debajo del logo móvil"
+          git push
