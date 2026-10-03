@@ -2,8 +2,8 @@
 #sobre-mi .founder-photo-frame{
   border-width:1px !important;
   border-style:solid !important;
-  border-color:rgba(198,209,143,.72) !important;
-  box-shadow:0 10px 26px rgba(65,78,35,.08) !important;
+  border-color:rgba(184,171,132,.65) !important;
+  box-shadow:0 8px 22px rgba(50,55,40,.07) !important;
 }
 @media(max-width:720px){
   #sobre-mi .founder-photo-frame{
