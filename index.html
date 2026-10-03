@@ -10361,7 +10361,62 @@
   .site-header .site-search-toggle{top:83px!important}
 }
 </style>
-</head>
+
+<style id="mobile-header-compact-final">
+@media (max-width:720px){
+  .site-header .nav-shell{height:82px!important}
+  .site-header .nav{
+    position:relative!important;
+    display:block!important;
+    height:82px!important;
+    min-height:82px!important;
+    padding:0 12px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+  .site-header .menu-toggle{
+    position:absolute!important;left:10px!important;top:50%!important;
+    transform:translateY(-50%)!important;z-index:30!important;
+    width:48px!important;min-width:48px!important;height:38px!important;min-height:38px!important;
+    margin:0!important;padding:0!important;
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  }
+  .site-header .mobile-home-link{
+    position:absolute!important;left:68px!important;top:50%!important;
+    transform:translateY(-50%)!important;z-index:30!important;
+    width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important;
+    margin:0!important;
+  }
+  .site-header .site-search-toggle{
+    position:absolute!important;left:116px!important;top:50%!important;
+    transform:translateY(-50%)!important;z-index:30!important;
+    width:38px!important;min-width:38px!important;height:38px!important;min-height:38px!important;
+    margin:0!important;padding:0!important;box-sizing:border-box!important;
+    border-radius:11px!important;
+  }
+  .site-header .top-logo-link{
+    position:absolute!important;left:50%!important;top:50%!important;
+    transform:translate(-50%,-50%)!important;z-index:25!important;
+    width:62px!important;height:62px!important;margin:0!important;padding:0!important;
+  }
+  .site-header .top-logo{
+    width:62px!important;height:62px!important;object-fit:cover!important;
+    border-radius:50%!important;
+  }
+  .site-header .lang-picker{
+    position:absolute!important;right:10px!important;left:auto!important;top:50%!important;
+    transform:translateY(-50%)!important;z-index:30!important;margin:0!important;
+  }
+}
+@media (max-width:380px){
+  .site-header .nav-shell,.site-header .nav{height:76px!important;min-height:76px!important}
+  .site-header .menu-toggle{left:6px!important}
+  .site-header .mobile-home-link{left:62px!important}
+  .site-header .site-search-toggle{left:108px!important}
+  .site-header .top-logo-link,.site-header .top-logo{width:56px!important;height:56px!important}
+  .site-header .lang-picker{right:6px!important}
+}
+</style></head>
 <body>
   <!-- NUTRIELITE build: renal-photo -->
   <a class="skip-link" href="#contenido">Ir al contenido principal</a>
