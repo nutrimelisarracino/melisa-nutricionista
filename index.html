@@ -10416,7 +10416,30 @@
   .site-header .top-logo-link,.site-header .top-logo{width:56px!important;height:56px!important}
   .site-header .lang-picker{right:6px!important}
 }
-</style></head>
+</style>
+<style id="mobile-header-no-top-space">
+@media (max-width:720px){
+  .site-header{padding-top:0!important;margin-top:0!important}
+  .site-header .nav-shell{height:50px!important;min-height:50px!important;padding-top:0!important;margin-top:0!important}
+  .site-header .nav{height:50px!important;min-height:50px!important;padding-top:0!important;margin-top:0!important}
+  .site-header .menu-toggle{top:4px!important;transform:none!important}
+  .site-header .mobile-home-link{top:6px!important;transform:none!important}
+  .site-header .site-search-toggle{top:6px!important;transform:none!important}
+  .site-header .lang-picker{top:5px!important;transform:none!important}
+  .site-header .top-logo-link{top:-3px!important;transform:translateX(-50%)!important;width:56px!important;height:56px!important}
+  .site-header .top-logo{width:56px!important;height:56px!important}
+}
+@media (max-width:380px){
+  .site-header .nav-shell,.site-header .nav{height:48px!important;min-height:48px!important}
+  .site-header .menu-toggle{left:6px!important;top:3px!important}
+  .site-header .mobile-home-link{left:62px!important;top:5px!important}
+  .site-header .site-search-toggle{left:108px!important;top:5px!important}
+  .site-header .lang-picker{right:6px!important;top:4px!important}
+  .site-header .top-logo-link{top:-4px!important;width:54px!important;height:54px!important}
+  .site-header .top-logo{width:54px!important;height:54px!important}
+}
+</style>
+</head>
 <body>
   <!-- NUTRIELITE build: renal-photo -->
   <a class="skip-link" href="#contenido">Ir al contenido principal</a>
