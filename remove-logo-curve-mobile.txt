@@ -1,0 +1,1 @@
+trigger: quitar curva debajo del logo móvil
