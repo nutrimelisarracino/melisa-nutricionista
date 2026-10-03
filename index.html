@@ -10133,6 +10133,56 @@
   }
 }
 </style>
+<style id="mobile-logo-and-spacing-final">
+/* Logo móvil: círculo limpio y controles separados */
+@media (max-width:720px){
+  .site-header .top-logo-link{
+    left:50% !important;
+    top:50%;
+    transform:translate(-50%,-50%) !important;
+    width:62px;
+    height:62px;
+    margin:0 !important;
+    padding:0 !important;
+    border-radius:50% !important;
+    overflow:hidden;
+    background:transparent !important;
+    box-shadow:none !important;
+  }
+
+  .site-header .top-logo{
+    display:block;
+    width:62px !important;
+    height:62px !important;
+    max-width:none;
+    object-fit:cover;
+    border-radius:50% !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    border:0 !important;
+  }
+
+  /* La lupa queda a la derecha del círculo, nunca encima del logo */
+  .site-header .site-search-toggle{
+    left:calc(50% + 40px) !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    margin:0 !important;
+    z-index:12;
+  }
+}
+
+@media (max-width:340px){
+  .site-header .top-logo-link,
+  .site-header .top-logo{
+    width:56px !important;
+    height:56px !important;
+  }
+  .site-header .site-search-toggle{
+    left:calc(50% + 36px) !important;
+  }
+}
+</style>
 </head>
 <body>
   <!-- NUTRIELITE build: renal-photo -->
