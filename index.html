@@ -10560,6 +10560,28 @@
     box-shadow:none!important;
   }
 }
+
+    /* CONSULT META LEFT UNDER TITLE */
+    #consultas .consult-option-summary{
+      grid-template-columns:minmax(0,1fr) 42px !important;
+      grid-template-rows:auto auto;
+      align-items:center;
+    }
+    #consultas .consult-option-summary .consult-option-main{
+      grid-column:1;
+      grid-row:1;
+    }
+    #consultas .consult-option-summary .consult-meta{
+      grid-column:1;
+      grid-row:2;
+      justify-content:flex-start !important;
+      margin:6px 0 0 !important;
+    }
+    #consultas .consult-option-summary .consult-option-toggle{
+      grid-column:2;
+      grid-row:1 / span 2;
+      align-self:center;
+    }
 </style>
 </head>
 <body>
