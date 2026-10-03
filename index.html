@@ -9945,7 +9945,29 @@
       }
     }
 
-</style>
+
+    /* Ajuste visual Carla: ancho de texto y altura al desplegar */
+    .proposal-card-kitchen .proposal-summary-copy p {
+      max-width: 600px;
+    }
+    @media (min-width: 901px) {
+      .proposal-card-kitchen[open] .proposal-summary {
+        min-height: 190px !important;
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+      }
+    }
+    @media (max-width: 900px) {
+      .proposal-card-kitchen .proposal-summary-copy p {
+        max-width: none;
+      }
+      .proposal-card-kitchen[open] .proposal-summary {
+        min-height: 185px !important;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+      }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
